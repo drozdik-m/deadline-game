@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Object that is not destroyed by changing scenes and deletes any new duplicates
+/// </summary>
 public class InvincibleObject : MonoBehaviour
 {
     private static InvincibleObject kingInstance;
