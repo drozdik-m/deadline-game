@@ -28,6 +28,7 @@ public class BackgroundMusicPlayer : MonoBehaviour
 
     public void Play(AudioClip music)
     {
+        animationController.SetBool("Play", false);
         audioSource.clip = music;
         audioSource.Play();
         animationController.SetBool("Play", true);
@@ -43,6 +44,7 @@ public class BackgroundMusicPlayer : MonoBehaviour
 
     public void AnimationObserver(string status)
     {
+        
         if (status == "FadeOutEnd")
             OnMusicMuteAnimationEnd?.Invoke(this, new BackgroundMusicChangeEventArgs());
         else if (status == "FadeInEnd")

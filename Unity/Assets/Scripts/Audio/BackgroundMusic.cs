@@ -28,16 +28,17 @@ public class BackgroundMusic : MonoBehaviour
     {
         //Instantiate sound players
         backgroudMusicPlayerObject = (GameObject)Instantiate(BackgroundMusicPlayer);
+        backgroudMusicPlayerObject.transform.parent = transform;
         backgroudMusicPlayer = backgroudMusicPlayerObject.GetComponent<BackgroundMusicPlayer>();
 
         //Add lock changes and invokes
         backgroudMusicPlayer.OnMusicPlayAnimationEnd += UnlockEvent;
-
     }
 
     private void UnlockEvent(BackgroundMusicPlayer caller, BackgroundMusicChangeEventArgs args)
     {
         locked = false;
+        Debug.Log("UNLOCK");
         NextChange();
     }
 
