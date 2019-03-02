@@ -10,73 +10,30 @@ public class BackgroundMusic : MonoBehaviour
     public AudioClip RegularMusic;
     public AudioClip HappyMusic;
 
-    //Change queue
-    private Queue<BackgroundMusicChangeRequest> changeQueue = new Queue<BackgroundMusicChangeRequest>();
-
-    //Backgroud music player PREFAB
-    public GameObject BackgroundMusicPlayer;
-
-    //Change lock
-    private bool locked = false;
-
     //Players
-    private GameObject backgroudMusicPlayerObject;
-    private BackgroundMusicPlayer backgroudMusicPlayer;
-
+    private AudioSource audioSource;
+    private FadingAudioSource fadingController;
 
     void Start()
     {
-        //Instantiate sound players
-        backgroudMusicPlayerObject = (GameObject)Instantiate(BackgroundMusicPlayer);
-        backgroudMusicPlayerObject.transform.parent = transform;
-        backgroudMusicPlayer = backgroudMusicPlayerObject.GetComponent<BackgroundMusicPlayer>();
-
-        //Add lock changes and invokes
-        backgroudMusicPlayer.OnMusicPlayAnimationEnd += UnlockEvent;
+        audioSource = GetComponent<AudioSource>();
+        fadingController = GetComponent<FadingAudioSource>();
     }
 
-    private void UnlockEvent(BackgroundMusicPlayer caller, BackgroundMusicChangeEventArgs args)
+    public void ChangeTheme(BackgroundMusicTheme newTheme, float transitionSpeed = 0.3f)
     {
-        locked = false;
-        Debug.Log("UNLOCK");
-        NextChange();
+        fadingController.FadeSpeed = transitionSpeed;
+        if (newTheme == BackgroundMusicTheme.Happy)
+            fadingController.Fade(HappyMusic, 1, true);
+        if (newTheme == BackgroundMusicTheme.NoMusic)
+            fadingController.Fade(null, 1, true);
+        if (newTheme == BackgroundMusicTheme.Regular)
+            fadingController.Fade(RegularMusic, 1, true);
+        if (newTheme == BackgroundMusicTheme.Scary)
+            fadingController.Fade(ScaryMusic, 1, true);
+        if (newTheme == BackgroundMusicTheme.Spooky)
+            fadingController.Fade(SpookyMusic, 1, true);
     }
-
-    public void ChangeTheme(BackgroundMusicTheme newTheme, float transitionLength = 5f)
-    {
-        changeQueue.Enqueue(new BackgroundMusicChangeRequest(newTheme, transitionLength));
-
-        if (!locked)
-            NextChange();
-    }
-
-    private void NextChange()
-    {
-        //Is queue empty?
-        if (changeQueue.Count == 0)
-            return;
-
-        //Lock&Go
-        locked = true;
-
-        var change = changeQueue.Dequeue();
-
-        if (change.newTheme == BackgroundMusicTheme.Happy)
-            backgroudMusicPlayer.Play(HappyMusic);
-        if (change.newTheme == BackgroundMusicTheme.NoMusic)
-        {
-            backgroudMusicPlayer.Stop();
-            locked = false;
-        }
-        if (change.newTheme == BackgroundMusicTheme.Regular)
-            backgroudMusicPlayer.Play(RegularMusic);
-        if (change.newTheme == BackgroundMusicTheme.Scary)
-            backgroudMusicPlayer.Play(ScaryMusic);
-        if (change.newTheme == BackgroundMusicTheme.Spooky)
-            backgroudMusicPlayer.Play(SpookyMusic);
-    }
-
-
 }
 
 
