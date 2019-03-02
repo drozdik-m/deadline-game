@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundMusic_testEnviroment : MonoBehaviour
+/// <summary>
+/// Method for testing audio scripts.
+/// </summary>
+public class MusicTestScene : MonoBehaviour
 {
     /// <summary>
     /// Testing method for spooky music
@@ -26,5 +29,13 @@ public class BackgroundMusic_testEnviroment : MonoBehaviour
     public void PlayRegularMusic()
     {
         GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<BackgroundMusic>().ChangeTheme(BackgroundMusicTheme.Regular);
+    }
+
+    /// <summary>
+    /// Play test sound effect
+    /// </summary>
+    public void TestSoundEffect()
+    {
+        GetComponent<SoundEffectController>().Play();
     }
 }

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Background music handler
+/// </summary>
 public class BackgroundMusic : MonoBehaviour
 {
     //Theme music files

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Sound effect particle. It dies after sound effect end. 
+/// </summary>
 public class SoundEffectParticle : MonoBehaviour
 {
     private AudioSource audioSource;
