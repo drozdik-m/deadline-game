@@ -22,6 +22,7 @@ public class PlayerMovementController : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        cam = FindObjectOfType<Camera>();
 
         if (!agent)
             Debug.Log("Missing NavMeshAgent component!");
