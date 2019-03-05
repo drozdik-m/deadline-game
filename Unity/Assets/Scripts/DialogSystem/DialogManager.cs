@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DialogManager : MonoBehaviour
 {
-    public Text nameText;
-    public Text dialogText;
+    public Text nameTextField;
+    public Text dialogTextField;
 
     private string characterName;
     private Queue<string> sentences;
@@ -15,7 +15,7 @@ public class DialogManager : MonoBehaviour
         sentences = new Queue<string>();    
     }
 
-    public void startDialog(Dialog dialog)
+    public void startDialog(SelfTalkDialog dialog)
     {
         sentences.Clear();
 
@@ -38,8 +38,8 @@ public class DialogManager : MonoBehaviour
 
         string sentenceToDisplay = sentences.Dequeue();
 
-        nameText.text = characterName;
-        dialogText.text = sentenceToDisplay;
+        nameTextField.text = characterName;
+        dialogTextField.text = sentenceToDisplay;
     }
 
     void endOfDialog()

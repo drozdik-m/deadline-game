@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class DialogTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public SelfTalkDialog[] dialogs;
+    private DialogManager dm;
+
+    private void Start()
     {
-        
+        dm = FindObjectOfType<DialogManager>();
+        if (dm == null)
+            Debug.Log("Missing dialog manager!");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TriggerDialog(int id)
     {
-        
+        if (id < 0 || id >= dialogs.Length)
+        {
+            Debug.Log("Out of range!");
+            return;
+        }
+
+        dm.startDialog(dialogs[id]);
     }
+
+
 }

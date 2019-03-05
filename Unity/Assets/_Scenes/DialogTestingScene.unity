@@ -112,6 +112,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &19150004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 19150006}
+  - component: {fileID: 19150005}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &19150005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19150004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd2a7d22c98b4351a6434af68a8233c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogs:
+  - {fileID: 11400000, guid: 252d35941495e46268a8b6e19bd82f0f, type: 2}
+  - {fileID: 11400000, guid: 252d35941495e46268a8b6e19bd82f0f, type: 2}
+--- !u!4 &19150006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19150004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 424.73788, y: 203.00497, z: 19.715395}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &131645745
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +234,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131645745}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 383.78592, y: 195.47145, z: -1524.8385}
+  m_LocalPosition: {x: 383.78592, y: 69, z: -1887}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -230,8 +276,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 247.81, y: 0.0010061}
-  m_SizeDelta: {x: 96.67, y: 261}
+  m_AnchoredPosition: {x: 268.06, y: 0.00049686}
+  m_SizeDelta: {x: 137.18, y: 213}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &354812061
 MonoBehaviour:
@@ -479,9 +525,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1162924944}
-        m_MethodName: triggerDialog
-        m_Mode: 1
+      - m_Target: {fileID: 19150005}
+        m_MethodName: TriggerDialog
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -608,54 +654,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972795445}
   m_CullTransparentMesh: 0
---- !u!1 &1162924942
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1162924943}
-  - component: {fileID: 1162924944}
-  m_Layer: 0
-  m_Name: Dialog
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1162924943
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1162924942}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 362.73187, y: 160.50487, z: -144.166}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1162924944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1162924942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8690d1c5512a4bc58d0dc4a9774c25e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterName: Sefanski
-  sentences:
-  - Hello boi..
-  - My name is Seva,
-  - and i`m gonna teach you some real stuff..
 --- !u!1 &1346776003
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,8 +828,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31158351468af4f728d37f9b07ded0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 2134888424}
-  dialogText: {fileID: 1838441454}
+  nameTextField: {fileID: 2134888424}
+  dialogTextField: {fileID: 1838441454}
 --- !u!4 &1726328966
 Transform:
   m_ObjectHideFlags: 0
