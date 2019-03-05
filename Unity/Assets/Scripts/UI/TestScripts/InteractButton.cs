@@ -22,5 +22,9 @@ public class InteractButton : MonoBehaviour
             //Transform canvas = transform.GetComponentInChildren<Transform> ();
             button.gameObject.SetActive (true);
         }
+        else
+        {
+            button.gameObject.SetActive (false);
+        }
     }
 }
