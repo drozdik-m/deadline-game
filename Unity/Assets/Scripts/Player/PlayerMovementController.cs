@@ -43,4 +43,20 @@ public class PlayerMovementController : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// Moves to position.
+    /// </summary>
+    /// <param name="position">Position.</param>
+    public void MoveToPosition(Vector3 position)
+    {
+        agent.SetDestination(position);
+    }
+    /// <summary>
+    /// Moves to game object.
+    /// </summary>
+    /// <param name="targetObject">Target object.</param>
+    public void MoveToGameObject(GameObject targetObject)
+    {
+        MoveToPosition(targetObject.transform.position);
+    }
 }
