@@ -38,7 +38,13 @@ public class UIManager : MonoBehaviour
         if (menuOpen)
             Time.timeScale = 0f;
         else
-           Time.timeScale = 1f;
+        {
+            Time.timeScale = 1f;
+
+            // Close Option panel, if it was opened
+            Transform optionPanel = MenuPanel.transform.Find ("OptionsPanel");
+            optionPanel.gameObject.SetActive (false);
+        }
 
         MenuPanel.SetActive (menuOpen);
     }
