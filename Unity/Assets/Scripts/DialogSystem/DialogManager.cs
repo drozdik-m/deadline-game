@@ -7,6 +7,12 @@ using UnityEngine.UI;
 /// </summary>
 public class DialogManager : MonoBehaviour
 {
+    public Canvas canvas;
+    public GameObject headCheck;
+    [Range(-5, 5)]
+    public float offsetHorizontal;
+    [Range(-5, 5)]
+    public float offsetVertical;
     /// <summary>
     /// Reference to UI textfield for name.
     /// </summary>
@@ -26,7 +32,14 @@ public class DialogManager : MonoBehaviour
 
     void Start()
     {
-        sentences = new Queue<string>();    
+        sentences = new Queue<string>();
+      
+    }
+
+    private void Update()
+    {
+        Vector3 offset = new Vector3(offsetHorizontal, offsetVertical, -offsetHorizontal);
+        canvas.transform.position = headCheck.transform.position + offset;
     }
 
     /// <summary>
