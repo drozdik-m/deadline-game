@@ -19,7 +19,7 @@ public class InteractButton : MonoBehaviour
         if ( Vector3.Distance( InterectObject.transform.position, transform.position ) < 100)
         {
             Debug.Log ("Object is close enough");
-            //Transform canvas = transform.GetComponentInChildren<Transform> ();
+            Transform canvas = transform.GetComponentInChildren<Transform> ();
             button.gameObject.SetActive (true);
         }
         else
