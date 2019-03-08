@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 /// <summary>
@@ -7,11 +8,15 @@ using UnityEngine.UI;
 /// </summary>
 public class DialogManager : MonoBehaviour
 {
-    public Canvas canvas;
+    public GameObject dialogCanvas;
+    public bool isActive;
     public GameObject headCheck;
-    [Range(-5, 5)]
+    public TextMeshProUGUI textLabel;
+
+    [Range(-2, 2)]
     public float offsetHorizontal;
-    [Range(-5, 5)]
+
+    [Range(-2, 2)]
     public float offsetVertical;
     /// <summary>
     /// Reference to UI textfield for name.
@@ -33,13 +38,19 @@ public class DialogManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
-      
+        isActive = false;
+
     }
 
     private void Update()
     {
+        dialogCanvas.SetActive(isActive);
         Vector3 offset = new Vector3(offsetHorizontal, offsetVertical, -offsetHorizontal);
-        canvas.transform.position = headCheck.transform.position + offset;
+        dialogCanvas.transform.position = headCheck.transform.position + offset;
+
+        if (Input.GetKeyDown("return") && isActive)
+            nextSentence();
+
     }
 
     /// <summary>
@@ -49,6 +60,7 @@ public class DialogManager : MonoBehaviour
     public void startDialog(SelfTalkDialog dialog)
     {
         sentences.Clear();
+        isActive = true;
 
         foreach (var sentence in dialog.sentences)
         {
@@ -70,9 +82,7 @@ public class DialogManager : MonoBehaviour
         }
 
         string sentenceToDisplay = sentences.Dequeue();
-
-        nameTextField.text = characterName;
-        dialogTextField.text = sentenceToDisplay;
+        textLabel.SetText(sentenceToDisplay);
     }
     /// <summary>
     /// End the of dialog.
@@ -81,5 +91,6 @@ public class DialogManager : MonoBehaviour
     {
         characterName = "";
         Debug.Log("End of dialog!");
+        isActive = false;
     }
 }
