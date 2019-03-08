@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 236392535}
   - component: {fileID: 236392534}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: InWorldCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 861610177}
   - component: {fileID: 861610181}
   m_Layer: 0
-  m_Name: InteractObject
+  m_Name: IteractObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -636,11 +636,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 861610176}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0eeaebab9351b874e8315bbadc0fd273, type: 3}
+  m_Script: {fileID: 11500000, guid: bb2f520c027c7dd45b2ce24e404744e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InterectObject: {fileID: 1464542458}
-  button: {fileID: 1013612130}
+  Player: {fileID: 1464542458}
+  InteractableButton: {fileID: 1013612130}
+  distance: 100
 --- !u!1 &953020270
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,7 +721,7 @@ GameObject:
   - component: {fileID: 1013612131}
   - component: {fileID: 1013612130}
   m_Layer: 5
-  m_Name: Button
+  m_Name: InteractableButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -734,7 +735,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013612128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 687016516}
@@ -743,7 +744,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -126, y: -100}
+  m_AnchoredPosition: {x: -220, y: -80}
   m_SizeDelta: {x: 86.8, y: 42.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1013612130
@@ -838,7 +839,7 @@ GameObject:
   - component: {fileID: 1464542461}
   - component: {fileID: 1464542460}
   m_Layer: 0
-  m_Name: Object
+  m_Name: ObjectPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
