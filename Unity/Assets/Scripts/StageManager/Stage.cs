@@ -30,6 +30,6 @@ public abstract class Stage : MonoBehaviour
     /// <summary>
     /// Is this stage ready for the next stage? StageManager will change stages on the next frame.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>True if ready for this stage to end</returns>
     public abstract bool ReadyForNextStage();
 }

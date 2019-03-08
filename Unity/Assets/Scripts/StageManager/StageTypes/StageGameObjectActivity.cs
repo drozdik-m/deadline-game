@@ -7,12 +7,26 @@ using UnityEngine;
 /// </summary>
 public class StageGameObjectActivity : Stage
 {
+    /// <summary>
+    /// GameObjects to handle with
+    /// </summary>
     public GameObject[] gameObjectsToHandle;
+
+    /// <summary>
+    /// Should be handled GameObjects disabled on Awake()?
+    /// </summary>
     public bool disableOnAwake = true;
+
+    /// <summary>
+    /// Should be handled GameObjects disabled on stage end?
+    /// </summary>
     public bool disableObjectOnStageEnd = true;
+
+    /// <summary>
+    /// Set "ready" flag, moves to next stage immidiately if true.
+    /// </summary>
     public bool readyForNextState = false;
     
-
     private void Awake()
     {
         gameObject.SetActive(false);

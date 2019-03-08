@@ -26,7 +26,7 @@ public class StageWait : Stage
     /// <summary>
     /// Waits for x seconds and sets "ready" flag to true.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>IEnumerator</returns>
     private IEnumerator Wait()
     {
         yield return new WaitForSeconds(waitSeconds);
