@@ -8,7 +8,8 @@ using UnityEngine;
 public class InteractableButton : MonoBehaviour
 {
     /// <summary>
-    /// If button was pressed, it wil be destroyd
+    /// If button was pressed, it wil be destroyd.
+    /// Use at the end of Animation "Pressed" 
     /// </summary>
    public void DestroyButton()
     {
