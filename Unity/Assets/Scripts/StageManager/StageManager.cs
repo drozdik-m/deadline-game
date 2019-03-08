@@ -56,6 +56,7 @@ public class StageManager : MonoBehaviour
     {
         if (!IsAnyStageActive())
             return null;
+
         return stages[currentStage];
     }
 

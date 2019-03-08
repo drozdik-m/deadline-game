@@ -9,7 +9,9 @@ public class StageGameObjectActivity : Stage
 {
     public GameObject[] gameObjectsToHandle;
     public bool disableOnAwake = true;
+    public bool disableObjectOnStageEnd = true;
     public bool readyForNextState = false;
+    
 
     private void Awake()
     {
@@ -23,6 +25,8 @@ public class StageGameObjectActivity : Stage
 
     public override void StageEnd()
     {
+        if (!disableObjectOnStageEnd)
+            return;
         for (int i = 0; i < gameObjectsToHandle.Length; i++)
             gameObjectsToHandle[i].SetActive(false);
     }
@@ -41,6 +45,6 @@ public class StageGameObjectActivity : Stage
 
     public override void StageUpdate()
     {
-        
+       
     }
 }
