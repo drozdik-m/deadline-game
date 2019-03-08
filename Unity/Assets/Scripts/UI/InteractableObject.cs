@@ -28,10 +28,16 @@ public class InteractableObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!InteractableButton)
+        {
+            Destroy (this);
+        }
+
         if (Vector3.Distance (Player.transform.position, transform.position) < distance)
         {
             Transform canvas = transform.GetComponentInChildren<Transform> ();
-            InteractableButton.gameObject.SetActive (true);
+            if(InteractableButton)
+                InteractableButton.gameObject.SetActive (true);
         }
         else
         {
