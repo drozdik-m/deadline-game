@@ -18,5 +18,6 @@ public class SoundEffectParticle : MonoBehaviour
     {
         if (!audioSource.isPlaying)
             Destroy(gameObject);
+        Debug.Log(audioSource.isPlaying);
     }
 }
