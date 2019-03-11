@@ -28,11 +28,21 @@ public class DialogTrigger : MonoBehaviour
     /// <param name="id">Identifier.</param>
     public void TriggerDialog(int id)
     {
+        Debug.Log("ads");
         if (id < 0 || id >= dialogs.Length)
         {
             Debug.Log("Out of range!");
             return;
         }
-       dm.StartDialog(dialogs[id]);
+
+       dm.startDialog(dialogs[id]);
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("escape"))
+            TriggerDialog(0);
+    }
+
+
 }

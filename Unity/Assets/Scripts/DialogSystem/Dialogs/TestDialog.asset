@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8690d1c5512a4bc58d0dc4a9774c25e, type: 3}
   m_Name: TestDialog
   m_EditorClassIdentifier: 
-  playerHead: {fileID: 0}
+  characterName: Player
   sentences:
-  - Ahoj!
-  - "Jmenuju se \u0160\xE9va"
-  - a miluju rogala!
-  - "M\u011Bj se!"
+  - Hello
+  - My name is player
+  - blabla
+  - Goodbye
