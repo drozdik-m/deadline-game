@@ -8,9 +8,9 @@ using UnityEngine;
 public class SelfTalkDialog : ScriptableObject
 {
     /// <summary>
-    /// The name of the character.
+    /// Refference to playerHead point.
     /// </summary>
-    public string characterName;
+    public GameObject playerHead;
     /// <summary>
     /// The sentences array of the dialog.
     /// </summary>

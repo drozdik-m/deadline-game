@@ -8,28 +8,32 @@ using UnityEngine.UI;
 /// </summary>
 public class DialogManager : MonoBehaviour
 {
+    /// <summary>
+    /// Refference to the dialog bubble canvas.
+    /// </summary>
     public GameObject dialogCanvas;
-    public bool isActive;
-    public GameObject headCheck;
+    /// <summary>
+    /// Refference to the player head point.
+    /// </summary>
+    public GameObject playerHead;
+    /// <summary>
+    /// Refference to the dialog textLabel.
+    /// </summary>
     public TextMeshProUGUI textLabel;
-
+    /// <summary>
+    /// Status of the dialog.
+    /// </summary>
+    private bool isActive;
+    /// <summary>
+    /// The horizontal offset.
+    /// </summary>
     [Range(-2, 2)]
     public float offsetHorizontal;
-
+    /// <summary>
+    /// The vertical offset.
+    /// </summary>
     [Range(-2, 2)]
     public float offsetVertical;
-    /// <summary>
-    /// Reference to UI textfield for name.
-    /// </summary>
-    public Text nameTextField;
-    /// <summary>
-    /// Refference to UI texfield for sentences.
-    /// </summary>
-    public Text dialogTextField;
-    /// <summary>
-    /// Character name to display.
-    /// </summary>
-    private string characterName;
     /// <summary>
     /// Queue of sentences (dialog).
     /// </summary>
@@ -39,17 +43,21 @@ public class DialogManager : MonoBehaviour
     {
         sentences = new Queue<string>();
         isActive = false;
-
     }
 
     private void Update()
     {
-        dialogCanvas.SetActive(isActive);
-        Vector3 offset = new Vector3(offsetHorizontal, offsetVertical, -offsetHorizontal);
-        dialogCanvas.transform.position = headCheck.transform.position + offset;
 
+        dialogCanvas.SetActive(isActive);
+        // Offset the bubble anchor
+        Vector3 offset = new Vector3(offsetHorizontal, offsetVertical, -offsetHorizontal);
+        // Stick the bubble to playerHead point
+        dialogCanvas.transform.position = playerHead.transform.position + offset;
+
+        // DELETE
         if (Input.GetKeyDown("return") && isActive)
-            nextSentence();
+            NextSentence();
+        // DELETE
 
     }
 
@@ -57,7 +65,7 @@ public class DialogManager : MonoBehaviour
     /// Starts the dialog.
     /// </summary>
     /// <param name="dialog">Dialog.</param>
-    public void startDialog(SelfTalkDialog dialog)
+    public void StartDialog(SelfTalkDialog dialog)
     {
         sentences.Clear();
         isActive = true;
@@ -66,14 +74,12 @@ public class DialogManager : MonoBehaviour
         {
             sentences.Enqueue(sentence);
         }
-        characterName = dialog.characterName;
-
-        nextSentence();
+        NextSentence();
     }
     /// <summary>
     /// Nexts the dialog (next sentence)
     /// </summary>
-    public void nextSentence()
+    public void NextSentence()
     {
         if (sentences.Count == 0)
         {
@@ -89,8 +95,6 @@ public class DialogManager : MonoBehaviour
     /// </summary>
     void endOfDialog()
     {
-        characterName = "";
-        Debug.Log("End of dialog!");
         isActive = false;
     }
 }
