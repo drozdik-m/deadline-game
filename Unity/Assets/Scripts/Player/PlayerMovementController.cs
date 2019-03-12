@@ -16,13 +16,17 @@ public class PlayerMovementController : MonoBehaviour
     /// <summary>
     /// Refference to the Player`s navMeshAgent component
     /// </summary>
-    /// 
     private NavMeshAgent agent;
+    /// <summary>
+    /// Refference to model animator
+    /// </summary>
+    private Animator animator;
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         cam = FindObjectOfType<Camera>();
+        animator = GetComponentInChildren<Animator>();
 
         if (!agent)
             Debug.Log("Missing NavMeshAgent component!");
@@ -30,6 +34,7 @@ public class PlayerMovementController : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             // Calculates target position according to camera
@@ -42,6 +47,14 @@ public class PlayerMovementController : MonoBehaviour
                 agent.SetDestination(hit.point);
             }
         }
+
+        if (agent.velocity != Vector3.zero)
+            animator.SetBool("isRunning", true);
+      
+        if (agent.remainingDistance < 0.5)
+            animator.SetBool("isRunning", false);
+
+        Debug.Log(agent.remainingDistance);
     }
     /// <summary>
     /// Moves to position.

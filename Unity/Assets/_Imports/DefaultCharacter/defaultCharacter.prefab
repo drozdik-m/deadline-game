@@ -1206,9 +1206,8 @@ GameObject:
   - component: {fileID: 3250267918192616500}
   - component: {fileID: 3250267918192616501}
   - component: {fileID: 3250267918192616498}
-  - component: {fileID: 3250267918192616499}
   m_Layer: 0
-  m_Name: MaleFreeSimpleMovement1
+  m_Name: defaultCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1279,24 +1278,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3250267918192616499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3250267918192616496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32ca30c36b506c64aafa127f12f968fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_moveSpeed: 2
-  m_turnSpeed: 200
-  m_jumpForce: 4
-  m_animator: {fileID: 3250267918192616498}
-  m_rigidBody: {fileID: 3250267918192616500}
-  m_controlMode: 0
 --- !u!1 &3250267918233204532
 GameObject:
   m_ObjectHideFlags: 0
