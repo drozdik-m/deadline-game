@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Controll day and night skybox and light of sun
+/// Controll day and night color of skybox and light of sun
 /// </summary>
 public class SkyboxController : MonoBehaviour
 {
@@ -14,46 +14,64 @@ public class SkyboxController : MonoBehaviour
     /// </summary>
     public Camera MainCamera;
 
-    public Color day;
+    /// <summary>
+    /// Color for Camera background in the daytime
+    /// </summary>
+    public Color DayColor;
 
-    public Time time;
+    /// <summary>
+    /// Color for Camera background in the nighttime
+    /// </summary>
+    public Color NightColor;
+
+    /// <summary>
+    /// Direction of the sun's light at the daytime
+    /// </summary>
+    public Vector3 DayLightDirectionSun;
+
+    /// <summary>
+    /// Direction of the sun's light at the nighttime
+    /// </summary>
+    public Vector3 NightLightDirectionSun;
+
+    /// <summary>
+    /// Times of the day (could be day or night)
+    /// </summary>
+    public Time TimesOfDay;
 
     // Start is called before the first frame update
     void Start()
     {
-        Quaternion rot = new Quaternion ();
-        rot.eulerAngles = new Vector3 (130, 0f, 0f);
-        transform.rotation = rot;
+        ChangeTime ();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown (KeyCode.Space))
-        {
-            ChangeTime ();
-        }
+        ChangeTime ();
     }
 
-    void ChangeTime()
+    /// <summary>
+    /// Change time of the day, depends on the variable TimesOfDay
+    /// </summary>
+    private void ChangeTime()
     {
-        Quaternion rot = new Quaternion ();
+        Quaternion direction = new Quaternion ();
 
-        if (time == Time.day)
+        if (TimesOfDay == Time.night)
         {
-            rot.eulerAngles = new Vector3 (260, 0, 0);
+            direction.eulerAngles = NightLightDirectionSun;
             GetComponent<Light> ().color = Color.black;
-            MainCamera.backgroundColor = new Color (0.1067106f, 0.1125143f, 0.2075472f);
-            time = Time.night;
+            MainCamera.backgroundColor = NightColor;
+            TimesOfDay = Time.night;
         }
         else
         {
-            rot.eulerAngles = new Vector3 (130, 0, 0);
-            GetComponent<Light> ().color = Color.white;
-            MainCamera.backgroundColor = new Color (0.75f, 1f, 1f);
-            time = Time.day;
+            direction.eulerAngles = DayLightDirectionSun;
+            GetComponent<Light> ().color = Color.gray;
+            MainCamera.backgroundColor = DayColor;
+            TimesOfDay = Time.day;
         }
 
-        transform.rotation = rot;
+        transform.rotation = direction;
     }
 }
