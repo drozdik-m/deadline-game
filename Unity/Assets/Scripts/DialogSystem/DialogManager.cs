@@ -8,36 +8,54 @@ using UnityEngine.UI;
 /// </summary>
 public class DialogManager : MonoBehaviour
 {
+    /// <summary>
+    /// Refference to player One (main player).
+    /// </summary>
+    public GameObject playerOne;
+    /// <summary>
+    /// Refference to player Two (usually npc).
+    /// </summary>
+    public GameObject playerTwo;
+    /// <summary>
+    /// Refference to dialog canvas.
+    /// </summary>
     public GameObject dialogCanvas;
-    public bool isActive;
-    public GameObject headCheck;
+    /// <summary>
+    /// Refference to dialog text label.
+    /// </summary>
     public TextMeshProUGUI textLabel;
-
+    /// <summary>
+    /// Horizontal offset of the dialog bubble.
+    /// </summary>
     [Range(-2, 2)]
     public float offsetHorizontal;
-
+    /// <summary>
+    /// Vertical offset of the dialog bubble.
+    /// </summary>
     [Range(-2, 2)]
     public float offsetVertical;
     /// <summary>
-    /// Reference to UI textfield for name.
+    /// Delay between each sentence (in seconds).
     /// </summary>
-    public Text nameTextField;
-    /// <summary>
-    /// Refference to UI texfield for sentences.
-    /// </summary>
-    public Text dialogTextField;
-    /// <summary>
-    /// Character name to display.
-    /// </summary>
-    private string characterName;
+    [Range(1,8)]
+    public float dialogDelay;
     /// <summary>
     /// Queue of sentences (dialog).
     /// </summary>
-    private Queue<string> sentences;
+    private Queue<KeyValuePair<int,string>> sentences;
+    /// <summary>
+    /// Dialog status.
+    /// </summary>
+    private bool isActive;
+    /// <summary>
+    /// Current dialog bubble target.
+    /// </summary>
+    private GameObject currentTarget;
+    private string currentSentence;
 
     void Start()
     {
-        sentences = new Queue<string>();
+        sentences = new Queue<KeyValuePair<int,string>>();
         isActive = false;
 
     }
@@ -45,31 +63,69 @@ public class DialogManager : MonoBehaviour
     private void Update()
     {
         dialogCanvas.SetActive(isActive);
-        Vector3 offset = new Vector3(offsetHorizontal, offsetVertical, -offsetHorizontal);
-        dialogCanvas.transform.position = headCheck.transform.position + offset;
-
-        if (Input.GetKeyDown("return") && isActive)
-            nextSentence();
-
+        if (isActive)
+        {
+            handlePosition();
+            textLabel.SetText(currentSentence);
+        }
     }
 
     /// <summary>
     /// Starts the dialog.
     /// </summary>
-    /// <param name="dialog">Dialog.</param>
+    /// <param name="dialog">SelfTalkDialog.</param>
     public void startDialog(SelfTalkDialog dialog)
     {
+        if (playerOne == null)
+        {
+            Debug.Log("PlayerOne not assigned!");
+            return;
+        }
+        if (isActive)
+        {
+            Debug.Log("Another dialog is in progress!");
+            return;
+        }
+
         sentences.Clear();
-        isActive = true;
+        currentTarget = dialog.characterId == 0 ? playerOne : playerTwo;
 
         foreach (var sentence in dialog.sentences)
         {
-            sentences.Enqueue(sentence);
+            sentences.Enqueue(new KeyValuePair<int, string>(dialog.characterId, sentence));
         }
-        characterName = dialog.characterName;
+         // Repeats calling nextSentece() after a user defined delay
+        InvokeRepeating("nextSentence", 0, dialogDelay);
 
-        nextSentence();
+
     }
+    /// <summary>
+    /// Starts the dialog.
+    /// </summary>
+    /// <param name="dialog">TwinTalkDialog.</param>
+    public void startDialog(TwinTalkDialog dialog)
+    {
+        if (playerTwo == null)
+        {
+            Debug.Log("PlayerTwo not assigned!");
+            return;
+        }
+        if (isActive)
+        {
+            Debug.Log("Another dialog is in progress!");
+            return;
+        }
+
+        sentences.Clear();
+
+        foreach (var structuredSentence in dialog.structuredSentences)
+        {
+            sentences.Enqueue(new KeyValuePair<int, string>(structuredSentence.characterId, structuredSentence.sentence));
+        }
+        // Repeats calling nextSentece() after a user defined delay
+        InvokeRepeating("nextSentence", 0, dialogDelay);
+    }
+
     /// <summary>
     /// Nexts the dialog (next sentence)
     /// </summary>
@@ -81,16 +137,33 @@ public class DialogManager : MonoBehaviour
             return;
         }
 
-        string sentenceToDisplay = sentences.Dequeue();
-        textLabel.SetText(sentenceToDisplay);
+        var sentenceStruct = sentences.Dequeue();
+        // Set the current target
+        currentTarget = sentenceStruct.Key == 0 ? playerOne : playerTwo;
+        currentSentence = sentenceStruct.Value;
+
+        isActive = true;
+
     }
     /// <summary>
     /// End the of dialog.
     /// </summary>
     void endOfDialog()
     {
-        characterName = "";
         Debug.Log("End of dialog!");
         isActive = false;
+        CancelInvoke();
     }
+    /// <summary>
+    /// Handles the position of the dialog bubble according to target.
+    /// </summary>
+    void handlePosition()
+    {
+        if (isActive)
+        {
+            Vector3 offset = new Vector3(offsetHorizontal, offsetVertical, -offsetHorizontal);
+            dialogCanvas.transform.position = currentTarget.transform.position + offset;
+        }
+    }
+
 }
