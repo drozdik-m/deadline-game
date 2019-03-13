@@ -42,6 +42,7 @@ public class SkyboxController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MainCamera.clearFlags = CameraClearFlags.SolidColor;
         ChangeTime ();
     }
 
