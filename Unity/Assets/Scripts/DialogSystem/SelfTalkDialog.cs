@@ -7,10 +7,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="New Self-talk Dialog", menuName = "Dialog/Self-talk dialog")]
 public class SelfTalkDialog : ScriptableObject
 {
-    /// <summary>
-    /// The name of the character.
-    /// </summary>
-    public string characterName;
+    [Range(0, 1)]
+    public int characterId;
     /// <summary>
     /// The sentences array of the dialog.
     /// </summary>
