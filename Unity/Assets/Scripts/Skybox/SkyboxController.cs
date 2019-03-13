@@ -15,12 +15,12 @@ public class SkyboxController : MonoBehaviour
     public Camera MainCamera;
 
     /// <summary>
-    /// Color for Camera background in the daytime
+    /// Color for Camera background at the daytime
     /// </summary>
     public Color DayColor;
 
     /// <summary>
-    /// Color for Camera background in the nighttime
+    /// Color for Camera background at the nighttime
     /// </summary>
     public Color NightColor;
 
@@ -41,11 +41,6 @@ public class SkyboxController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        ChangeTime ();
-    }
-
-    private void Update()
     {
         ChangeTime ();
     }
