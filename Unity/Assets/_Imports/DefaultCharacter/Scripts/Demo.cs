@@ -5,7 +5,7 @@ public class Demo : MonoBehaviour {
 
     private readonly string[] m_animations = { "Pickup","Wave" };
     private Animator[] m_animators;
-    [SerializeField] private CameraLogic m_cameraLogic;
+    [SerializeField] public CameraLogic m_cameraLogic;
 
     private void Start()
     {

@@ -12,8 +12,8 @@ public class SimpleCharacterControl : MonoBehaviour {
     [SerializeField] private float m_moveSpeed = 2;
     [SerializeField] private float m_turnSpeed = 200;
     [SerializeField] private float m_jumpForce = 4;
-    [SerializeField] private Animator m_animator;
-    [SerializeField] private Rigidbody m_rigidBody;
+    [SerializeField] public Animator m_animator;
+    [SerializeField] public Rigidbody m_rigidBody;
 
     [SerializeField] private ControlMode m_controlMode = ControlMode.Direct;
 
