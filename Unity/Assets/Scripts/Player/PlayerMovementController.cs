@@ -54,7 +54,7 @@ public class PlayerMovementController : MonoBehaviour
         if (agent.remainingDistance < 0.5)
             animator.SetBool("isRunning", false);
 
-        Debug.Log(agent.remainingDistance);
+        //Debug.Log(agent.remainingDistance);
     }
     /// <summary>
     /// Moves to position.
