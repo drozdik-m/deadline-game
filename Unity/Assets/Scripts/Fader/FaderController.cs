@@ -9,6 +9,7 @@ using UnityEngine.UI;
 /// </summary>
 public class FaderController : MonoBehaviour
 {
+    public bool fadeOut;
     public bool fadeIn;
 
     /// <summary>
@@ -30,10 +31,10 @@ public class FaderController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fadeIn)
+        if (fadeOut)
         {
-            fadeIn = false;
-            FadeIn ();
+            fadeOut = false;
+            FadeOut ();
         }
     }
 
@@ -42,7 +43,7 @@ public class FaderController : MonoBehaviour
     /// </summary>
     /// <param name="duration">Screen fading duration in seconds. Default value is 3 seconds.</param>
     /// <param name="color">Panel's Image starting color. Default value is black</param>
-    public void FadeIn(float duration = 3, Color? color = null)
+    public void FadeOut( float duration = 3, Color? color = null)
     {
         if (color == null)
             color = black;
@@ -50,14 +51,23 @@ public class FaderController : MonoBehaviour
         Color changeColor = (Color)color;
         fadePanel.color = changeColor;
 
-        StartCoroutine (FadeInCoroutine (duration, changeColor));
+        StartCoroutine (FadeOutCoroutine (duration, changeColor));
 
     }
 
-    /// <summary>
-    /// Supporting function for FadeIn, which calculetes the fading.
-    /// </summary>
-    private IEnumerator FadeInCoroutine(float duration, Color color)
+    public void FadeIn(float duration = 3, Color? color = null )
+    {
+        if (color == null)
+            color = black;
+
+        Color changeColor = (Color)color;
+        fadePanel.color = changeColor;
+    }
+
+        /// <summary>
+        /// Supporting function for FadeIn, which calculetes the fading.
+        /// </summary>
+        private IEnumerator FadeOutCoroutine( float duration, Color color)
     {
         // Time, when the script was run
         float startTime = Time.time;
