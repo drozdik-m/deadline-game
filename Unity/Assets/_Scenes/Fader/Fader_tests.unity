@@ -440,6 +440,7 @@ GameObject:
   - component: {fileID: 2098242260}
   - component: {fileID: 2098242259}
   - component: {fileID: 2098242258}
+  - component: {fileID: 2098242261}
   m_Layer: 5
   m_Name: FadePanel
   m_TagString: Untagged
@@ -478,9 +479,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa6baf1b46b8ad488efdf9fa8d7c312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOut: 0
-  fadeIn: 0
-  fadeInOut: 0
+  isFadeOut: 0
+  isFadeIn: 0
+  isFadeInOut: 0
 --- !u!114 &2098242259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,3 +519,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2098242256}
   m_CullTransparentMesh: 0
+--- !u!114 &2098242261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098242256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b3b18a477c3354c9d181f2e402164c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Help: 'Test script. Shortcuts: W - FadeIn, A - FadeOut, D - FadeInOut.
+
+'

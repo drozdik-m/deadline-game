@@ -23,8 +23,13 @@ public class FaderController : MonoBehaviour
     /// </summary>
     private IEnumerator coroutine;
 
+    [SerializeField]
     private bool isFadeOut;
+
+    [SerializeField]
     private bool isFadeIn;
+
+    [SerializeField]
     private bool isFadeInOut;
 
     // Start is called before the first frame update
@@ -39,7 +44,7 @@ public class FaderController : MonoBehaviour
     /// <returns></returns>
     public bool isFading()
     {
-        if (isFadeIn || isFadeOut || isFadeOut)
+        if (isFadeIn || isFadeOut || isFadeInOut)
             return true;
 
         return false;
