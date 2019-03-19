@@ -22,11 +22,11 @@ public class FaderController : MonoBehaviour
         if (fadeIn)
         {
             fadeIn = false;
-            FadeIn (10);
+            FadeIn ();
         }
     }
 
-    public void FadeIn(int duration = 3, Color? color = null)
+    public void FadeIn(float duration = 3, Color? color = null)
     {
         if (color == null)
             color = black;
@@ -43,16 +43,17 @@ public class FaderController : MonoBehaviour
     {
         float startTime = Time.time;
         float alpha = color.a;
+        float t = 0;
         while (startTime + duration > Time.time)
         {
-            alpha = Mathf.Lerp (alpha, 0, Time.deltaTime / duration );
-            color.a = alpha;
+            t += (1 / duration ) * Time.deltaTime;
+            color.a = Mathf.Lerp (alpha, 0, t);
             fadePanel.color = color;
 
             yield return null;
 
         }
-        Debug.Log ("FadeIn End");
+        fadePanel.gameObject.SetActive (false);
 
     }
 }
