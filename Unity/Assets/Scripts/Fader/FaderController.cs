@@ -11,6 +11,7 @@ public class FaderController : MonoBehaviour
 {
     public bool fadeOut;
     public bool fadeIn;
+    public bool fadeInOut;
 
     /// <summary>
     /// Default color for panel
@@ -44,28 +45,58 @@ public class FaderController : MonoBehaviour
         {
             fadeIn = false;
             FadeIn ();
+        } else if (fadeInOut)
+        {
+            fadeInOut = false;
+            FadeInOut ();
         }
+    }
+
+    public void FadeInOut(float durationIn = 3,  Color? colorIn = null,
+                          float durationOut = 3, Color? colorOut = null, float fadeDelay = 5)
+    {
+        if (colorIn == null)
+            colorIn = black;
+
+        if (colorOut == null)
+            colorOut = black;
+
+        Color animColorIn = (Color)colorIn;
+        Color animColorOut = (Color)colorIn;
+
+        fadePanel.color = animColorIn;
+
+        coroutine = FadeInOutCoroutine (durationIn, animColorIn, durationOut, animColorOut, fadeDelay);
+        StartCoroutine (coroutine);
+    }
+
+    private IEnumerator FadeInOutCoroutine(float durationIn,  Color colorIn,
+                                           float durationOut, Color colorOut, float fadeDelay)
+    {
+        FadeIn (durationIn, colorIn);
+        yield return new WaitForSeconds (fadeDelay + durationIn);
+        FadeOut (durationOut, colorOut);
     }
 
     /// <summary>
     /// Function is showing the screen in time
     /// </summary>
     /// <param name="duration">Screen showing duration in seconds. Default value is 3 seconds.</param>
-    /// <param name="color">Panel's Image resulting color. Default value is black</param>
+    /// <param name="color">Panel's Image animation color. Default value is black</param>
     public void FadeOut(float duration = 3, Color? color = null)
     {
         if (color == null)
             color = black;
 
-        Color changeColor = (Color)color;
-        changeColor.a = fadePanel.color.a;
-        fadePanel.color = changeColor;
+        Color animColor = (Color)color;
+        animColor.a = fadePanel.color.a;
+        fadePanel.color = animColor;
 
         // Stop actual coroutine
         if (coroutine != null)
             StopCoroutine (coroutine);
 
-        coroutine = FadeOutCoroutine (duration, changeColor);
+        coroutine = FadeOutCoroutine (duration, animColor);
         StartCoroutine (coroutine);
 
     }
@@ -74,16 +105,16 @@ public class FaderController : MonoBehaviour
     /// Function is fading the screen in time
     /// </summary>
     /// <param name="duration">Screen fading duration in seconds. Default value is 3 seconds.</param>
-    /// <param name="color">Panel's Image original color. Default value is black</param>
+    /// <param name="color">Panel's Image animation color. Default value is black</param>
     public void FadeIn(float duration = 3, Color? color = null )
     {
         if (color == null)
             color = black;
 
-        Color changeColor = (Color)color;
-        fadePanel.color = changeColor;
+        Color animColor = (Color)color;
+        fadePanel.color = animColor;
 
-        coroutine = FadeInCoroutine (duration, changeColor);
+        coroutine = FadeInCoroutine (duration, animColor);
         StartCoroutine (coroutine);
     }
 
