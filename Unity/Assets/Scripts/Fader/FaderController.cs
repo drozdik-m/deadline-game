@@ -3,18 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 /// <summary>
 /// Class provide screen fading and screen appearance
 /// </summary>
 public class FaderController : MonoBehaviour
 {
-    public bool fadeOut;
-    public bool fadeIn;
-    public bool fadeInOut;
-
-    public bool isFading;
-
     /// <summary>
     /// Default color for panel
     /// </summary>
@@ -30,28 +23,26 @@ public class FaderController : MonoBehaviour
     /// </summary>
     private IEnumerator coroutine;
 
+    private bool isFadeOut;
+    private bool isFadeIn;
+    private bool isFadeInOut;
+
     // Start is called before the first frame update
     void Start()
     {
         fadePanel = GetComponent<Image> ();
     }
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// Check if the process of showing or fading is producing
+    /// </summary>
+    /// <returns></returns>
+    public bool isFading()
     {
-        if (fadeOut)
-        {
-            fadeOut = false;
-            FadeOut ();
-        } else if (fadeIn)
-        {
-            fadeIn = false;
-            FadeIn ();
-        } else if (fadeInOut)
-        {
-            fadeInOut = false;
-            FadeInOut ();
-        }
+        if (isFadeIn || isFadeOut || isFadeOut)
+            return true;
+
+        return false;
     }
 
     /// <summary>
@@ -75,6 +66,7 @@ public class FaderController : MonoBehaviour
         Color animColorOut = (Color)colorIn;
 
         fadePanel.color = animColorIn;
+        isFadeInOut = true;
 
         coroutine = FadeInOutCoroutine (durationIn, animColorIn, durationOut, animColorOut, fadeDelay);
         StartCoroutine (coroutine);
@@ -89,6 +81,8 @@ public class FaderController : MonoBehaviour
         FadeIn (durationIn, colorIn);
         yield return new WaitForSeconds (fadeDelay + durationIn);
         FadeOut (durationOut, colorOut);
+        yield return new WaitForSeconds (durationOut);
+        isFadeInOut = false;
     }
 
     /// <summary>
@@ -105,9 +99,15 @@ public class FaderController : MonoBehaviour
         animColor.a = fadePanel.color.a;
         fadePanel.color = animColor;
 
+        isFadeOut = true;
+
         // Stop actual coroutine
         if (coroutine != null)
+        {
             StopCoroutine (coroutine);
+            isFadeInOut = false;
+            isFadeIn = false;
+        }
 
         coroutine = FadeOutCoroutine (duration, animColor);
         StartCoroutine (coroutine);
@@ -126,6 +126,8 @@ public class FaderController : MonoBehaviour
 
         Color animColor = (Color)color;
         fadePanel.color = animColor;
+
+        isFadeIn = true;
 
         coroutine = FadeInCoroutine (duration, animColor);
         StartCoroutine (coroutine);
@@ -152,6 +154,7 @@ public class FaderController : MonoBehaviour
 
             yield return null;
         }
+        isFadeIn = false;
     }
 
     /// <summary>
@@ -175,6 +178,7 @@ public class FaderController : MonoBehaviour
 
             yield return null;
         }
+        isFadeOut = false;
     }
 }
 
