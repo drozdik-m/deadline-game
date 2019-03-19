@@ -13,6 +13,8 @@ public class FaderController : MonoBehaviour
     public bool fadeIn;
     public bool fadeInOut;
 
+    public bool isFading;
+
     /// <summary>
     /// Default color for panel
     /// </summary>
@@ -52,6 +54,14 @@ public class FaderController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Function is fading the screen, waiting some time and showing the screen back
+    /// </summary>
+    /// <param name="durationIn">Screen fading duration in seconds. Default value is 3 seconds.</param>
+    /// <param name="colorIn">Panel's Image fading animation color. Default value is black.</param>
+    /// <param name="durationOut">Screen showing duration in seconds. Default value is 3 seconds.</param>
+    /// <param name="colorOut">Panel's Image showing animation color. Default value is black.</param>
+    /// <param name="fadeDelay">Delay between fading and showing back.</param>
     public void FadeInOut(float durationIn = 3,  Color? colorIn = null,
                           float durationOut = 3, Color? colorOut = null, float fadeDelay = 5)
     {
@@ -70,6 +80,9 @@ public class FaderController : MonoBehaviour
         StartCoroutine (coroutine);
     }
 
+    /// <summary>
+    /// Supporting function for FadeInOut, which produces the fading and the showing of the screen.
+    /// </summary>
     private IEnumerator FadeInOutCoroutine(float durationIn,  Color colorIn,
                                            float durationOut, Color colorOut, float fadeDelay)
     {
@@ -82,7 +95,7 @@ public class FaderController : MonoBehaviour
     /// Function is showing the screen in time
     /// </summary>
     /// <param name="duration">Screen showing duration in seconds. Default value is 3 seconds.</param>
-    /// <param name="color">Panel's Image animation color. Default value is black</param>
+    /// <param name="color">Panel's Image animation color. Default value is black.</param>
     public void FadeOut(float duration = 3, Color? color = null)
     {
         if (color == null)
@@ -105,7 +118,7 @@ public class FaderController : MonoBehaviour
     /// Function is fading the screen in time
     /// </summary>
     /// <param name="duration">Screen fading duration in seconds. Default value is 3 seconds.</param>
-    /// <param name="color">Panel's Image animation color. Default value is black</param>
+    /// <param name="color">Panel's Image animation color. Default value is black.</param>
     public void FadeIn(float duration = 3, Color? color = null )
     {
         if (color == null)
@@ -119,7 +132,7 @@ public class FaderController : MonoBehaviour
     }
 
     /// <summary>
-    /// Supporting function for FadeIn, which calculetes the fading of screen.
+    /// Supporting function for FadeIn, which produces the fading of screen.
     /// </summary>
     private IEnumerator FadeInCoroutine(float duration, Color color )
     {
@@ -142,7 +155,7 @@ public class FaderController : MonoBehaviour
     }
 
     /// <summary>
-    /// Supporting function for FadeOut, which calculetes the appearance of screen.
+    /// Supporting function for FadeOut, which produces the appearance of screen.
     /// </summary>
     private IEnumerator FadeOutCoroutine( float duration, Color color )
     {
