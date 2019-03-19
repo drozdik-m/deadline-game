@@ -52,21 +52,29 @@ public class FaderController : MonoBehaviour
     /// </summary>
     /// <param name="duration">Screen showing duration in seconds. Default value is 3 seconds.</param>
     /// <param name="color">Panel's Image resulting color. Default value is black</param>
-    public void FadeOut( float duration = 3, Color? color = null)
+    public void FadeOut(float duration = 3, Color? color = null)
     {
         if (color == null)
             color = black;
 
         Color changeColor = (Color)color;
+        changeColor.a = fadePanel.color.a;
         fadePanel.color = changeColor;
 
+        // Stop actual coroutine
         if (coroutine != null)
             StopCoroutine (coroutine);
+
         coroutine = FadeOutCoroutine (duration, changeColor);
         StartCoroutine (coroutine);
 
     }
 
+    /// <summary>
+    /// Function is fading the screen in time
+    /// </summary>
+    /// <param name="duration">Screen fading duration in seconds. Default value is 3 seconds.</param>
+    /// <param name="color">Panel's Image original color. Default value is black</param>
     public void FadeIn(float duration = 3, Color? color = null )
     {
         if (color == null)
@@ -79,7 +87,10 @@ public class FaderController : MonoBehaviour
         StartCoroutine (coroutine);
     }
 
-    private IEnumerator FadeInCoroutine( float duration, Color color )
+    /// <summary>
+    /// Supporting function for FadeIn, which calculetes the fading of screen.
+    /// </summary>
+    private IEnumerator FadeInCoroutine(float duration, Color color )
     {
         // Time, when the script was run
         float startTime = Time.time;
