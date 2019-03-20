@@ -5,7 +5,10 @@ using UnityEngine;
 public class testFader : MonoBehaviour
 {
     [TextArea]
-    public string Help = "Test script. Shortcuts: W - FadeIn, A - FadeOut, D - FadeInOut";
+    public string Help = "Test script. Shortcuts: W - FadeIn, A - FadeOut, D - FadeInOut, Space - isFading";
+
+    [Tooltip("Testing isFading method, just start FadeIn, FadeOut or FadeInOut and press Space")]
+    public bool isFadingTest;
 
     FaderController fader;
 
@@ -30,5 +33,10 @@ public class testFader : MonoBehaviour
         {
             fader.FadeInOut ();
         }
+        else if (Input.GetKeyDown (KeyCode.Space))
+        {
+            Debug.Log ("isFading " + isFadingTest);
+        }
+        isFadingTest = fader.isFading ();
     }
 }

@@ -87,6 +87,7 @@ public class FaderController : MonoBehaviour
         yield return new WaitForSeconds (fadeDelay + durationIn);
         FadeOut (durationOut, colorOut);
         yield return new WaitForSeconds (durationOut);
+        coroutine = null;
         isFadeInOut = false;
     }
 
@@ -159,6 +160,7 @@ public class FaderController : MonoBehaviour
 
             yield return null;
         }
+        coroutine = null;
         isFadeIn = false;
     }
 
@@ -183,6 +185,7 @@ public class FaderController : MonoBehaviour
 
             yield return null;
         }
+        coroutine = null;
         isFadeOut = false;
     }
 }
