@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class testFader : MonoBehaviour
 {
-    [TextArea]
-    public string Help = "Test script. Shortcuts: W - FadeIn, A - FadeOut, D - FadeInOut, Space - isFading";
-
-    [Tooltip("Testing isFading method, just start FadeIn, FadeOut or FadeInOut and press Space")]
-    public bool isFadingTest;
-
     FaderController fader;
+
+    Color color = Color.black;
 
     // Start is called before the first frame update
     void Start()
@@ -18,25 +15,29 @@ public class testFader : MonoBehaviour
         fader = GetComponent<FaderController> ();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void FaidInTest()
     {
-        if (Input.GetKeyDown (KeyCode.W))
-        {
-            fader.FadeIn ();
-        }
-        else if (Input.GetKeyDown (KeyCode.A))
-        {
-            fader.FadeOut ();
-        }
-        else if (Input.GetKeyDown (KeyCode.D))
-        {
-            fader.FadeInOut ();
-        }
-        else if (Input.GetKeyDown (KeyCode.Space))
-        {
-            Debug.Log ("isFading " + isFadingTest);
-        }
-        isFadingTest = fader.isFading ();
+        fader.FadeIn (3, color);
     }
+
+    public void FaidOutTest()
+    {
+        fader.FadeOut (3, color);
+    }
+
+    public void FaidInOutTest()
+    {
+        fader.FadeInOut (3, color, 3, color, 5);
+    }
+
+    public void isFadingTest()
+    {
+        Debug.Log ("Is Fading " + fader.isFading ());
+    }
+
+    public void ChangeColor()
+    {
+        color = (color == Color.black ? Color.green : Color.black);
+    }
+
 }

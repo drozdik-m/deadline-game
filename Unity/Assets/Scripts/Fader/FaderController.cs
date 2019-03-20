@@ -70,6 +70,8 @@ public class FaderController : MonoBehaviour
         Color animColorIn = (Color)colorIn;
         Color animColorOut = (Color)colorIn;
 
+        // Save original alpha of fadePanel
+        animColorIn.a = fadePanel.color.a;
         fadePanel.color = animColorIn;
         isFadeInOut = true;
 
@@ -102,6 +104,7 @@ public class FaderController : MonoBehaviour
             color = black;
 
         Color animColor = (Color)color;
+        // Save original alpha of fadePanel
         animColor.a = fadePanel.color.a;
         fadePanel.color = animColor;
 
@@ -132,7 +135,18 @@ public class FaderController : MonoBehaviour
             color = black;
 
         Color animColor = (Color)color;
+        // Save original alpha of fadePanel
+        animColor.a = fadePanel.color.a;
         fadePanel.color = animColor;
+
+        // Stop all coroutines if scene is showing or wating between fading
+        // and showing in function FadiInOut
+        if (isFadeOut || ( isFadeInOut && FadeCoroutine == null ))
+        {
+            StopAllCoroutines ();
+            isFadeInOut = false;
+            isFadeOut = false;
+        }
 
         isFadeIn = true;
 
@@ -150,13 +164,13 @@ public class FaderController : MonoBehaviour
         // Starting image alpha
         float alpha = color.a;
         // Fading step (depends on fading duration)
-        float step = color.a;
+        float step = 1;
 
         // Chages alpha channel every frame by step
         while (startTime + duration > Time.time)
         {
             step -= ( 1 / duration ) * Time.deltaTime;
-            color.a = Mathf.Lerp (alpha, 0, step);
+            color.a = Mathf.Lerp (1, alpha, step);
             fadePanel.color = color;
 
             yield return null;
