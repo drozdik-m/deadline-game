@@ -21,7 +21,7 @@ public class FaderController : MonoBehaviour
     /// <summary>
     /// Contain actual coroutine function
     /// </summary>
-    private IEnumerator coroutine;
+    private IEnumerator FadeCoroutine;
 
     [SerializeField]
     private bool isFadeOut;
@@ -73,8 +73,8 @@ public class FaderController : MonoBehaviour
         fadePanel.color = animColorIn;
         isFadeInOut = true;
 
-        coroutine = FadeInOutCoroutine (durationIn, animColorIn, durationOut, animColorOut, fadeDelay);
-        StartCoroutine (coroutine);
+        FadeCoroutine = FadeInOutCoroutine (durationIn, animColorIn, durationOut, animColorOut, fadeDelay);
+        StartCoroutine (FadeCoroutine);
     }
 
     /// <summary>
@@ -87,7 +87,7 @@ public class FaderController : MonoBehaviour
         yield return new WaitForSeconds (fadeDelay + durationIn);
         FadeOut (durationOut, colorOut);
         yield return new WaitForSeconds (durationOut);
-        coroutine = null;
+        FadeCoroutine = null;
         isFadeInOut = false;
     }
 
@@ -107,16 +107,17 @@ public class FaderController : MonoBehaviour
 
         isFadeOut = true;
 
-        // Stop actual coroutine
-        if (coroutine != null)
+        // Stop all coroutines if scene is fading or wating between fading
+        // and showing in function FadiInOut
+        if (isFadeIn || (isFadeInOut && FadeCoroutine == null))
         {
-            StopCoroutine (coroutine);
+            StopAllCoroutines ();
             isFadeInOut = false;
             isFadeIn = false;
         }
 
-        coroutine = FadeOutCoroutine (duration, animColor);
-        StartCoroutine (coroutine);
+        FadeCoroutine = FadeOutCoroutine (duration, animColor);
+        StartCoroutine (FadeCoroutine);
 
     }
 
@@ -135,8 +136,8 @@ public class FaderController : MonoBehaviour
 
         isFadeIn = true;
 
-        coroutine = FadeInCoroutine (duration, animColor);
-        StartCoroutine (coroutine);
+        FadeCoroutine = FadeInCoroutine (duration, animColor);
+        StartCoroutine (FadeCoroutine);
     }
 
     /// <summary>
@@ -160,7 +161,7 @@ public class FaderController : MonoBehaviour
 
             yield return null;
         }
-        coroutine = null;
+        FadeCoroutine = null;
         isFadeIn = false;
     }
 
@@ -185,7 +186,7 @@ public class FaderController : MonoBehaviour
 
             yield return null;
         }
-        coroutine = null;
+        FadeCoroutine = null;
         isFadeOut = false;
     }
 }
