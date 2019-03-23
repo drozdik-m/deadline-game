@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Helper for easy public inspector access
+/// Inventory inspector helper, that will pick up/drop a specific item into a specific inventory
 /// </summary>
 public class InventoryInspectorHelper : MonoBehaviour
 {
