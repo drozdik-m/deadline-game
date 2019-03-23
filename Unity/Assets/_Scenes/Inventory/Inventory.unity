@@ -176,7 +176,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &663795367
 GameObject:
@@ -279,8 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01df5fee4c8c7c34aaaa35ce1ac9c774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 1797688787}
-  object1: {fileID: 1103940402}
+  InspectorHelper: {fileID: 1797688789}
 --- !u!114 &871213660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,7 +354,7 @@ RectTransform:
   - {fileID: 1290395178}
   - {fileID: 1267032022}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -553,6 +552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemType: 4
+  itemState: 1
   PickableObjectInScene: {fileID: 1519186983}
   OptionalDropTarget: {fileID: 1610156349}
 --- !u!4 &1103940403
@@ -1069,9 +1069,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1797688788}
   - component: {fileID: 1797688787}
+  - component: {fileID: 1797688789}
   m_Layer: 0
   m_Name: Inventory
-  m_TagString: Untagged
+  m_TagString: MainInventory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1104,6 +1105,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1797688789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797688786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e036ad3d72f7542a5e83c9851c8b68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  thisInventoryItem: {fileID: 1103940402}
 --- !u!1 &1822251391
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class FaderController : MonoBehaviour
     /// <summary>
     /// Default color for panel
     /// </summary>
-    private Color black = Color.black;
+    public Color defaultColor = Color.black;
 
     /// <summary>
     /// Panel's Image that will be fading
@@ -23,13 +23,13 @@ public class FaderController : MonoBehaviour
     /// </summary>
     private IEnumerator FadeCoroutine;
 
-    [SerializeField]
+    //[SerializeField]
     private bool isFadeOut;
 
-    [SerializeField]
+    //[SerializeField]
     private bool isFadeIn;
 
-    [SerializeField]
+    //[SerializeField]
     private bool isFadeInOut;
 
     // Start is called before the first frame update
@@ -42,7 +42,7 @@ public class FaderController : MonoBehaviour
     /// Check if the process of showing or fading is producing
     /// </summary>
     /// <returns></returns>
-    public bool isFading()
+    public bool IsFading()
     {
         if (isFadeIn || isFadeOut || isFadeInOut)
             return true;
@@ -62,10 +62,10 @@ public class FaderController : MonoBehaviour
                           float durationOut = 3, Color? colorOut = null, float fadeDelay = 5)
     {
         if (colorIn == null)
-            colorIn = black;
+            colorIn = defaultColor;
 
         if (colorOut == null)
-            colorOut = black;
+            colorOut = defaultColor;
 
         Color animColorIn = (Color)colorIn;
         Color animColorOut = (Color)colorIn;
@@ -101,7 +101,7 @@ public class FaderController : MonoBehaviour
     public void FadeOut(float duration = 3, Color? color = null)
     {
         if (color == null)
-            color = black;
+            color = defaultColor;
 
         Color animColor = (Color)color;
         // Save original alpha of fadePanel
@@ -132,7 +132,7 @@ public class FaderController : MonoBehaviour
     public void FadeIn(float duration = 3, Color? color = null )
     {
         if (color == null)
-            color = black;
+            color = defaultColor;
 
         Color animColor = (Color)color;
         // Save original alpha of fadePanel

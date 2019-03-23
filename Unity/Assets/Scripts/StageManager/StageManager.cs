@@ -17,9 +17,15 @@ public class StageManager : MonoBehaviour
     /// </summary>
     int currentStage = 0;
 
+    /// <summary>
+    /// Should the stage manager start on load?
+    /// </summary>
+    public bool AutomaticStart = false;
+
     private void Start()
     {
-        LoadFirstStage();
+        if (AutomaticStart)
+            InitiateStages();
     }
 
     private void Update()
@@ -50,6 +56,14 @@ public class StageManager : MonoBehaviour
         //Stage update
         if (IsAnyStageActive())
             stages[currentStage].StageFixedUpdate();
+    }
+
+    /// <summary>
+    /// Initiate the Stage manager. Should be called only once.
+    /// </summary>
+    public void InitiateStages()
+    {
+        LoadFirstStage();
     }
 
     /// <summary>
@@ -103,5 +117,14 @@ public class StageManager : MonoBehaviour
     public bool IsAnyStageActive()
     {
         return currentStage < stages.Length;
+    }
+
+    /// <summary>
+    /// Tells if the stage manager is finished or not
+    /// </summary>
+    /// <returns>True if stage manager is finished, else false</returns>
+    public bool IsFinished()
+    {
+        return !IsAnyStageActive();
     }
 }
