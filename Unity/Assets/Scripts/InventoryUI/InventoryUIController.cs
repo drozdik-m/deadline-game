@@ -10,18 +10,17 @@ public class InventoryUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        inventory.OnChange += PickUp;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PickUp(Inventory caller, InventoryChangeEventArgs e)
     {
-        
+        Debug.Log ("Pick up " + e.newItemType.ToString() );
     }
 
-    public void OnChange(Inventory caller, InventoryChangeEventArgs e )
+    public void Drop(Inventory caller, InventoryChangeEventArgs e)
     {
-        
+        Debug.Log ("Drop event action");
     }
 
 }
