@@ -1,25 +1,16 @@
-﻿using Assets.Scripts.Interaction.Abstracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.Interaction.Reactions.ImmediateReactions
+public class DebugReaction : Reaction
 {
-    public class DebugReaction : Reaction
+    public string debugMessage;
+
+    protected override void SpecificInit()
     {
-        public string debugMessage;
+        base.SpecificInit();
+    }
 
-        protected override void SpecificInit()
-        {
-            base.SpecificInit();
-        }
-
-        protected override void ImmediateReaction()
-        {
-            Debug.Log(debugMessage);
-        }
+    protected override void ImmediateReaction()
+    {
+        Debug.Log(debugMessage);
     }
 }

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts.Interaction.Abstracts
-{
-    public abstract class DelayedReaction : Reaction
+
+public abstract class DelayedReaction : Reaction
     {
         public float delay;
         protected WaitForSeconds wait;
@@ -30,4 +25,3 @@ namespace Assets.Scripts.Interaction.Abstracts
         }
     
     }
-}

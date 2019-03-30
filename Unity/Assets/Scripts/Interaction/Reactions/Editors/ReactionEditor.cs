@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using UnityEditor;
-using Assets.Scripts.Interaction.Abstracts;
 
 public abstract class ReactionEditor : Editor
 {

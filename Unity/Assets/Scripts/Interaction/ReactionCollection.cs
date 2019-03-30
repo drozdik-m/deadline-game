@@ -1,8 +1,4 @@
-﻿using Assets.Scripts.Interaction.Abstracts;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ReactionCollection : MonoBehaviour
 {

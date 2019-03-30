@@ -2,7 +2,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEditor;
-using Assets.Scripts.Interaction.Abstracts;
 
 [CustomEditor(typeof(ReactionCollection))]
 public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Reaction>

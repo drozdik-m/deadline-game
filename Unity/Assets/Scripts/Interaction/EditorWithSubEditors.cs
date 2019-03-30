@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEditor;
 
 public abstract class EditorWithSubEditors<TEditor, TTarget> : Editor
     where TEditor : Editor
