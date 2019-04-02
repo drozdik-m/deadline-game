@@ -15,6 +15,13 @@ public class StageManagerTests : MonoBehaviour
     private void Start()
     {
         //stageManager = GameObject.FindGameObjectWithTag("StageManager").GetComponent<StageManager>();
+        stageManager.OnStageChange += OnStageChangeDebug;
+    }
+
+    private void OnStageChangeDebug(StageManager caller, StageManagerArgs args)
+    {
+        Debug.Log("Stage changed");
+        Debug.Log(args.CurrentStage);
     }
 
     private void Update()

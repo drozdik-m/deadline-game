@@ -18,6 +18,11 @@ public class StageManager : MonoBehaviour
     int currentStage = 0;
 
     /// <summary>
+    /// Event invoked when stage is changed
+    /// </summary>
+    public event StageHandler OnStageChange;
+
+    /// <summary>
     /// Should the stage manager start on load?
     /// </summary>
     public bool AutomaticStart = false;
@@ -76,6 +81,9 @@ public class StageManager : MonoBehaviour
             return;
 
         stages[0].StageLoad();
+
+        //Trigger OnStageChange event
+        OnStageChange?.Invoke(this, new StageManagerArgs(stages[currentStage]));
     }
 
     /// <summary>
@@ -108,6 +116,9 @@ public class StageManager : MonoBehaviour
 
         //Load new stage
         stages[currentStage].StageLoad();
+
+        //Trigger OnStageChange event
+        OnStageChange?.Invoke(this, new StageManagerArgs(stages[currentStage]));
     }
 
     /// <summary>
@@ -128,3 +139,6 @@ public class StageManager : MonoBehaviour
         return !IsAnyStageActive();
     }
 }
+
+
+public delegate void StageHandler(StageManager caller, StageManagerArgs args);
