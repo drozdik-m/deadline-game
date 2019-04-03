@@ -55,8 +55,6 @@ public class Inventory : MonoBehaviour
 
         return true;
     }
-
-    
 }
 
 

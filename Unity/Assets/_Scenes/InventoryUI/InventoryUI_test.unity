@@ -635,7 +635,7 @@ RectTransform:
   m_Children:
   - {fileID: 1291230132}
   m_Father: {fileID: 7341812987939965210}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -757,8 +757,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 685870434}
-        m_MethodName: DropObject1
+      - m_Target: {fileID: 8823398749211285249}
+        m_MethodName: Drop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1081,7 +1081,7 @@ RectTransform:
   - {fileID: 870188546}
   - {fileID: 1196287429}
   m_Father: {fileID: 7341812987939965210}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -1451,7 +1451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9bb89d3e05434e47bdeddbecbf3361b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemType: 2
+  ItemType: 3
   itemState: 1
   PickableObjectInScene: {fileID: 1520095455}
   OptionalDropTarget: {fileID: 1967877228}
@@ -3484,8 +3484,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4811382487634023548}
-  - {fileID: 1308744630}
   - {fileID: 1132058490}
+  - {fileID: 1308744630}
   m_Father: {fileID: 4811382486437798733}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3534,7 +3534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Inventory: {fileID: 1421551677}
-  ActualImageItem: {fileID: 870188547}
+  ActualItemsImage: {fileID: 870188547}
   ItemsDescription: {fileID: 1291230133}
   SpritesStore:
   - {fileID: 21300000, guid: c5a1ab80c7f63874b934ad624a613a02, type: 3}
