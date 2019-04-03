@@ -7,20 +7,16 @@ public class InventoryUIController : MonoBehaviour
 
     public Inventory inventory;
 
+    private bool isInventoryEmpty;
+
     // Start is called before the first frame update
     void Start()
     {
-        inventory.OnChange += PickUp;
+        inventory.OnChange += OnChange;
     }
 
-    public void PickUp(Inventory caller, InventoryChangeEventArgs e)
+    public void OnChange( Inventory caller, InventoryChangeEventArgs e)
     {
-        Debug.Log ("Pick up " + e.newItemType.ToString() );
+        Debug.Log ("On change " + e.newItemType.ToString() );
     }
-
-    public void Drop(Inventory caller, InventoryChangeEventArgs e)
-    {
-        Debug.Log ("Drop event action");
-    }
-
 }
