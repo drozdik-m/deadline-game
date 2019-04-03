@@ -7,10 +7,7 @@ public abstract class Reaction : ScriptableObject
         SpecificInit();
     }
 
-    protected virtual void SpecificInit()
-    {
-
-    }
+    protected virtual void SpecificInit() { }
 
     public void React(MonoBehaviour monoBehaviour)
     {

@@ -187,7 +187,9 @@ public class AllConditionsEditor : Editor
     {
         Condition[] allConditions = AllConditions.Instance.conditions;
 
-        if (allConditions == null || allConditions[0] == null)
+        if (allConditions == null)
+            return null;
+        if (allConditions[0] == null)
             return null;
 
         if (index >= allConditions.Length)
