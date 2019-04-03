@@ -40,7 +40,7 @@ public class AllConditions : ResettableScriptableObject
     }
 
     /// <summary>
-    /// Reset all conditions. Used when the game is started again.
+    /// Resets all conditions. Used when the game is started again.
     /// </summary>
     public override void Reset()
     {

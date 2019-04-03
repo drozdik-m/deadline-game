@@ -2,17 +2,17 @@
 using UnityEngine;
 using UnityEditor;
 
+/// <summary>
+/// custom editor for reaction
+/// </summary>
 public abstract class ReactionEditor : Editor
 {
     public bool showReaction;
     public SerializedProperty reactionsProperty;
 
-
     private Reaction reaction;
 
-
     private const float buttonWidth = 30f;
-
 
     private void OnEnable()
     {
@@ -20,9 +20,7 @@ public abstract class ReactionEditor : Editor
         Init();
     }
 
-
     protected virtual void Init() { }
-
 
     public override void OnInspectorGUI()
     {
@@ -52,18 +50,15 @@ public abstract class ReactionEditor : Editor
         serializedObject.ApplyModifiedProperties();
     }
 
-
     public static Reaction CreateReaction(Type reactionType)
     {
         return (Reaction)CreateInstance(reactionType);
     }
 
-
     protected virtual void DrawReaction()
     {
         DrawDefaultInspector();
     }
-
 
     protected abstract string GetFoldoutLabel();
 }

@@ -3,6 +3,9 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEditor;
 
+/// <summary>
+/// custom editor for reaction collection
+/// </summary>
 [CustomEditor(typeof(ReactionCollection))]
 public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Reaction>
 {
@@ -30,18 +33,15 @@ public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Rea
         SetReactionNamesArray();
     }
 
-
     private void OnDisable()
     {
         CleanupEditors();
     }
 
-
     protected override void SubEditorSetup(ReactionEditor editor)
     {
         editor.reactionsProperty = reactionsProperty;
     }
-
 
     public override void OnInspectorGUI()
     {
@@ -79,7 +79,6 @@ public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Rea
         serializedObject.ApplyModifiedProperties();
     }
 
-
     private void TypeSelectionGUI(Rect containingRect)
     {
         Rect topHalf = containingRect;
@@ -98,7 +97,6 @@ public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Rea
         }
     }
 
-
     private static void DragAndDropAreaGUI(Rect containingRect)
     {
         GUIStyle centredStyle = GUI.skin.box;
@@ -107,7 +105,6 @@ public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Rea
 
         GUI.Box(containingRect, "Drop new Reactions here", centredStyle);
     }
-
 
     private static void DraggingAndDropping(Rect dropArea, ReactionCollectionEditor editor)
     {
@@ -144,7 +141,6 @@ public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Rea
         }
     }
 
-
     private static bool IsDragValid()
     {
         for (int i = 0; i < DragAndDrop.objectReferences.Length; i++)
@@ -164,7 +160,6 @@ public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Rea
 
         return true;
     }
-
 
     private void SetReactionNamesArray()
     {

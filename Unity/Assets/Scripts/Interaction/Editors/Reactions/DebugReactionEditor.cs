@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
+/// <summary>
+/// custom editor for debug reaction
+/// </summary>
 [CustomEditor(typeof(DebugReaction))]
 public class DebugReactionEditor : ReactionEditor
 {

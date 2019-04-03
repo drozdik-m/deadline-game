@@ -1,6 +1,9 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
+/// <summary>
+/// custom editor for interactables
+/// </summary>
 [CustomEditor(typeof(Interactable))]
 public class InteractableEditor : EditorWithSubEditors<ConditionCollectionEditor, ConditionCollection>
 {
@@ -67,7 +70,6 @@ public class InteractableEditor : EditorWithSubEditors<ConditionCollectionEditor
         EditorGUILayout.Space();
 
         EditorGUILayout.PropertyField(defaultReactionCollectionProperty);
-
 
         serializedObject.ApplyModifiedProperties();
     }

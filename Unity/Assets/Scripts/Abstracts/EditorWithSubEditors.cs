@@ -1,5 +1,10 @@
 ﻿using UnityEditor;
 
+/// <summary>
+/// abstract class for creating editor with sub-editors
+/// </summary>
+/// <typeparam name="TEditor"></typeparam>
+/// <typeparam name="TTarget"></typeparam>
 public abstract class EditorWithSubEditors<TEditor, TTarget> : Editor
     where TEditor : Editor
     where TTarget : UnityEngine.Object

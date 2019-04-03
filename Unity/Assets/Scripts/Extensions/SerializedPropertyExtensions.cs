@@ -1,6 +1,9 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
+/// <summary>
+/// extensions for serialized properties
+/// </summary>
 public static class SerializedPropertyExtensions
 {
     public static void AddToObjectArray<T>(this SerializedProperty arrayProperty, T elementToAdd)
@@ -16,7 +19,6 @@ public static class SerializedPropertyExtensions
 
         arrayProperty.serializedObject.ApplyModifiedProperties();
     }
-
 
     public static void RemoveFromObjectArrayAt(this SerializedProperty arrayProperty, int index)
     {
@@ -35,7 +37,6 @@ public static class SerializedPropertyExtensions
         arrayProperty.DeleteArrayElementAtIndex(index);
         arrayProperty.serializedObject.ApplyModifiedProperties();
     }
-
 
     public static void RemoveFromObjectArray<T>(this SerializedProperty arrayProperty, T elementToRemove)
         where T : UnityEngine.Object

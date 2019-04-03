@@ -1,6 +1,9 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
+/// <summary>
+/// custom editor for collection
+/// </summary>
 [CustomEditor(typeof(Condition))]
 public class ConditionEditor : Editor
 {
@@ -9,16 +12,13 @@ public class ConditionEditor : Editor
         ConditionAsset, AllConditionAsset, ConditionCollection
     }
 
-
     public EditorType editorType;
     public SerializedProperty conditionsProperty;
-
 
     private SerializedProperty descriptionProperty;
     private SerializedProperty satisfiedProperty;
     private SerializedProperty hashProperty;
     private Condition condition;
-
 
     private const float conditionButtonWidth = 30f;
     private const float toggleOffset = 30f;
@@ -42,7 +42,6 @@ public class ConditionEditor : Editor
         hashProperty = serializedObject.FindProperty(conditionPropHashName);
     }
 
-
     public override void OnInspectorGUI()
     {
         switch (editorType)
@@ -61,7 +60,6 @@ public class ConditionEditor : Editor
         }
     }
 
-
     private void AllConditionsAssetGUI()
     {
         EditorGUILayout.BeginHorizontal(GUI.skin.box);
@@ -76,7 +74,6 @@ public class ConditionEditor : Editor
         EditorGUILayout.EndHorizontal();
     }
 
-
     private void ConditionAssetGUI()
     {
         EditorGUILayout.BeginHorizontal(GUI.skin.box);
@@ -87,7 +84,6 @@ public class ConditionEditor : Editor
         EditorGUI.indentLevel--;
         EditorGUILayout.EndHorizontal();
     }
-
 
     private void InteractableGUI()
     {
@@ -121,7 +117,6 @@ public class ConditionEditor : Editor
         serializedObject.ApplyModifiedProperties();
     }
 
-
     public static Condition CreateCondition()
     {
         Condition newCondition = CreateInstance<Condition>();
@@ -132,7 +127,6 @@ public class ConditionEditor : Editor
         return newCondition;
     }
 
-
     public static Condition CreateCondition(string description)
     {
         Condition newCondition = CreateInstance<Condition>();
@@ -140,7 +134,6 @@ public class ConditionEditor : Editor
         SetHash(newCondition);
         return newCondition;
     }
-
 
     private static void SetHash(Condition condition)
     {

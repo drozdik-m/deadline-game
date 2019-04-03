@@ -1,9 +1,19 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
+/// <summary>
+/// Custom editor for AllConditions
+/// </summary>
 [CustomEditor(typeof(AllConditions))]
 public class AllConditionsEditor : Editor
 {
+    private static string[] allConditionDescriptions;
+    private ConditionEditor[] conditionEditors;
+    private AllConditions allConditions;
+    private string newConditionDescription = "New Condition";
+    private const string creationPath = "Assets/Resources/AllConditions.asset";
+    private const float buttonWidth = 30f;
+
     public static string[] AllConditionDescriptions
     {
         get
@@ -17,19 +27,6 @@ public class AllConditionsEditor : Editor
         private set { allConditionDescriptions = value; }
     }
 
-
-    private static string[] allConditionDescriptions;
-
-
-    private ConditionEditor[] conditionEditors;
-    private AllConditions allConditions;
-    private string newConditionDescription = "New Condition";
-
-
-    private const string creationPath = "Assets/Resources/AllConditions.asset";
-    private const float buttonWidth = 30f;
-
-
     private void OnEnable()
     {
         allConditions = (AllConditions)target;
@@ -38,49 +35,36 @@ public class AllConditionsEditor : Editor
             allConditions.conditions = new Condition[0];
 
         if (conditionEditors == null)
-        {
             CreateEditors();
-        }
     }
 
     private void OnDisable()
     {
         for (int i = 0; i < conditionEditors.Length; i++)
-        {
             DestroyImmediate(conditionEditors[i]);
-        }
 
         conditionEditors = null;
     }
-
 
     private static void SetAllConditionDescriptions()
     {
         AllConditionDescriptions = new string[TryGetConditionsLength()];
 
         for (int i = 0; i < AllConditionDescriptions.Length; i++)
-        {
             AllConditionDescriptions[i] = TryGetConditionAt(i).description;
-        }
     }
-
 
     public override void OnInspectorGUI()
     {
         if (conditionEditors.Length != TryGetConditionsLength())
         {
             for (int i = 0; i < conditionEditors.Length; i++)
-            {
                 DestroyImmediate(conditionEditors[i]);
-            }
-
             CreateEditors();
         }
 
         for (int i = 0; i < conditionEditors.Length; i++)
-        {
             conditionEditors[i].OnInspectorGUI();
-        }
 
         if (TryGetConditionsLength() > 0)
         {
@@ -98,7 +82,6 @@ public class AllConditionsEditor : Editor
         EditorGUILayout.EndHorizontal();
     }
 
-
     private void CreateEditors()
     {
         conditionEditors = new ConditionEditor[allConditions.conditions.Length];
@@ -110,7 +93,6 @@ public class AllConditionsEditor : Editor
         }
     }
 
-
     [MenuItem("Assets/Create/AllConditions")]
     private static void CreateAllConditionsAsset()
     {
@@ -119,12 +101,9 @@ public class AllConditionsEditor : Editor
 
         AllConditions instance = CreateInstance<AllConditions>();
         AssetDatabase.CreateAsset(instance, creationPath);
-
         AllConditions.Instance = instance;
-
         instance.conditions = new Condition[0];
     }
-
 
     private void AddCondition(string description)
     {
@@ -138,7 +117,7 @@ public class AllConditionsEditor : Editor
         newCondition.name = description;
 
         Undo.RecordObject(newCondition, "Created new Condition");
-
+   
         AssetDatabase.AddObjectToAsset(newCondition, AllConditions.Instance);
         AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(newCondition));
 
@@ -148,7 +127,6 @@ public class AllConditionsEditor : Editor
 
         SetAllConditionDescriptions();
     }
-
 
     public static void RemoveCondition(Condition condition)
     {
@@ -170,18 +148,14 @@ public class AllConditionsEditor : Editor
         SetAllConditionDescriptions();
     }
 
-
     public static int TryGetConditionIndex(Condition condition)
     {
         for (int i = 0; i < TryGetConditionsLength(); i++)
-        {
             if (TryGetConditionAt(i).hash == condition.hash)
                 return i;
-        }
-
+    
         return -1;
     }
-
 
     public static Condition TryGetConditionAt(int index)
     {
@@ -197,7 +171,6 @@ public class AllConditionsEditor : Editor
 
         return allConditions[index];
     }
-
 
     public static int TryGetConditionsLength()
     {

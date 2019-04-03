@@ -1,11 +1,13 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
+/// <summary>
+/// custom editor for condition collection
+/// </summary>
 [CustomEditor(typeof(ConditionCollection))]
 public class ConditionCollectionEditor : EditorWithSubEditors<ConditionEditor, Condition>
 {
     public SerializedProperty collectionsProperty;
-
     private ConditionCollection conditionCollection;
     private SerializedProperty descriptionProperty;
     private SerializedProperty conditionsProperty;
