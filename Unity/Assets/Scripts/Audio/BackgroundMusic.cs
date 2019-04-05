@@ -32,7 +32,7 @@ public class BackgroundMusic : MonoBehaviour
     private AudioSource audioSource;
     private FadingAudioSource fadingController;
 
-    void Start()
+    void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         fadingController = GetComponent<FadingAudioSource>();
