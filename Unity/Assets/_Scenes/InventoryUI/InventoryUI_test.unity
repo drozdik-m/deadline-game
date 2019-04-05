@@ -1599,9 +1599,9 @@ RectTransform:
   m_Father: {fileID: 685870438}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200.5, y: -8}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 133.5, y: -213}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1557603040
@@ -3759,6 +3759,8 @@ MonoBehaviour:
   Inventory: {fileID: 1421551677}
   ActualItemsImage: {fileID: 870188547}
   ItemsDescription: {fileID: 1291230133}
-  SpritesStore:
-  - {fileID: 21300000, guid: c5a1ab80c7f63874b934ad624a613a02, type: 3}
-  - {fileID: 21300000, guid: 2e748964cdd4fef4fb50b7b4800d7f11, type: 3}
+  ImagesStorage:
+  - type: 2
+    sprite: {fileID: 21300000, guid: 2e748964cdd4fef4fb50b7b4800d7f11, type: 3}
+  - type: 3
+    sprite: {fileID: 21300000, guid: c5a1ab80c7f63874b934ad624a613a02, type: 3}

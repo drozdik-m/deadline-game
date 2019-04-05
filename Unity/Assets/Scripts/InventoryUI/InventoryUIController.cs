@@ -7,6 +7,7 @@ using UnityEngine.UI;
 /// <summary>
 /// Class controls elements of UI inventory
 /// </summary>
+[System.Serializable]
 public class InventoryUIController : MonoBehaviour
 {
     /// <summary>
@@ -25,14 +26,26 @@ public class InventoryUIController : MonoBehaviour
     public Text ItemsDescription;
 
     /// <summary>
-    /// Stores all images for all items
+    /// Struct that contain image and type of the item
     /// </summary>
-    public Sprite[] SpritesStore;
+    [System.Serializable]
+    public struct ItemImage
+    {
+        public InventoryItemID type;
+        public Sprite sprite;
+    }
+
+    /// <summary>
+    /// Stores all images for items
+    /// </summary>
+    public ItemImage[] ImagesStorage;
 
     /// <summary>
     /// Status of inventory
     /// </summary>
     private bool isInventoryEmpty;
+
+    private Dictionary<InventoryItemID, Sprite> spritesStorage;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +54,21 @@ public class InventoryUIController : MonoBehaviour
         ActualItemsImage.sprite = null;
         ItemsDescription.text = "";
         isInventoryEmpty = true;
+
+        spritesStorage = new Dictionary<InventoryItemID, Sprite> ();
+
+        foreach (ItemImage image in ImagesStorage)
+        {
+            spritesStorage.Add (image.type, image.sprite);
+        }
+    }
+
+    /// <summary>
+    /// Drop function fo button
+    /// </summary>
+    public void Drop()
+    {
+        Inventory.Drop ();
     }
 
     /// <summary>
@@ -62,24 +90,9 @@ public class InventoryUIController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Look for the new image for UI item
-    /// </summary>
-    /// <param name="item">Type of the item</param>
-    /// <returns>New image</returns>
-    private Sprite chooseSprite(InventoryItemID item)
-    {
-        if (item == InventoryItemID.Food)
-            return SpritesStore[0];
-        else if (item == InventoryItemID.Gun)
-            return SpritesStore[1];
-
-        return null;
-    }
-
     private void PickUpItem(InventoryChangeEventArgs item)
     {
-        ActualItemsImage.sprite = chooseSprite (item.newItemType);
+        ActualItemsImage.sprite = spritesStorage[item.newItemType];
         ItemsDescription.text = item.newItemType.ToString ();
     }
 
@@ -87,10 +100,5 @@ public class InventoryUIController : MonoBehaviour
     {
         ActualItemsImage.sprite = null;
         ItemsDescription.text = " ";
-    }
-
-    public void Drop()
-    {
-        Inventory.Drop ();
     }
 }
