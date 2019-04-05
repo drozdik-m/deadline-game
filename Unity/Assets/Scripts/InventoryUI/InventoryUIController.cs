@@ -16,7 +16,7 @@ public class InventoryUIController : MonoBehaviour
     public Inventory Inventory;
 
     /// <summary>
-    /// Image for the plane in the UI
+    /// Image of the item's cell in the UI
     /// </summary>
     public Image ActualItemsImage;
 
