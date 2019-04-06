@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 /// <summary>
 /// Class controls elements of UI inventory
 /// </summary>
-[System.Serializable]
 public class InventoryUIController : MonoBehaviour
 {
     /// <summary>
@@ -16,14 +14,14 @@ public class InventoryUIController : MonoBehaviour
     public Inventory Inventory;
 
     /// <summary>
-    /// Image of the item's cell in the UI
+    /// Image of the item in the UI inventory
     /// </summary>
     public Image ActualItemsImage;
 
     /// <summary>
     /// Contains type of the item in the inventory
     /// </summary>
-    public Text ItemsDescription;
+    public Text ItemTypeText;
 
     /// <summary>
     /// Struct that contain image and type of the item
@@ -45,6 +43,9 @@ public class InventoryUIController : MonoBehaviour
     /// </summary>
     private bool isInventoryEmpty;
 
+    /// <summary>
+    /// Contain all the images available using the type of the item
+    /// </summary>
     private Dictionary<InventoryItemID, Sprite> spritesStorage;
 
     // Start is called before the first frame update
@@ -52,7 +53,7 @@ public class InventoryUIController : MonoBehaviour
     {
         Inventory.OnChange += OnChange;
         ActualItemsImage.sprite = null;
-        ItemsDescription.text = "";
+        ItemTypeText.text = "";
         isInventoryEmpty = true;
 
         spritesStorage = new Dictionary<InventoryItemID, Sprite> ();
@@ -64,7 +65,7 @@ public class InventoryUIController : MonoBehaviour
     }
 
     /// <summary>
-    /// Drop function fo button
+    /// Drop function for button
     /// </summary>
     public void Drop()
     {
@@ -72,33 +73,40 @@ public class InventoryUIController : MonoBehaviour
     }
 
     /// <summary>
-    /// Change UI inventory status, depends if in the
-    /// inventory was item or not
+    /// Change UI inventory status, if there is an item in the
+    /// inventory or not
     /// </summary>
-    /// <param name="inv">Inventory where the method was called from</param>
+    /// <param name="inv">Inventory from where the method was called</param>
     /// <param name="item">New item in the inventory</param>
     public void OnChange(Inventory inv, InventoryChangeEventArgs item)
     {
         if (item.newItemType == InventoryItemID.None)
         {
-            DropItem ();
+            ChangeDropItemUI ();
             isInventoryEmpty = true;
         } else if (isInventoryEmpty)
         {
-            PickUpItem (item);
+            ChangePickUpItemUI (item);
             isInventoryEmpty = false;
         }
     }
 
-    private void PickUpItem(InventoryChangeEventArgs item)
+    /// <summary>
+    /// Set image and type of the new item in the UI inventory
+    /// </summary>
+    /// <param name="item">New item in the inventory</param>
+    private void ChangePickUpItemUI(InventoryChangeEventArgs item)
     {
         ActualItemsImage.sprite = spritesStorage[item.newItemType];
-        ItemsDescription.text = item.newItemType.ToString ();
+        ItemTypeText.text = item.newItemType.ToString ();
     }
 
-    private void DropItem()
+    /// <summary>
+    /// Remove image and type of the drop item 
+    /// </summary>
+    private void ChangeDropItemUI()
     {
         ActualItemsImage.sprite = null;
-        ItemsDescription.text = " ";
+        ItemTypeText.text = " ";
     }
 }
