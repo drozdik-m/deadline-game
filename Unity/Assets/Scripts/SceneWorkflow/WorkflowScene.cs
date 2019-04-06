@@ -54,6 +54,14 @@ public class WorkflowScene : MonoBehaviour
         GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<BackgroundMusic>()
             .ChangeTheme(StageMusicTheme, NextSceneTransitionSpeed);
 
+        if (MainStageManger == null)
+        {
+            //Try to find it
+            GameObject manager = GameObject.FindGameObjectWithTag("MainStageManager");
+            if (manager != null)
+                MainStageManger = manager.GetComponent<StageManager>();
+        }
+
         if (MainStageManger != null)
             MainStageManger.InitiateStages();
     }
