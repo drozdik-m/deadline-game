@@ -51,12 +51,10 @@ public class Inventory : MonoBehaviour
         CurrentItem = null;
 
         //Event
-        OnChange?.Invoke(this, new InventoryChangeEventArgs(CurrentItem.ItemType));
+        OnChange?.Invoke(this, new InventoryChangeEventArgs(InventoryItemID.None));
 
         return true;
     }
-
-    
 }
 
 
