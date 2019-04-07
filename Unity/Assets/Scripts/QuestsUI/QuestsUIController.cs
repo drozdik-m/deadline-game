@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class QuestsUIController : MonoBehaviour
 {
+    public QuestStack QuestStorage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,10 @@ public class QuestsUIController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SetQuestStorage(QuestStack newQuestStorage )
+    {
+        QuestStorage = newQuestStorage;
     }
 }
