@@ -2278,8 +2278,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a90270117015a4d8b058f3ecd2f11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestsStorage: {fileID: 0}
-  QuestsUIStorage: []
+  QuestsStorage: {fileID: 1221980194}
+  QuestsUIStorage:
+  - {fileID: 334154254}
+  - {fileID: 1719212352}
+  - {fileID: 1267008346}
+  - {fileID: 1887998780}
 --- !u!1 &1825852107
 GameObject:
   m_ObjectHideFlags: 0
