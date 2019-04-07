@@ -5,44 +5,53 @@ using UnityEngine.UI;
 
 public class QuestsUIController : MonoBehaviour
 {
-    public QuestStack QuestStorage;
+    public QuestStack QuestsStorage;
 
-    [System.Serializable]
-    public struct QuestStatus
-    {
-        public Text QuestDescriptionText;
-        public Image QuestStatusImage;
-    }
-
-    public QuestStatus[] QuestsUI;
+    public QuestUI[] QuestsUIStorage;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (QuestStorage != null)
-            QuestStorage.OnChange += ChangeQuestsUI;
+        if (QuestsStorage != null)
+            QuestsStorage.OnChange += ChangeQuestsUI;
+
+        ActivateQuestsUI ();
     }
 
     void ChangeQuestsUI(QuestStack questStack, QuestStackArgs args)
     {
-        Debug.Log ("Change UI quests status");
+        int cnt = 0;
 
         foreach (Quest quest in questStack.quests)
         {
             if (quest.IsCompleted ())
-            {
-                /// TODO
-            }
+                QuestsUIStorage[cnt].SetNewUI (quest.QuestDescription, Color.green, 0.5f);
             else
-            {
-                /// TODO
-            }
+                QuestsUIStorage[cnt].SetNewUI (quest.QuestDescription, Color.red, 1.0f);
+
+            cnt++;
         }
     }
 
     public void SetQuestStorage(QuestStack newQuestStorage)
     {
-        QuestStorage = newQuestStorage;
-        QuestStorage.OnChange += ChangeQuestsUI;
+        QuestsStorage = newQuestStorage;
+        QuestsStorage.OnChange += ChangeQuestsUI;
+
+        ActivateQuestsUI ();
+    }
+
+    public void ActivateQuestsUI()
+    {
+        int i;
+        for (i = 0; i < QuestsStorage.quests.GetLength(0); i++)
+        {
+            QuestsUIStorage[i].gameObject.SetActive (true);
+        }
+
+        for (int j = i; j < QuestsUIStorage.GetLength(0); j++)
+        {
+            QuestsUIStorage[j].gameObject.SetActive (false);
+        }
     }
 }

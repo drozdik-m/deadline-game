@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -403,6 +403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 334154253}
+  - component: {fileID: 334154254}
   m_Layer: 5
   m_Name: Quest1StatusPanel
   m_TagString: Untagged
@@ -431,6 +432,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -30.069977}
   m_SizeDelta: {x: 0.8999939, y: 59.839996}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &334154254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334154252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e78173207ef2244c87e77180b98c201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestDescriptionText: {fileID: 577307016}
+  QuestStatusImage: {fileID: 898817540}
 --- !u!1 &382777139
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,7 +810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1615,6 +1630,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1267008345}
+  - component: {fileID: 1267008346}
   m_Layer: 5
   m_Name: Quest3StatusPanel
   m_TagString: Untagged
@@ -1643,6 +1659,20 @@ RectTransform:
   m_AnchoredPosition: {x: -0.4500122, y: -149.75}
   m_SizeDelta: {x: 0.9000244, y: 59.839996}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1267008346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267008344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e78173207ef2244c87e77180b98c201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestDescriptionText: {fileID: 1566371430}
+  QuestStatusImage: {fileID: 1066281919}
 --- !u!1 &1277418552
 GameObject:
   m_ObjectHideFlags: 0
@@ -1818,7 +1848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 805017560}
-  QuestDescription: 
+  QuestDescription: Escape from City17
 --- !u!1 &1408017383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,7 +1978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2025,7 +2055,7 @@ MonoBehaviour:
   conditions:
   - {fileID: 382777141}
   - {fileID: 1825852109}
-  QuestDescription: 
+  QuestDescription: Save the president
 --- !u!1 &1566371428
 GameObject:
   m_ObjectHideFlags: 0
@@ -2076,7 +2106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2114,6 +2144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1719212351}
+  - component: {fileID: 1719212352}
   m_Layer: 5
   m_Name: Quest2StatusPanel
   m_TagString: Untagged
@@ -2142,6 +2173,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0.4500122, y: -89.91}
   m_SizeDelta: {x: 0.9000244, y: 59.839996}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1719212352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719212350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e78173207ef2244c87e77180b98c201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestDescriptionText: {fileID: 1436944242}
+  QuestStatusImage: {fileID: 1088085785}
 --- !u!1 &1787508043
 GameObject:
   m_ObjectHideFlags: 0
@@ -2233,16 +2278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a90270117015a4d8b058f3ecd2f11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestStorage: {fileID: 1221980194}
-  QuestsUI:
-  - QuestDescriptionText: {fileID: 0}
-    QuestStatusImage: {fileID: 0}
-  - QuestDescriptionText: {fileID: 0}
-    QuestStatusImage: {fileID: 0}
-  - QuestDescriptionText: {fileID: 0}
-    QuestStatusImage: {fileID: 0}
-  - QuestDescriptionText: {fileID: 0}
-    QuestStatusImage: {fileID: 0}
+  QuestsStorage: {fileID: 0}
+  QuestsUIStorage: []
 --- !u!1 &1825852107
 GameObject:
   m_ObjectHideFlags: 0
@@ -2296,6 +2333,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1887998779}
+  - component: {fileID: 1887998780}
   m_Layer: 5
   m_Name: Quest4StatusPanel
   m_TagString: Untagged
@@ -2324,6 +2362,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0.4500122, y: -209.59}
   m_SizeDelta: {x: 0.9000244, y: 59.839996}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1887998780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887998778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e78173207ef2244c87e77180b98c201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestDescriptionText: {fileID: 166122052}
+  QuestStatusImage: {fileID: 100848603}
 --- !u!114 &1852197245297004071
 MonoBehaviour:
   m_ObjectHideFlags: 0
