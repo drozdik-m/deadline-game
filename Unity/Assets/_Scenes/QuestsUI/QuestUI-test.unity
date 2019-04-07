@@ -2153,6 +2153,7 @@ GameObject:
   - component: {fileID: 1787508044}
   - component: {fileID: 1787508046}
   - component: {fileID: 1787508045}
+  - component: {fileID: 1787508047}
   m_Layer: 5
   m_Name: QuestsPanel
   m_TagString: Untagged
@@ -2196,7 +2197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.14117648}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.078431375}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2220,6 +2221,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787508043}
   m_CullTransparentMesh: 0
+--- !u!114 &1787508047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787508043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a90270117015a4d8b058f3ecd2f11a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestStorage: {fileID: 1221980194}
+  QuestsUI:
+  - QuestDescriptionText: {fileID: 0}
+    QuestStatusImage: {fileID: 0}
+  - QuestDescriptionText: {fileID: 0}
+    QuestStatusImage: {fileID: 0}
+  - QuestDescriptionText: {fileID: 0}
+    QuestStatusImage: {fileID: 0}
+  - QuestDescriptionText: {fileID: 0}
+    QuestStatusImage: {fileID: 0}
 --- !u!1 &1825852107
 GameObject:
   m_ObjectHideFlags: 0
