@@ -18,6 +18,12 @@ public class QuestsUIController : MonoBehaviour
     /// </summary>
     public QuestUI[] QuestUIStorage;
 
+    /// <summary>
+    /// Alpha of the quest text description if it's completed
+    /// </summary>
+    [Range(0.0f, 1.0f)]
+    public float NotActiveTextAlpha;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -95,7 +101,7 @@ public class QuestsUIController : MonoBehaviour
         foreach (Quest quest in quests)
         {
             if (quest.IsCompleted ())
-                QuestUIStorage[cnt].SetNewUI (quest.QuestDescription, Color.green, 0.5f);
+                QuestUIStorage[cnt].SetNewUI (quest.QuestDescription, Color.green, NotActiveTextAlpha);
             else
                 QuestUIStorage[cnt].SetNewUI (quest.QuestDescription, Color.red, 1.0f);
 
