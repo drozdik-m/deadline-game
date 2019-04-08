@@ -9,14 +9,9 @@ using UnityEngine.UI;
 public class QuestsUIController : MonoBehaviour
 {
     /// <summary>
-    /// Current QuestStack were all quests are stored
+    /// Prefab of the QuestUIPanel
     /// </summary>
-    public QuestStack QuestStorage;
-
-    /// <summary>
-    /// Array of the quests representation on the UI quests
-    /// </summary>
-    public QuestUI[] QuestUIStorage;
+    public QuestUI QuestUIPanelPrefab;
 
     /// <summary>
     /// Alpha of the quest text description if it's completed
@@ -24,15 +19,20 @@ public class QuestsUIController : MonoBehaviour
     [Range(0.0f, 1.0f)]
     public float NotActiveTextAlpha;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (QuestStorage != null)
-            QuestStorage.OnChange += ChangeQuestsUI;
+    /// <summary>
+    /// Current QuestStack were all quests are stored
+    /// </summary>
+    private QuestStack currentQuestStorage;
 
-        ReactivateQuestUI ();
-        UpdateQuestUI (QuestStorage.quests);
-    }
+    /// <summary>
+    /// Array of the quests representation on the UI quests
+    /// </summary>
+    private QuestUI[] questUIStorage;
+
+    /// <summary>
+    /// Distance between items in the UI quests
+    /// </summary>
+    private int positionOffset = 40;
 
     /// <summary>
     /// Changes quest UI
@@ -41,14 +41,7 @@ public class QuestsUIController : MonoBehaviour
     /// <param name="args">Parametrs of the QuestStack</param>
     public void ChangeQuestsUI(QuestStack questStack, QuestStackArgs args)
     {
-        try
-        {
-            UpdateQuestUI (questStack.quests);
-        }
-        catch (System.Exception exp)
-        {
-            throw exp;
-        }
+        UpdateQuestUI ();
     }
 
     /// <summary>
@@ -57,55 +50,52 @@ public class QuestsUIController : MonoBehaviour
     /// <param name="newQuestStack">New QuestStack</param>
     public void SetQuestStack(QuestStack newQuestStack)
     {
-        QuestStorage = newQuestStack;
-        QuestStorage.OnChange += ChangeQuestsUI;
+        if (currentQuestStorage != null)
+            currentQuestStorage.OnChange -= ChangeQuestsUI;
 
-        try
-        {
-            ReactivateQuestUI ();
-            UpdateQuestUI (QuestStorage.quests);
-        }
-        catch (System.Exception exp)
-        {
-            throw exp;
-        }
+        currentQuestStorage = newQuestStack;
+        currentQuestStorage.OnChange += ChangeQuestsUI;
 
+        ReactivateQuestUI ();
+        UpdateQuestUI ();
     }
 
     /// <summary>
-    /// Activates all necessary items of the UI quests
-    /// and deactivates unnecessary
+    /// Create new items of the UI quests and destory the old one
     /// </summary>
     private void ReactivateQuestUI()
     {
-        int i;
-        for (i = 0; i < QuestStorage.quests.Length; i++)
+        // Destroy all old quests  
+        if (questUIStorage != null)
         {
-            QuestUIStorage[i].gameObject.SetActive (true);
+            foreach (QuestUI questUI in questUIStorage)
+            {
+                Destroy (questUI.gameObject);
+            }
         }
 
-        for (int j = i; j < QuestUIStorage.Length; j++)
+        questUIStorage = new QuestUI[currentQuestStorage.quests.Length];
+
+        for (int i = 0; i < currentQuestStorage.quests.Length; i++)
         {
-            QuestUIStorage[j].gameObject.SetActive (false);
+            Vector3 pos = transform.position;
+            pos.y -= (i + 1) * positionOffset;
+            questUIStorage[i] = QuestUI.Instantiate (QuestUIPanelPrefab, pos, transform.rotation, transform);
         }
     }
 
     /// <summary>
     /// Updates UI quests depending on the status of the quest
     /// </summary>
-    /// <param name="quests">Array of the quests</param>
-    private void UpdateQuestUI(Quest[] quests)
+    private void UpdateQuestUI()
     {
-        int cnt = 0;
-
-        foreach (Quest quest in quests)
+        for (int i = 0; i < currentQuestStorage.quests.Length; i++)
         {
+            Quest quest = currentQuestStorage.quests[i];
             if (quest.IsCompleted ())
-                QuestUIStorage[cnt].SetNewUI (quest.QuestDescription, Color.green, NotActiveTextAlpha);
+                questUIStorage[i].SetNewUI (quest.QuestDescription, Color.green, NotActiveTextAlpha);
             else
-                QuestUIStorage[cnt].SetNewUI (quest.QuestDescription, Color.red, 1.0f);
-
-            cnt++;
+                questUIStorage[i].SetNewUI (quest.QuestDescription, Color.red, 1.0f);
         }
     }
 }

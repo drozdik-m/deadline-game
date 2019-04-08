@@ -14,6 +14,7 @@ public class QuestsUITest : MonoBehaviour
     void Start()
     {
         actualStack = Stack1;
+        QuestController.SetQuestStack (actualStack);
     }
 
     public void ChangeQuestStack()
