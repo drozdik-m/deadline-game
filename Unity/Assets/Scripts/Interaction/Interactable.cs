@@ -22,7 +22,7 @@ public class Interactable : MonoBehaviour
 
     /// <summary>
     /// perform the interaction
-    /// </summary>
+    /// </summary> 
     public void Interact()
     {
         for (int i = 0; i < conditionCollections.Length; i++)
