@@ -25,6 +25,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Start()
     {
+        AllConditions.Instance.Reset();
         agent = GetComponent<NavMeshAgent>();
         cam = FindObjectOfType<Camera>();
         animator = GetComponentInChildren<Animator>();
