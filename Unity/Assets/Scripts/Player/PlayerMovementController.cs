@@ -16,14 +16,19 @@ public class PlayerMovementController : MonoBehaviour
     /// <summary>
     /// Refference to the Player`s navMeshAgent component
     /// </summary>
-    /// 
     private NavMeshAgent agent;
+    /// <summary>
+    /// Refference to model animator
+    /// </summary>
+    private Animator animator;
+    private bool isInteracting;
 
     private void Start()
     {
         AllConditions.Instance.Reset();
         agent = GetComponent<NavMeshAgent>();
         cam = FindObjectOfType<Camera>();
+        animator = GetComponentInChildren<Animator>();
 
         if (!agent)
             Debug.Log("Missing NavMeshAgent component!");
@@ -31,6 +36,7 @@ public class PlayerMovementController : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             // Calculates target position according to camera
@@ -40,9 +46,24 @@ public class PlayerMovementController : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 // If the click was on a solid object, move the agent there
-                agent.SetDestination(hit.point);
+                this.MoveToPosition(hit.point);
             }
         }
+
+        if (agent.velocity != Vector3.zero)
+            animator.SetBool("isRunning", true);
+      
+        if (agent.remainingDistance < 0.5)
+            animator.SetBool("isRunning", false);
+
+        if (!animator.GetBool("isRunning") && Input.GetKeyDown("space"))
+        {
+            animator.SetBool("isInteracting", true);
+            isInteracting = true;
+        }
+
+        isInteracting = animator.GetBool("isInteracting");
+        //Debug.Log(agent.remainingDistance);
     }
     /// <summary>
     /// Moves to position.
@@ -50,6 +71,7 @@ public class PlayerMovementController : MonoBehaviour
     /// <param name="position">Position.</param>
     public void MoveToPosition(Vector3 position)
     {
+        if (!isInteracting)
         agent.SetDestination(position);
     }
     /// <summary>
@@ -58,6 +80,7 @@ public class PlayerMovementController : MonoBehaviour
     /// <param name="targetObject">Target object.</param>
     public void MoveToGameObject(GameObject targetObject)
     {
+        if(!isInteracting)
         MoveToPosition(targetObject.transform.position);
     }
 }
