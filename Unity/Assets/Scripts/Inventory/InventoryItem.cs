@@ -130,7 +130,8 @@ public enum InventoryItemID
     Broom,
     Gun,
     Food,
-    BigAssBlackDick
+    BigAssBlackDick,
+    None
 }
 
 /// <summary>

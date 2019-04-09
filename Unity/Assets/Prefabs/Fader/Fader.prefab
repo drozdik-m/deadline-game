@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7017861572630263862}
   m_Layer: 5
   m_Name: FadePanel
-  m_TagString: Untagged
+  m_TagString: Fader
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.4000244, y: -1.5}
-  m_SizeDelta: {x: 20.1, y: 25.8}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7017861572630263856
 CanvasRenderer:
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -87,9 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa6baf1b46b8ad488efdf9fa8d7c312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFadeOut: 0
-  isFadeIn: 0
-  isFadeInOut: 0
+  defaultColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &7017861573602741900
 GameObject:
   m_ObjectHideFlags: 0

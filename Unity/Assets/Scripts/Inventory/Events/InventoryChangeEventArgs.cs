@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryChangeEventArgs : MonoBehaviour
+public class InventoryChangeEventArgs
 {
     public InventoryItemID newItemType;
 

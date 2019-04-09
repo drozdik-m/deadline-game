@@ -32,7 +32,7 @@ public class testFader : MonoBehaviour
 
     public void isFadingTest()
     {
-        Debug.Log ("Is Fading " + fader.isFading ());
+        Debug.Log ("Is Fading " + fader.IsFading ());
     }
 
     public void ChangeColor()

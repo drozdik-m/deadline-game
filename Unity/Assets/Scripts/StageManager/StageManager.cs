@@ -17,9 +17,20 @@ public class StageManager : MonoBehaviour
     /// </summary>
     int currentStage = 0;
 
+    /// <summary>
+    /// Event invoked when stage is changed
+    /// </summary>
+    public event StageHandler OnStageChange;
+
+    /// <summary>
+    /// Should the stage manager start on load?
+    /// </summary>
+    public bool AutomaticStart = false;
+
     private void Start()
     {
-        LoadFirstStage();
+        if (AutomaticStart)
+            InitiateStages();
     }
 
     private void Update()
@@ -53,6 +64,14 @@ public class StageManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Initiate the Stage manager. Should be called only once.
+    /// </summary>
+    public void InitiateStages()
+    {
+        LoadFirstStage();
+    }
+
+    /// <summary>
     /// Load first stage (for init only)
     /// </summary>
     private void LoadFirstStage()
@@ -62,6 +81,9 @@ public class StageManager : MonoBehaviour
             return;
 
         stages[0].StageLoad();
+
+        //Trigger OnStageChange event
+        OnStageChange?.Invoke(this, new StageManagerArgs(stages[currentStage]));
     }
 
     /// <summary>
@@ -94,6 +116,9 @@ public class StageManager : MonoBehaviour
 
         //Load new stage
         stages[currentStage].StageLoad();
+
+        //Trigger OnStageChange event
+        OnStageChange?.Invoke(this, new StageManagerArgs(stages[currentStage]));
     }
 
     /// <summary>
@@ -104,4 +129,16 @@ public class StageManager : MonoBehaviour
     {
         return currentStage < stages.Length;
     }
+
+    /// <summary>
+    /// Tells if the stage manager is finished or not
+    /// </summary>
+    /// <returns>True if stage manager is finished, else false</returns>
+    public bool IsFinished()
+    {
+        return !IsAnyStageActive();
+    }
 }
+
+
+public delegate void StageHandler(StageManager caller, StageManagerArgs args);
