@@ -21,10 +21,22 @@ public class PlayerMovementController : MonoBehaviour
     /// Refference to model animator
     /// </summary>
     private Animator animator;
+    /// <summary>
+    /// State of the player interaction
+    /// </summary>
     private bool isInteracting;
+    /// <summary>
+    /// State of player running
+    /// </summary>
+    private bool isRunning;
+    private Quaternion targetRotation;
+
+    [Range(5.0f,15.0f)]
+    public float rotationSpeed = 10f;
 
     private void Start()
     {
+        targetRotation = transform.rotation;
         AllConditions.Instance.Reset();
         agent = GetComponent<NavMeshAgent>();
         cam = FindObjectOfType<Camera>();
@@ -32,6 +44,7 @@ public class PlayerMovementController : MonoBehaviour
 
         if (!agent)
             Debug.Log("Missing NavMeshAgent component!");
+        agent.updateRotation = false;
     }
 
     void Update()
@@ -43,27 +56,50 @@ public class PlayerMovementController : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit) && hit.transform.tag == "Ground")
             {
                 // If the click was on a solid object, move the agent there
                 this.MoveToPosition(hit.point);
             }
         }
 
-        if (agent.velocity != Vector3.zero)
-            animator.SetBool("isRunning", true);
-      
-        if (agent.remainingDistance < 0.5)
-            animator.SetBool("isRunning", false);
 
-        if (!animator.GetBool("isRunning") && Input.GetKeyDown("space"))
+        HandleState();
+        Debug.Log(":"+agent.pathPending);
+
+
+    }
+    private void LateUpdate()
+    {
+        if (agent.velocity.sqrMagnitude > Mathf.Epsilon && isRunning)
+            targetRotation = Quaternion.LookRotation(agent.velocity.normalized);
+
+        RotateAgent(targetRotation);
+    }
+
+    void RotateAgent(Quaternion lookRotation)
+    {
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
+    }
+
+    void HandleState()
+    {
+        if (agent.velocity != Vector3.zero)
+            isRunning = true;
+
+        if (agent.remainingDistance < 0.5 && isRunning )
+            isRunning = false;
+
+        // Set the animator running state
+        animator.SetBool("isRunning", isRunning);
+
+        if (!isRunning && Input.GetKeyDown("space"))
         {
-            animator.SetBool("isInteracting", true);
             isInteracting = true;
+            animator.SetBool("isInteracting", isInteracting);
         }
 
         isInteracting = animator.GetBool("isInteracting");
-        //Debug.Log(agent.remainingDistance);
     }
     /// <summary>
     /// Moves to position.
@@ -74,13 +110,30 @@ public class PlayerMovementController : MonoBehaviour
         if (!isInteracting)
         agent.SetDestination(position);
     }
-    /// <summary>
-    /// Moves to game object.
-    /// </summary>
-    /// <param name="targetObject">Target object.</param>
-    public void MoveToGameObject(GameObject targetObject)
+  
+
+
+    public void OnInteractableClick(Interactable interactable)
     {
-        if(!isInteracting)
-        MoveToPosition(targetObject.transform.position);
+        this.MoveToPosition(interactable.interactionLocation.position);
+      
+        StartCoroutine(WaitUntil(interactable));
     }
+
+
+
+    IEnumerator WaitUntil(Interactable interactable)
+    {
+        yield return new WaitUntil(() => !agent.pathPending && !isRunning && !agent.hasPath);
+
+        // Sets interacting status to true
+        isInteracting = true;
+        targetRotation = interactable.interactionLocation.rotation;
+        interactable.Interact();
+        // Sets interacting status to false
+        isInteracting = false;
+
+
+    }
+
 }
