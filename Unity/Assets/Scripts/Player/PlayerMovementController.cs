@@ -10,41 +10,55 @@ using UnityEngine.AI;
 public class PlayerMovementController : MonoBehaviour
 {
     /// <summary>
-    /// Reffernce to the main game camera
+    /// Reffernce to the main game camera.
     /// </summary>
     public Camera cam;
     /// <summary>
-    /// Refference to the Player`s navMeshAgent component
+    /// Refference to the Player`s navMeshAgent component.
     /// </summary>
     private NavMeshAgent agent;
     /// <summary>
-    /// Refference to model animator
+    /// Refference to model animator.
     /// </summary>
     private Animator animator;
     /// <summary>
-    /// State of the player interaction
+    /// State of the player interaction.
     /// </summary>
     private bool isInteracting;
     /// <summary>
-    /// State of player running
+    /// State of player running.
     /// </summary>
     private bool isRunning;
+    /// <summary>
+    /// Rotation of player needed to look at target.
+    /// </summary>
     private Quaternion targetRotation;
-
+    /// <summary>
+    /// The rotation speed.
+    /// </summary>
     [Range(5.0f,15.0f)]
     public float rotationSpeed = 10f;
 
     private void Start()
     {
+        // Set the default rotation (no rotation at all)
         targetRotation = transform.rotation;
         AllConditions.Instance.Reset();
         agent = GetComponent<NavMeshAgent>();
         cam = FindObjectOfType<Camera>();
         animator = GetComponentInChildren<Animator>();
+        // Do not rotate the agent
+        agent.updateRotation = false;
 
         if (!agent)
             Debug.Log("Missing NavMeshAgent component!");
-        agent.updateRotation = false;
+      
+        if (!cam)
+            Debug.Log("Missing Camera object in scene!");
+
+        if (!animator)
+            Debug.Log("Missing animator!");
+
     }
 
     void Update()
@@ -63,12 +77,10 @@ public class PlayerMovementController : MonoBehaviour
             }
         }
 
-
         HandleState();
-        Debug.Log(":"+agent.pathPending);
-
 
     }
+
     private void LateUpdate()
     {
         if (agent.velocity.sqrMagnitude > Mathf.Epsilon && isRunning)
@@ -76,12 +88,18 @@ public class PlayerMovementController : MonoBehaviour
 
         RotateAgent(targetRotation);
     }
-
+    /// <summary>
+    /// Rotates the agent.
+    /// </summary>
+    /// <param name="lookRotation">Look rotation.</param>
     void RotateAgent(Quaternion lookRotation)
     {
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
     }
 
+    /// <summary>
+    /// Handles animator and states, updates them.
+    /// </summary>
     void HandleState()
     {
         if (agent.velocity != Vector3.zero)
@@ -92,12 +110,6 @@ public class PlayerMovementController : MonoBehaviour
 
         // Set the animator running state
         animator.SetBool("isRunning", isRunning);
-
-        if (!isRunning && Input.GetKeyDown("space"))
-        {
-            isInteracting = true;
-            animator.SetBool("isInteracting", isInteracting);
-        }
 
         isInteracting = animator.GetBool("isInteracting");
     }
@@ -111,8 +123,10 @@ public class PlayerMovementController : MonoBehaviour
         agent.SetDestination(position);
     }
   
-
-
+    /// <summary>
+    /// Interactible response method
+    /// </summary>
+    /// <param name="interactable">Interactable.</param>
     public void OnInteractableClick(Interactable interactable)
     {
         this.MoveToPosition(interactable.interactionLocation.position);
@@ -120,8 +134,11 @@ public class PlayerMovementController : MonoBehaviour
         StartCoroutine(WaitUntil(interactable));
     }
 
-
-
+    /// <summary>
+    /// Coroutine, that manages actions after finishing the path.
+    /// </summary>
+    /// <returns>The until.</returns>
+    /// <param name="interactable">Interactable.</param>
     IEnumerator WaitUntil(Interactable interactable)
     {
         yield return new WaitUntil(() => !agent.pathPending && !isRunning && !agent.hasPath);
@@ -129,6 +146,7 @@ public class PlayerMovementController : MonoBehaviour
         // Sets interacting status to true
         isInteracting = true;
         targetRotation = interactable.interactionLocation.rotation;
+        animator.SetBool("isInteracting", isInteracting);
         interactable.Interact();
         // Sets interacting status to false
         isInteracting = false;
