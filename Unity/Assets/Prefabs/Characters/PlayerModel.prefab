@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4069105491085773087
+--- !u!1001 &1412074020683992658
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,32 +10,22 @@ PrefabInstance:
     - target: {fileID: 3250267918192616496, guid: 6c3835dd088f84948a2529b732acd5cc,
         type: 3}
       propertyPath: m_Name
-      value: Postman
+      value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3250267916592333315, guid: 6c3835dd088f84948a2529b732acd5cc,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8052b16d1bb7bc646b8da3716d25da4c, type: 2}
-    - target: {fileID: 3250267916592333315, guid: 6c3835dd088f84948a2529b732acd5cc,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2eaf68775d048304ab7a6c7352824f6f, type: 2}
     - target: {fileID: 3250267917418740702, guid: 6c3835dd088f84948a2529b732acd5cc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.3378334
       objectReference: {fileID: 0}
     - target: {fileID: 3250267917418740702, guid: 6c3835dd088f84948a2529b732acd5cc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.1836576e-19
       objectReference: {fileID: 0}
     - target: {fileID: 3250267917418740702, guid: 6c3835dd088f84948a2529b732acd5cc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.78674555
       objectReference: {fileID: 0}
     - target: {fileID: 3250267917418740702, guid: 6c3835dd088f84948a2529b732acd5cc,
         type: 3}

@@ -828,8 +828,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31158351468af4f728d37f9b07ded0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameTextField: {fileID: 2134888424}
-  dialogTextField: {fileID: 1838441454}
+  DialogDelay: 3
+  spawner: {fileID: 0}
 --- !u!4 &1726328966
 Transform:
   m_ObjectHideFlags: 0
