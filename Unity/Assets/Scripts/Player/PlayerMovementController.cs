@@ -12,7 +12,7 @@ public class PlayerMovementController : MonoBehaviour
     /// <summary>
     /// Reffernce to the main game camera.
     /// </summary>
-    public Camera cam;
+    private Camera cam;
     /// <summary>
     /// Refference to the Player`s navMeshAgent component.
     /// </summary>
@@ -24,7 +24,7 @@ public class PlayerMovementController : MonoBehaviour
     /// <summary>
     /// State of the player interaction.
     /// </summary>
-    public bool isInteracting;
+    private bool isInteracting;
     /// <summary>
     /// State of player running.
     /// </summary>
@@ -136,6 +136,7 @@ public class PlayerMovementController : MonoBehaviour
     /// <param name="interactable">Interactable.</param>
     public void OnInteractableClick(Interactable interactable)
     {
+        isRunning = true;
         this.MoveToPosition(interactable.interactionLocation.position);
       
         StartCoroutine(WaitUntil(interactable));
@@ -149,6 +150,7 @@ public class PlayerMovementController : MonoBehaviour
     /// <param name="interactable">Interactable.</param>
     IEnumerator WaitUntil(Interactable interactable)
     {
+        Debug.Log("adsa");
         yield return new WaitUntil(() => !agent.pathPending && !isRunning && !agent.hasPath);
 
         // Sets interacting status to true
