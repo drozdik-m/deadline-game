@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Debug reaction is debugging tool for testing reactions
+/// Reaction that handles adding to inventory
 /// </summary>
 public class InventoryItemReaction : Reaction
 {
