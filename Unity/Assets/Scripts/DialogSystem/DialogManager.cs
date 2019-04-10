@@ -32,11 +32,6 @@ public class DialogManager : MonoBehaviour
         isActive = false;
     }
 
-    private void Update()
-    {
-     
-    }
-
     /// <summary>
     /// Starts the dialog.
     /// </summary>
@@ -105,6 +100,10 @@ public class DialogManager : MonoBehaviour
         CancelInvoke();
         setPlayerMovement(false);
     }
+    /// <summary>
+    /// Gets the player head (point of bubble render).
+    /// </summary>
+    /// <returns>The player head.</returns>
     private GameObject getPlayerHead()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -118,7 +117,9 @@ public class DialogManager : MonoBehaviour
         }
         return null;
     }
-
+    /// <summary>
+    /// Prepares for start of the dialog a starts it.
+    /// </summary>
     private void prepareForStart()
     {
         if (!isActive)
@@ -130,7 +131,10 @@ public class DialogManager : MonoBehaviour
             StartCoroutine(Invoker());
         }
     }
-
+    /// <summary>
+    /// Invokes each sentence.
+    /// </summary>
+    /// <returns>The invoker.</returns>
     IEnumerator Invoker()
     {
         while (isActive)
@@ -140,7 +144,8 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    void setPlayerMovement(bool isDisabled)
+
+    private void setPlayerMovement(bool isDisabled)
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player)

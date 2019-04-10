@@ -30,9 +30,12 @@ public class PlayerMovementController : MonoBehaviour
     /// </summary>
     private bool isRunning;
     /// <summary>
-    /// Rotation of player needed to look at target.
+    /// State of the playermovement
     /// </summary>
-    private bool isDisabled;  
+    private bool isDisabled;
+    /// <summary>
+    /// Rotation of player needed to look at target.
+    /// </summary> 
     private Quaternion targetRotation;
     /// <summary>
     /// The rotation speed.
@@ -110,7 +113,7 @@ public class PlayerMovementController : MonoBehaviour
         if (agent.velocity != Vector3.zero)
             isRunning = true;
 
-        if (agent.remainingDistance < 0.2 && isRunning )
+        if (agent.remainingDistance < 0.3 && isRunning )
             isRunning = false;
 
         // Set the animator running state
