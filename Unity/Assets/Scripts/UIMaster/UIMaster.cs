@@ -8,7 +8,7 @@ using UnityEngine;
 public class UIMaster : MonoBehaviour
 {
     /// <summary>
-    /// Menu UI that control all buttons in menu
+    /// Menu UI that control all buttons in the menu
     /// </summary>
     public MenuUIManager MenuUI;
 
