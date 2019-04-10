@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// User Interface manager
 /// </summary>
-public class UIManager : MonoBehaviour
+public class MenuUIManager : MonoBehaviour
 {
     /// <summary>
     /// Menu panel

@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class UIMaster : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public MenuUIManager MenuUI;
+    public InventoryUIController InventoryUI;
+    public QuestsUIController QuestUI;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

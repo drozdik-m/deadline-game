@@ -51,6 +51,9 @@ public class InventoryUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (Inventory == null)
+            Inventory = GameObject.FindGameObjectWithTag ("MainInventory").GetComponent<Inventory> ();
+
         Inventory.OnChange += OnChange;
         ActualItemsImage.sprite = null;
         ItemTypeText.text = "";
@@ -69,7 +72,8 @@ public class InventoryUIController : MonoBehaviour
     /// </summary>
     public void Drop()
     {
-        Inventory.Drop ();
+        if (Inventory != null)
+            Inventory.Drop ();
     }
 
     /// <summary>
