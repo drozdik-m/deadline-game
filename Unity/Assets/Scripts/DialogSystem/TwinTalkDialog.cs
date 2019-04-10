@@ -8,7 +8,7 @@ public class TwinTalkDialog : ScriptableObject
     [System.Serializable]
     public class SentenceStructure
     {
-        public int characterId;
+        public char characterId;
         [TextArea(2, 30)]
         public string sentence;
     }
