@@ -6,11 +6,13 @@ public class DialogTriggerSimulator : MonoBehaviour
 {
     public DialogManager dm;
     public TwinTalkDialog std;
+    public GameObject target;
     // Start is called before the first frame update
+
     void Update()
     {
         if (Input.GetKeyDown("escape"))
-                dm.startDialog(std);
+            dm.AddDialog(std,target);
     }
 
 }

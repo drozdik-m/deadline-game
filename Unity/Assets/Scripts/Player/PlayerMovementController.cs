@@ -24,7 +24,7 @@ public class PlayerMovementController : MonoBehaviour
     /// <summary>
     /// State of the player interaction.
     /// </summary>
-    private bool isInteracting;
+    public bool isInteracting;
     /// <summary>
     /// State of player running.
     /// </summary>
@@ -32,6 +32,7 @@ public class PlayerMovementController : MonoBehaviour
     /// <summary>
     /// Rotation of player needed to look at target.
     /// </summary>
+    private bool isDisabled;  
     private Quaternion targetRotation;
     /// <summary>
     /// The rotation speed.
@@ -96,6 +97,10 @@ public class PlayerMovementController : MonoBehaviour
     {
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
     }
+    public void SetState(bool state)
+    {
+        isDisabled = state;
+    }
 
     /// <summary>
     /// Handles animator and states, updates them.
@@ -105,7 +110,7 @@ public class PlayerMovementController : MonoBehaviour
         if (agent.velocity != Vector3.zero)
             isRunning = true;
 
-        if (agent.remainingDistance < 0.5 && isRunning )
+        if (agent.remainingDistance < 0.2 && isRunning )
             isRunning = false;
 
         // Set the animator running state
@@ -119,10 +124,9 @@ public class PlayerMovementController : MonoBehaviour
     /// <param name="position">Position.</param>
     public void MoveToPosition(Vector3 position)
     {
-        if (!isInteracting)
+        if (!isInteracting && !isDisabled)
         agent.SetDestination(position);
     }
-  
     /// <summary>
     /// Interactible response method
     /// </summary>
@@ -134,6 +138,7 @@ public class PlayerMovementController : MonoBehaviour
         StartCoroutine(WaitUntil(interactable));
     }
 
+ 
     /// <summary>
     /// Coroutine, that manages actions after finishing the path.
     /// </summary>
@@ -150,8 +155,6 @@ public class PlayerMovementController : MonoBehaviour
         interactable.Interact();
         // Sets interacting status to false
         isInteracting = false;
-
-
     }
 
 }
