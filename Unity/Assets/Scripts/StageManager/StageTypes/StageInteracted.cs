@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,21 +8,22 @@ using UnityEngine;
 /// </summary>
 public class StageInteracted : Stage
 {
+    public InteractionEventMiddleman interactionEventMiddleman;
     private bool hasBeenInteractedWith = false;
 
+    private void Start()
+    {
+        interactionEventMiddleman.OnInteract += OnReactionEvent;
+    }
 
+    private void OnReactionEvent(ReactionEvent caller, object args)
+    {
+        hasBeenInteractedWith = true;
+    }
 
     public override bool ReadyForNextStage()
     {
         return hasBeenInteractedWith;
-    }
-
-    /// <summary>
-    /// Sets that an item has been interacted with
-    /// </summary>
-    public void HasBeenInteractedWith()
-    {
-        hasBeenInteractedWith = true;
     }
 
     public override void StageEnd()
@@ -36,13 +38,11 @@ public class StageInteracted : Stage
 
     public override void StageLoad()
     {
-        
+        hasBeenInteractedWith = false;
     }
 
     public override void StageUpdate()
     {
        
     }
-
-
 }
