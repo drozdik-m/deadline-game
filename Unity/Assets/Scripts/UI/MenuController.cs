@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 /// <summary>
 /// Class control button events in Menu
@@ -11,6 +13,16 @@ public class MenuController : MonoBehaviour
     /// Options Menu
     /// </summary>
     public GameObject OptionsPanel;
+
+    /// <summary>
+    /// Audio mixer 
+    /// </summary>
+    public AudioMixer AudioMixerMaster;
+
+    /// <summary>
+    /// Slider that keep volume value
+    /// </summary>
+    public Slider VolumeSlider;
 
     private void Start()
     {
@@ -31,6 +43,13 @@ public class MenuController : MonoBehaviour
     public void CloseOptionsMenu()
     {
         OptionsPanel.SetActive (false);
+    }
+    /// <summary>
+    /// Change the volume of the game
+    /// </summary>
+    public void SetVolume()
+    {
+        AudioMixerMaster.SetFloat ("ExposedMasterVolume", VolumeSlider.value);
     }
 
     /// <summary>

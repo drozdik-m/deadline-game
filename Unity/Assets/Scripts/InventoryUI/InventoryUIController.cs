@@ -52,9 +52,11 @@ public class InventoryUIController : MonoBehaviour
     void Start()
     {
         if (Inventory == null)
-            Inventory = GameObject.FindGameObjectWithTag ("MainInventory").GetComponent<Inventory> ();
+            Inventory = GameObject.FindGameObjectWithTag ("MainInventory")?.GetComponent<Inventory> ();
 
-        Inventory.OnChange += OnChange;
+        if(Inventory != null)
+            Inventory.OnChange += OnChange;
+
         ActualItemsImage.sprite = null;
         ItemTypeText.text = "";
         isInventoryEmpty = true;

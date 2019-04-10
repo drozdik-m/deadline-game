@@ -42,10 +42,9 @@ public class MenuUIManager : MonoBehaviour
             Time.timeScale = 1f;
 
             // Close Option panel, if it was opened
-            Transform optionPanel = MenuPanel.transform.Find ("OptionsPanel");
-            optionPanel.gameObject.SetActive (false);
+            MenuController optionPanel = MenuPanel.GetComponent<MenuController> ();
+            optionPanel.CloseOptionsMenu ();
         }
-
         MenuPanel.SetActive (menuOpen);
     }
 }
