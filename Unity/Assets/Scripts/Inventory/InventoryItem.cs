@@ -71,6 +71,9 @@ public class InventoryItem : MonoBehaviour
     /// <returns>True if equal</returns>
     public static bool operator == (InventoryItem invItem, InventoryItemID itemEnum)
     {
+        if (invItem == null || itemEnum == InventoryItemID.None)
+            return false;
+
         return invItem.ItemType == itemEnum;
     }
 

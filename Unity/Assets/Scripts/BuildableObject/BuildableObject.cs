@@ -5,12 +5,17 @@ using UnityEngine;
 
 public class BuildableObject : MonoBehaviour
 {
-    public BuildStageCollection stageObjectCollection
-        = new BuildStageCollection();
+    // přidat OnStageChange a OnStageFinished eventy (do EventArgs dát IsFinished a CurrentState, silně typovaně);
+    // 
+    // metoda IsFinished();
+
+    BuildStageCollection stageObjectCollection;
     private BuildStage currentStage;
 
     private void Start()
     {
+        stageObjectCollection = GetComponent<BuildStageCollection>();
+
         if (stageObjectCollection.Count() < 1)
             Debug.Log("Buildable object '" + name + "' must have atleast one stage");
         else
@@ -44,5 +49,9 @@ public class BuildableObject : MonoBehaviour
         currentStage.Dismiss();
         currentStage = stageObjectCollection.Dequeue();
         currentStage.Init();
+
+        
     }
+
+
 }

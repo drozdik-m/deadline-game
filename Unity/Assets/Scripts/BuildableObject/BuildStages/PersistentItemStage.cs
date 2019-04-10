@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class PersistentItemStage : BuildStage
 {
-    public Inventory inventory;
-    public InventoryItem desiredItem;
+    public Inventory overrideInventory;
+    public InventoryItemID desiredItem;
 
     public override bool ConditionsSatisfied()
     {
-        // check if the item is in the inventory
-        if (inventory == null)
-            inventory = GameObject.FindGameObjectWithTag("MainInventory").GetComponent<Inventory>();
 
-        if (inventory == null)
+        // check if the item is in the inventory
+        if (overrideInventory == null)
+            overrideInventory = GameObject.FindGameObjectWithTag("MainInventory").GetComponent<Inventory>();
+
+        if (overrideInventory == null)
         {
-            Debug.Log("PersistentItemStage: Inventory is null event after trying to find it");
+            Debug.LogError("PersistentItemStage: Inventory is null event after trying to find it");
             return false;
         }
             
-        return inventory.CurrentItem == desiredItem;
+        return overrideInventory.CurrentItem == desiredItem;
     }
 }

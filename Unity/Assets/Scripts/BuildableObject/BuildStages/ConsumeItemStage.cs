@@ -5,32 +5,34 @@ using UnityEngine;
 
 public class ConsumeItemStage : BuildStage
 {
-    public Inventory inventory;
-    public InventoryItem desiredItem;
+    public Inventory overrideInventory;
+    public InventoryItemID desiredItem;
 
     public override bool ConditionsSatisfied()
     {
+        Debug.Log("Conditions satisfied in ConsumeItemStage");
         // check if the item is in the inventory
-        if (inventory == null)
-            inventory = GameObject.FindGameObjectWithTag("MainInventory").GetComponent<Inventory>();
+        if (overrideInventory == null)
+            overrideInventory = GameObject.FindGameObjectWithTag("MainInventory").GetComponent<Inventory>();
 
-        if (inventory == null)
+        if (overrideInventory == null)
         {
-            Debug.Log("PersistentItemStage: Inventory is null event after trying to find it");
+            Debug.LogError("PersistentItemStage: Inventory is null event after trying to find it");
             return false;
         }
-
-        if (desiredItem == inventory.CurrentItem)
+        
+        if (overrideInventory.CurrentItem == desiredItem)
         {
-            DestroyInventoryItem(inventory.CurrentItem);
+            DestroyInventoryItem();
             return true;
         }
         else
             return false;
     }
 
-    private void DestroyInventoryItem(InventoryItem currentItem)
+    private void DestroyInventoryItem()
     {
-        throw new NotImplementedException();
+        Debug.Log("ConsumeItemStage.DestroyInventoryItem() called");
+        overrideInventory.DisposeCurrentItem();
     }
 }
