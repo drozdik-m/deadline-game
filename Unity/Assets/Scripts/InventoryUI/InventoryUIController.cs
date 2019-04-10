@@ -11,7 +11,7 @@ public class InventoryUIController : MonoBehaviour
     /// <summary>
     /// Actual inventory
     /// </summary>
-    public Inventory Inventory;
+    public Inventory OverrideInventory;
 
     /// <summary>
     /// Image of the item in the UI inventory
@@ -51,11 +51,11 @@ public class InventoryUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Inventory == null)
-            Inventory = GameObject.FindGameObjectWithTag ("MainInventory")?.GetComponent<Inventory> ();
+        if (OverrideInventory == null)
+            OverrideInventory = GameObject.FindGameObjectWithTag("MainInventory")?.GetComponent<Inventory> ();
 
-        if(Inventory != null)
-            Inventory.OnChange += OnChange;
+        if(OverrideInventory != null)
+            OverrideInventory.OnChange += OnChange;
 
         ActualItemsImage.sprite = null;
         ItemTypeText.text = "";
@@ -74,8 +74,8 @@ public class InventoryUIController : MonoBehaviour
     /// </summary>
     public void Drop()
     {
-        if (Inventory != null)
-            Inventory.Drop ();
+        if (OverrideInventory != null)
+            OverrideInventory.Drop ();
     }
 
     /// <summary>
