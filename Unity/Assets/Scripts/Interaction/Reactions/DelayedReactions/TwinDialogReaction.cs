@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Reaction for making dialog with the target
 /// </summary>
-public class TwinDialogReaction : Reaction
+public class TwinDialogReaction : DelayedReaction
 {
     private GameObject dialogManagerObj;
     private DialogManager dialogManager;

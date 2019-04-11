@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Reaction with self dialog
 /// </summary>
-public class SelfDialogReaction : Reaction
+public class SelfDialogReaction : DelayedReaction
 {
     private GameObject dialogManagerObj;
     private DialogManager dialogManager;

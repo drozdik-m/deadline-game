@@ -39,6 +39,18 @@ public class PlayerMovementController : MonoBehaviour
     /// </summary> 
     private Quaternion targetRotation;
     /// <summary>
+    /// The proximity movement.
+    /// </summary>
+    bool proximityMovement = false;
+    /// <summary>
+    /// The proximity movement distance.
+    /// </summary>
+    float proximityMovementDistance;
+    /// <summary>
+    /// The proximity target.
+    /// </summary>
+    Vector3 proximityTarget = Vector3.forward;
+    /// <summary>
     /// The rotation speed.
     /// </summary>
     [Range(5.0f, 15.0f)]
@@ -124,7 +136,7 @@ public class PlayerMovementController : MonoBehaviour
         if (agent.velocity != Vector3.zero)
             isRunning = true;
 
-        if (agent.remainingDistance < 0.3 && isRunning)
+        if (agent.remainingDistance < 0.3f && isRunning)
             isRunning = false;
 
         // Set the animator running state
@@ -142,25 +154,23 @@ public class PlayerMovementController : MonoBehaviour
             agent.SetDestination(position);
     }
 
-    /// <summary>
-    /// Stop the player from moving (cancels current agent path)
-    /// </summary>
-    public void StopMoving()
-    {
-        agent.isStopped = true;
-        isRunning = false;
-        proximityMovement = false;
-    }
-
-    bool proximityMovement = false;
-    float proximityMovementDistance;
-    Vector3 proximityTarget = Vector3.forward;
     public void MoveToPosition(Vector3 position, float proximity)
     {
         MoveToPosition(position);
         SetProximityFlags(position, proximity);
     }
 
+
+    /// <summary>
+    /// Stop the player from moving (cancels current agent path)
+    /// </summary>
+    public void StopMoving()
+    {
+        agent.ResetPath();
+        isRunning = false;
+    }
+
+ 
     private void SetProximityFlags(Vector3 target, float proximity)
     {
         proximityMovement = true;
@@ -175,7 +185,15 @@ public class PlayerMovementController : MonoBehaviour
     public void OnInteractableClick(Interactable interactable)
     {
         isRunning = true;
-        this.MoveToPosition(interactable.interactionLocation.position);
+
+        if (interactable.useProximity)
+        {
+            this.MoveToPosition(interactable.interactionLocation.position, interactable.proximity);
+        }
+        else
+        {
+            this.MoveToPosition(interactable.interactionLocation.position);
+        }
 
         StartCoroutine(WaitUntil(interactable));
     }
@@ -197,16 +215,16 @@ public class PlayerMovementController : MonoBehaviour
     /// <param name="interactable">Interactable.</param>
     IEnumerator WaitUntil(Interactable interactable)
     {
-        Debug.Log("adsa");
         yield return new WaitUntil(() => !agent.pathPending && !isRunning && !agent.hasPath);
 
         // Sets interacting status to true
         isInteracting = true;
-        targetRotation = interactable.interactionLocation.rotation;
-        animator.SetBool("isInteracting", isInteracting);
+        if (!proximityMovement)
+            targetRotation = interactable.interactionLocation.rotation;
+        proximityMovement = false;
         interactable.Interact();
         // Sets interacting status to false
-        isInteracting = false;
+       // isInteracting = false;
     }
 
 }

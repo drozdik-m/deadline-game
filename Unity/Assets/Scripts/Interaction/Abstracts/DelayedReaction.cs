@@ -21,6 +21,7 @@ public abstract class DelayedReaction : Reaction
     /// </summary>
     public new void Init()
     {
+        base.Init();
         wait = new WaitForSeconds(delay);
     }
 

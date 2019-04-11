@@ -45,13 +45,13 @@ public class DialogManager : MonoBehaviour
         }
 
 
-        prepareForStart();
-
         foreach (var sentence in dialog.sentences)
         {
             sentences.Enqueue(new KeyValuePair<Transform, string>(target.transform, sentence));
         }
- 
+
+        prepareForStart();
+
     }
     /// <summary>
     /// Starts the dialog.
@@ -67,7 +67,7 @@ public class DialogManager : MonoBehaviour
 
         foreach (var structuredSentence in dialog.structuredSentences)
         {
-            var currentTarget = structuredSentence.characterId == 'A' ? targetA : targetB;
+            var currentTarget = structuredSentence.CharacterID == TwinTalkDialog.SentenceStructure.CharacterIdentifier.A  ? targetA : targetB;
             sentences.Enqueue(new KeyValuePair<Transform, string>(currentTarget.transform, structuredSentence.sentence));
         }
         prepareForStart();
@@ -120,13 +120,13 @@ public class DialogManager : MonoBehaviour
     /// <summary>
     /// Prepares for start of the dialog a starts it.
     /// </summary>
-    private void prepareForStart()
+    private void prepareForStart(bool isBlocking = true)
     {
         if (!isActive)
         {
 
             isActive = true;
-            setPlayerMovement(true);
+            setPlayerMovement(isBlocking);
             nextSentence();
             StartCoroutine(Invoker());
         }

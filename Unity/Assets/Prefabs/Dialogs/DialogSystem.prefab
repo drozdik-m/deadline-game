@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5393039808557198710}
   m_Layer: 0
   m_Name: DialogManager
-  m_TagString: Untagged
+  m_TagString: DialogManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,13 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31158351468af4f728d37f9b07ded0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOne: {fileID: 0}
-  playerTwo: {fileID: 0}
-  dialogCanvas: {fileID: 0}
-  textLabel: {fileID: 0}
-  offsetHorizontal: 0.07
-  offsetVertical: 0.04
-  dialogDelay: 3.12
+  DialogDelay: 3
   spawner: {fileID: 5393039808896842131}
 --- !u!1 &5393039808896842129
 GameObject:
