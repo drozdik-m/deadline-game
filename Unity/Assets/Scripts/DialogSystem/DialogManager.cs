@@ -9,40 +9,14 @@ using UnityEngine.UI;
 public class DialogManager : MonoBehaviour
 {
     /// <summary>
-    /// Refference to player One (main player).
+    /// The dialog delay.
     /// </summary>
-    public GameObject playerOne;
-    /// <summary>
-    /// Refference to player Two (usually npc).
-    /// </summary>
-    public GameObject playerTwo;
-    /// <summary>
-    /// Refference to dialog canvas.
-    /// </summary>
-    public GameObject dialogCanvas;
-    /// <summary>
-    /// Refference to dialog text label.
-    /// </summary>
-    public TextMeshProUGUI textLabel;
-    /// <summary>
-    /// Horizontal offset of the dialog bubble.
-    /// </summary>
-    [Range(-2, 2)]
-    public float offsetHorizontal;
-    /// <summary>
-    /// Vertical offset of the dialog bubble.
-    /// </summary>
-    [Range(-2, 2)]
-    public float offsetVertical;
-    /// <summary>
-    /// Delay between each sentence (in seconds).
-    /// </summary>
-    [Range(1,8)]
-    public float dialogDelay;
+    [Range(1, 8)]
+    public float DialogDelay = 3f;
     /// <summary>
     /// Queue of sentences (dialog).
     /// </summary>
-    private Queue<KeyValuePair<int,string>> sentences;
+    private Queue<KeyValuePair<Transform,string>> sentences;
     /// <summary>
     /// Dialog status.
     /// </summary>
@@ -50,86 +24,59 @@ public class DialogManager : MonoBehaviour
     /// <summary>
     /// Current dialog bubble target.
     /// </summary>
-    private GameObject currentTarget;
-    private string currentSentence;
+    public BubbleSpawner spawner;
 
     void Start()
     {
-        sentences = new Queue<KeyValuePair<int,string>>();
+        sentences = new Queue<KeyValuePair<Transform,string>>();
         isActive = false;
-
-    }
-
-    private void Update()
-    {
-        dialogCanvas.SetActive(isActive);
-        if (isActive)
-        {
-            handlePosition();
-            textLabel.SetText(currentSentence);
-        }
     }
 
     /// <summary>
     /// Starts the dialog.
     /// </summary>
     /// <param name="dialog">SelfTalkDialog.</param>
-    public void startDialog(SelfTalkDialog dialog)
+    public void AddDialog(SelfTalkDialog dialog, GameObject target = null )
     {
-        if (playerOne == null)
+        // AKA if the target is not passed by paramater, then use the player as target
+        if (target == null) 
         {
-            Debug.Log("PlayerOne not assigned!");
-            return;
-        }
-        if (isActive)
-        {
-            Debug.Log("Another dialog is in progress!");
-            return;
+            target = getPlayerHead();
         }
 
-        sentences.Clear();
-        currentTarget = dialog.characterId == 0 ? playerOne : playerTwo;
 
         foreach (var sentence in dialog.sentences)
         {
-            sentences.Enqueue(new KeyValuePair<int, string>(dialog.characterId, sentence));
+            sentences.Enqueue(new KeyValuePair<Transform, string>(target.transform, sentence));
         }
-         // Repeats calling nextSentece() after a user defined delay
-        InvokeRepeating("nextSentence", 0, dialogDelay);
 
+        prepareForStart();
 
     }
     /// <summary>
     /// Starts the dialog.
     /// </summary>
     /// <param name="dialog">TwinTalkDialog.</param>
-    public void startDialog(TwinTalkDialog dialog)
+    public void AddDialog(TwinTalkDialog dialog, GameObject targetB, GameObject targetA  = null)
     {
-        if (playerTwo == null)
-        {
-            Debug.Log("PlayerTwo not assigned!");
-            return;
-        }
-        if (isActive)
-        {
-            Debug.Log("Another dialog is in progress!");
-            return;
-        }
 
-        sentences.Clear();
+        if (targetA == null)
+        {
+            targetA = getPlayerHead();
+        }
 
         foreach (var structuredSentence in dialog.structuredSentences)
         {
-            sentences.Enqueue(new KeyValuePair<int, string>(structuredSentence.characterId, structuredSentence.sentence));
+            var currentTarget = structuredSentence.CharacterID == TwinTalkDialog.SentenceStructure.CharacterIdentifier.A  ? targetA : targetB;
+            sentences.Enqueue(new KeyValuePair<Transform, string>(currentTarget.transform, structuredSentence.sentence));
         }
-        // Repeats calling nextSentece() after a user defined delay
-        InvokeRepeating("nextSentence", 0, dialogDelay);
+        prepareForStart();
     }
 
     /// <summary>
     /// Nexts the dialog (next sentence)
     /// </summary>
-    public void nextSentence()
+    private void nextSentence()
     {
         if (sentences.Count == 0)
         {
@@ -139,31 +86,87 @@ public class DialogManager : MonoBehaviour
 
         var sentenceStruct = sentences.Dequeue();
         // Set the current target
-        currentTarget = sentenceStruct.Key == 0 ? playerOne : playerTwo;
-        currentSentence = sentenceStruct.Value;
-
-        isActive = true;
+        Transform currentTarget = sentenceStruct.Key;
+        spawner.Spawn(currentTarget, sentenceStruct.Value, DialogDelay);
 
     }
     /// <summary>
     /// End the of dialog.
     /// </summary>
-    void endOfDialog()
+    private void endOfDialog()
     {
         Debug.Log("End of dialog!");
         isActive = false;
         CancelInvoke();
+        setPlayerMovement(false);
     }
     /// <summary>
-    /// Handles the position of the dialog bubble according to target.
+    /// Gets the player head (point of bubble render).
     /// </summary>
-    void handlePosition()
+    /// <returns>The player head.</returns>
+    private GameObject getPlayerHead()
     {
-        if (isActive)
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player)
         {
-            Vector3 offset = new Vector3(offsetHorizontal, offsetVertical, -offsetHorizontal);
-            dialogCanvas.transform.position = currentTarget.transform.position + offset;
+            GameObject headCheck = player.transform.Find("HeadCheck").gameObject;
+            if (headCheck)
+            {
+                return headCheck;
+            }
+        }
+        return null;
+    }
+    /// <summary>
+    /// Prepares for start of the dialog a starts it.
+    /// </summary>
+    private void prepareForStart(bool isBlocking = true)
+    {
+        if (!isActive)
+        {
+
+            isActive = true;
+            setPlayerMovement(isBlocking);
+            nextSentence();
+            StartCoroutine(Invoker());
         }
     }
+    /// <summary>
+    /// Invokes each sentence.
+    /// </summary>
+    /// <returns>The invoker.</returns>
+    IEnumerator Invoker()
+    {
+        while (isActive)
+        {
+            yield return new WaitForSeconds(DialogDelay);
+            nextSentence();
+        }
+    }
+
+
+    private void setPlayerMovement(bool isDisabled)
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player)
+        {
+        
+            PlayerMovementController pmc = player.GetComponent<PlayerMovementController>();
+            if (pmc)
+            { 
+            pmc.SetState(isDisabled);
+            }
+        }
+    }
+    /// <summary>
+    /// Dialog is in progress.
+    /// </summary>
+    /// <returns><c>true</c>, if in progress was dialoged, <c>false</c> otherwise.</returns>
+    public bool DialogInProgress()
+    {
+        return isActive;
+    }
+
+
 
 }

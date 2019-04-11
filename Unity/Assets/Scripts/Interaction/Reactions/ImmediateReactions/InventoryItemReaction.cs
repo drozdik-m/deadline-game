@@ -1,18 +1,18 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Debug reaction is debugging tool for testing reactions
+/// Reaction that handles adding to inventory
 /// </summary>
 public class InventoryItemReaction : Reaction
 {
-    public Inventory inventory;
+    public Inventory overrideInventory;
     public InventoryItem item;
 
     protected override void ImmediateReaction()
     {
-        if (inventory == null)
-            inventory = GameObject.FindGameObjectWithTag("MainInventory").GetComponent<Inventory>();
+        if (overrideInventory == null)
+            overrideInventory = GameObject.FindGameObjectWithTag("MainInventory").GetComponent<Inventory>();
 
-        inventory.PickUp(item);
+        overrideInventory.PickUp(item);
     }
 }

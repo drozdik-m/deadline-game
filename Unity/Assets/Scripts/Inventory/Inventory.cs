@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,6 +36,20 @@ public class Inventory : MonoBehaviour
         OnChange?.Invoke(this, new InventoryChangeEventArgs(CurrentItem.ItemType));
 
         return true;
+    }
+
+    /// <summary>
+    /// Disposes currently equiped item.
+    /// </summary>
+    public void DisposeCurrentItem()
+    {
+        if (CurrentItem == null)
+            return;
+
+        Destroy(CurrentItem.gameObject);
+        CurrentItem = null;
+
+        OnChange?.Invoke(this, new InventoryChangeEventArgs(InventoryItemID.None));
     }
 
     /// <summary>

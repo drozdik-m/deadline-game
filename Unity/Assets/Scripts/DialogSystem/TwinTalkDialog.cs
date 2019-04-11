@@ -5,10 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Twin-talk Dialog", menuName = "Dialog/Twin-talk dialog")]
 public class TwinTalkDialog : ScriptableObject
 {
+ 
+
     [System.Serializable]
     public class SentenceStructure
     {
-        public int characterId;
+        public enum CharacterIdentifier
+        {
+            A,
+            B
+        }
+        public CharacterIdentifier CharacterID;
         [TextArea(2, 30)]
         public string sentence;
     }
