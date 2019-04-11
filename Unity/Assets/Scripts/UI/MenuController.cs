@@ -50,6 +50,16 @@ public class MenuController : MonoBehaviour
     public void SetVolume()
     {
         AudioMixerMaster.SetFloat ("ExposedMasterVolume", VolumeSlider.value);
+        AudioMixerMaster.SetFloat ("ExposedBackgroundVolume", VolumeSlider.value);
+        AudioMixerMaster.SetFloat ("ExposedSoundEffectsVolume", VolumeSlider.value);
+    }
+
+    /// <summary>
+    /// Start the game
+    /// </summary>
+    public void StartGame()
+    {
+        FindObjectOfType<ScenesWorkflow> ().NextScene ();
     }
 
     /// <summary>
