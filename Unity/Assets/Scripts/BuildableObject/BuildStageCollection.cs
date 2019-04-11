@@ -16,21 +16,11 @@ public class BuildStageCollection : MonoBehaviour
         if (stages.Length == 0)
             throw new ArgumentException("BuildStageCollection must have atleast one stage");
 
-        // hide everything but first gameObject
-        BuildStagesSetup();
-
         remaining = stages.Length;
         nextIndex = 0;
 
         currentBuildStage = GetNext();
-    }
-
-    // hides all gameobjects but first
-    private void BuildStagesSetup()
-    {
-        stages[0].gameObject.SetActive(true);
-        for (int i = 1; i < stages.Length; i++)
-            stages[i].gameObject.SetActive(false);
+        currentBuildStage.Init();
     }
 
     public int Remaining()

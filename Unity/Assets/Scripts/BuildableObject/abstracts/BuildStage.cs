@@ -7,17 +7,17 @@ using UnityEngine;
 /// </summary>
 public abstract class BuildStage : ScriptableObject
 {
-    public GameObject gameObject;
+    public GameObject[] gameObjectsToActive;
+    public GameObject[] gameObjectsToHide;
+
     public abstract bool ConditionsSatisfied();
 
     public virtual void Init()
     {
-        gameObject.SetActive(true);
-    }
+        foreach (GameObject go in gameObjectsToActive)
+            go.SetActive(true);
 
-    public virtual void Dismiss()
-    {
-        gameObject.SetActive(false);
+        foreach (GameObject go in gameObjectsToHide)
+            go.SetActive(false);
     }
-
 }

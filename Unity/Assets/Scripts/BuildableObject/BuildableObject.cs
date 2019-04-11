@@ -37,7 +37,6 @@ public class BuildableObject : MonoBehaviour
     /// </summary>
     private void buildNextStage()
     {
-        currentStage.Dismiss();
         currentStage = stageObjectCollection.GetNext();
         currentStage.Init();
     }
