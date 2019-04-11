@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Reaction that handles dialogs
+/// Reaction with self dialog
 /// </summary>
-public class DialogReaction : Reaction
+public class SelfDialogReaction : Reaction
 {
-    // sem si lze pridat jakekoliv public atributy potrebne k zavolani dialogu
     private GameObject dialogManagerObj;
     private DialogManager dialogManager;
 
-    public TwinTalkDialog twinTalkDialog;
+    /// <summary>
+    /// Self dialog that will be played
+    /// </summary>
     public SelfTalkDialog selfTalkDialog;
-
-    public GameObject target;
 
     protected override void SpecificInit()
     {
+        // find dialog manager in the scene
         dialogManagerObj = GameObject.FindGameObjectWithTag("DialogManager");
         if (dialogManagerObj == null)
         {
@@ -35,10 +35,6 @@ public class DialogReaction : Reaction
 
     protected override void ImmediateReaction()
     {
-        if (twinTalkDialog != null)
-            dialogManager.AddDialog(twinTalkDialog, target);
-        else
-            dialogManager.AddDialog(selfTalkDialog);
+        dialogManager.AddDialog(selfTalkDialog);
     }
-
 }
