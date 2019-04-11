@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -40,7 +41,7 @@ public class PlayerMovementController : MonoBehaviour
     /// <summary>
     /// The rotation speed.
     /// </summary>
-    [Range(5.0f,15.0f)]
+    [Range(5.0f, 15.0f)]
     public float rotationSpeed = 10f;
 
     private void Start()
@@ -56,7 +57,7 @@ public class PlayerMovementController : MonoBehaviour
 
         if (!agent)
             Debug.Log("Missing NavMeshAgent component!");
-      
+
         if (!cam)
             Debug.Log("Missing Camera object in scene!");
 
@@ -83,6 +84,16 @@ public class PlayerMovementController : MonoBehaviour
 
         HandleState();
 
+        HandleProximityUpdate();
+    }
+
+    private void HandleProximityUpdate()
+    {
+        if (!proximityMovement)
+            return;
+
+        if (Vector3.Distance(gameObject.transform.position, proximityTarget) < proximityMovementDistance)
+            StopMoving();
     }
 
     private void LateUpdate()
@@ -98,7 +109,7 @@ public class PlayerMovementController : MonoBehaviour
     /// <param name="lookRotation">Look rotation.</param>
     void RotateAgent(Quaternion lookRotation)
     {
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
     }
     public void SetState(bool state)
     {
@@ -113,7 +124,7 @@ public class PlayerMovementController : MonoBehaviour
         if (agent.velocity != Vector3.zero)
             isRunning = true;
 
-        if (agent.remainingDistance < 0.3 && isRunning )
+        if (agent.remainingDistance < 0.3 && isRunning)
             isRunning = false;
 
         // Set the animator running state
@@ -128,8 +139,35 @@ public class PlayerMovementController : MonoBehaviour
     public void MoveToPosition(Vector3 position)
     {
         if (!isInteracting && !isDisabled)
-        agent.SetDestination(position);
+            agent.SetDestination(position);
     }
+
+    /// <summary>
+    /// Stop the player from moving (cancels current agent path)
+    /// </summary>
+    public void StopMoving()
+    {
+        agent.isStopped = true;
+        isRunning = false;
+        proximityMovement = false;
+    }
+
+    bool proximityMovement = false;
+    float proximityMovementDistance;
+    Vector3 proximityTarget = Vector3.forward;
+    public void MoveToPosition(Vector3 position, float proximity)
+    {
+        MoveToPosition(position);
+        SetProximityFlags(position, proximity);
+    }
+
+    private void SetProximityFlags(Vector3 target, float proximity)
+    {
+        proximityMovement = true;
+        proximityMovementDistance = proximity;
+        proximityTarget = target;
+    }
+
     /// <summary>
     /// Interactible response method
     /// </summary>
@@ -138,11 +176,20 @@ public class PlayerMovementController : MonoBehaviour
     {
         isRunning = true;
         this.MoveToPosition(interactable.interactionLocation.position);
-      
+
         StartCoroutine(WaitUntil(interactable));
     }
 
- 
+    public void OnInteractableClick(Interactable interactable, float proximity)
+    {
+        isRunning = true;
+        this.MoveToPosition(interactable.interactionLocation.position, proximity);
+
+        StartCoroutine(WaitUntil(interactable));
+
+    }
+
+
     /// <summary>
     /// Coroutine, that manages actions after finishing the path.
     /// </summary>

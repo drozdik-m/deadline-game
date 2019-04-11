@@ -5,6 +5,15 @@
 /// </summary>
 public class Interactable : MonoBehaviour
 {
+    private void Start()
+    {
+        if (useProximity)
+        {
+            Transform connectedGameObjectTransform = connectedObject.GetComponent<Transform>();
+            interactionLocation = connectedGameObjectTransform.transform;
+        }
+    }
+
     /// <summary>
     /// interaction location sets the position for player to walk to before interacting
     /// </summary>
