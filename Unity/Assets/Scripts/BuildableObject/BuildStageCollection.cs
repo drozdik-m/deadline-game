@@ -5,31 +5,49 @@ using UnityEngine;
 
 public class BuildStageCollection : MonoBehaviour
 {
-    private int currIndex = 0;
+    private int remaining;
+    private int nextIndex;
     public BuildStage[] stages = new BuildStage[0];
+    public BuildStage currentBuildStage;
 
     public void Init()
     {
+        // do we have any stages connected?
+        if (stages.Length == 0)
+            throw new ArgumentException("BuildStageCollection must have atleast one stage");
+
+        // hide everything but first gameObject
+        BuildStagesSetup();
+
+        remaining = stages.Length;
+        nextIndex = 0;
+
+        currentBuildStage = GetNext();
+    }
+
+    // hides all gameobjects but first
+    private void BuildStagesSetup()
+    {
         stages[0].gameObject.SetActive(true);
-        int i = 1;
-        while (i != stages.Length)
-        {
+        for (int i = 1; i < stages.Length; i++)
             stages[i].gameObject.SetActive(false);
-            i++;
+    }
+
+    public int Remaining()
+    {
+        return remaining;
+    }
+
+    public BuildStage GetNext()
+    {
+        if (nextIndex != stages.Length)
+        {
+            BuildStage nextBuildStage = stages[nextIndex];
+            nextIndex++;
+            remaining--;
+            return nextBuildStage;
         }
-    }
-
-    public int Count()
-    {
-        return stages.Length - currIndex;
-    }
-
-    public BuildStage Dequeue()
-    {
-        if (currIndex >= stages.Length)
-            throw new IndexOutOfRangeException();
-        int tmp = currIndex;
-        currIndex++;
-        return stages[tmp];
+        else
+            throw new ArgumentOutOfRangeException("BuildStageCollection: GetNext on last item");
     }
 }

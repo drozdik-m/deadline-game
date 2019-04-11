@@ -10,7 +10,6 @@ public class ConsumeItemStage : BuildStage
 
     public override bool ConditionsSatisfied()
     {
-        Debug.Log("Conditions satisfied in ConsumeItemStage");
         // check if the item is in the inventory
         if (overrideInventory == null)
             overrideInventory = GameObject.FindGameObjectWithTag("MainInventory").GetComponent<Inventory>();
@@ -32,7 +31,6 @@ public class ConsumeItemStage : BuildStage
 
     private void DestroyInventoryItem()
     {
-        Debug.Log("ConsumeItemStage.DestroyInventoryItem() called");
         overrideInventory.DisposeCurrentItem();
     }
 }

@@ -15,24 +15,15 @@ public class BuildableObject : MonoBehaviour
     private void Start()
     {
         stageObjectCollection = GetComponent<BuildStageCollection>();
-
-        if (stageObjectCollection.Count() < 1)
-            Debug.Log("Buildable object '" + name + "' must have atleast one stage");
-        else
-            currentStage = stageObjectCollection.Dequeue();
-        
         stageObjectCollection.Init();
+
+        currentStage = stageObjectCollection.currentBuildStage;
     }
 
     public bool AttemptNextStage()
     {
-        if (stageObjectCollection.Count() == 0 || !currentStage.ConditionsSatisfied())
-        {
-            // here show dialog
-            Debug.Log("Conditions for building next stage are not satisfied");
-            return false;
-        }
-            
+        if (stageObjectCollection.Remaining() == 0 || !currentStage.ConditionsSatisfied())
+            return false;  
         else
         {
             buildNextStage();
@@ -47,10 +38,8 @@ public class BuildableObject : MonoBehaviour
     private void buildNextStage()
     {
         currentStage.Dismiss();
-        currentStage = stageObjectCollection.Dequeue();
+        currentStage = stageObjectCollection.GetNext();
         currentStage.Init();
-
-        
     }
 
 

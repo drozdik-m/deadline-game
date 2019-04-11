@@ -9,8 +9,6 @@ public class PersistentItemStage : BuildStage
 
     public override bool ConditionsSatisfied()
     {
-
-        // check if the item is in the inventory
         if (overrideInventory == null)
             overrideInventory = GameObject.FindGameObjectWithTag("MainInventory").GetComponent<Inventory>();
 
