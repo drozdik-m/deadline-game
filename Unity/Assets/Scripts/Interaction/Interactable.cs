@@ -11,6 +11,22 @@ public class Interactable : MonoBehaviour
     public Transform interactionLocation;
 
     /// <summary>
+    /// Game object from where the proximity will be counted
+    /// </summary>
+    public GameObject connectedObject;
+
+    /// <summary>
+    /// Idicates whether interactable uses interactable location
+    /// or proximty
+    /// </summary>
+    public bool useProximity;
+
+    /// <summary>
+    /// How wide the proximity will be
+    /// </summary>
+    public float proximity;
+
+    /// <summary>
     /// condition collections for conditional interaction
     /// </summary>
     public ConditionCollection[] conditionCollections = new ConditionCollection[0];
