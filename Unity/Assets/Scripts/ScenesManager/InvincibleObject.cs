@@ -22,7 +22,7 @@ public class InvincibleObject : MonoBehaviour
 
     void Start()
     {
-        
+        AllConditions.Instance.Reset();
     }
 
     void Update()
