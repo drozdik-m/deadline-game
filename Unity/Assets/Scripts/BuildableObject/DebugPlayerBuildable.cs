@@ -6,21 +6,12 @@ public class DebugPlayerBuildable : MonoBehaviour
 {
     public BuildableObject buildableObject;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void NextStage()
     {
-        if (Input.GetKeyDown("space"))
-        {
-            if (buildableObject.AttemptNextStage())
-                Debug.Log("NEXT STAGE! WOHOOO");
-            else
-                Debug.Log("NOPE!");
-
-        }
+        if (buildableObject.AttemptNextStage())
+            Debug.Log("Next stage approved");
+        else
+            Debug.Log("Next stage cannot be done");
     }
 }
