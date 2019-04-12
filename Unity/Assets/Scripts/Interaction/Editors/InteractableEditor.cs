@@ -7,7 +7,7 @@ using UnityEngine;
 [CustomEditor(typeof(Interactable))]
 public class InteractableEditor : EditorWithSubEditors<ConditionCollectionEditor, ConditionCollection>
 {
-    private const float PROXIMITY_FROM = 1;
+    private const float PROXIMITY_FROM = 0;
     private const float PROXIMITY_TO = 20;
 
     private Interactable interactable;

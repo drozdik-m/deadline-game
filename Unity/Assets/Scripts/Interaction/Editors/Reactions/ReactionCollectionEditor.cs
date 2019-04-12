@@ -151,7 +151,7 @@ public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Rea
             MonoScript script = DragAndDrop.objectReferences[i] as MonoScript;
             Type scriptType = script.GetClass();
 
-            if (!scriptType.IsSubclassOf(typeof(Reaction)))
+            if (!scriptType.IsSubclassOf(typeof(ReactionEditor)))
                 return false;
 
             if (scriptType.IsAbstract)
