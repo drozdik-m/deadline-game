@@ -577,7 +577,11 @@ MonoBehaviour:
   OverrideInventory: {fileID: 0}
   ActualItemsImage: {fileID: 3492902689059772907}
   ItemTypeText: {fileID: 3492902687918726170}
-  ImagesStorage: []
+  ImagesStorage:
+  - type: 2
+    sprite: {fileID: 21300000, guid: 2e748964cdd4fef4fb50b7b4800d7f11, type: 3}
+  - type: 3
+    sprite: {fileID: 21300000, guid: c5a1ab80c7f63874b934ad624a613a02, type: 3}
 --- !u!1 &3492902688958781484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,7 +1733,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OptionsPanel: {fileID: 8267551857693202362}
   AudioMixerMaster: {fileID: 24100000, guid: 5001ef365d14281468d7f6377f01c6ee, type: 2}
-  VolumeSlider: {fileID: 8267551856655687886}
+  MasterVolumeSlider: {fileID: 0}
+  BackgroundVolumeSlider: {fileID: 0}
+  SoundEffectsVolumeSlider: {fileID: 0}
 --- !u!1 &8267551856943256568
 GameObject:
   m_ObjectHideFlags: 0

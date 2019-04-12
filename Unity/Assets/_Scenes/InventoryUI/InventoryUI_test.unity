@@ -473,8 +473,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: c5a1ab80c7f63874b934ad624a613a02, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 2e748964cdd4fef4fb50b7b4800d7f11, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2839,6 +2839,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OptionsPanel: {fileID: 4811382487307332010}
+  AudioMixerMaster: {fileID: 0}
+  MasterVolumeSlider: {fileID: 0}
+  BackgroundVolumeSlider: {fileID: 0}
+  SoundEffectsVolumeSlider: {fileID: 0}
 --- !u!224 &4811382487111682173
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3756,7 +3760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373f293f7ee807a44b24bd6dfc4d7999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Inventory: {fileID: 1421551677}
+  OverrideInventory: {fileID: 0}
   ActualItemsImage: {fileID: 870188547}
   ItemTypeText: {fileID: 1291230133}
   ImagesStorage:
