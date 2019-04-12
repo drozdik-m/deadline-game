@@ -20,9 +20,19 @@ public class MenuController : MonoBehaviour
     public AudioMixer AudioMixerMaster;
 
     /// <summary>
-    /// Slider that keep volume value
+    /// Slider that keep master volume value
     /// </summary>
-    public Slider VolumeSlider;
+    public Slider MasterVolumeSlider;
+
+    /// <summary>
+    /// Slider that keep background volume value
+    /// </summary>
+    public Slider BackgroundVolumeSlider;
+
+    /// <summary>
+    /// Slider that keep sound effects volume value
+    /// </summary>
+    public Slider SoundEffectsVolumeSlider;
 
     private void Start()
     {
@@ -45,13 +55,27 @@ public class MenuController : MonoBehaviour
         OptionsPanel.SetActive (false);
     }
     /// <summary>
+    /// Change the master volume of the game
+    /// </summary>
+    public void SetMasterVolume()
+    {
+        AudioMixerMaster.SetFloat ("ExposedMasterVolume", MasterVolumeSlider.value);
+    }
+
+    /// <summary>
+    /// Change the background volume of the game
+    /// </summary>
+    public void SetBackgroundVolume()
+    {
+        AudioMixerMaster.SetFloat ("ExposedBackgroundVolume", BackgroundVolumeSlider.value);
+    }
+
+    /// <summary>
     /// Change the volume of the game
     /// </summary>
-    public void SetVolume()
+    public void SetSoundEffectsVolume()
     {
-        AudioMixerMaster.SetFloat ("ExposedMasterVolume", VolumeSlider.value);
-        AudioMixerMaster.SetFloat ("ExposedBackgroundVolume", VolumeSlider.value);
-        AudioMixerMaster.SetFloat ("ExposedSoundEffectsVolume", VolumeSlider.value);
+        AudioMixerMaster.SetFloat ("ExposedSoundEffectsVolume", SoundEffectsVolumeSlider.value);
     }
 
     /// <summary>
