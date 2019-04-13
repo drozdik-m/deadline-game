@@ -7,7 +7,7 @@ using UnityEngine;
 /// It represent the desired state of conditions and is used to
 /// be compared with conditions in AllConditions.
 /// </summary>
-public class ConditionCollection : ScriptableObject
+public class ConditionCollection : MonoBehaviour
 {
     /// <summary>
     /// Describes what condition collection is suppose to check

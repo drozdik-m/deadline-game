@@ -17,7 +17,6 @@ public class ConditionEditor : Editor
 
     private SerializedProperty descriptionProperty;
     private SerializedProperty satisfiedProperty;
-    private SerializedProperty hashProperty;
     private Condition condition;
 
     private const float conditionButtonWidth = 30f;
@@ -39,7 +38,6 @@ public class ConditionEditor : Editor
 
         descriptionProperty = serializedObject.FindProperty(conditionPropDescriptionName);
         satisfiedProperty = serializedObject.FindProperty(conditionPropSatisfiedName);
-        hashProperty = serializedObject.FindProperty(conditionPropHashName);
     }
 
     public override void OnInspectorGUI()
@@ -103,8 +101,6 @@ public class ConditionEditor : Editor
         Condition globalCondition = AllConditionsEditor.TryGetConditionAt(conditionIndex);
         descriptionProperty.stringValue = globalCondition != null ? globalCondition.description : blankDescription;
 
-        hashProperty.intValue = Animator.StringToHash(descriptionProperty.stringValue);
-
         EditorGUILayout.PropertyField(satisfiedProperty, GUIContent.none, GUILayout.Width(width + toggleOffset));
 
         if (GUILayout.Button("-", GUILayout.Width(conditionButtonWidth)))
@@ -123,7 +119,6 @@ public class ConditionEditor : Editor
         string blankDescription = "No conditions set.";
         Condition globalCondition = AllConditionsEditor.TryGetConditionAt(0);
         newCondition.description = globalCondition != null ? globalCondition.description : blankDescription;
-        SetHash(newCondition);
         return newCondition;
     }
 
@@ -131,12 +126,6 @@ public class ConditionEditor : Editor
     {
         Condition newCondition = CreateInstance<Condition>();
         newCondition.description = description;
-        SetHash(newCondition);
         return newCondition;
-    }
-
-    private static void SetHash(Condition condition)
-    {
-        condition.hash = Animator.StringToHash(condition.description);
     }
 }

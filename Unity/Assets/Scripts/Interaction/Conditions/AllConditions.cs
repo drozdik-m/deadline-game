@@ -66,7 +66,7 @@ public class AllConditions : ResettableScriptableObject
         // if yes, save it to globalCondition
         if (allConditions != null && allConditions[0] != null)
             for (int i = 0; i < allConditions.Length; i++)
-                if (allConditions[i].hash == requiredCondition.hash)
+                if (AllConditionsEditor.CompareConditions(allConditions[i], requiredCondition))
                     globalCondition = allConditions[i];
 
         // we did not find the global condition

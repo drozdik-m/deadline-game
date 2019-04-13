@@ -151,7 +151,7 @@ public class AllConditionsEditor : Editor
     public static int TryGetConditionIndex(Condition condition)
     {
         for (int i = 0; i < TryGetConditionsLength(); i++)
-            if (TryGetConditionAt(i).hash == condition.hash)
+            if (CompareConditions(TryGetConditionAt(i), condition))
                 return i;
     
         return -1;
@@ -178,5 +178,11 @@ public class AllConditionsEditor : Editor
             return 0;
 
         return AllConditions.Instance.conditions.Length;
+    }
+
+    public static bool CompareConditions(Condition c1, Condition c2)
+    {
+        if (c1.satisfied != c2.satisfied) return false;
+        return c1.description == c2.description;
     }
 }
