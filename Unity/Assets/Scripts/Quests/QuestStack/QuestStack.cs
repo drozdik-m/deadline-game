@@ -17,6 +17,18 @@ public class QuestStack : MonoBehaviour
     /// </summary>
     public Quest[] quests;
 
+    /// <summary>
+    /// Should the quests record?
+    /// </summary>
+    public bool Recording
+    {
+        set
+        {
+            for (int i = 0; i < quests.Length; i++)
+                quests[i].Recording = true;
+        }
+    }
+
     private void Start()
     {
         for (int i = 0; i < quests.Length; i++)

@@ -28,6 +28,11 @@ public class BackgroundMusic : MonoBehaviour
     /// </summary>
     public AudioClip HappyMusic;
 
+    /// <summary>
+    /// Elevator music clip
+    /// </summary>
+    public AudioClip ElevatorMusic;
+
     //Players
     private AudioSource audioSource;
     private FadingAudioSource fadingController;
@@ -56,6 +61,8 @@ public class BackgroundMusic : MonoBehaviour
             fadingController.Fade(ScaryMusic, 1, true);
         if (newTheme == BackgroundMusicTheme.Spooky)
             fadingController.Fade(SpookyMusic, 1, true);
+        if (newTheme == BackgroundMusicTheme.ElevatorMusic)
+            fadingController.Fade(ElevatorMusic, 1, true);
     }
 }
 
@@ -65,5 +72,6 @@ public enum BackgroundMusicTheme{
     Scary,
     Regular,
     Happy,
-    NoMusic
+    NoMusic,
+    ElevatorMusic
 }

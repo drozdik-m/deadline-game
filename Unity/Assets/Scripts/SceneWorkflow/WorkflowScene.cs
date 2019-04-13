@@ -64,6 +64,7 @@ public class WorkflowScene : MonoBehaviour
 
         if (MainStageManger != null)
         {
+            MainStageManger.OnStageChange -= OnMainStageManagerChange;
             MainStageManger.OnStageChange += OnMainStageManagerChange;
             MainStageManger.InitiateStages();
             

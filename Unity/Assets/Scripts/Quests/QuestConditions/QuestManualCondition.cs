@@ -7,6 +7,9 @@ using UnityEngine;
 /// </summary>
 public class QuestManualCondition : QuestCondition
 {
+    /// <summary>
+    /// Set complete status
+    /// </summary>
     public bool Completed
     {
         get
@@ -15,11 +18,16 @@ public class QuestManualCondition : QuestCondition
         }
         set
         {
+            if (!Recording)
+                return;
             completed = value;
             ConditionChanged(completed);
         }
     }
 
+    /// <summary>
+    /// Is the condition complete?
+    /// </summary>
     [SerializeField]
     private bool completed = false;
 

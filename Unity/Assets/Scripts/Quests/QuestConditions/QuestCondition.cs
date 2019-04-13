@@ -18,6 +18,28 @@ public abstract class QuestCondition : MonoBehaviour
     /// <returns>True if condition is met, else false</returns>
     public abstract bool ConditionMet();
 
+
+    /// <summary>
+    /// Should the condition record?
+    /// </summary>
+    public bool Recording
+    {
+        get
+        {
+            return recording;
+        }
+        set
+        {
+            recording = value;
+        }
+    }
+
+    /// <summary>
+    /// Is the condition recording?
+    /// </summary>
+    [SerializeField]
+    bool recording = false;
+
     /// <summary>
     /// Triggeres important events, acts as easy access for child classes. Call when condition status changed.
     /// </summary>

@@ -27,6 +27,11 @@ public class StageManager : MonoBehaviour
     /// </summary>
     public bool AutomaticStart = false;
 
+    /// <summary>
+    /// Is the stage manager initiated and running?
+    /// </summary>
+    bool initiated = false;
+
     private void Start()
     {
         if (AutomaticStart)
@@ -68,6 +73,7 @@ public class StageManager : MonoBehaviour
     /// </summary>
     public void InitiateStages()
     {
+        initiated = true;
         LoadFirstStage();
     }
 
@@ -127,7 +133,7 @@ public class StageManager : MonoBehaviour
     /// <returns>True if some stage is active</returns>
     public bool IsAnyStageActive()
     {
-        return currentStage < stages.Length;
+        return currentStage < stages.Length && initiated;
     }
 
     /// <summary>
@@ -136,7 +142,7 @@ public class StageManager : MonoBehaviour
     /// <returns>True if stage manager is finished, else false</returns>
     public bool IsFinished()
     {
-        return !IsAnyStageActive();
+        return !IsAnyStageActive() && initiated;
     }
 }
 

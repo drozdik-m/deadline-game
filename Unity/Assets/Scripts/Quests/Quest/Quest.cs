@@ -22,12 +22,22 @@ public class Quest : MonoBehaviour
     /// </summary>
     public event QuestHandler OnChange;
 
+    /// <summary>
+    /// Should the conditions record?
+    /// </summary>
+    public bool Recording
+    {
+        set
+        {
+            for (int i = 0; i < conditions.Length; i++)
+                conditions[i].Recording = true;
+        }
+    }
+
     void Start()
     {
         for (int i = 0; i < conditions.Length; i++)
-        {
             conditions[i].OnChange += OnConditionChangeCallback;
-        }
     }
 
     /// <summary>
@@ -54,6 +64,7 @@ public class Quest : MonoBehaviour
         return true;
     }
 
+    
 
 }
 

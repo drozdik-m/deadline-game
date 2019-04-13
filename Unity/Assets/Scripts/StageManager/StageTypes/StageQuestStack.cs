@@ -23,7 +23,7 @@ public class StageQuestStack : Stage
 
     public override void StageLoad()
     {
-        
+        questStack.Recording = true;
     }
 
     public override void StageUpdate()

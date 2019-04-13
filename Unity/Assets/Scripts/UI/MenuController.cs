@@ -83,7 +83,7 @@ public class MenuController : MonoBehaviour
     /// </summary>
     public void StartGame()
     {
-        FindObjectOfType<ScenesWorkflow> ().NextScene ();
+        FindObjectOfType<ScenesWorkflow>().NextScene();
     }
 
     /// <summary>

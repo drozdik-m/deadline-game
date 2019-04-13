@@ -45,9 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneName: Func_Thanks
   MainStageManger: {fileID: 0}
-  StageMusicTheme: 4
-  NextSceneTransitionColor: {r: 0, g: 0, b: 0, a: 1}
-  NextSceneTransitionSpeed: 2
+  StageMusicTheme: 3
+  NextSceneTransitionColor: {r: 0.16321677, g: 0.130162, b: 0.7075472, a: 1}
+  NextSceneTransitionSpeed: 1
 --- !u!1 &3067990164523406775
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,8 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StoryScenes:
   - {fileID: 3067990165543680634}
-  - {fileID: 3067990165334104542}
-  - {fileID: 3067990164523406761}
+  - {fileID: 8099185901723912688}
   - {fileID: 923639499}
 --- !u!1 &3067990165040553009
 GameObject:
@@ -383,6 +382,7 @@ MonoBehaviour:
   ScaryMusic: {fileID: 8300000, guid: 50d20f56dbda8c14e8386997db510c28, type: 3}
   RegularMusic: {fileID: 8300000, guid: 50d20f56dbda8c14e8386997db510c28, type: 3}
   HappyMusic: {fileID: 8300000, guid: 50d20f56dbda8c14e8386997db510c28, type: 3}
+  ElevatorMusic: {fileID: 8300000, guid: b29f0a63475f0cd4c8e3f50912ade8c4, type: 3}
 --- !u!82 &6283014890307332151
 AudioSource:
   m_ObjectHideFlags: 0
@@ -539,6 +539,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneName: Demo_Playground_Basics
   MainStageManger: {fileID: 0}
-  StageMusicTheme: 0
+  StageMusicTheme: 5
   NextSceneTransitionColor: {r: 0.008547783, g: 0, b: 1, a: 1}
   NextSceneTransitionSpeed: 2

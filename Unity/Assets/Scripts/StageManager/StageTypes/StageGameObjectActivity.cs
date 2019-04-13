@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Class that enables GameObjects on stage start and disables them on stage end.
+/// Class that en/fidables GameObjects on stage start
 /// </summary>
 public class StageGameObjectActivity : Stage
 {
@@ -13,24 +13,14 @@ public class StageGameObjectActivity : Stage
     public GameObject[] gameObjectsToHandle;
 
     /// <summary>
-    /// Should be handled GameObjects disabled on Awake()?
+    /// Should the gameobject en/disable?
     /// </summary>
-    public bool disableOnAwake = true;
-
-    /// <summary>
-    /// Should be handled GameObjects disabled on stage end?
-    /// </summary>
-    public bool disableObjectOnStageEnd = true;
+    public GameObjectActivity setting;
 
     /// <summary>
     /// Set "ready" flag, moves to next stage immidiately if true.
     /// </summary>
     public bool readyForNextState = false;
-    
-    private void Awake()
-    {
-        gameObject.SetActive(false);
-    }
 
     public override bool ReadyForNextStage()
     {
@@ -39,16 +29,15 @@ public class StageGameObjectActivity : Stage
 
     public override void StageEnd()
     {
-        if (!disableObjectOnStageEnd)
-            return;
-        for (int i = 0; i < gameObjectsToHandle.Length; i++)
-            gameObjectsToHandle[i].SetActive(false);
+        
     }
 
     public override void StageLoad()
     {
+        bool targetActive = setting == GameObjectActivity.Disable ? false : true;
+
         for (int i = 0; i < gameObjectsToHandle.Length; i++)
-            gameObjectsToHandle[i].SetActive(true);
+            gameObjectsToHandle[i].SetActive(targetActive);
     }
 
 
@@ -61,4 +50,10 @@ public class StageGameObjectActivity : Stage
     {
        
     }
+}
+
+public enum GameObjectActivity
+{
+    Enable,
+    Disable
 }
