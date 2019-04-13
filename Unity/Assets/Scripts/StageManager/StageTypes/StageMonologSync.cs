@@ -2,11 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Say monolog. Waits for it to end
+/// </summary>
 public class StageMonologSync : Stage
 {
+    /// <summary>
+    /// Override dialog manager
+    /// </summary>
     public DialogManager OverrideDialogManager;
+
+    /// <summary>
+    /// Actual working manager
+    /// </summary>
     DialogManager dialogManager;
 
+    /// <summary>
+    /// What should it say?
+    /// </summary>
     public SelfTalkDialog WhatToSay;
 
     public override bool ReadyForNextStage()
