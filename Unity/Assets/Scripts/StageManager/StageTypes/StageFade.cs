@@ -22,12 +22,6 @@ public class StageFade : StageFadeAbstract
     /// </summary>
     public StageFadeOption FadeStyle;
 
-    private void Start()
-    {
-        if (Fader == null)
-            Fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<FaderController>();
-    }
-
 
     public override void StageEnd()
     {

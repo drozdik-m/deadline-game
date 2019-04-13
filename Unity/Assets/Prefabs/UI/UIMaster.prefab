@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -56.3, y: -49.8}
+  m_AnchoredPosition: {x: -56.30005, y: -49.800003}
   m_SizeDelta: {x: 70.81, y: 70.81201}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3492902687779384939
@@ -242,8 +242,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 129, y: -103.24}
-  m_SizeDelta: {x: 245.4, y: -122.39}
+  m_AnchoredPosition: {x: 235.5, y: -103.24}
+  m_SizeDelta: {x: 458.4, y: -122.4}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &3492902687996451503
 CanvasRenderer:
@@ -584,6 +584,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: c5a1ab80c7f63874b934ad624a613a02, type: 3}
   - type: 0
     sprite: {fileID: 21300000, guid: 25fa1a2a587891f43a9651b1be18f35a, type: 3}
+  - type: 5
+    sprite: {fileID: 21300000, guid: bca72cd5689f3494dbfe5e62aa887051, type: 3}
   - type: 1
     sprite: {fileID: 21300000, guid: bca72cd5689f3494dbfe5e62aa887051, type: 3}
 --- !u!1 &3492902688958781484

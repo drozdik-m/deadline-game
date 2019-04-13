@@ -63,7 +63,29 @@ public class WorkflowScene : MonoBehaviour
         }
 
         if (MainStageManger != null)
+        {
+            MainStageManger.OnStageChange += OnMainStageManagerChange;
             MainStageManger.InitiateStages();
+            
+        }
+            
+
+        
+    }
+
+    private void OnMainStageManagerChange(StageManager caller, StageManagerArgs args)
+    {
+        if (args.CurrentStage.GetType() == typeof(StageQuestStack))
+        {
+            GameObject masterUI = GameObject.FindGameObjectWithTag("MasterUI");
+            if (masterUI != null)
+            {
+                masterUI.GetComponent<UIMaster>().QuestUI.
+                    SetQuestStack(((StageQuestStack)args.CurrentStage).questStack);
+            }
+            else
+                Debug.LogWarning("MasterUI not found");
+        }
     }
 
     /// <summary>
