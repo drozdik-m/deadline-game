@@ -446,5 +446,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3492902688852708350, guid: df5b84aa457c4d94bad36c129214deb1,
+        type: 3}
+      propertyPath: ImagesStorage.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3492902688852708350, guid: df5b84aa457c4d94bad36c129214deb1,
+        type: 3}
+      propertyPath: ImagesStorage.Array.data[5].type
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3492902688852708350, guid: df5b84aa457c4d94bad36c129214deb1,
+        type: 3}
+      propertyPath: ImagesStorage.Array.data[5].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 446baa4934bb7ae48b54649c6de3429b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df5b84aa457c4d94bad36c129214deb1, type: 3}

@@ -19,6 +19,11 @@ public class InventoryUIController : MonoBehaviour
     public Image ActualItemsImage;
 
     /// <summary>
+    /// Default image for item in the UI inventory
+    /// </summary>
+    public Sprite DefaultImage;
+
+    /// <summary>
     /// Contains type of the item in the inventory
     /// </summary>
     public Text ItemTypeText;
@@ -103,7 +108,15 @@ public class InventoryUIController : MonoBehaviour
     /// <param name="item">New item in the inventory</param>
     private void ChangePickUpItemUI(InventoryChangeEventArgs item)
     {
-        ActualItemsImage.sprite = spritesStorage[item.newItemType];
+        if (spritesStorage.ContainsKey(item.newItemType))
+        {
+            ActualItemsImage.sprite = spritesStorage[item.newItemType];
+        }
+        else
+        {
+            ActualItemsImage.sprite = DefaultImage;
+        }
+
         ItemTypeText.text = item.newItemType.ToString ();
     }
 
