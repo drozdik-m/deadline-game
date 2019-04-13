@@ -182,6 +182,8 @@ public class AllConditionsEditor : Editor
 
     public static bool CompareConditions(Condition c1, Condition c2)
     {
+        Debug.Log("Cond1: " + c1.description + ", val: " + c1.satisfied);
+        Debug.Log("Cond2: " + c2.description + ", val: " + c2.satisfied);
         if (c1.satisfied != c2.satisfied) return false;
         return c1.description == c2.description;
     }

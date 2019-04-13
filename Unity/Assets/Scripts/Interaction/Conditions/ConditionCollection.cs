@@ -17,7 +17,7 @@ public class ConditionCollection : MonoBehaviour
     /// <summary>
     /// Conditions that represent the required conditions
     /// </summary>
-    public Condition[] requiredConditions = new Condition[0];
+    public DesiredCondition[] requiredConditions = new DesiredCondition[0];
 
     /// <summary>
     /// Reactions that will be played if all conditions are met
@@ -31,8 +31,11 @@ public class ConditionCollection : MonoBehaviour
     public bool CheckAndReact()
     {
         for (int i = 0; i < requiredConditions.Length; i++)
-            if (!AllConditions.CheckCondition(requiredConditions[i]))
+        {
+            if (!AllConditions.CheckCondition(requiredConditions[i].condition, requiredConditions[i].desiredValue))
                 return false; // condition is not met
+        }
+            
 
         // all required conditions were met, play the reactions
         if (reactionCollection)
