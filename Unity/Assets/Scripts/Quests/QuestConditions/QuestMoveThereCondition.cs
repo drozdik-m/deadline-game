@@ -8,6 +8,6 @@ public class QuestMoveThereCondition : QuestManualCondition
 
     private void Update()
     {
-        MovePosition.
+        //MovePosition.
     }
 }
