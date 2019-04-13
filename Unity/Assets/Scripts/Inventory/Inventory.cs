@@ -14,6 +14,11 @@ public class Inventory : MonoBehaviour
     public InventoryItem CurrentItem = null;
 
     /// <summary>
+    /// Game object that will be recommended as default drop target
+    /// </summary>
+    public GameObject OptionalRecommendedDropTarget = null;
+
+    /// <summary>
     /// Event called on inventory item change
     /// </summary>
     public event InventoryChangeEventHandler OnChange;

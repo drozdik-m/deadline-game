@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents Reaction abstract class.
 /// </summary>
+[System.Serializable]
 public abstract class Reaction : ScriptableObject
 {
     /// <summary>

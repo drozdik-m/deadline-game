@@ -43,7 +43,7 @@ public class InventoryItem : MonoBehaviour
             return;
 
         itemState = InventoryItemState.PickedUp;
-        PickedUp.Invoke(inventory, new InventoryItemEventArgs(inventory));
+        PickedUp.Invoke(inventory, new InventoryItemEventArgs(inventory, inventory.OptionalRecommendedDropTarget));
     }
 
     /// <summary>
@@ -56,7 +56,7 @@ public class InventoryItem : MonoBehaviour
             return;
 
         itemState = InventoryItemState.Dropped;
-        Dropped.Invoke(inventory, new InventoryItemEventArgs(inventory));
+        Dropped.Invoke(inventory, new InventoryItemEventArgs(inventory, inventory.OptionalRecommendedDropTarget));
     }
 
 
@@ -134,6 +134,7 @@ public enum InventoryItemID
     Gun,
     Food,
     BigAssBlackDick,
+    CardboardBox,
     None
 }
 

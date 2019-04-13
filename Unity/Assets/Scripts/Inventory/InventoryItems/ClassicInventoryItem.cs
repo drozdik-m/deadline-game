@@ -9,7 +9,7 @@ using UnityEngine;
 public class ClassicInventoryItem : InventoryItem
 {
     public GameObject PickableObjectInScene = null;
-    public GameObject OptionalDropTarget = null;
+    public GameObject OverrideDropTarget = null;
     
 
     private void Awake()
@@ -36,17 +36,11 @@ public class ClassicInventoryItem : InventoryItem
     /// <param name="e">Arguments</param>
     private void DropIntoScene(object sender, InventoryItemEventArgs e)
     {
+        GameObject dropPoint = OverrideDropTarget != null ? OverrideDropTarget : e.RecommendedDropPoint;
+
         PickableObjectInScene.SetActive(true);
 
-        if (OptionalDropTarget != null)
-        {
-            PickableObjectInScene.transform.position = OptionalDropTarget.transform.position;
-            PickableObjectInScene.transform.rotation = OptionalDropTarget.transform.rotation;
-        }
-        else
-        {
-            PickableObjectInScene.transform.position = e.inventory.transform.position;
-            PickableObjectInScene.transform.rotation = e.inventory.transform.rotation;
-        }
+        PickableObjectInScene.transform.position = dropPoint.transform.position;
+        PickableObjectInScene.transform.rotation = dropPoint.transform.rotation;
     }
 }

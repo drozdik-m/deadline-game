@@ -5,7 +5,6 @@ using UnityEngine;
 public class InventoryChangeEventArgs
 {
     public InventoryItemID newItemType;
-
     public InventoryChangeEventArgs(InventoryItemID newItemType)
     {
         this.newItemType = newItemType;
