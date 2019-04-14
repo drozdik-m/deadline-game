@@ -35,9 +35,16 @@ public class ReactionCollection : MonoBehaviour
             DelayedReaction delayedReaction = reactions[i] as DelayedReaction;
 
             if (delayedReaction)
+            {
+                Debug.Log("Delayed reaction react()");
                 delayedReaction.React(this);
+            }
             else
+            {
+                Debug.Log("Immediate reaction react()");
                 reactions[i].React(this);
+            }
+                
         }
     }
 }

@@ -3,7 +3,7 @@
 /// <summary>
 /// Reaction source for event middleman
 /// </summary>
-public class ReactionEvent : Reaction
+public class ReactionEvent : DelayedReaction
 {
     public InteractionEventMiddleman intecationEventMiddleman;
 

@@ -40,7 +40,7 @@ public abstract class DelayedReaction : Reaction
     /// <returns></returns>
     protected IEnumerator ReactCoroutine()
     {
-        yield return wait;
+        yield return new WaitForSeconds(delay);
         ImmediateReaction();
     }
 
