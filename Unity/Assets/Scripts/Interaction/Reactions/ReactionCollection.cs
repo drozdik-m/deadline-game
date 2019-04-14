@@ -36,12 +36,12 @@ public class ReactionCollection : MonoBehaviour
 
             if (delayedReaction)
             {
-                Debug.Log("Delayed reaction react()");
+                //Debug.Log("Delayed reaction react()");
                 delayedReaction.React(this);
             }
             else
             {
-                Debug.Log("Immediate reaction react()");
+                //Debug.Log("Immediate reaction react()");
                 reactions[i].React(this);
             }
                 
