@@ -4,7 +4,7 @@
 /// Reaction that handles adding to inventory
 /// </summary>
 [System.Serializable]
-public class InventoryItemReaction : Reaction
+public class InventoryItemReaction : DelayedReaction
 {
     public Inventory overrideInventory;
     public InventoryItem item;
