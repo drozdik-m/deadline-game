@@ -15,7 +15,7 @@ public class QuestMoveThereCondition : QuestManualCondition
     /// <summary>
     /// Tag of the object who should move to desired location
     /// </summary>
-    public string CollisionConditionTag = "PlayerModel";
+    public string CollisionConditionTag = "Player";
 
     /// <summary>
     /// Actual collision event
