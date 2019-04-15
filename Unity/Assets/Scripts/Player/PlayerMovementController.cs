@@ -91,7 +91,6 @@ public class PlayerMovementController : MonoBehaviour
             if (Physics.Raycast(ray, out hit) && hit.transform.tag == "Ground")
             {
                 // If the click was on a solid object, move the agent there
-                if (Vector3.Distance(gameObject.transform.position, hit.point) > MinimalDistance)
                 this.MoveToPosition(hit.point);
             }
         }
@@ -152,14 +151,16 @@ public class PlayerMovementController : MonoBehaviour
     /// <param name="position">Position.</param>
     public void MoveToPosition(Vector3 position)
     {
-        if (!isInteracting && !isDisabled)
+        if (!isInteracting && !isDisabled && (Vector3.Distance(gameObject.transform.position, position) > MinimalDistance))
             agent.SetDestination(position);
     }
 
     public void MoveToPosition(Vector3 position, float proximity)
     {
-        MoveToPosition(position);
         SetProximityFlags(position, proximity);
+
+        if (Vector3.Distance(gameObject.transform.position, proximityTarget) > proximityMovementDistance)
+            MoveToPosition(position);
     }
 
 
@@ -191,6 +192,7 @@ public class PlayerMovementController : MonoBehaviour
         if (interactable.useProximity)
         {
             this.MoveToPosition(interactable.interactionLocation.position, interactable.proximity);
+       
         }
         else
         {
