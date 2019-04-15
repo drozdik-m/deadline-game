@@ -16,7 +16,7 @@ public class TwinTalkDialog : ScriptableObject
             B
         }
         public CharacterIdentifier CharacterID;
-        [TextArea(2, 30)]
+        [TextArea(1, 25)]
         public string sentence;
     }
 

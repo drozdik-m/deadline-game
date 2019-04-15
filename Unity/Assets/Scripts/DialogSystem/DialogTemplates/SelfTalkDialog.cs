@@ -10,6 +10,6 @@ public class SelfTalkDialog : ScriptableObject
     /// <summary>
     /// The sentences array of the dialog.
     /// </summary>
-    [TextArea(2,30)]
+    [TextArea(1,25)]
     public string[] sentences;
 }
