@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: CaveatBrush-Regular SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: 1801783004
   material: {fileID: 21088686169134914}
-  materialHashCode: 0
+  materialHashCode: 1571507159
   fontAssetType: 1
   m_fontInfo:
     Name: Caveat Brush
     PointSize: 81
-    Scale: 0
+    Scale: 1
     CharacterCount: 97
     LineHeight: 102.0625
     Baseline: 0
     Ascender: 77.75
-    CapHeight: 0
+    CapHeight: 53.562496
     Descender: -24.3125
     CenterLine: 0
     SuperscriptOffset: 77.75
@@ -34,7 +34,7 @@ MonoBehaviour:
     UnderlineThickness: 4.374
     strikethrough: 19.431818
     strikethroughThickness: 4.374
-    TabWidth: 0
+    TabWidth: 171.875
     Padding: 5
     AtlasWidth: 512
     AtlasHeight: 512
@@ -43,10 +43,10 @@ MonoBehaviour:
   - id: 32
     x: 6
     y: 517
-    width: 0
-    height: 0
+    width: 17.1875
+    height: 102.0625
     xOffset: 0
-    yOffset: 0
+    yOffset: 77.75
     xAdvance: 17.1875
     scale: 1
   - id: 33
@@ -982,7 +982,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CaveatBrush-Regular SDF Material
-  m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
+  m_Shader: {fileID: 4800000, guid: dd89cf5b9246416f84610a006f916af7, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -1041,9 +1041,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0

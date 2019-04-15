@@ -34,6 +34,7 @@ public class PlayerMovementController : MonoBehaviour
     /// State of the playermovement
     /// </summary>
     private bool isDisabled;
+    public float MinimalDistance = 0.4f;
     /// <summary>
     /// Rotation of player needed to look at target.
     /// </summary> 
@@ -90,6 +91,7 @@ public class PlayerMovementController : MonoBehaviour
             if (Physics.Raycast(ray, out hit) && hit.transform.tag == "Ground")
             {
                 // If the click was on a solid object, move the agent there
+                if (Vector3.Distance(gameObject.transform.position, hit.point) > MinimalDistance)
                 this.MoveToPosition(hit.point);
             }
         }

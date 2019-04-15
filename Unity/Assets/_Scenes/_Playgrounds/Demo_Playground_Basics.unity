@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4494115, g: 0.49633682, b: 0.55877405, a: 1}
+  m_IndirectSpecularColor: {r: 0.44941115, g: 0.4963364, b: 0.55877256, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -200,6 +200,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7585344811507292008, guid: 2d47aed1fc0b343dfb152b02b11eba62,
+        type: 3}
+      propertyPath: MinimalMove
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7585344811507292011, guid: 2d47aed1fc0b343dfb152b02b11eba62,
         type: 3}
       propertyPath: m_Name
@@ -1487,12 +1492,12 @@ PrefabInstance:
     - target: {fileID: 7819217989759655313, guid: 8ecfde3c1abcc46fb83727f799bd9684,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.89239913
+      value: 0.8923991
       objectReference: {fileID: 0}
     - target: {fileID: 7819217989759655313, guid: 8ecfde3c1abcc46fb83727f799bd9684,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.3696438
+      value: 0.36964378
       objectReference: {fileID: 0}
     - target: {fileID: 7819217988204555300, guid: 8ecfde3c1abcc46fb83727f799bd9684,
         type: 3}
@@ -5402,6 +5407,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 367351644}
     m_Modifications:
+    - target: {fileID: 342081741375955784, guid: 5def182ee7be31b44919e37754043387,
+        type: 3}
+      propertyPath: m_Name
+      value: Table
+      objectReference: {fileID: 0}
     - target: {fileID: 342081741375930216, guid: 5def182ee7be31b44919e37754043387,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5456,11 +5466,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 342081741375955784, guid: 5def182ee7be31b44919e37754043387,
-        type: 3}
-      propertyPath: m_Name
-      value: Table
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5def182ee7be31b44919e37754043387, type: 3}
