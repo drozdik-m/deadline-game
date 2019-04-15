@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Spawns and controls bubbles
+/// </summary>
 public class BubbleSpawner : MonoBehaviour
 {
     /// <summary>
@@ -13,13 +16,11 @@ public class BubbleSpawner : MonoBehaviour
     /// The bubble instance.
     /// </summary>
     public int Rotation = 45;
-    private Queue<GameObject> instances;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        instances = new Queue<GameObject>();
         if (!BubblePrefab)
             Debug.Log("Missing DialogBubble prefab in DialogBubble script!");
     }
@@ -29,7 +30,8 @@ public class BubbleSpawner : MonoBehaviour
     /// <param name="position">Position.</param>
     /// <param name="text">Text.</param>
     /// <param name="delay">Delay.</param>
-    public void Spawn(Transform position,string text,float delay)
+    /// <param name="isDynamic">If set to <c>true</c> is dynamic.</param>
+    public void Spawn(ref Transform position,string text,float delay, bool isDynamic)
     {
         position.rotation = Quaternion.Euler(0, Rotation, 0);
         GameObject bubbleInstance = (GameObject)Instantiate(BubblePrefab,
@@ -37,23 +39,13 @@ public class BubbleSpawner : MonoBehaviour
 
 
         TextMeshProUGUI textLabel = bubbleInstance.GetComponentInChildren<TextMeshProUGUI>();
+        Bubble bubble = bubbleInstance.GetComponentInChildren<Bubble>();
+        bubble.delay = delay;
+        bubble.isDynamic = isDynamic;
+        bubble.SetRef(ref position);
         textLabel.SetText(text);
-
-        instances.Enqueue(bubbleInstance);
-        // Wait for n (delay) seconds and destroy the object
-        StartCoroutine(WaitFor(delay));
+    
 
     }
 
-    /// <summary>
-    /// Waits for certain delay and destroy bubble object afterwards.
-    /// </summary>
-    /// <returns>The for.</returns>
-    /// <param name="delay">Delay.</param>
-    IEnumerator WaitFor(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        Debug.Log("destroy");
-        Destroy(instances.Dequeue());
-    }
 }

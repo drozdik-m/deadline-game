@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6669845739629025195}
   - component: {fileID: 6669845739629025196}
   - component: {fileID: 6669845739629025197}
+  - component: {fileID: 2910479045291420766}
   m_Layer: 5
   m_Name: DialogBubble
   m_TagString: Untagged
@@ -101,6 +102,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2910479045291420766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6669845739629025198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 170802599d99841c4bca78193aef0a3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6669845740096369619
 GameObject:
   m_ObjectHideFlags: 0
