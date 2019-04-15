@@ -227,11 +227,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7585344811507292015}
     m_Modifications:
-    - target: {fileID: 4504713039388699234, guid: 4b5e170f8d303c24693ec6bc2cde84af,
-        type: 3}
-      propertyPath: m_Name
-      value: Model
-      objectReference: {fileID: 0}
     - target: {fileID: 4504713039089169804, guid: 4b5e170f8d303c24693ec6bc2cde84af,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -302,12 +297,19 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.66
       objectReference: {fileID: 0}
+    - target: {fileID: 4504713039388699234, guid: 4b5e170f8d303c24693ec6bc2cde84af,
+        type: 3}
+      propertyPath: m_Name
+      value: Model
+      objectReference: {fileID: 0}
     - target: {fileID: 4504713039388699232, guid: 4b5e170f8d303c24693ec6bc2cde84af,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 6cfbece6c21258444bbb6a97e010bd29, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4504713039388699239, guid: 4b5e170f8d303c24693ec6bc2cde84af, type: 3}
+    - {fileID: 4504713039388699238, guid: 4b5e170f8d303c24693ec6bc2cde84af, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4b5e170f8d303c24693ec6bc2cde84af, type: 3}
 --- !u!1 &6325158680086129276 stripped
 GameObject:
