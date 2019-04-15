@@ -34,7 +34,7 @@ public class PlayerMovementController : MonoBehaviour
     /// State of the playermovement
     /// </summary>
     private bool isDisabled;
-    public float MinimalDistance = 0.4f;
+    public float MinimalDistance = 0.5f;
     /// <summary>
     /// Rotation of player needed to look at target.
     /// </summary> 
