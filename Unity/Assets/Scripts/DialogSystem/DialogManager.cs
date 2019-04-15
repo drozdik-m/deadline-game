@@ -16,7 +16,7 @@ public class DialogManager : MonoBehaviour
     /// <summary>
     /// Queue of sentences (dialog).
     /// </summary>
-    private Queue<KeyValuePair<Transform,string>> sentences;
+    private Queue<SentenceWrapper> sentences;
     /// <summary>
     /// Dialog status.
     /// </summary>
@@ -25,10 +25,12 @@ public class DialogManager : MonoBehaviour
     /// Current dialog bubble target.
     /// </summary>
     public BubbleSpawner spawner;
+    private DialogType currentType;
 
     void Start()
     {
-        sentences = new Queue<KeyValuePair<Transform,string>>();
+   
+        sentences = new Queue<SentenceWrapper>();
         isActive = false;
     }
 
@@ -47,7 +49,7 @@ public class DialogManager : MonoBehaviour
 
         foreach (var sentence in dialog.sentences)
         {
-            sentences.Enqueue(new KeyValuePair<Transform, string>(target.transform, sentence));
+            sentences.Enqueue(new SentenceWrapper(target.transform, sentence, DialogType.Self));
         }
 
         prepareForStart();
@@ -68,7 +70,7 @@ public class DialogManager : MonoBehaviour
         foreach (var structuredSentence in dialog.structuredSentences)
         {
             var currentTarget = structuredSentence.CharacterID == TwinTalkDialog.SentenceStructure.CharacterIdentifier.A  ? targetA : targetB;
-            sentences.Enqueue(new KeyValuePair<Transform, string>(currentTarget.transform, structuredSentence.sentence));
+            sentences.Enqueue(new SentenceWrapper(currentTarget.transform, structuredSentence.sentence, DialogType.Twin));
         }
         prepareForStart();
     }
@@ -84,10 +86,14 @@ public class DialogManager : MonoBehaviour
             return;
         }
 
-        var sentenceStruct = sentences.Dequeue();
+        var sentenceWrapper = sentences.Dequeue();
         // Set the current target
-        Transform currentTarget = sentenceStruct.Key;
-        spawner.Spawn(currentTarget, sentenceStruct.Value, DialogDelay);
+        currentType = sentenceWrapper.Type;
+        HandlePlayerMovement();
+
+        Transform currentTarget = sentenceWrapper.Position;
+        bool isDynamic = sentenceWrapper.Type == DialogType.Self ? true : false;
+        spawner.Spawn(ref currentTarget, sentenceWrapper.Sentence, DialogDelay, isDynamic);
 
     }
     /// <summary>
@@ -95,10 +101,9 @@ public class DialogManager : MonoBehaviour
     /// </summary>
     private void endOfDialog()
     {
-        Debug.Log("End of dialog!");
         isActive = false;
-        CancelInvoke();
         setPlayerMovement(false);
+        CancelInvoke();
     }
     /// <summary>
     /// Gets the player head (point of bubble render).
@@ -129,6 +134,18 @@ public class DialogManager : MonoBehaviour
             setPlayerMovement(isBlocking);
             nextSentence();
             StartCoroutine(Invoker());
+        }
+    }
+
+    private void HandlePlayerMovement()
+    {
+        if (currentType == DialogType.Self)
+        {
+            setPlayerMovement(false);
+        }
+        else
+        {
+            setPlayerMovement(true);
         }
     }
     /// <summary>
