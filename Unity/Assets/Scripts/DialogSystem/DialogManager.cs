@@ -27,11 +27,16 @@ public class DialogManager : MonoBehaviour
     public BubbleSpawner spawner;
     private DialogType currentType;
 
+    private DialogManager()
+    {
+        sentences = new Queue<SentenceWrapper>();
+        isActive = false;
+    }
+
     void Start()
     {
    
-        sentences = new Queue<SentenceWrapper>();
-        isActive = false;
+        
     }
 
     /// <summary>
