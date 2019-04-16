@@ -15,12 +15,12 @@ public class StageGameObjectActivity : Stage
     /// <summary>
     /// Should the gameobject en/disable?
     /// </summary>
-    public GameObjectActivity setting;
+    public ObjectActivity setting;
 
     /// <summary>
     /// Set "ready" flag, moves to next stage immidiately if true.
     /// </summary>
-    public bool readyForNextState = false;
+    public bool readyForNextState = true;
 
     public override bool ReadyForNextStage()
     {
@@ -34,7 +34,7 @@ public class StageGameObjectActivity : Stage
 
     public override void StageLoad()
     {
-        bool targetActive = setting == GameObjectActivity.Disable ? false : true;
+        bool targetActive = setting == ObjectActivity.Disable ? false : true;
 
         for (int i = 0; i < gameObjectsToHandle.Length; i++)
             gameObjectsToHandle[i].SetActive(targetActive);
@@ -52,7 +52,7 @@ public class StageGameObjectActivity : Stage
     }
 }
 
-public enum GameObjectActivity
+public enum ObjectActivity
 {
     Enable,
     Disable
