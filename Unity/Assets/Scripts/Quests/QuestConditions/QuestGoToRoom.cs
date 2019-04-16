@@ -25,7 +25,7 @@ public class QuestGoToRoom : QuestManualCondition
         CheckCondition();
     }
 
-    private void OnRoomChange(object source, RoomList room)
+    private void OnRoomChange(RoomManager source, RoomManagerArgs args)
     {
         CheckCondition();
     }

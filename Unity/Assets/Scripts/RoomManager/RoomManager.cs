@@ -7,7 +7,7 @@ public class RoomManager : MonoBehaviour
     /// <summary>
     /// Room changed event handler.
     /// </summary>
-    public delegate void RoomChangedEventHandler(object source, RoomList room);
+    public delegate void RoomChangedEventHandler(RoomManager source, RoomManagerArgs room);
     /// <summary>
     /// The current room.
     /// </summary>
@@ -39,7 +39,7 @@ public class RoomManager : MonoBehaviour
     protected virtual void OnRoomChanged()
     {
         if (RoomChanged != null)
-            RoomChanged(this, CurrentRoom);
+            RoomChanged(this, new RoomManagerArgs(_currentRoom));
     }
 
 }
