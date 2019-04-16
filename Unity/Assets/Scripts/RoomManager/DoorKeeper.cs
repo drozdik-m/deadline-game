@@ -5,10 +5,25 @@ using UnityEngine.AI;
 
 public class DoorKeeper : MonoBehaviour
 {
+    /// <summary>
+    /// The door location (current room).
+    /// </summary>
     public RoomList DoorLocation;
+    /// <summary>
+    /// The target location (room to go).
+    /// </summary>
     public RoomList TargetLocation;
+    /// <summary>
+    /// The spawn position.
+    /// </summary>
     public GameObject SpawnPosition;
+    /// <summary>
+    /// Reference to the agent.
+    /// </summary>
     private NavMeshAgent agent;
+    /// <summary>
+    /// The reaction middleman.
+    /// </summary>
     private InteractionEventMiddleman reactionMiddleman;
 
     private void Start()
@@ -31,17 +46,12 @@ public class DoorKeeper : MonoBehaviour
 
     void OnInteract(ReactionEvent caller, object args)
     {
-        Debug.Log("teleport");
         Teleport();
     }
 
-
-    private void Update()
-    {
-        if (Input.GetKeyDown("escape"))
-            Teleport();
-    }
-
+    /// <summary>
+    /// Teleport the player to target room.
+    /// </summary>
     public void Teleport()
     {
         var doors = FindObjectsOfType<DoorKeeper>();
@@ -49,17 +59,18 @@ public class DoorKeeper : MonoBehaviour
         {
             if (door.DoorLocation == this.TargetLocation)
             {
-                Debug.Log("Teleporting");
                 agent.Warp(door.SpawnPosition.transform.position);
                 UpdateLocation(door.DoorLocation);
                 return;
             }
-
-            Debug.Log("Door not found");
-
         }
+        Debug.Log("Door not found");
     }
 
+    /// <summary>
+    /// Updates the location.
+    /// </summary>
+    /// <param name="destination">Destination.</param>
     private void UpdateLocation(RoomList destination)
     {
         GameObject roomManager = GameObject.FindGameObjectWithTag("RoomManager");

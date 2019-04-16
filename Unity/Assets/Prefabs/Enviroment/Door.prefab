@@ -434,36 +434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37389bac7c758fc4fa5aaab43e2973d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &3053006868645972291
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2513096237805936396}
-  m_Layer: 0
-  m_Name: InteractionLocation
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2513096237805936396
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3053006868645972291}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.36, y: 0, z: -0.002}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 3897265939293922017}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3897265939293922044
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +461,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2513096237805936396}
   - {fileID: 630073139269859324}
   m_Father: {fileID: 1916382122388748602}
   m_RootOrder: 3
@@ -520,7 +489,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4346840505496811103}
   m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -0.85, y: 0, z: 0.289}
+  m_LocalPosition: {x: -1, y: 0, z: 0.28}
   m_LocalScale: {x: 0.7971303, y: 0.7971303, z: 0.7971303}
   m_Children: []
   m_Father: {fileID: 1916382122388748602}
@@ -535,7 +504,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4674079627534310049}
-  - component: {fileID: 789508411108048007}
+  - component: {fileID: 1821594856}
   m_Layer: 0
   m_Name: DefaultReaction
   m_TagString: Untagged
@@ -557,7 +526,7 @@ Transform:
   m_Father: {fileID: 630073139269859324}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &789508411108048007
+--- !u!114 &1821594856
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -571,6 +540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reactions:
   - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &9080686991048343888
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,8 +551,8 @@ GameObject:
   m_Component:
   - component: {fileID: 630073139269859324}
   - component: {fileID: 8041819764618430296}
-  - component: {fileID: 2185282445543847224}
-  - component: {fileID: 4752258903344213994}
+  - component: {fileID: 719444738}
+  - component: {fileID: 719444739}
   m_Layer: 0
   m_Name: Interactable
   m_TagString: Untagged
@@ -603,7 +573,7 @@ Transform:
   m_Children:
   - {fileID: 4674079627534310049}
   m_Father: {fileID: 3897265939293922017}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8041819764618430296
 BoxCollider:
@@ -618,7 +588,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2185282445543847224
+--- !u!114 &719444738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9080686991048343888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c498605d7215448b649d791103f48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionLocation: {fileID: 5131262577415910220}
+  connectedObject: {fileID: 0}
+  useProximity: 0
+  proximity: 0
+  conditionCollections: []
+  defaultReactionCollection: {fileID: 1821594856}
+--- !u!114 &719444739
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -639,7 +627,7 @@ MonoBehaviour:
           m_MethodName: OnInteractableClick
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 4752258903344213994}
+            m_ObjectArgument: {fileID: 719444738}
             m_ObjectArgumentAssemblyTypeName: Interactable, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -649,22 +637,3 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
---- !u!114 &4752258903344213994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9080686991048343888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22c498605d7215448b649d791103f48d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionLocation: {fileID: 2513096237805936396}
-  connectedObject: {fileID: 0}
-  useProximity: 0
-  proximity: 0
-  conditionCollections:
-  - {fileID: 0}
-  defaultReactionCollection: {fileID: 0}

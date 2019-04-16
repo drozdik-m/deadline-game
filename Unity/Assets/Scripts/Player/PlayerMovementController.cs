@@ -204,7 +204,6 @@ public class PlayerMovementController : MonoBehaviour
 
     public void OnInteractableClick(Interactable interactable, float proximity)
     {
-        Debug.Log("click");
         isRunning = true;
         this.MoveToPosition(interactable.interactionLocation.position, proximity);
 
