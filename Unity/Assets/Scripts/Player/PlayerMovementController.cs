@@ -88,10 +88,18 @@ public class PlayerMovementController : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit) && hit.transform.tag == "Ground")
+            if (Physics.Raycast(ray, out hit))
             {
-                // If the click was on a solid object, move the agent there
-                this.MoveToPosition(hit.point);
+                if (hit.transform.tag == "Ground")
+                {
+                    // If the click was on a solid object, move the agent there
+                    this.MoveToPosition(hit.point);
+                }
+                else if (hit.collider.tag == "Interactable")
+                {
+                    Interactable currInteractable = hit.collider.gameObject.GetComponent<Interactable>();
+                    OnInteractableClick(currInteractable);
+                }
             }
         }
 
