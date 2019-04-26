@@ -3,8 +3,7 @@
 /// <summary>
 /// Represents Reaction abstract class.
 /// </summary>
-[System.Serializable]
-public abstract class Reaction : ScriptableObject
+public abstract class Reaction : MonoBehaviour
 {
     /// <summary>
     /// initialize the reaction

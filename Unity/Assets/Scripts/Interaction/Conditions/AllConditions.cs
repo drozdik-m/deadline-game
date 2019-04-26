@@ -55,24 +55,28 @@ public class AllConditions : ResettableScriptableObject
     /// </summary>
     /// <param name="requiredCondition">Condition to compare the global one to</param>
     /// <returns>True if the condition is satisfied, false if not</returns>
-    public static bool CheckCondition(Condition requiredCondition)
+    public static bool CheckCondition(Condition requiredCondition, bool desiredVal)
     {
         Condition[] allConditions = Instance.conditions;
 
-        // the global condition we want to compare with the parameter one
-        Condition globalCondition = null;
-
+        bool isSame = false;
         // check if the condition exists in allConditions
         // if yes, save it to globalCondition
         if (allConditions != null && allConditions[0] != null)
+        {
             for (int i = 0; i < allConditions.Length; i++)
-                if (allConditions[i].hash == requiredCondition.hash)
-                    globalCondition = allConditions[i];
+            {
+                if (allConditions[i].description == requiredCondition.description &&
+                    allConditions[i].satisfied == desiredVal)
+                {
+                    isSame = true;
+                    break;
+                }
+            }
+        }
+            
 
-        // we did not find the global condition
-        if (!globalCondition) return false;
-
-        return globalCondition.satisfied == requiredCondition.satisfied;
+        return isSame;
     }
 
 }
