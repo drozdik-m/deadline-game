@@ -9,22 +9,33 @@ using UnityEngine;
 /// </summary>
 public class BuildableObject : MonoBehaviour
 {
+    private bool isFinished;
+
     /// <summary>
     /// Collections of stages
     /// </summary>
-    BuildStageCollection stageObjectCollection;
+    public BuildStageCollection stageObjectCollection;
 
     /// <summary>
-    /// Current (active) stage
+    /// initial stage for setting up visibility of gameobjects
     /// </summary>
-    private BuildStage currentStage;
+    public InitialStage initialStage;
+
+    /// <summary>
+    /// Next stage to come
+    /// </summary>
+    private BuildStage nextStage;
 
     private void Start()
     {
+        isFinished = false;
+        initialStage.Init();
         stageObjectCollection = GetComponent<BuildStageCollection>();
-        stageObjectCollection.Init();
 
-        currentStage = stageObjectCollection.currentBuildStage;
+        nextStage = stageObjectCollection.GetNext();
+
+        if (nextStage == null)
+            Debug.LogError("Buildable object has no other stage than initial. Add atleast one stage to buildable object");
     }
 
     /// <summary>
@@ -33,11 +44,23 @@ public class BuildableObject : MonoBehaviour
     /// <returns>True if conditions are satisfied and next stage is build, false if not</returns>
     public bool AttemptNextStage()
     {
-        if (stageObjectCollection.Remaining() == 0 || !currentStage.ConditionsSatisfied())
+        if (nextStage == null || !nextStage.ConditionsSatisfied())
             return false;  
         else
         {
-            buildNextStage();
+            nextStage.Init();
+            BuildStage currStage = nextStage;
+            nextStage = stageObjectCollection.GetNext();
+
+            // we are finished
+            if (nextStage == null)
+                isFinished = true;
+
+            OnChange?.Invoke(this, new BuildStageChangeEventArgs(currStage, IsFinished()));
+
+            if (IsFinished())
+                OnFinished?.Invoke(this, new BuildStageFinishedEventArgs(currStage));
+
             return true;
         }
     }
@@ -48,22 +71,7 @@ public class BuildableObject : MonoBehaviour
     /// <returns>True if buildable object is in its final stage, false if not</returns>
     public bool IsFinished()
     {
-        return stageObjectCollection.Remaining() == 0;
-    }
-
-    /// <summary>
-    /// Builds next stage (conditions are supposed to be satisfied)
-    /// </summary>
-    private void buildNextStage()
-    {
-        currentStage = stageObjectCollection.GetNext();
-        currentStage.Init();
-
-        // call events
-        OnChange?.Invoke(this, new BuildStageChangeEventArgs(currentStage, IsFinished()));
-
-        if (IsFinished())
-            OnFinished?.Invoke(this, new BuildStageFinishedEventArgs(currentStage));
+        return isFinished;
     }
 
     /// <summary>
