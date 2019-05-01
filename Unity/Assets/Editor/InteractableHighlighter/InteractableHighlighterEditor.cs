@@ -31,5 +31,8 @@ class InteractableHighlighterEditor : DefaultEditor<InteractableHighlighter>
         //TARGET GAME OBJECT
         Target.TargetGameObject = targetGOField.Render(Target.TargetGameObject);
         targetGOField.CheckForNullOverride(Target.TargetGameObject, MessageBox, "Target GameObject is overriden but not set", ErrorStyle);
+
+        //PROXIMITY
+        Target.Proximity = EditorGUILayout.FloatField("Proximity range", Target.Proximity);
     }
 }
