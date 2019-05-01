@@ -32,6 +32,7 @@ public class InteractableHighlighter : MonoBehaviour
     /// </summary>
     public float Proximity = 1.5f;
 
+
     private void Start()
     {
         animator = OverrideAnimator;
