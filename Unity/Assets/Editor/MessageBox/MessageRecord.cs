@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class ErrorRecord
+public class MessageRecord
 {
     public string Message;
     public GUIStyle Style;
 
-    public ErrorRecord(string message, GUIStyle style)
+    public MessageRecord(string message, GUIStyle style)
     {
         Message = message;
         Style = style;

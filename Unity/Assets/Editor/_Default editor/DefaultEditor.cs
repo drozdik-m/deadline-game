@@ -21,7 +21,7 @@ public abstract class DefaultEditor<T> : Editor
     protected GUIStyle SuccessStyle = new GUIStyle();
 
     //Error list
-    protected EditorErrorBox MessageBox = new EditorErrorBox();
+    protected EditorMessageBox MessageBox = new EditorMessageBox();
 
     //Target getter
     public T Target

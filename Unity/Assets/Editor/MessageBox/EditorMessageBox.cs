@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 
-public class EditorErrorBox
+public class EditorMessageBox
 {
     /// <summary>
     /// Message list
     /// </summary>
-    List<ErrorRecord> messageList = new List<ErrorRecord>();
+    List<MessageRecord> messageList = new List<MessageRecord>();
 
     /// <summary>
     /// Adds a message to the list
@@ -20,7 +20,7 @@ public class EditorErrorBox
     /// <param name="style">Text style</param>
     public void AddMessage(string message, GUIStyle style)
     {
-        messageList.Add(new ErrorRecord(message, style));
+        messageList.Add(new MessageRecord(message, style));
     }
 
     /// <summary>
@@ -36,7 +36,7 @@ public class EditorErrorBox
     /// </summary>
     public void WriteMessages()
     {
-        foreach(ErrorRecord message in messageList)
+        foreach(MessageRecord message in messageList)
             EditorGUILayout.LabelField(message.Message, message.Style);
         ClearMessages();
     }
