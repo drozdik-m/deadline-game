@@ -32,10 +32,9 @@ abstract public class OverrideField<T>
     /// </summary>
     /// <param name="checkboxMessage">Checkbox label</param>
     /// <param name="inputMessage">Input label</param>
-    public OverrideField(string checkboxMessage = "Override", string inputMessage = "Input")
+    public OverrideField(string checkboxMessage = "Override")
     {
         this.checkboxMessage = checkboxMessage;
-        this.inputMessage = inputMessage;
     }
 
     /// <summary>

@@ -6,7 +6,7 @@ using UnityEngine;
 using System;
 
 public abstract class DefaultEditor<T> : Editor 
-    where T : UnityEngine.Object
+    where T : MonoBehaviour
 {
     //Working variables
     bool showDefaultEditor;
@@ -76,6 +76,17 @@ public abstract class DefaultEditor<T> : Editor
                 caughtError = ex;
             }
         }
+    }
+
+    /// <summary>
+    /// Shows an error if Target GameObject does not have required tag
+    /// </summary>
+    /// <param name="tag">Required tag</param>
+    public void RequireTag(string tag)
+    {
+        //Check tag
+        if (Target.gameObject.tag != tag)
+            MessageBox.AddMessage("This GameObject should have tag \"" + tag + "\"", ErrorStyle);
     }
 
     /// <summary>

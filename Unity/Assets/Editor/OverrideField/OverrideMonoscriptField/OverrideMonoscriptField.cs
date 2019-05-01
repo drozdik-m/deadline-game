@@ -13,15 +13,17 @@ using UnityEngine;
 public class OverrideMonoscriptField<T> : OverrideField<T>
     where T : UnityEngine.Object
 {
-    public OverrideMonoscriptField(string checkboxMessage = "Override", string inputMessage = "Monoscript")
-        :base(checkboxMessage, inputMessage)
-    {
+    string inputMessage;
 
+    public OverrideMonoscriptField(string checkboxMessage = "Override", string inputMessage = "Monoscript")
+        :base(checkboxMessage)
+    {
+        this.inputMessage = inputMessage;
     }
 
     public override T CreateField(T currentValue)
     {
-        return EditorGUILayout.ObjectField(currentValue, typeof(T), true) as T;
+        return EditorGUILayout.ObjectField(inputMessage, currentValue, typeof(T), true) as T;
     }
 
     public override T DefaultValue()
