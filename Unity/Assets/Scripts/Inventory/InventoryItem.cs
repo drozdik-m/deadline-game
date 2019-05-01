@@ -43,7 +43,7 @@ public class InventoryItem : MonoBehaviour
             return;
 
         itemState = InventoryItemState.PickedUp;
-        PickedUp.Invoke(inventory, new InventoryItemEventArgs(inventory, inventory.OptionalRecommendedDropTarget));
+        PickedUp.Invoke(inventory, new InventoryItemEventArgs(inventory, inventory.RecommendedDropTarget));
     }
 
     /// <summary>
@@ -56,7 +56,7 @@ public class InventoryItem : MonoBehaviour
             return;
 
         itemState = InventoryItemState.Dropped;
-        Dropped.Invoke(inventory, new InventoryItemEventArgs(inventory, inventory.OptionalRecommendedDropTarget));
+        Dropped.Invoke(inventory, new InventoryItemEventArgs(inventory, inventory.RecommendedDropTarget));
     }
 
 
