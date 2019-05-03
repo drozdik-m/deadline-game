@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class ItemNameManager
+public abstract class ReactionEditor : ArrayItemEditor<Reaction>
 {
-
+    
 }

@@ -3,7 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class ArrayEditor
+public class ArrayEditor<T, TEditor>
+    where T : MonoBehaviour
+    where TEditor : ArrayItemEditor<T>
 {
-    // todo: everything
+    public static void OnCustomInspectorGUI()
+    {
+        Debug.Log("On inspector GUI in Array Editor");
+
+        
+    }
 }
