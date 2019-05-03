@@ -34,5 +34,9 @@ class InteractableHighlighterEditor : DefaultEditor<InteractableHighlighter>
 
         //PROXIMITY
         Target.Proximity = EditorGUILayout.FloatField("Proximity range", Target.Proximity);
+        if (Target.Proximity == 0)
+            MessageBox.AddMessage("Proximity is off (is zero)", NormalStyle);
+        else if (Target.Proximity < 0)
+            MessageBox.AddMessage("Proximity is negative", ErrorStyle);
     }
 }

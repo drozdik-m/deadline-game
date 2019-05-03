@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45138633, g: 0.5009066, b: 0.5724733, a: 1}
+  m_IndirectSpecularColor: {r: 0.4513858, g: 0.5009058, b: 0.5724726, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -552,9 +552,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemType: 4
-  itemState: 1
+  ItemState: 1
   PickableObjectInScene: {fileID: 1519186983}
-  OverrideDropTarget: {fileID: 0}
+  DropTarget: {fileID: 0}
 --- !u!4 &1103940403
 Transform:
   m_ObjectHideFlags: 0
@@ -1023,7 +1023,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519186983}
   m_LocalRotation: {x: 0.14271921, y: -0.21477684, z: 0.22813337, w: 0.9388596}
-  m_LocalPosition: {x: -0.25, y: 1.2, z: 0.09}
+  m_LocalPosition: {x: -0.25, y: 1.2, z: 0.089999914}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1103940403}
