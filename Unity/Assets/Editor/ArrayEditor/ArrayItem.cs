@@ -101,7 +101,7 @@ public class ArrayItem
             if (pos < 0) return false;
 
             // if duplicate, false
-            List<int> positionsToCheck = positions;
+            List<int> positionsToCheck = new List<int>(positions);
             positionsToCheck.Remove(pos);
             foreach (int pos2 in positionsToCheck)
                 if (pos == pos2) return false;

@@ -9,7 +9,7 @@ public abstract class DefaultEditor<T> : Editor
     where T : MonoBehaviour
 {
     //Working variables
-    bool showDefaultEditor;
+    bool showDefaultEditor = false;
     AnimBool showCaughtErrors = new AnimBool(false);
     AnimBool showPrintedErrors = new AnimBool(false);
     Exception caughtError = null;

@@ -10,7 +10,6 @@ public class ReactionCollectionEditor : DefaultEditor<ReactionCollection>
     {
         Debug.Log("Reaction collection On Custom Inspector GUI");
 
-
-        ArrayEditor<Reaction, ReactionEditor>.OnCustomInspectorGUI();
+        ArrayEditor<ReactionCollection, Reaction, ReactionEditor>.CreateArrayEditor(Target);
     }
 }
