@@ -6,9 +6,13 @@ using UnityEngine;
 [CustomEditor(typeof(DebugReaction))]
 public class DebugReactionEditor : ReactionEditor
 {
+    public override string GetFoldoutLabel()
+    {
+        return "Debug Reaction";
+    }
+
     public override void OnArrayItemInspectorGUI()
     {
         EditorGUILayout.LabelField("Debug reaction editor");
-        Debug.Log("On Array Item Inspector GUI: DebugReactionEditor");
     }
 }

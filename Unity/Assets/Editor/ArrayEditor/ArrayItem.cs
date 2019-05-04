@@ -115,19 +115,17 @@ public class ArrayItem
         return type != null;
     }
 
-
     public string wholeName;
     public string userName;
     public List<int> positions;
     public Type type;
-
 
     public ArrayItem(string wholeName)
     {
         this.wholeName = wholeName;
 
         if (!ValidateWholeName(wholeName))
-            throw new ArrayItemException("Array item string name is not in correct format, " + wholeName);
+            throw new EditorException("Array item string name is not in correct format, " + wholeName);
 
         userName = GetUserNameFromWholeName();
         positions = GetPositionsFromWholeName();
@@ -137,13 +135,13 @@ public class ArrayItem
     public ArrayItem(string userName, List<int> positions, Type type)
     {
         if (!ValidateUserName(userName))
-            throw new ArrayItemException("todo");
+            throw new EditorException("Array item user defined name is not in correct format");
 
         if (!ValidatePositions(positions))
-            throw new ArrayItemException("todo");
+            throw new EditorException("Array item positions are not in correct format");
 
         if (!ValidateType(type))
-            throw new ArrayItemException("todo");
+            throw new EditorException("Array item type is not in correct format");
 
         this.userName = userName;
         this.positions = positions;
@@ -151,7 +149,6 @@ public class ArrayItem
 
         wholeName = GenerateSerializedName();
     }
-
 
     public string GenerateSerializedName()
     {
@@ -169,13 +166,5 @@ public class ArrayItem
         generatedName += userName;
 
         return generatedName;
-    }
-}
-
-public class ArrayItemException : Exception
-{
-    public ArrayItemException(string message)
-        : base (message)
-    {
     }
 }

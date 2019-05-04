@@ -15,41 +15,82 @@ public class ArrayEditor<P, T, TEditor>
     where T : MonoBehaviour
     where TEditor : ArrayItemEditor<T>
 {
-    private static GameObject findOrCreateParentGameObject(P target)
+    private string parentGameObjectName;
+    private List<OpenableEditor<TEditor>> subEditors;
+
+    private GameObject findOrCreateParentGameObject(P target)
     {
         Type typeOfTarget = target.GetType();
-        string parentGameObjectName = "_" + typeOfTarget.ToString() + "_";
+        string parentGameObjectFullName = "_" + typeOfTarget.ToString() + "_" + parentGameObjectName;
 
         if (GameObjectManager.TryFindChild(target.gameObject,
-                                           parentGameObjectName,
+                                           parentGameObjectFullName,
                                            out GameObject foundParent))
         {
             return foundParent;
         }
         else
-            return GameObjectManager.Add(target.gameObject, parentGameObjectName);
+            return GameObjectManager.Add(target.gameObject, parentGameObjectFullName);
     }
 
-    public static T[] CreateArrayEditor(P target)
+    private void CleanSubEditors()
     {
-        Debug.Log("On inspector GUI in Array Editor");
+        if (subEditors.Count < 1) return;
 
+        foreach (OpenableEditor<TEditor> editor in subEditors)
+            Editor.DestroyImmediate(editor.editor);
+
+        subEditors = new List<OpenableEditor<TEditor>>();
+    }
+
+    public ArrayEditor(string parentGameObjectName)
+    {
+        this.parentGameObjectName = parentGameObjectName;
+        subEditors = new List<OpenableEditor<TEditor>>();
+    }
+
+    public T[] Use(P target)
+    {
         // get or create existing items
         GameObject parentGameObject = findOrCreateParentGameObject(target);
         GameObject[] existingItems = GameObjectManager.GetChildren(parentGameObject);
 
-        EditorGUI.indentLevel++;
         foreach (GameObject item in existingItems)
         {
-            ArrayItem arrItem;
-            arrItem = new ArrayItem(item.name);
-            DefaultEditor<T> ed = Editor.CreateEditor(item.GetComponent<T>()) as DefaultEditor<T>;
-            ed.OnCustomInspectorGUI();
+            ArrayItem arrItem = new ArrayItem(item.name);
+            subEditors.Add(new OpenableEditor<TEditor>(false, Editor.CreateEditor(item.GetComponent<T>()) as TEditor)); 
         }
-        EditorGUI.indentLevel--;
+
+        foreach (var openableEditor in subEditors)
+        {
+            EditorGUI.indentLevel++;
+            EditorGUILayout.BeginHorizontal();
+            openableEditor.shown = EditorGUILayout.Foldout(openableEditor.shown,
+                                                           openableEditor.editor.GetFoldoutLabel());
+
+            if (openableEditor.shown)
+                openableEditor.editor.OnCustomInspectorGUI();
+
+            EditorGUILayout.EndHorizontal();
+            EditorGUI.indentLevel--;
+        }
 
         return null;
     }
 
     
 }
+
+public class OpenableEditor<TEditor>
+{
+    public bool shown;
+    public TEditor editor;
+
+    public OpenableEditor(bool shown, TEditor editor)
+    {
+        this.shown = shown;
+        this.editor = editor;
+    }
+}
+
+

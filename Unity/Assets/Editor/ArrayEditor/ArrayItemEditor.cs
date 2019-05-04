@@ -9,9 +9,10 @@ public abstract class ArrayItemEditor<T> : DefaultEditor<T>
 {
     public override void OnCustomInspectorGUI()
     {
-        EditorGUILayout.LabelField("This is array item editor");
         OnArrayItemInspectorGUI();
     }
 
     public abstract void OnArrayItemInspectorGUI();
+
+    public abstract string GetFoldoutLabel();
 }

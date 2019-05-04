@@ -8,8 +8,9 @@ public class ReactionCollectionEditor : DefaultEditor<ReactionCollection>
 {
     public override void OnCustomInspectorGUI()
     {
-        Debug.Log("Reaction collection On Custom Inspector GUI");
+        ArrayEditor<ReactionCollection, Reaction, ReactionEditor> arrEditor
+            = new ArrayEditor<ReactionCollection, Reaction, ReactionEditor>("myReactionCollection");
 
-        ArrayEditor<ReactionCollection, Reaction, ReactionEditor>.CreateArrayEditor(Target);
+        arrEditor.Use(Target);
     }
 }
