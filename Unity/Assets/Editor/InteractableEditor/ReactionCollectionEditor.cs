@@ -6,11 +6,12 @@ using UnityEngine;
 [CustomEditor(typeof(ReactionCollection))]
 public class ReactionCollectionEditor : DefaultEditor<ReactionCollection>
 {
-    public override void OnCustomInspectorGUI()
-    {
-        ArrayEditor<ReactionCollection, Reaction, ReactionEditor> arrEditor
+
+    ArrayEditor<ReactionCollection, Reaction, ReactionEditor> arrEditor
             = new ArrayEditor<ReactionCollection, Reaction, ReactionEditor>("myReactionCollection");
 
+    public override void OnCustomInspectorGUI()
+    {
         arrEditor.Use(Target);
     }
 }

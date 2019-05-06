@@ -13,6 +13,8 @@ public class DebugReactionEditor : ReactionEditor
 
     public override void OnArrayItemInspectorGUI()
     {
-        EditorGUILayout.LabelField("Debug reaction editor");
+        DrawDefaultInspector();
     }
+
+    
 }

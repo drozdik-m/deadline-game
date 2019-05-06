@@ -18,6 +18,54 @@ public class ArrayEditor<P, T, TEditor>
     private string parentGameObjectName;
     private List<OpenableEditor<TEditor>> subEditors;
 
+    private float buttonWidth = 30f;
+    private readonly float verticalSpacing = EditorGUIUtility.standardVerticalSpacing;
+    private const float controlSpacing = 5f;
+    private const float dropAreaHeight = 50f;
+
+    private Type[] arrayItemTypes;
+    private string[] arrayItemTypeNames;
+    private int selectedIndex;
+
+    private void InitSubEditors()
+    {
+        foreach (var openableEditor in subEditors)
+        {
+            EditorGUILayout.BeginVertical(GUI.skin.box);
+            EditorGUI.indentLevel++;
+
+            EditorGUILayout.BeginHorizontal();
+
+            openableEditor.shown = EditorGUILayout.Foldout(openableEditor.shown, openableEditor.editor.GetFoldoutLabel());
+
+            if (GUILayout.Button('\u25B2'.ToString(), GUILayout.Width(buttonWidth)))
+            {
+                Debug.Log("Up not implemented");
+            }
+
+            if (GUILayout.Button('\u25BC'.ToString(), GUILayout.Width(buttonWidth)))
+            {
+                Debug.Log("Down not implemented");
+            }
+
+            if (GUILayout.Button("-", GUILayout.Width(buttonWidth)))
+            {
+                Debug.Log("Removing not implemented");
+            }
+
+            EditorGUILayout.EndHorizontal();
+
+            if (openableEditor.shown)
+                openableEditor.editor.OnCustomInspectorGUI();
+
+            EditorGUI.indentLevel--;
+            EditorGUILayout.EndVertical();
+        }
+
+
+        TypeSelectionGUI();
+    }
+
     private GameObject findOrCreateParentGameObject(P target)
     {
         Type typeOfTarget = target.GetType();
@@ -43,14 +91,63 @@ public class ArrayEditor<P, T, TEditor>
         subEditors = new List<OpenableEditor<TEditor>>();
     }
 
+    private void SetItemNamesArray()
+    {
+        Type type = typeof(T);
+
+        Type[] allTypes = type.Assembly.GetTypes();
+
+        List<Type> subTypeList = new List<Type>();
+
+        for (int i = 0; i < allTypes.Length; i++)
+        {
+            if (allTypes[i].IsSubclassOf(type) && !allTypes[i].IsAbstract)
+            {
+                subTypeList.Add(allTypes[i]);
+            }
+        }
+
+        arrayItemTypes = subTypeList.ToArray();
+
+        List<string> typeNameList = new List<string>();
+
+        for (int i = 0; i < arrayItemTypes.Length; i++)
+        {
+            typeNameList.Add(arrayItemTypes[i].Name);
+        }
+
+        arrayItemTypeNames = typeNameList.ToArray();
+    }
+
+    private void TypeSelectionGUI()
+    {
+        Debug.Log(arrayItemTypeNames.Length);
+
+        selectedIndex = EditorGUILayout.Popup(selectedIndex, arrayItemTypeNames);
+
+        if (GUILayout.Button("Add"))
+        {
+
+            // todo add select item to array
+            Debug.Log("Adding not implemented");
+        }
+    }
+
     public ArrayEditor(string parentGameObjectName)
     {
         this.parentGameObjectName = parentGameObjectName;
         subEditors = new List<OpenableEditor<TEditor>>();
+        SetItemNamesArray();
     }
 
     public T[] Use(P target)
     {
+        if (subEditors.Count > 0)
+        {
+            InitSubEditors();
+            return null;
+        }
+            
         // get or create existing items
         GameObject parentGameObject = findOrCreateParentGameObject(target);
         GameObject[] existingItems = GameObjectManager.GetChildren(parentGameObject);
@@ -61,19 +158,7 @@ public class ArrayEditor<P, T, TEditor>
             subEditors.Add(new OpenableEditor<TEditor>(false, Editor.CreateEditor(item.GetComponent<T>()) as TEditor)); 
         }
 
-        foreach (var openableEditor in subEditors)
-        {
-            EditorGUI.indentLevel++;
-            EditorGUILayout.BeginHorizontal();
-            openableEditor.shown = EditorGUILayout.Foldout(openableEditor.shown,
-                                                           openableEditor.editor.GetFoldoutLabel());
-
-            if (openableEditor.shown)
-                openableEditor.editor.OnCustomInspectorGUI();
-
-            EditorGUILayout.EndHorizontal();
-            EditorGUI.indentLevel--;
-        }
+        InitSubEditors();
 
         return null;
     }
