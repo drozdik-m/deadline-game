@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System;
+using System.Threading;
+using System.Linq;
 
 /// <summary>
 /// 
@@ -15,6 +17,8 @@ public class ArrayEditor<P, T, TEditor>
     where T : MonoBehaviour
     where TEditor : ArrayItemEditor<T>
 {
+    private P target;
+
     private string parentGameObjectName;
     private List<OpenableEditor<TEditor>> subEditors;
 
@@ -27,6 +31,27 @@ public class ArrayEditor<P, T, TEditor>
     private string[] arrayItemTypeNames;
     private int selectedIndex;
 
+    private string userItemName = "";
+
+    private void DestroySubEditors()
+    {
+        if (subEditors != null)
+            foreach (var editor in subEditors)
+                Editor.DestroyImmediate(((OpenableEditor<TEditor>)editor).editor);
+
+        subEditors = new List<OpenableEditor<TEditor>>();
+    }
+
+    private void LoadEditorsFromHierarchy()
+    {
+        // get or create existing items
+        GameObject parentGameObject = findOrCreateParentGameObject(target);
+        GameObject[] existingItems = GameObjectManager.GetChildren(parentGameObject);
+
+        foreach (GameObject item in existingItems)
+            subEditors.Add(new OpenableEditor<TEditor>(false, Editor.CreateEditor(item.GetComponent<T>()) as TEditor, new ArrayItem(item.name)));
+    }
+
     private void InitSubEditors()
     {
         foreach (var openableEditor in subEditors)
@@ -36,22 +61,16 @@ public class ArrayEditor<P, T, TEditor>
 
             EditorGUILayout.BeginHorizontal();
 
-            openableEditor.shown = EditorGUILayout.Foldout(openableEditor.shown, openableEditor.editor.GetFoldoutLabel());
+            openableEditor.shown = EditorGUILayout.Foldout(openableEditor.shown, openableEditor.editor.GetFoldoutLabel() + " (" + openableEditor.arrayItem.userName + ")");
 
             if (GUILayout.Button('\u25B2'.ToString(), GUILayout.Width(buttonWidth)))
-            {
-                Debug.Log("Up not implemented");
-            }
+                UpArrayItem();
 
             if (GUILayout.Button('\u25BC'.ToString(), GUILayout.Width(buttonWidth)))
-            {
-                Debug.Log("Down not implemented");
-            }
+                DownArrayItem();
 
             if (GUILayout.Button("-", GUILayout.Width(buttonWidth)))
-            {
-                Debug.Log("Removing not implemented");
-            }
+                RemoveArrayItem(openableEditor);
 
             EditorGUILayout.EndHorizontal();
 
@@ -63,7 +82,19 @@ public class ArrayEditor<P, T, TEditor>
         }
 
 
-        TypeSelectionGUI();
+        AddItemGUI();
+    }
+
+    private void RefreshEditors()
+    {
+        // destroy editors we already have
+        DestroySubEditors();
+
+        // load all editors from hierarchy
+        LoadEditorsFromHierarchy();
+
+        // init all editors
+        InitSubEditors();
     }
 
     private GameObject findOrCreateParentGameObject(P target)
@@ -79,16 +110,6 @@ public class ArrayEditor<P, T, TEditor>
         }
         else
             return GameObjectManager.Add(target.gameObject, parentGameObjectFullName);
-    }
-
-    private void CleanSubEditors()
-    {
-        if (subEditors.Count < 1) return;
-
-        foreach (OpenableEditor<TEditor> editor in subEditors)
-            Editor.DestroyImmediate(editor.editor);
-
-        subEditors = new List<OpenableEditor<TEditor>>();
     }
 
     private void SetItemNamesArray()
@@ -119,18 +140,80 @@ public class ArrayEditor<P, T, TEditor>
         arrayItemTypeNames = typeNameList.ToArray();
     }
 
-    private void TypeSelectionGUI()
+    private void AddItemGUI()
     {
-        Debug.Log(arrayItemTypeNames.Length);
+        EditorGUILayout.Space();
 
+        GUILayout.BeginVertical(EditorStyles.helpBox);
+
+        GUIStyle headerStyle = new GUIStyle();
+        headerStyle.fontSize = 13;
+        headerStyle.normal.textColor = Color.white;
+        GUILayout.Label("Add item", headerStyle);
+
+        EditorGUILayout.LabelField("choose item type & type name of the item");
+
+        GUILayout.BeginHorizontal();
         selectedIndex = EditorGUILayout.Popup(selectedIndex, arrayItemTypeNames);
+        userItemName = GUILayout.TextField(userItemName);
+        GUILayout.EndHorizontal();
 
         if (GUILayout.Button("Add"))
-        {
+            AddArrayItem(selectedIndex, userItemName);
 
-            // todo add select item to array
-            Debug.Log("Adding not implemented");
+        GUILayout.EndVertical();
+    }
+
+    private int GetLastArrayItemPosition()
+    {
+        int lastPosition = 1;
+
+        foreach (var openableEditor in subEditors)
+        {
+            int maxPos = openableEditor.arrayItem.positions.Max();
+            if (maxPos > lastPosition)
+                lastPosition = maxPos;
         }
+            
+        return lastPosition;
+    }
+
+    private void AddArrayItem(int selectedIndex, string userItemName)
+    {
+        if (selectedIndex < 0 || selectedIndex >= arrayItemTypes.Length)
+            throw new EditorException("Selected type is not valid");
+        if (string.IsNullOrWhiteSpace(userItemName))
+            throw new EditorException("User item name must be filled");
+
+        Type selectedType = arrayItemTypes[selectedIndex];
+
+        int newItemPosition = GetLastArrayItemPosition() + 1;
+        ArrayItem newArrayItem = new ArrayItem(userItemName, new List<int> { newItemPosition }, selectedType);
+        
+        GameObject currParent = findOrCreateParentGameObject(target);
+
+        GameObject addedGameObject = GameObjectManager.Add(currParent, newArrayItem.wholeName);
+        addedGameObject.AddComponent(selectedType);
+
+        RefreshEditors();
+    }
+
+    private void RemoveArrayItem(OpenableEditor<TEditor> openableEditor)
+    {
+        if (!GameObjectManager.TryFindChild(findOrCreateParentGameObject(target), openableEditor.arrayItem.wholeName, out GameObject gameObjectToRemove))
+            throw new EditorException("Child you are trying to remove was not found");
+        GameObjectManager.Remove(gameObjectToRemove);
+        RefreshEditors();
+    }
+
+    private void UpArrayItem()
+    {
+        Debug.Log("Up array item");
+    }
+
+    private void DownArrayItem()
+    {
+        Debug.Log("Down array item");
     }
 
     public ArrayEditor(string parentGameObjectName)
@@ -140,25 +223,14 @@ public class ArrayEditor<P, T, TEditor>
         SetItemNamesArray();
     }
 
-    public T[] Use(P target)
+    public T[] Use(P sendTarget)
     {
-        if (subEditors.Count > 0)
-        {
+        this.target = sendTarget;
+
+        if (subEditors != null && subEditors.Count > 0)
             InitSubEditors();
-            return null;
-        }
-            
-        // get or create existing items
-        GameObject parentGameObject = findOrCreateParentGameObject(target);
-        GameObject[] existingItems = GameObjectManager.GetChildren(parentGameObject);
-
-        foreach (GameObject item in existingItems)
-        {
-            ArrayItem arrItem = new ArrayItem(item.name);
-            subEditors.Add(new OpenableEditor<TEditor>(false, Editor.CreateEditor(item.GetComponent<T>()) as TEditor)); 
-        }
-
-        InitSubEditors();
+        else
+            RefreshEditors();
 
         return null;
     }
@@ -170,11 +242,13 @@ public class OpenableEditor<TEditor>
 {
     public bool shown;
     public TEditor editor;
+    public ArrayItem arrayItem;
 
-    public OpenableEditor(bool shown, TEditor editor)
+    public OpenableEditor(bool shown, TEditor editor, ArrayItem arrayItem)
     {
         this.shown = shown;
         this.editor = editor;
+        this.arrayItem = arrayItem;
     }
 }
 
