@@ -11,8 +11,5 @@ public class DelayedDebugReactionEditor : ReactionEditor
         return "Delayed Debug Reaction";
     }
 
-    public override void OnArrayItemInspectorGUI()
-    {
-        DrawDefaultInspector();
-    }
+    
 }

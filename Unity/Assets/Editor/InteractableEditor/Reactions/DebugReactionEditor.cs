@@ -11,7 +11,7 @@ public class DebugReactionEditor : ReactionEditor
         return "Debug Reaction";
     }
 
-    public override void OnArrayItemInspectorGUI()
+    public override void OnCustomInspectorGUI()
     {
         DrawDefaultInspector();
     }
