@@ -81,9 +81,9 @@ public class ArrayEditor<P, T, TEditor>
             EditorGUILayout.BeginHorizontal();
 
             if (openableEditor.isEditorLink)
-                openableEditor.shown = EditorGUILayout.Foldout(openableEditor.shown, "Editor Link (" + openableEditor.arrayItem.userName + ")");
+                openableEditor.shown = EditorGUILayout.Foldout(openableEditor.shown, "[Editor Link] " + openableEditor.arrayItem.userName);
             else
-                openableEditor.shown = EditorGUILayout.Foldout(openableEditor.shown, openableEditor.editor.GetFoldoutLabel() + " (" + openableEditor.arrayItem.userName + ")");
+                openableEditor.shown = EditorGUILayout.Foldout(openableEditor.shown, "[" + openableEditor.editor.GetFoldoutLabel() + "] " + openableEditor.arrayItem.userName);
 
             if (GUILayout.Button('\u25B2'.ToString(), GUILayout.Width(buttonWidth)))
                 UpArrayItem(openableEditor);
@@ -100,8 +100,11 @@ public class ArrayEditor<P, T, TEditor>
             {
                 if (openableEditor.isEditorLink)
                 {
-                    EditorLinkEditor editorLinkEditor = Editor.CreateEditor(openableEditor.gameObjectItem.GetComponent<EditorLink>()) as EditorLinkEditor;
-                    editorLinkEditor.OnInspectorGUI();
+                    if (!(openableEditor.gameObjectItem == null))
+                    {
+                        EditorLinkEditor editorLinkEditor = Editor.CreateEditor(openableEditor.gameObjectItem.GetComponent<EditorLink>()) as EditorLinkEditor;
+                        editorLinkEditor.OnInspectorGUI();
+                    }
                 }
                 else
                     openableEditor.editor.OnInspectorGUI();
@@ -240,21 +243,38 @@ public class ArrayEditor<P, T, TEditor>
 
         int newItemPosition = GetLastArrayItemPosition() + 1;
         ArrayItem newArrayItem = new ArrayItem(userItemName, new List<int> { newItemPosition }, selectedType);
-        
+
         GameObject currParent = findOrCreateParentGameObject(target);
+        currParent.AddComponent(newArrayItem.type);
+
+        var testArrayItemTarget = currParent.GetComponent(newArrayItem.type);
+        Editor testArrayItemInterfaceEditor = Editor.CreateEditor(testArrayItemTarget);
+        
+        if (!(testArrayItemInterfaceEditor is IArrayItemEditor))
+        {
+            changeLastMessage("Item type that you are trying to create does not have editor", DefaultEditor<MonoBehaviour>.ErrorStyle);
+            UnityEngine.Object.DestroyImmediate(currParent.GetComponent(newArrayItem.type));
+            return;
+        }
+        UnityEngine.Object.DestroyImmediate(currParent.GetComponent(newArrayItem.type));
 
         GameObject addedGameObject = GameObjectManager.Add(currParent, newArrayItem.wholeName);
         addedGameObject.AddComponent(selectedType);
 
-        changeLastMessage("Item added", DefaultEditor<MonoBehaviour>.SuccessStyle);
+        changeLastMessage("Item (" + newArrayItem.userName + ") added", DefaultEditor<MonoBehaviour>.SuccessStyle);
+        GameObjectManager.SortChildrenAlphabetically(currParent);
         RefreshEditors();
     }
 
     private void RemoveArrayItem(OpenableEditor<TEditor> openableEditor)
     {
-        if (!GameObjectManager.TryFindChild(findOrCreateParentGameObject(target), openableEditor.arrayItem.wholeName, out GameObject gameObjectToRemove))
+        GameObject currParent = findOrCreateParentGameObject(target);
+        if (!GameObjectManager.TryFindChild(currParent, openableEditor.arrayItem.wholeName, out GameObject gameObjectToRemove))
             throw new EditorException("Parent of child you are trying to remove was not found");
         GameObjectManager.Remove(gameObjectToRemove);
+
+        changeLastMessage("Item (" + openableEditor.arrayItem.userName + ") removed", DefaultEditor<MonoBehaviour>.SuccessStyle);
+        GameObjectManager.SortChildrenAlphabetically(currParent);
         RefreshEditors();
     }
 
@@ -283,7 +303,8 @@ public class ArrayEditor<P, T, TEditor>
         ArrayItem newToDown = new ArrayItem(firstBefore.arrayItem.userName, new List<int> { openableEditor.arrayItem.positions.First() }, firstBefore.arrayItem.type);
 
         // change up
-        if (!GameObjectManager.TryFindChild(findOrCreateParentGameObject(target), openableEditor.arrayItem.wholeName, out GameObject foundUp))
+        GameObject currParent = findOrCreateParentGameObject(target);
+        if (!GameObjectManager.TryFindChild(currParent, openableEditor.arrayItem.wholeName, out GameObject foundUp))
             throw new EditorException("Specified game object to move was not found");
         foundUp.name = newCurrentToUp.wholeName;
 
@@ -292,6 +313,9 @@ public class ArrayEditor<P, T, TEditor>
             throw new EditorException("Specified game object to move was not found");
         foundDown.name = newToDown.wholeName;
 
+        GameObjectManager.SortChildrenAlphabetically(currParent);
+
+        changeLastMessage("Item (" + openableEditor.arrayItem.userName + ") moved up", DefaultEditor<MonoBehaviour>.SuccessStyle);
         RefreshEditors();
     }
 
@@ -320,7 +344,8 @@ public class ArrayEditor<P, T, TEditor>
         ArrayItem newToUp = new ArrayItem(firstAfter.arrayItem.userName, new List<int> { openableEditor.arrayItem.positions.First() }, firstAfter.arrayItem.type);
 
         // change up
-        if (!GameObjectManager.TryFindChild(findOrCreateParentGameObject(target), openableEditor.arrayItem.wholeName, out GameObject foundDown))
+        GameObject currParent = findOrCreateParentGameObject(target);
+        if (!GameObjectManager.TryFindChild(currParent, openableEditor.arrayItem.wholeName, out GameObject foundDown))
             throw new EditorException("Specified game object to move was not found");
         foundDown.name = newCurrentToDown.wholeName;
 
@@ -329,6 +354,9 @@ public class ArrayEditor<P, T, TEditor>
             throw new EditorException("Specified game object to move was not found");
         foundUp.name = newToUp.wholeName;
 
+        GameObjectManager.SortChildrenAlphabetically(currParent);
+
+        changeLastMessage("Item (" + openableEditor.arrayItem.userName + ") moved down", DefaultEditor<MonoBehaviour>.SuccessStyle);
         RefreshEditors();
     }
 
@@ -366,15 +394,16 @@ public class ArrayEditor<P, T, TEditor>
 
             if (currType == typeof(EditorLink))
             {
-                GameObject currComponent = foundGameObject.GetComponent<GameObject>();
-                if (currComponent == null)
+                EditorLink currEditorLink = foundGameObject.GetComponent<EditorLink>();
+
+                if (currEditorLink.linkedGameObject == null)
                 {
-                    editorMessageBox.AddMessage("Editor Link does not have linked GameObject", DefaultEditor<MonoBehaviour>.WarningStyle);
+                    editorMessageBox.AddMessage("Editor Link (" + subEditors[i].arrayItem.userName + ") does not have linked GameObject", DefaultEditor<MonoBehaviour>.WarningStyle);
                     newArr[i] = null;
                 }
                 else
                 {
-                    GameObject linkedGameObject = foundGameObject.GetComponent<GameObject>();
+                    GameObject linkedGameObject = currEditorLink.linkedGameObject;
                     ArrayItem linkedGameObjectArrayItem = new ArrayItem(linkedGameObject.name);
                     newArr[i] = linkedGameObject.GetComponent(linkedGameObjectArrayItem.type) as T;
                 }
@@ -391,7 +420,6 @@ public class ArrayEditor<P, T, TEditor>
 
         // remove null links
         newArr = newArr.Where(i => i != null).ToArray();
-
         return newArr;
     }
 }

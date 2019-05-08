@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class GameObjectManager
@@ -62,5 +63,15 @@ public static class GameObjectManager
 
         foundGameObject = null;
         return false;
+    }
+
+    public static void SortChildrenAlphabetically(GameObject parent)
+    {
+        GameObject[] children = GetChildren(parent);
+
+        children = children.OrderBy(c => c.name).ToArray();
+
+        for (int i = 0; i < children.Length; i++)
+            children[i].transform.SetSiblingIndex(i);
     }
 }
