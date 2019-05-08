@@ -16,7 +16,10 @@ public class EditorLinkEditor : DefaultEditor<EditorLink>, IArrayItemEditor
 
     public override void OnCustomInspectorGUI()
     {
-        Target.linkedGameObject = (GameObject)EditorGUILayout.ObjectField("Linked Game Object", Target.linkedGameObject, typeof(GameObject), true);
+        Target.linkedGameObject = (GameObject)EditorGUILayout.ObjectField("Linked Game Object",
+                                                                           Target.linkedGameObject,
+                                                                           typeof(GameObject),
+                                                                           true);
 
         if (Target.linkedGameObject == null)
             MessageBox.AddMessage("Linked Game Object is empty", DefaultEditor<MonoBehaviour>.WarningStyle);
