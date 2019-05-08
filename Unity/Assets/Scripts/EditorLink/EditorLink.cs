@@ -11,4 +11,6 @@ public class EditorLink : MonoBehaviour
     /// Game Object to which editor link links
     /// </summary> 
     public GameObject linkedGameObject;
+
+    public static string FoldoutName = "Editor Link";
 }
