@@ -60,7 +60,11 @@ public class ArrayEditor<P, T, TEditor>
 
         foreach (GameObject item in existingItems)
         {
-            subEditors.Add(new OpenableEditor<TEditor>(false, Editor.CreateEditor(item.GetComponent<T>()) as TEditor, new ArrayItem(item.name)));
+            ArrayItem currArrayItem = new ArrayItem(item.name);
+            if (currArrayItem.type == typeof(EditorLink))
+                subEditors.Add(new OpenableEditor<TEditor>(false, null, currArrayItem, true, item));
+            else
+                subEditors.Add(new OpenableEditor<TEditor>(false, Editor.CreateEditor(item.GetComponent<T>()) as TEditor, currArrayItem));
         }
             
 
@@ -76,7 +80,10 @@ public class ArrayEditor<P, T, TEditor>
 
             EditorGUILayout.BeginHorizontal();
 
-            openableEditor.shown = EditorGUILayout.Foldout(openableEditor.shown, openableEditor.editor.GetFoldoutLabel() + " (" + openableEditor.arrayItem.userName + ")");
+            if (openableEditor.isEditorLink)
+                openableEditor.shown = EditorGUILayout.Foldout(openableEditor.shown, "Editor Link (" + openableEditor.arrayItem.userName + ")");
+            else
+                openableEditor.shown = EditorGUILayout.Foldout(openableEditor.shown, openableEditor.editor.GetFoldoutLabel() + " (" + openableEditor.arrayItem.userName + ")");
 
             if (GUILayout.Button('\u25B2'.ToString(), GUILayout.Width(buttonWidth)))
                 UpArrayItem(openableEditor);
@@ -90,7 +97,16 @@ public class ArrayEditor<P, T, TEditor>
             EditorGUILayout.EndHorizontal();
 
             if (openableEditor.shown)
-                openableEditor.editor.OnInspectorGUI();
+            {
+                if (openableEditor.isEditorLink)
+                {
+                    EditorLinkEditor editorLinkEditor = Editor.CreateEditor(openableEditor.gameObjectItem.GetComponent<EditorLink>()) as EditorLinkEditor;
+                    editorLinkEditor.OnInspectorGUI();
+                }
+                else
+                    openableEditor.editor.OnInspectorGUI();
+            }
+                
 
             EditorGUI.indentLevel--;
             EditorGUILayout.EndVertical();
@@ -143,8 +159,9 @@ public class ArrayEditor<P, T, TEditor>
             }
         }
 
+        subTypeList.Insert(0, typeof(EditorLink));
         arrayItemTypes = subTypeList.ToArray();
-
+        
         List<string> typeNameList = new List<string>();
 
         for (int i = 0; i < arrayItemTypes.Length; i++)
@@ -204,6 +221,18 @@ public class ArrayEditor<P, T, TEditor>
         if (string.IsNullOrWhiteSpace(userItemName))
         {
             Debug.LogWarning("User item name must be filled");
+            return;
+        }
+
+        if (userItemName.Contains(' '))
+        {
+            Debug.LogWarning("User item name cannot contain spaces");
+            return;
+        }
+
+        if (userItemName.Contains('[') || userItemName.Contains(']'))
+        {
+            Debug.LogWarning("User item name cannot contain '[' or ']'");
             return;
         }
 
@@ -334,8 +363,34 @@ public class ArrayEditor<P, T, TEditor>
                 throw new EditorException("Child was not found");
 
             Type currType = subEditors[i].arrayItem.type;
-            newArr[i] = foundGameObject.GetComponent(currType) as T;
+
+            if (currType == typeof(EditorLink))
+            {
+                GameObject currComponent = foundGameObject.GetComponent<GameObject>();
+                if (currComponent == null)
+                {
+                    editorMessageBox.AddMessage("Editor Link does not have linked GameObject", DefaultEditor<MonoBehaviour>.WarningStyle);
+                    newArr[i] = null;
+                }
+                else
+                {
+                    GameObject linkedGameObject = foundGameObject.GetComponent<GameObject>();
+                    ArrayItem linkedGameObjectArrayItem = new ArrayItem(linkedGameObject.name);
+                    newArr[i] = linkedGameObject.GetComponent(linkedGameObjectArrayItem.type) as T;
+                }
+            }
+            else
+            {
+                Component currComponent = foundGameObject.GetComponent(currType);
+                if (currComponent == null)
+                    newArr[i] = null;
+                else
+                    newArr[i] = foundGameObject.GetComponent(currType) as T;
+            }
         }
+
+        // remove null links
+        newArr = newArr.Where(i => i != null).ToArray();
 
         return newArr;
     }
@@ -346,13 +401,15 @@ public class OpenableEditor<TEditor>
     public bool shown;
     public TEditor editor;
     public ArrayItem arrayItem;
+    public bool isEditorLink;
+    public GameObject gameObjectItem;
 
-    public OpenableEditor(bool shown, TEditor editor, ArrayItem arrayItem)
+    public OpenableEditor(bool shown, TEditor editor, ArrayItem arrayItem, bool isEditorLink = false, GameObject gameObjectItem = null)
     {
         this.shown = shown;
         this.editor = editor;
         this.arrayItem = arrayItem;
+        this.isEditorLink = isEditorLink;
+        this.gameObjectItem = gameObjectItem;
     }
 }
-
-
