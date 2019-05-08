@@ -59,7 +59,10 @@ public class ArrayEditor<P, T, TEditor>
         GameObject[] existingItems = GameObjectManager.GetChildren(parentGameObject);
 
         foreach (GameObject item in existingItems)
+        {
             subEditors.Add(new OpenableEditor<TEditor>(false, Editor.CreateEditor(item.GetComponent<T>()) as TEditor, new ArrayItem(item.name)));
+        }
+            
 
         subEditors = subEditors.OrderBy(s => s.arrayItem.positions.First()).ToList();
     }
@@ -236,7 +239,7 @@ public class ArrayEditor<P, T, TEditor>
 
         // get the previous item
         var allOtherSubEditors = subEditors.Where(s => s != openableEditor).ToList();
-        OpenableEditor<TEditor> firstBefore = subEditors.Where(s => s != openableEditor && s.arrayItem.positions.First() == subEditors.Min(se => se.arrayItem.positions.First())).First();
+        OpenableEditor<TEditor> firstBefore = subEditors.Where(s => s != openableEditor /* Michalka je bohyně ♥ */ && s.arrayItem.positions.First() == subEditors.Min(se => se.arrayItem.positions.First())).First();
 
         foreach (var otherEditor in allOtherSubEditors)
         {

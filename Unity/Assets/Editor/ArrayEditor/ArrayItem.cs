@@ -62,15 +62,27 @@ public class ArrayItem
 
     }
 
+    private string[] GetNamePieces(string wholeName)
+    {
+        string[] wholeNamePieces = wholeName.Split(' ');
+
+        if (wholeNamePieces.Length != 3)
+            throw new EditorException("Whole name of the item is not valid -> too much pieces after divison by space");
+
+        wholeNamePieces[1] = wholeNamePieces[1].Substring(1, wholeNamePieces[1].Length - 2);
+
+        return wholeNamePieces;
+    }
+
     private Type GetTypeFromWholeName()
     {
-        string[] wholeNamePieces = wholeName.Split('_');
+        string[] wholeNamePieces = GetNamePieces(wholeName);
         return MyGetType(wholeNamePieces[1]);
     }
 
     private List<int> GetPositionsFromWholeName()
     {
-        string[] wholeNamePieces = wholeName.Split('_');
+        string[] wholeNamePieces = GetNamePieces(wholeName);
         string positionsStr = wholeNamePieces[0].Substring(1, wholeNamePieces[0].Length - 1);
         string[] positionsStrArr = positionsStr.Split(',');
 
@@ -83,7 +95,7 @@ public class ArrayItem
 
     private string GetUserNameFromWholeName()
     {
-        string[] wholeNamePieces = wholeName.Split('_');
+        string[] wholeNamePieces = GetNamePieces(wholeName);
         return wholeNamePieces[2];
     }
 
@@ -99,10 +111,7 @@ public class ArrayItem
         if (!wholeName.StartsWith("#")) return false;
 
         
-        string[] wholeNamePieces = wholeName.Split('_');
-
-        // does not contain two '_' -> false
-        if (wholeNamePieces.Length - 1 != 2) return false;
+        string[] wholeNamePieces = GetNamePieces(wholeName);
 
         // get rid of first '#' in first piece
         wholeNamePieces[0] = wholeNamePieces[0].Substring(1, wholeNamePieces[0].Length - 1);
@@ -213,9 +222,9 @@ public class ArrayItem
 
         generatedName = generatedName.Substring(0, generatedName.Length - 1);
 
-        generatedName += "_";
+        generatedName += " [";
         generatedName += type.ToString();
-        generatedName += "_";
+        generatedName += "] ";
 
         generatedName += userName;
 
