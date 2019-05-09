@@ -25,6 +25,6 @@ public class SelfDialogReactionEditor : ReactionEditor
                                                                                    true);
 
         if (thisReaction.selfTalkDialog == null)
-            MessageBox.AddMessage("Self Talk Dialog is empty", DefaultEditor<MonoBehaviour>.WarningStyle);
+            MessageBox.AddMessage("Self Talk Dialog is empty", WarningStyle);
     }
 }

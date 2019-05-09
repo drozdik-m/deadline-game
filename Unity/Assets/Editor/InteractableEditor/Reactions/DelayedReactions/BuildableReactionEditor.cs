@@ -25,6 +25,6 @@ public class BuildableReactionEditor : ReactionEditor
                                                                                    true);
 
         if (thisReaction.buildableObject == null)
-            MessageBox.AddMessage("Buildable Object is empty", DefaultEditor<MonoBehaviour>.WarningStyle);
+            MessageBox.AddMessage("Buildable Object is empty", WarningStyle);
     }
 }

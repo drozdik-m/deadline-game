@@ -24,15 +24,15 @@ public class TwinDialogReactionEditor : ReactionEditor
                                                                                    typeof(TwinTalkDialog),
                                                                                    true);
         thisReaction.target = (GameObject)EditorGUILayout.ObjectField("Twin Talk Dialog Target",
-                                                                                   thisReaction.target,
-                                                                                   typeof(GameObject),
-                                                                                   true);
+                                                                       thisReaction.target,
+                                                                       typeof(GameObject),
+                                                                       true);
 
 
         if (thisReaction.twinTalkDialog == null)
-            MessageBox.AddMessage("Twin Talk Dialog is empty", DefaultEditor<MonoBehaviour>.WarningStyle);
+            MessageBox.AddMessage("Twin Talk Dialog is empty", WarningStyle);
 
         if (thisReaction.target == null)
-            MessageBox.AddMessage("Twin Talk Dialog Target is empty", DefaultEditor<MonoBehaviour>.WarningStyle);
+            MessageBox.AddMessage("Twin Talk Dialog Target is empty", WarningStyle);
     }
 }
