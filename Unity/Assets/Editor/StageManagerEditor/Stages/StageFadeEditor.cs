@@ -4,14 +4,14 @@ using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(StageFade))]
-public class StageFadeEditor : StageEditor
+public class StageFadeEditor : StageFadeAbstractEditor
 {
     public override string GetFoldoutLabel()
     {
         return "StageFade";
     }
 
-    public override void OnStageInspectorGUI()
+    public override void OnFadeInspectorGUI()
     {
         //DrawDefaultInspector();
 
