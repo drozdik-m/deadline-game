@@ -57,7 +57,7 @@ public class DoorKeeper : MonoBehaviour
         var doors = FindObjectsOfType<DoorKeeper>();
         foreach (DoorKeeper door in doors)
         {
-            if (door.DoorLocation == this.TargetLocation)
+            if (door.DoorLocation == this.TargetLocation && door.TargetLocation == this.DoorLocation)
             {
                 agent.Warp(door.SpawnPosition.transform.position);
                 UpdateLocation(door.DoorLocation);
