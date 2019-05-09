@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Condition for someone to move somewhere
 /// </summary>
-public class QuestMoveThereCondition : QuestManualCondition
+public class QuestMoveThereCondition : QuestCondition
 {
     /// <summary>
     /// Override collision trigger (this object by default)

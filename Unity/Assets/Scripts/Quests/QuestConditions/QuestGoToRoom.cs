@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// Condition that checks current room
 /// </summary>
-public class QuestGoToRoom : QuestManualCondition
+public class QuestGoToRoom : QuestCondition
 {
     /// <summary>
     /// Target room

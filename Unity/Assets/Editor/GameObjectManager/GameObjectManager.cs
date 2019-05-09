@@ -17,7 +17,8 @@ public static class GameObjectManager
     public static GameObject Add(GameObject parent, string name)
     {
         GameObject newGameObject = new GameObject(name);
-        newGameObject.transform.parent = parent.gameObject.transform;
+        if (parent != null)
+            newGameObject.transform.parent = parent.gameObject.transform;
         return newGameObject;
     }
 

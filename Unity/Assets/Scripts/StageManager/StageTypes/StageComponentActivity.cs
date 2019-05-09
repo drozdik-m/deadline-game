@@ -31,7 +31,7 @@ public class StageComponentActivity : Stage
 
     public override void StageFixedUpdate()
     {
-       ;
+       
     }
 
     public override void StageLoad()

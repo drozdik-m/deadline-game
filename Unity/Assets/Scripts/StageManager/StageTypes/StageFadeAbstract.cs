@@ -18,6 +18,8 @@ public abstract class StageFadeAbstract : Stage
 
     public override bool ReadyForNextStage()
     {
+        if (Fader == null)
+            return false;
         return !Fader.IsFading();
     }
 }

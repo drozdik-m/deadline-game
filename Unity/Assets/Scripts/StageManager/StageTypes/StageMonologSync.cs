@@ -24,6 +24,8 @@ public class StageMonologSync : Stage
 
     public override bool ReadyForNextStage()
     {
+        if (dialogManager == null)
+            return false;
         return !dialogManager.DialogInProgress();
     }
 

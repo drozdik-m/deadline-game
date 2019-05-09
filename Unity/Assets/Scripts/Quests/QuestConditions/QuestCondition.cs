@@ -13,11 +13,37 @@ public abstract class QuestCondition : MonoBehaviour
     public event QuestConditionHandler OnChange;
 
     /// <summary>
+    /// Set complete status
+    /// </summary>
+    public bool Completed
+    {
+        get
+        {
+            return completed;
+        }
+        set
+        {
+            if (!Recording)
+                return;
+            completed = value;
+            ConditionChanged(completed);
+        }
+    }
+
+    /// <summary>
+    /// Is the condition complete?
+    /// </summary>
+    [SerializeField]
+    private bool completed = false;
+
+    /// <summary>
     /// Checks if condition is met
     /// </summary>
     /// <returns>True if condition is met, else false</returns>
-    public abstract bool ConditionMet();
-
+    public bool ConditionMet()
+    {
+        return Completed;
+    }
 
     /// <summary>
     /// Should the condition record?
