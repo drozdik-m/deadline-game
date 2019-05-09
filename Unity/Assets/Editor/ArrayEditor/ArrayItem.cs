@@ -1,22 +1,88 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class ArrayItem
 {
     public const int USERNAME_LEN = 128;
 
+    public static Type MyGetType(string TypeName)
+    {
+
+        // Try Type.GetType() first. This will work with types defined
+        // by the Mono runtime, in the same assembly as the caller, etc.
+        var type = Type.GetType(TypeName);
+
+        // If it worked, then we're done here
+        if (type != null)
+            return type;
+
+        // If the TypeName is a full name, then we can try loading the defining assembly directly
+        if (TypeName.Contains("."))
+        {
+
+            // Get the name of the assembly (Assumption is that we are using 
+            // fully-qualified type names)
+            var assemblyName = TypeName.Substring(0, TypeName.IndexOf('.'));
+
+            // Attempt to load the indicated Assembly
+            var assembly = Assembly.Load(assemblyName);
+            if (assembly == null)
+                return null;
+
+            // Ask that assembly to return the proper Type
+            type = assembly.GetType(TypeName);
+            if (type != null)
+                return type;
+
+        }
+
+        // If we still haven't found the proper type, we can enumerate all of the 
+        // loaded assemblies and see if any of them define the type
+        var currentAssembly = Assembly.GetExecutingAssembly();
+        var referencedAssemblies = currentAssembly.GetReferencedAssemblies();
+        foreach (var assemblyName in referencedAssemblies)
+        {
+
+            // Load the referenced assembly
+            var assembly = Assembly.Load(assemblyName);
+            if (assembly != null)
+            {
+                // See if that assembly defines the named type
+                type = assembly.GetType(TypeName);
+                if (type != null)
+                    return type;
+            }
+        }
+
+        // The type just couldn't be found...
+        return null;
+
+    }
+
+    private string[] GetNamePieces(string wholeName)
+    {
+        string[] wholeNamePieces = wholeName.Split(' ');
+
+        if (wholeNamePieces.Length != 3)
+            throw new EditorException("Whole name of the item is not valid -> too much pieces after divison by space");
+
+        wholeNamePieces[1] = wholeNamePieces[1].Substring(1, wholeNamePieces[1].Length - 2);
+
+        return wholeNamePieces;
+    }
 
     private Type GetTypeFromWholeName()
     {
-        string[] wholeNamePieces = wholeName.Split('_');
-        return Type.GetType(wholeNamePieces[1]);
+        string[] wholeNamePieces = GetNamePieces(wholeName);
+        return MyGetType(wholeNamePieces[1]);
     }
 
     private List<int> GetPositionsFromWholeName()
     {
-        string[] wholeNamePieces = wholeName.Split('_');
+        string[] wholeNamePieces = GetNamePieces(wholeName);
         string positionsStr = wholeNamePieces[0].Substring(1, wholeNamePieces[0].Length - 1);
         string[] positionsStrArr = positionsStr.Split(',');
 
@@ -29,7 +95,7 @@ public class ArrayItem
 
     private string GetUserNameFromWholeName()
     {
-        string[] wholeNamePieces = wholeName.Split('_');
+        string[] wholeNamePieces = GetNamePieces(wholeName);
         return wholeNamePieces[2];
     }
 
@@ -45,10 +111,7 @@ public class ArrayItem
         if (!wholeName.StartsWith("#")) return false;
 
         
-        string[] wholeNamePieces = wholeName.Split('_');
-
-        // does not contain two '_' -> false
-        if (wholeNamePieces.Length - 1 != 2) return false;
+        string[] wholeNamePieces = GetNamePieces(wholeName);
 
         // get rid of first '#' in first piece
         wholeNamePieces[0] = wholeNamePieces[0].Substring(1, wholeNamePieces[0].Length - 1);
@@ -101,7 +164,7 @@ public class ArrayItem
             if (pos < 0) return false;
 
             // if duplicate, false
-            List<int> positionsToCheck = positions;
+            List<int> positionsToCheck = new List<int>(positions);
             positionsToCheck.Remove(pos);
             foreach (int pos2 in positionsToCheck)
                 if (pos == pos2) return false;
@@ -115,19 +178,17 @@ public class ArrayItem
         return type != null;
     }
 
-
     public string wholeName;
     public string userName;
     public List<int> positions;
     public Type type;
-
 
     public ArrayItem(string wholeName)
     {
         this.wholeName = wholeName;
 
         if (!ValidateWholeName(wholeName))
-            throw new ArrayItemException("Array item string name is not in correct format, " + wholeName);
+            throw new EditorException("Array item string name is not in correct format, " + wholeName);
 
         userName = GetUserNameFromWholeName();
         positions = GetPositionsFromWholeName();
@@ -137,13 +198,13 @@ public class ArrayItem
     public ArrayItem(string userName, List<int> positions, Type type)
     {
         if (!ValidateUserName(userName))
-            throw new ArrayItemException("todo");
+            throw new EditorException("Array item user defined name is not in correct format");
 
         if (!ValidatePositions(positions))
-            throw new ArrayItemException("todo");
+            throw new EditorException("Array item positions are not in correct format");
 
         if (!ValidateType(type))
-            throw new ArrayItemException("todo");
+            throw new EditorException("Array item type is not in correct format");
 
         this.userName = userName;
         this.positions = positions;
@@ -151,7 +212,6 @@ public class ArrayItem
 
         wholeName = GenerateSerializedName();
     }
-
 
     public string GenerateSerializedName()
     {
@@ -162,20 +222,12 @@ public class ArrayItem
 
         generatedName = generatedName.Substring(0, generatedName.Length - 1);
 
-        generatedName += "_";
+        generatedName += " [";
         generatedName += type.ToString();
-        generatedName += "_";
+        generatedName += "] ";
 
         generatedName += userName;
 
         return generatedName;
-    }
-}
-
-public class ArrayItemException : Exception
-{
-    public ArrayItemException(string message)
-        : base (message)
-    {
     }
 }

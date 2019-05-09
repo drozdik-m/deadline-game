@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
     
-
-public abstract class ArrayItemEditor<T> : DefaultEditor<T>
-    where T : MonoBehaviour
+/// <summary>
+/// Interface requiring fold out name for array item editor
+/// </summary>
+public interface IArrayItemEditor
 {
-    public override void OnCustomInspectorGUI()
-    {
-        EditorGUILayout.LabelField("This is array item editor");
-        OnArrayItemInspectorGUI();
-    }
-
-    public abstract void OnArrayItemInspectorGUI();
+    /// <summary>
+    /// Get foldout label for given target that editor creates
+    /// </summary>
+    /// <returns></returns>
+    string GetFoldoutLabel();
 }

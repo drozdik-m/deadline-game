@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public abstract class ReactionEditor : DefaultEditor<Reaction>, IArrayItemEditor
+[CustomEditor(typeof(DebugReaction))]
+public class DebugReactionEditor : ReactionEditor
 {
-    public abstract string GetFoldoutLabel();
+    public override string GetFoldoutLabel()
+    {
+        return "Debug Reaction";
+    }
 
     public override void OnCustomInspectorGUI()
     {
         DrawDefaultInspector();
     }
+
+    
 }

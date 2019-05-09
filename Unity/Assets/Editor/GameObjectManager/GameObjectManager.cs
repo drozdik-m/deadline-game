@@ -1,7 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// GameObjectManager enables manipulation with gameobjects in hierarchy
+/// </summary>
 public static class GameObjectManager
 {
     /// <summary>
@@ -62,5 +66,19 @@ public static class GameObjectManager
 
         foundGameObject = null;
         return false;
+    }
+
+    /// <summary>
+    /// Sorts children of the given parent aplhabetically
+    /// </summary>
+    /// <param name="parent">Gameobject parent whose children will be sorted</param>
+    public static void SortChildrenAlphabetically(GameObject parent)
+    {
+        GameObject[] children = GetChildren(parent);
+
+        children = children.OrderBy(c => c.name).ToArray();
+
+        for (int i = 0; i < children.Length; i++)
+            children[i].transform.SetSiblingIndex(i);
     }
 }
