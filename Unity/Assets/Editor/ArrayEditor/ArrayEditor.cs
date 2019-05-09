@@ -216,7 +216,7 @@ public class ArrayEditor<P, T, TEditor>
         headerStyle.fontSize = 13;
         headerStyle.normal.textColor = Color.white;
 
-        GUILayout.Label("Add item", headerStyle);
+        EditorGUILayout.LabelField("Add item", headerStyle);
 
         EditorGUILayout.LabelField("choose item type & type name of the item");
 
