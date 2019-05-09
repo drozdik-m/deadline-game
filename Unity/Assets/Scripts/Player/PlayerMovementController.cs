@@ -34,10 +34,18 @@ public class PlayerMovementController : MonoBehaviour
     /// State of the playermovement
     /// </summary>
     private bool isDisabled;
+    /// <summary>
+    /// The current coroutine.
+    /// </summary>
+    private Coroutine currentCoroutine;
     public float MinimalDistance = 0.5f;
     /// <summary>
+    /// The inventory.
+    /// </summary>
+    private Inventory inventory;
+    /// <summary>
     /// Rotation of player needed to look at target.
-    /// </summary> 
+    /// </summary>
     private Quaternion targetRotation;
     /// <summary>
     /// The proximity movement.
@@ -63,6 +71,7 @@ public class PlayerMovementController : MonoBehaviour
         targetRotation = transform.rotation;
         AllConditions.Instance.Reset();
         agent = GetComponent<NavMeshAgent>();
+        inventory = GetComponentInChildren<Inventory>();
         cam = FindObjectOfType<Camera>();
         animator = GetComponentInChildren<Animator>();
         // Do not rotate the agent
@@ -132,11 +141,11 @@ public class PlayerMovementController : MonoBehaviour
     {
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
     }
+
     public void SetState(bool state)
     {
         isDisabled = state;
     }
-
     /// <summary>
     /// Handles animator and states, updates them.
     /// </summary>
@@ -159,12 +168,20 @@ public class PlayerMovementController : MonoBehaviour
     /// <param name="position">Position.</param>
     public void MoveToPosition(Vector3 position)
     {
+
+        StopCurrentCoroutine();
         if (!isInteracting && !isDisabled && (Vector3.Distance(gameObject.transform.position, position) > MinimalDistance))
+        {
+            Debug.Log("Target");
             agent.SetDestination(position);
+        }
+ 
     }
 
     public void MoveToPosition(Vector3 position, float proximity)
     {
+        StopCurrentCoroutine();
+
         SetProximityFlags(position, proximity);
 
         if (Vector3.Distance(gameObject.transform.position, proximityTarget) > proximityMovementDistance)
@@ -181,7 +198,6 @@ public class PlayerMovementController : MonoBehaviour
         isRunning = false;
     }
 
- 
     private void SetProximityFlags(Vector3 target, float proximity)
     {
         proximityMovement = true;
@@ -195,29 +211,32 @@ public class PlayerMovementController : MonoBehaviour
     /// <param name="interactable">Interactable.</param>
     public void OnInteractableClick(Interactable interactable)
     {
-        isRunning = true;
+         isRunning = true;
 
-        if (interactable.useProximity)
+        if (!isInteracting)
         {
-            this.MoveToPosition(interactable.interactionLocation.position, interactable.proximity);
-       
-        }
-        else
-        {
-            this.MoveToPosition(interactable.interactionLocation.position);
+            if (interactable.useProximity)
+            {
+                this.MoveToPosition(interactable.interactionLocation.position, interactable.proximity);
+
+            }
+            else
+            {
+                this.MoveToPosition(interactable.interactionLocation.position);
+            }
+            if (inventory.CurrentItem == null)
+            {
+                currentCoroutine = StartCoroutine(WaitUntil(interactable));
+            }
+            else
+            {
+                proximityMovement = false;
+            }
+
         }
 
-        StartCoroutine(WaitUntil(interactable));
     }
 
-    public void OnInteractableClick(Interactable interactable, float proximity)
-    {
-        isRunning = true;
-        this.MoveToPosition(interactable.interactionLocation.position, proximity);
-
-        StartCoroutine(WaitUntil(interactable));
-
-    }
 
 
     /// <summary>
@@ -237,6 +256,15 @@ public class PlayerMovementController : MonoBehaviour
         interactable.Interact();
         // Sets interacting status to false
        // isInteracting = false;
+    }
+
+    private void StopCurrentCoroutine()
+    {
+        if (currentCoroutine != null)
+        {
+            StopCoroutine(currentCoroutine);
+            currentCoroutine = null;
+        }
     }
 
 }
