@@ -13,7 +13,8 @@ public class DebugReactionEditor : ReactionEditor
 
     public override void OnCustomInspectorGUI()
     {
-        DrawDefaultInspector();
+        DebugReaction thisReaction = Target as DebugReaction;
+        thisReaction.debugMessage = EditorGUILayout.TextField("Message", thisReaction.debugMessage);
     }
 
     

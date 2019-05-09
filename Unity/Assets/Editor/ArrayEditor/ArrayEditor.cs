@@ -192,6 +192,9 @@ public class ArrayEditor<P, T, TEditor>
             if (allTypes[i].IsSubclassOf(type) && !allTypes[i].IsAbstract)
                 subTypeList.Add(allTypes[i]);
 
+        // insert type itself if its not abstract
+        if (!type.IsAbstract) subTypeList.Insert(0, type);
+
         subTypeList.Insert(0, typeof(EditorLink)); // add editor link to the start
         arrayItemTypes = subTypeList.ToArray();
 
