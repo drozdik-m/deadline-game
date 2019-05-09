@@ -172,7 +172,6 @@ public class PlayerMovementController : MonoBehaviour
         StopCurrentCoroutine();
         if (!isInteracting && !isDisabled && (Vector3.Distance(gameObject.transform.position, position) > MinimalDistance))
         {
-            Debug.Log("Target");
             agent.SetDestination(position);
         }
  
