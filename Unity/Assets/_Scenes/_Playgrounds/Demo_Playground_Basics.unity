@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4494115, g: 0.49633682, b: 0.55877405, a: 1}
+  m_IndirectSpecularColor: {r: 0.4494112, g: 0.49633646, b: 0.5587733, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -442,6 +442,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: _InvincibleObject
       objectReference: {fileID: 0}
+    - target: {fileID: 3067990165040553009, guid: c3ea2d87d0d0f284092bf7f61e0277f8,
+        type: 3}
+      propertyPath: m_TagString
+      value: InvincibleObject
+      objectReference: {fileID: 0}
     - target: {fileID: 3067990165040553010, guid: c3ea2d87d0d0f284092bf7f61e0277f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -499,21 +504,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3ea2d87d0d0f284092bf7f61e0277f8, type: 3}
---- !u!114 &41261119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: HasCube
-  satisfied: 0
-  hash: 651846426
 --- !u!1 &52718478
 GameObject:
   m_ObjectHideFlags: 0
@@ -2094,7 +2084,6 @@ MonoBehaviour:
   - {fileID: 594332522}
   - {fileID: 406667518}
   - {fileID: 184079635}
-  currentBuildStage: {fileID: 0}
 --- !u!114 &439599831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2107,6 +2096,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be9cc5c8678f514890a5316008b9792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageObjectCollection: {fileID: 0}
+  initialStage: {fileID: 0}
 --- !u!4 &439599832
 Transform:
   m_ObjectHideFlags: 0
@@ -2188,7 +2179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: New condition collection
   requiredConditions:
-  - {fileID: 41261119}
+  - {fileID: 0}
   reactionCollection: {fileID: 0}
 --- !u!1 &471548941
 GameObject:
