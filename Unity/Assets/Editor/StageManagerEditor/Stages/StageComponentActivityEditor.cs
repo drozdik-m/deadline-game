@@ -27,5 +27,8 @@ public class StageComponentActivityEditor : StageEditor
 
         //Save serialized properties
         serializedObject.ApplyModifiedProperties();
+
+        if (Target.ComponentsToHandle.Length == 0)
+            MessageBox.AddMessage("There are no components to handle. This stage is useless.", WarningStyle);
     }
 }
