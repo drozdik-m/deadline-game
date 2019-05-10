@@ -4,15 +4,15 @@ using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(StageMonologAsync))]
-public class StageMonologAsyncEditor : StageEditor
+public class StageMonologAsyncEditor : StageMonologSyncEditor
 {
     public override string GetFoldoutLabel()
     {
         return "StageMonologAsync";
     }
 
-    public override void OnStageInspectorGUI()
+    /*public override void OnStageInspectorGUI()
     {
         DrawDefaultInspector();
-    }
+    }*/
 }
