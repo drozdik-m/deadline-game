@@ -41,7 +41,21 @@ public class ArrayEditor<P, T, TEditor>
     #region private methods
     private string createFoldoutName(string typeStr, string username)
     {
-        return $"[{typeStr}] {username}";
+        string readableUserName = "";
+
+        for (int i = 0; i < username.Length; i++)
+        {
+            if (i == 0) readableUserName += username[i].ToString().ToUpper();
+            else
+            {
+                if (Char.IsUpper(username[i]))
+                    readableUserName += $" {username[i]}";
+                else
+                    readableUserName += username[i];
+            }
+        }
+
+        return $"[{typeStr}] {readableUserName}";
     }
 
     private void changeLastMessage(string msg, GUIStyle style)
@@ -169,7 +183,7 @@ public class ArrayEditor<P, T, TEditor>
     private GameObject findOrCreateParentGameObject(P target)
     {
         Type typeOfTarget = target.GetType();
-        string parentGameObjectFullName = "_" + typeOfTarget.ToString() + "_" + parentGameObjectUserName;
+        string parentGameObjectFullName = "[Array]{" + typeOfTarget.ToString() + "} " + parentGameObjectUserName;
 
         if (GameObjectManager.TryFindChild(target.gameObject,
                                            parentGameObjectFullName,
@@ -257,19 +271,19 @@ public class ArrayEditor<P, T, TEditor>
 
         if (string.IsNullOrWhiteSpace(itemUsername))
         {
-            Debug.LogWarning("User item name must be filled");
+            changeLastMessage("User item name must be filled", DefaultEditor<MonoBehaviour>.WarningStyle);
             return false;
         }
 
         if (itemUsername.Contains(' '))
         {
-            Debug.LogWarning("User item name cannot contain spaces");
+            changeLastMessage("User item cannot contain spaces", DefaultEditor<MonoBehaviour>.WarningStyle);
             return false;
         }
 
         if (itemUsername.Contains('[') || itemUsername.Contains(']'))
         {
-            Debug.LogWarning("User item name cannot contain '[' or ']'");
+            changeLastMessage("User item name cannot contain '[' or ']'", DefaultEditor<MonoBehaviour>.WarningStyle);
             return false;
         }
 
