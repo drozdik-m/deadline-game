@@ -32,6 +32,8 @@ public class QuestMoveThereConditionEditor : QuestConditionEditor
                 GameObject createdGO = GameObjectManager.Add(Target.gameObject, "[CollisionEvent]");
                 createdGO.AddComponent<CollisionEvent>();
                 createdGO.AddComponent<BoxCollider>();
+                createdGO.GetComponent<BoxCollider>().isTrigger = true;
+                createdGO.layer = LayerMask.NameToLayer("Ignore Raycast");
                 Target.CollisionTrigger = createdGO.GetComponent<CollisionEvent>();
             }
         }
