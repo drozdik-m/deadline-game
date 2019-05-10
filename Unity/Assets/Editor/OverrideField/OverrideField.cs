@@ -49,7 +49,7 @@ abstract public class OverrideField<T>
             OverrideChecked = true;
 
         //Update override checkbox
-        OverrideChecked = GUILayout.Toggle(OverrideChecked, checkboxMessage);
+        OverrideChecked = EditorGUILayout.Toggle(checkboxMessage, OverrideChecked);
 
         //Override is checked - create custom field and return res
         if (OverrideChecked)

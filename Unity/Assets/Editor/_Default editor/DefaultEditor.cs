@@ -77,7 +77,7 @@ public abstract class DefaultEditor<T> : Editor
     public override void OnInspectorGUI()
     {
         //Default editor toggle
-        showDefaultEditor = GUILayout.Toggle(showDefaultEditor, "Show the default editor");
+        showDefaultEditor = EditorGUILayout.Toggle("Show the default editor", showDefaultEditor);
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
 
         //Caught errors
