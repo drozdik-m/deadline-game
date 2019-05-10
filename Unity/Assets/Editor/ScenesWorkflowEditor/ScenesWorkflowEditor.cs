@@ -8,15 +8,15 @@ using UnityEngine.UI;
 [CustomEditor(typeof(ScenesWorkflow))]
 public class ScenesWorkflowEditor : DefaultEditor<ScenesWorkflow>
 {
-    ArrayEditor<ScenesWorkflow, WorkflowScene, WorkflowSceneEditor> arrEditor;
+    ArrayEditor<ScenesWorkflow, WorkflowScene, WorkflowSceneEditor> scenesArray;
 
     public ScenesWorkflowEditor()
     {
-        arrEditor = new ArrayEditor<ScenesWorkflow, WorkflowScene, WorkflowSceneEditor>("ScenesWorkflow", MessageBox);
+        scenesArray = new ArrayEditor<ScenesWorkflow, WorkflowScene, WorkflowSceneEditor>("WorkflowScenes", MessageBox);
     }
 
     public override void OnCustomInspectorGUI()
     {
-        Target.StoryScenes = arrEditor.Use(Target);
+        Target.StoryScenes = scenesArray.Use(Target);
     }
 }
