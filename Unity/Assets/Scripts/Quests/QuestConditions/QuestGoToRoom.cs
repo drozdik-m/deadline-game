@@ -11,7 +11,7 @@ public class QuestGoToRoom : QuestCondition
     /// <summary>
     /// Target room
     /// </summary>
-    public RoomList targetRoom;
+    public RoomList TargetRoom;
 
     /// <summary>
     /// Used room manager
@@ -35,7 +35,7 @@ public class QuestGoToRoom : QuestCondition
     /// </summary>
     private void CheckCondition()
     {
-        if (roomManager.CurrentRoom == targetRoom)
+        if (roomManager.CurrentRoom == TargetRoom)
             Completed = true;
         else
             Completed = false;
