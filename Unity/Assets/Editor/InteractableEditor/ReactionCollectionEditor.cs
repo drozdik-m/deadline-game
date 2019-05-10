@@ -6,16 +6,16 @@ using UnityEngine;
 [CustomEditor(typeof(ReactionCollection))]
 public class ReactionCollectionEditor : DefaultEditor<ReactionCollection>
 {
-    ArrayEditor<ReactionCollection, Reaction, ReactionEditor> arrEditor;
+    //ArrayEditor<ReactionCollection, Reaction, ReactionEditor> arrEditor;
 
     public ReactionCollectionEditor()
     {
-        arrEditor = new ArrayEditor<ReactionCollection, Reaction, ReactionEditor>("myReactionCollection", MessageBox);
+        //arrEditor = new ArrayEditor<ReactionCollection, Reaction, ReactionEditor>("myReactionCollection", MessageBox);
     }
      
     public override void OnCustomInspectorGUI()
     {
-        Target.reactions = arrEditor.Use(Target);
+       //Target.reactions = arrEditor.Use(Target);
        // Debug.Log(reactions.Length);
     }
 }

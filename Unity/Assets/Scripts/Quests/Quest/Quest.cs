@@ -10,7 +10,7 @@ public class Quest : MonoBehaviour
     /// <summary>
     /// Quests condition array
     /// </summary>
-    public QuestCondition[] conditions;
+    public QuestCondition[] conditions = new QuestCondition[0];
 
     /// <summary>
     /// Quest description (for UI)
@@ -63,9 +63,6 @@ public class Quest : MonoBehaviour
         }
         return true;
     }
-
-    
-
 }
 
 public delegate void QuestHandler(Quest caller, QuestArgs args);

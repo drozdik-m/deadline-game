@@ -5,7 +5,16 @@ using UnityEngine;
 public class StageWait : Stage
 {
     public float waitSeconds = 1;
-    public bool readyForNextStage = false;
+
+    public bool ReadForNextStage
+    {
+        get
+        {
+            return readyForNextStage;
+        }
+    }
+    [SerializeField]
+    bool readyForNextStage = false;
 
 
     public override bool ReadyForNextStage()
@@ -20,6 +29,7 @@ public class StageWait : Stage
 
     public override void StageLoad()
     {
+        readyForNextStage = false;
         StartCoroutine(Wait());
     }
 

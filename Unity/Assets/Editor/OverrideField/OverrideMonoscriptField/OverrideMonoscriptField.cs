@@ -48,4 +48,15 @@ public class OverrideMonoscriptField<T> : OverrideField<T>
         if (IsDefault(currentValue) && OverrideChecked)
             messageBox.AddMessage(errorMessage, style);
     }
+
+    /// <summary>
+    /// Handles error for null override
+    /// </summary>
+    /// <param name="currentValue">Current value</param>
+    /// <param name="messageBox">Message box (where to add the error message)</param>
+    /// <param name="errorMessage">Error message text</param>
+    public void CheckForNullOverride(T currentValue, EditorMessageBox messageBox, string errorMessage = "Overrided value is not set")
+    {
+        CheckForNullOverride(currentValue, messageBox, errorMessage, DefaultEditor<MonoBehaviour>.ErrorStyle);
+    }
 }

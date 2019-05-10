@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Manually triggered quest condition
 /// </summary>
-public class QuestInteractCondition : QuestManualCondition
+public class QuestInteractCondition : QuestCondition
 {
     public InteractionEventMiddleman interactionEventMiddleman;
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestBuildObjectCondition : QuestManualCondition
+public class QuestBuildObjectCondition : QuestCondition
 {
     public BuildableObject buildableObject;
 

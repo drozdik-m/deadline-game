@@ -10,11 +10,13 @@ public class StageSubManager : Stage
     /// <summary>
     /// Stage mamager to run
     /// </summary>
-    public StageManager stageManager;
+    public StageManager StageManager = null;
 
     public override bool ReadyForNextStage()
     {
-        return stageManager.IsFinished();
+        if (StageManager == null)
+            return false;
+        return StageManager.IsFinished();
     }
 
     public override void StageEnd()
@@ -29,7 +31,9 @@ public class StageSubManager : Stage
 
     public override void StageLoad()
     {
-        stageManager.InitiateStages();
+        if (StageManager == null)
+            StageManager = GetComponent<StageManager>();
+        StageManager.InitiateStages();
     }
 
     public override void StageUpdate()
