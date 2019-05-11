@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -18,9 +19,12 @@ public class WorkflowSceneEditor : DefaultEditor<WorkflowScene>, IArrayItemEdito
     public override void OnCustomInspectorGUI()
     {
         //Scene name
-        Target.SceneName = GUILayout.TextArea(Target.SceneName);
+        Target.SceneName = EditorGUILayout.TextField("Scene file name", Target.SceneName);
         if (!Application.CanStreamedLevelBeLoaded(Target.SceneName))
-            MessageBox.AddMessage("Scene is not loadable. Is it included in the build?", ErrorStyle);
+        {
+            MessageBox.AddMessage("Scene " + Target.SceneName + " is currently not loadable.", WarningStyle);
+            MessageBox.AddMessage("--> Is it included in the build?", WarningStyle);
+        }
 
         //Main StageManager
         Target.MainStageManger = stageManagerField.Render(Target.MainStageManger);
@@ -32,7 +36,7 @@ public class WorkflowSceneEditor : DefaultEditor<WorkflowScene>, IArrayItemEdito
                 MessageBox.AddMessage("MainStageManager not found", ErrorStyle);
                 if (GUILayout.Button("Create MainStageManger"))
                 {
-                    GameObject msm = GameObjectManager.Add(null, "---Main Stage Manager---");
+                    GameObject msm = GameObjectManager.Add(null, "-------MAIN STAGE MANAGER-------");
                     msm.tag = "MainStageManager";
                     msm.AddComponent<StageManager>();
                 }

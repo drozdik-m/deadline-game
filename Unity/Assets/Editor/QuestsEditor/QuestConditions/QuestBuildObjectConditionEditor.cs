@@ -13,6 +13,13 @@ public class QuestBuildObjectConditionEditor : QuestConditionEditor
 
     public override void OnConditionInspectorGUI()
     {
-        DrawDefaultInspector();
+        //DrawDefaultInspector();
+
+        QuestBuildObjectCondition Target = base.Target as QuestBuildObjectCondition;
+
+        //Buildable object
+        Target.BuildableObject = EditorGUILayout.ObjectField("Buildable object", Target.BuildableObject, typeof(BuildableObject), true) as BuildableObject;
+        if (Target.BuildableObject == null)
+            MessageBox.AddMessage("Buildable object is null", ErrorStyle);
     }
 }

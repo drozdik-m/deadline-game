@@ -6,7 +6,7 @@ using UnityEngine;
 [CustomEditor(typeof(StageMonologSync))]
 public class StageMonologSyncEditor : StageEditor
 {
-    OverrideMonoscriptField<DialogManager> dialog = new OverrideMonoscriptField<DialogManager>("Use specific dialog", "Specific dialog");
+    OverrideMonoscriptField<DialogManager> dialog = new OverrideMonoscriptField<DialogManager>("Use specific dialog manager", "Specific dialog");
 
     public override string GetFoldoutLabel()
     {

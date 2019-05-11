@@ -22,12 +22,6 @@ public class SoundEffectController : MonoBehaviour
     /// </summary>
     public GameObject SoundEffectParticlePrefab;
 
-    private void Start()
-    {
-        
-
-    }
-
     /// <summary>
     /// Plays the audio clip. It instantiates new gameobject so multiple sound effects can play in the same time.
     /// </summary>

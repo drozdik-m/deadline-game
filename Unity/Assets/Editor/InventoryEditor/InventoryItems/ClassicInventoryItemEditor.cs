@@ -27,7 +27,7 @@ class ClassicInventoryItemEditor : InventoryItemEditor<ClassicInventoryItem>
         {
             MessageBox.AddMessage("No children for default pickable GameObject", ErrorStyle);
             if (GUILayout.Button("Create child for pickable GameObject"))
-                GameObjectManager.Add(Target.gameObject, "_Inventory item_");
+                GameObjectManager.Add(Target.gameObject, "[Inventory item]");
         }
         pickableObjectInSceneInput.CheckForNullOverride(Target.PickableObjectInScene, MessageBox, "Pickable object not set", ErrorStyle);
 
