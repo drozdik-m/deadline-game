@@ -16,9 +16,4 @@ public class Condition : ScriptableObject
     /// indicates whether the condition is satisfied
     /// </summary>
     public bool satisfied;
-
-    /// <summary>
-    /// hash used for checking if two conditions are equal
-    /// </summary>
-    public int hash;
 }

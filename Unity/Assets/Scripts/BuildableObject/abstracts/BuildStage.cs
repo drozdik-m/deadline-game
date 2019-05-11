@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Represent one stage of the buildable object
 /// </summary>
-public abstract class BuildStage : ScriptableObject
+public abstract class BuildStage : MonoBehaviour
 {
     /// <summary>
     /// Array of game objects that will be set as active (will get visible) when the build stage initializes

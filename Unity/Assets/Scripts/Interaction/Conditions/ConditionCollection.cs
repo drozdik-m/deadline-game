@@ -7,7 +7,7 @@ using UnityEngine;
 /// It represent the desired state of conditions and is used to
 /// be compared with conditions in AllConditions.
 /// </summary>
-public class ConditionCollection : ScriptableObject
+public class ConditionCollection : MonoBehaviour
 {
     /// <summary>
     /// Describes what condition collection is suppose to check
@@ -17,7 +17,7 @@ public class ConditionCollection : ScriptableObject
     /// <summary>
     /// Conditions that represent the required conditions
     /// </summary>
-    public Condition[] requiredConditions = new Condition[0];
+    public DesiredCondition[] requiredConditions = new DesiredCondition[0];
 
     /// <summary>
     /// Reactions that will be played if all conditions are met
@@ -31,8 +31,11 @@ public class ConditionCollection : ScriptableObject
     public bool CheckAndReact()
     {
         for (int i = 0; i < requiredConditions.Length; i++)
-            if (!AllConditions.CheckCondition(requiredConditions[i]))
+        {
+            if (!AllConditions.CheckCondition(requiredConditions[i].condition, requiredConditions[i].desiredValue))
                 return false; // condition is not met
+        }
+            
 
         // all required conditions were met, play the reactions
         if (reactionCollection)

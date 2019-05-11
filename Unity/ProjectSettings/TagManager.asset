@@ -14,7 +14,11 @@ TagManager:
   - Ground
   - DialogManager
   - MasterUI
+  - Door
+  - RoomManager
+  - Interactable
   - PlayerModel
+  - CursorManager
   layers:
   - Default
   - TransparentFX
@@ -27,9 +31,9 @@ TagManager:
   - PostProcessing
   - Player
   - Obstacle
-  - 
-  - 
-  - 
+  - Furniture
+  - Ground
+  - Walls
   - 
   - 
   - 
