@@ -5,7 +5,7 @@ using UnityEngine;
 /// custom editor for collection
 /// </summary>
 [CustomEditor(typeof(Condition))]
-public class ConditionEditor : Editor
+public class ConditionEditor : Editor, IArrayItemEditor
 {
     public enum EditorType
     {
@@ -127,5 +127,10 @@ public class ConditionEditor : Editor
         Condition newCondition = CreateInstance<Condition>();
         newCondition.description = description;
         return newCondition;
+    }
+
+    public string GetFoldoutLabel()
+    {
+        return "Condition";
     }
 }

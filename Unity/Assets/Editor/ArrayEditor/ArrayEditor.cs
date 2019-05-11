@@ -209,7 +209,7 @@ public class ArrayEditor<P, T, TEditor>
         // insert type itself if its not abstract
         if (!type.IsAbstract) subTypeList.Insert(0, type);
 
-        subTypeList.Insert(0, typeof(EditorLink)); // add editor link to the start
+        subTypeList.Add(typeof(EditorLink)); // add editor link to the start
         arrayItemTypes = subTypeList.ToArray();
 
         // create string array for dropdown menu
@@ -482,7 +482,7 @@ public class ArrayEditor<P, T, TEditor>
     /// </summary>
     /// <param name="parentGameObjectName">Parent object name that user choose</param>
     /// <param name="editorMessageBox">Editor message box for showing messages</param>
-    public ArrayEditor(string parentGameObjectName, EditorMessageBox editorMessageBox = null)
+    public ArrayEditor(string parentGameObjectName, EditorMessageBox editorMessageBox)
     {
         this.parentGameObjectUserName = parentGameObjectName;
         this.editorMessageBox = editorMessageBox;

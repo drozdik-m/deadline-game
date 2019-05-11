@@ -12,7 +12,7 @@ public class ConditionCollection : MonoBehaviour
     /// <summary>
     /// Describes what condition collection is suppose to check
     /// </summary>
-    public string description;
+    //public string description;
 
     /// <summary>
     /// Conditions that represent the required conditions
