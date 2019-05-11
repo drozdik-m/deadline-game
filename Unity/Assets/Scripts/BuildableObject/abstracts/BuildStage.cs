@@ -10,12 +10,12 @@ public abstract class BuildStage : MonoBehaviour
     /// <summary>
     /// Array of game objects that will be set as active (will get visible) when the build stage initializes
     /// </summary>
-    public GameObject[] gameObjectsToActive;
+    public GameObject[] gameObjectsToActive = new GameObject[0];
 
     /// <summary>
     /// Array of game objects that will be set as NOT active (will get hidden) when the build stage initializes
     /// </summary>
-    public GameObject[] gameObjectsToHide;
+    public GameObject[] gameObjectsToHide = new GameObject[0];
 
     /// <summary>
     /// Checks if the conditions to get into NEXT stage are satisfied

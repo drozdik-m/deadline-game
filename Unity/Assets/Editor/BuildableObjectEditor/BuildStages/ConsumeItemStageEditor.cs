@@ -4,10 +4,10 @@ using UnityEditor;
 using UnityEngine;
 
 /// <summary>
-/// Custom Editor for Inventory Item Reaction
+/// Custom Editor for Consume Item Stage
 /// </summary>
-[CustomEditor(typeof(InventoryItemReaction))]
-public class InventoryItemReactionEditor : ReactionEditor
+[CustomEditor(typeof(ConsumeItemStage))]
+public class ConsumeItemStageEditor : BuildStageEditor
 {
     const string MAIN_INVENTORY_TAG = "MainInventory";
     OverrideMonoscriptField<Inventory> targetInventoryField =
@@ -15,14 +15,14 @@ public class InventoryItemReactionEditor : ReactionEditor
 
     public override string GetFoldoutLabel()
     {
-        return "Inventory Item Reaction";
+        return "Consume Item Stage";
     }
 
-    public override void OnCustomInspectorGUI()
+    protected override void OnBuildStageInspectorGUI()
     {
-        InventoryItemReaction thisReaction = Target as InventoryItemReaction;
+        ConsumeItemStage thisBuildStage = Target as ConsumeItemStage;
 
-        if (thisReaction.overrideInventory == null)
+        if (thisBuildStage.overrideInventory == null)
         {
             GameObject mainInventoryGameObject = GameObject.FindGameObjectWithTag(MAIN_INVENTORY_TAG);
             if (mainInventoryGameObject == null)
@@ -32,17 +32,11 @@ public class InventoryItemReactionEditor : ReactionEditor
                 MessageBox.AddMessage("Game Object with tag '" + MAIN_INVENTORY_TAG + "' does not have Inventory component-> Add it", ErrorStyle);
         }
 
-        thisReaction.overrideInventory = targetInventoryField.Render(thisReaction.overrideInventory);
-        targetInventoryField.CheckForNullOverride(thisReaction.overrideInventory,
+        thisBuildStage.overrideInventory = targetInventoryField.Render(thisBuildStage.overrideInventory);
+        targetInventoryField.CheckForNullOverride(thisBuildStage.overrideInventory,
                                                   MessageBox, "Inventory is overriden but empty",
                                                   WarningStyle);
 
-        thisReaction.item = (InventoryItem)EditorGUILayout.ObjectField("Inventory Item",
-                                                                        thisReaction.item,
-                                                                        typeof(InventoryItem),
-                                                                        true);
-
-        if (thisReaction.item == null)
-            MessageBox.AddMessage("Inventory Item is empty", WarningStyle);
+        thisBuildStage.desiredItem = (InventoryItemID)EditorGUILayout.EnumPopup("Desired Item", thisBuildStage.desiredItem);
     }
 }
