@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+/// <summary>
+/// Custom Editor for Reaction Collection
+/// </summary>
 [CustomEditor(typeof(ReactionCollection))]
 public class ReactionCollectionEditor : DefaultEditor<ReactionCollection>
 {

@@ -16,6 +16,18 @@ public class TwinDialogReactionEditor : ReactionEditor
 
     public override void OnCustomInspectorGUI()
     {
+        GameObject dialogManagerObj = GameObject.FindGameObjectWithTag("DialogManager");
+
+        if (dialogManagerObj == null)
+            MessageBox.AddMessage("Dialog Manager object was not found -> Add it", ErrorStyle);
+
+        else if (dialogManagerObj.GetComponent<DialogManager>() == null)
+        {
+            EditorGUILayout.LabelField("Dialog Manager object does not have Dialog Manager component", WarningStyle);
+            if (GUILayout.Button("Add Dialog Manager Component"))
+                dialogManagerObj.AddComponent<DialogManager>();
+        }
+
         TwinDialogReaction thisReaction = Target as TwinDialogReaction;
 
         thisReaction.delay = EditorGUILayout.Slider("Delay", thisReaction.delay, 0, 5);
@@ -30,9 +42,12 @@ public class TwinDialogReactionEditor : ReactionEditor
 
 
         if (thisReaction.twinTalkDialog == null)
-            MessageBox.AddMessage("Twin Talk Dialog is empty", WarningStyle);
+            MessageBox.AddMessage("Twin Talk Dialog is empty (go to 'Resources/Dialogs')", WarningStyle);
 
         if (thisReaction.target == null)
             MessageBox.AddMessage("Twin Talk Dialog Target is empty", WarningStyle);
+
+        
+
     }
 }

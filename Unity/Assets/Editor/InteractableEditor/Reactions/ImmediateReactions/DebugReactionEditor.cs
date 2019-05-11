@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+/// <summary>
+/// Custom Editor for Debug Reaction Editor
+/// </summary>
 [CustomEditor(typeof(DebugReaction))]
 public class DebugReactionEditor : ReactionEditor
 {

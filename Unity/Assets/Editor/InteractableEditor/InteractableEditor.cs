@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+/// <summary>
+/// Custom Editor for Interactable
+/// </summary>
 [CustomEditor(typeof(Interactable))]
 public class InteractableEditor : DefaultEditor<Interactable>
 {

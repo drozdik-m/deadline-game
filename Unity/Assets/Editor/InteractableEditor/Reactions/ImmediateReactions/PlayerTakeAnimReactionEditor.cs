@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+/// <summary>
+/// Custom Editor for Player Take Animation Reaction
+/// </summary>
 [CustomEditor(typeof(PlayerTakeAnimReaction))]
 public class PlayerTakeAnimReactionEditor : ReactionEditor
 {
@@ -16,6 +19,6 @@ public class PlayerTakeAnimReactionEditor : ReactionEditor
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         if (player == null)
-            MessageBox.AddMessage("There must be GameObject with tag Player in the scene", WarningStyle);
+            MessageBox.AddMessage("There must be GameObject with tag 'Player' in the scene", ErrorStyle);
     }
 }
