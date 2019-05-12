@@ -51,7 +51,8 @@ public class SoundEffectController : MonoBehaviour
         AudioMixerMaster.GetFloat ("ExposedSoundEffectsVolume", out soundEffectsVolume);
 
         // Multiply master volume and sound effects volume to get used volume
-        volume = masterVolume * soundEffectsVolume;
+        Debug.Log ( ( (80 + masterVolume) * (80 + soundEffectsVolume) ) / (6400) );
+        volume = 1f;
 
         soundEffectsStorage = new Dictionary<SoundEffectType, AudioClip> ();
         foreach (SoundEffect soundEffect in UsedSoundEffects)
@@ -91,5 +92,13 @@ public class SoundEffectController : MonoBehaviour
 public enum SoundEffectType
 {
     UIButtonClick,
-    UIButtonHover
+    UIButtonHover,
+    OpenMenu,
+    InteractableItemHover,
+    InteractableItemClick,
+    QuestCompleted,
+    QuestStackCompleted,
+    MailVoice,
+    Footsteps
 }
+

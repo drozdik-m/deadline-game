@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class SoundEffectTest : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public SoundEffectController controller;
+
+    public SoundEffectType type;
+
+    public void Play()
     {
-        
+        controller.PlaySound (type);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayButtonClick()
     {
-        
+        controller.PlaySound (SoundEffectType.UIButtonClick);
+    }
+
+    public void PlayMailVoice()
+    {
+        controller.PlaySound (SoundEffectType.MailVoice);
+    }
+
+    public void PlayQuestCompl()
+    {
+        controller.PlaySound (SoundEffectType.QuestCompleted);
+    }
+
+    public void PlayQuestStackCompl()
+    {
+        controller.PlaySound (SoundEffectType.QuestStackCompleted);
     }
 }
