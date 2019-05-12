@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+
 
 /// <summary>
 /// Single sound effect controller, that enables multiple instances of the same clip played.
@@ -8,43 +10,86 @@ using UnityEngine;
 public class SoundEffectController : MonoBehaviour
 {
     /// <summary>
-    /// Audio sound clip
+    /// Audio mixer 
     /// </summary>
-    public AudioClip UsedSoundEffect;
+    public AudioMixer AudioMixerMaster;
 
     /// <summary>
-    /// Value from 0 to 1
+    /// Struct that contain audio and type of the sound effect
     /// </summary>
-    public float volume = 1f;
+    [System.Serializable]
+    public struct SoundEffect
+    {
+        public AudioClip audio;
+        public SoundEffectType type;
+    }
+
+    /// <summary>
+    /// Audio sound effects
+    /// </summary>
+    public SoundEffect[] UsedSoundEffects;
+
+    /// <summary>
+    /// Sound volume, value from 0 to 1
+    /// </summary>
+    private float volume;
 
     /// <summary>
     /// Prefab for sound particle (Prefabs/Audio/SoundEffectParticle for regular particle)
     /// </summary>
     public GameObject SoundEffectParticlePrefab;
 
-    private void Start()
-    {
-        
+    /// <summary>
+    /// Contain all the audio clips available using the type of the sound effect
+    /// </summary>
+    private Dictionary<SoundEffectType, AudioClip> soundEffectsStorage;
 
+    private void Start()
+    {   
+        float masterVolume, soundEffectsVolume;
+        AudioMixerMaster.GetFloat ("ExposedMasterVolume", out masterVolume);
+        AudioMixerMaster.GetFloat ("ExposedSoundEffectsVolume", out soundEffectsVolume);
+
+        // Multiply master volume and sound effects volume to get used volume
+        volume = masterVolume * soundEffectsVolume;
+
+        soundEffectsStorage = new Dictionary<SoundEffectType, AudioClip> ();
+        foreach (SoundEffect soundEffect in UsedSoundEffects)
+        {
+            soundEffectsStorage.Add (soundEffect.type, soundEffect.audio);
+        }
     }
 
     /// <summary>
-    /// Plays the audio clip. It instantiates new gameobject so multiple sound effects can play in the same time.
+    /// Plays the audio clip. It instantiates new gameobject so multiple sound effects can play in the same time
     /// </summary>
-    /// <param name="globalSound">If false, the new sound will be child of this gameobject. True for (0,0,0) in global world scope.</param>
-    public void Play(bool globalSound = false)
+    /// <param name="type">Type of the sound effet to play</param>
+    /// <param name="globalSound">If false, the new sound will be child of this gameobject. True for (0,0,0) in global world scope</param>
+    public void PlaySound(SoundEffectType type, bool globalSound = false)
     {
-        GameObject spawnedSound;
-        if (globalSound)
-            spawnedSound = Instantiate(SoundEffectParticlePrefab);
-        else
-            spawnedSound = Instantiate(SoundEffectParticlePrefab, transform);
+        AudioClip audio;
+        soundEffectsStorage.TryGetValue (type, out audio);
 
-        AudioSource spawnedAudioSource = spawnedSound.GetComponent<AudioSource>();
-        spawnedAudioSource.volume = volume;
-        spawnedAudioSource.clip = UsedSoundEffect;
-        spawnedAudioSource.Play();
+        if (audio != null)
+        {
+            GameObject spawnedSound;
+            if (globalSound)
+                spawnedSound = Instantiate (SoundEffectParticlePrefab);
+            else
+                spawnedSound = Instantiate (SoundEffectParticlePrefab, transform);
 
+            AudioSource spawnedAudioSource = spawnedSound.GetComponent<AudioSource> ();
+            spawnedAudioSource.volume = volume;
+            spawnedAudioSource.clip = audio;
+            spawnedAudioSource.Play ();
+        }
     }
-
+}
+/// <summary>
+/// Types of the sound effect. Numbers in type name mean duration
+/// </summary>
+public enum SoundEffectType
+{
+    UIButtonClick,
+    UIButtonHover
 }

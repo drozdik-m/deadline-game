@@ -36,6 +36,6 @@ public class MusicTestScene : MonoBehaviour
     /// </summary>
     public void TestSoundEffect()
     {
-        GetComponent<SoundEffectController>().Play();
+        //GetComponent<SoundEffectController>().Play();
     }
 }
