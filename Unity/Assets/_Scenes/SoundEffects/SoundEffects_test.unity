@@ -182,7 +182,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Mail voice
+  m_Text: Male voice
 --- !u!222 &24520815
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -430,7 +430,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1024282531}
-        m_MethodName: PlayMailVoice
+        m_MethodName: PlayMaleVoice
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -938,12 +938,20 @@ MonoBehaviour:
     type: 0
   - audio: {fileID: 8300000, guid: fad5ba28d6e210447802117dce0585b7, type: 3}
     type: 1
-  - audio: {fileID: 8300000, guid: d9c066850a9788c49b184353d4b4a9f6, type: 3}
-    type: 4
+  - audio: {fileID: 8300000, guid: f31a976819675b34889f889b04d024b1, type: 3}
+    type: 9
+  - audio: {fileID: 8300000, guid: d1af52fa36a45034fb70163e4e800469, type: 3}
+    type: 10
+  - audio: {fileID: 8300000, guid: ac4bff2b8a420f742b17baaec2b89ea1, type: 3}
+    type: 11
   - audio: {fileID: 8300000, guid: 8623cb268c612dd439c58623e45aa840, type: 3}
     type: 3
-  - audio: {fileID: 8300000, guid: 26f4c33b552b66746a6f77e50c465a48, type: 3}
+  - audio: {fileID: 8300000, guid: ad681a6cb69e74b4e8214e1487aca57c, type: 3}
+    type: 4
+  - audio: {fileID: 8300000, guid: 88c6ca32df28e0642a1304d049fba89e, type: 3}
     type: 7
+  - audio: {fileID: 8300000, guid: d8175848ba2ef98439026c1828ce1c14, type: 3}
+    type: 8
   - audio: {fileID: 8300000, guid: 30782ee6ec5c8b84ab067fb0b255bf24, type: 3}
     type: 2
   - audio: {fileID: 8300000, guid: 0aafdb9b82168f445802faedb86cff2a, type: 3}
@@ -965,7 +973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1024282530}
-  type: 0
+  type: 8
 --- !u!114 &1024282532
 MonoBehaviour:
   m_ObjectHideFlags: 0

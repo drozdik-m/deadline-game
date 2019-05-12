@@ -18,9 +18,9 @@ public class SoundEffectTest : MonoBehaviour
         controller.PlaySound (SoundEffectType.UIButtonClick);
     }
 
-    public void PlayMailVoice()
+    public void PlayMaleVoice()
     {
-        controller.PlaySound (SoundEffectType.MailVoice);
+        controller.PlaySound (SoundEffectType.MaleVoiceNormal);
     }
 
     public void PlayQuestCompl()

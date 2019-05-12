@@ -51,8 +51,7 @@ public class SoundEffectController : MonoBehaviour
         AudioMixerMaster.GetFloat ("ExposedSoundEffectsVolume", out soundEffectsVolume);
 
         // Multiply master volume and sound effects volume to get used volume
-        Debug.Log ( ( (80 + masterVolume) * (80 + soundEffectsVolume) ) / (6400) );
-        volume = 1f;
+        volume = ( ( 80 + masterVolume ) * ( 80 + soundEffectsVolume ) ) / ( 6400 );
 
         soundEffectsStorage = new Dictionary<SoundEffectType, AudioClip> ();
         foreach (SoundEffect soundEffect in UsedSoundEffects)
@@ -98,7 +97,10 @@ public enum SoundEffectType
     InteractableItemClick,
     QuestCompleted,
     QuestStackCompleted,
-    MailVoice,
-    Footsteps
+    MaleVoiceNormal,
+    MaleVoiceSurprised,
+    FootstepFirst,
+    FootstepSecond,
+    FootstepThird,
 }
 
