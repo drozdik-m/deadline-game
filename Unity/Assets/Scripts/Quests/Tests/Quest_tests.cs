@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class Quest_tests : MonoBehaviour
 {
-    public QuestManualCondition condition1;
-    public QuestManualCondition condition2;
-    public QuestManualCondition condition3;
+    public QuestCondition condition1;
+    public QuestCondition condition2;
+    public QuestCondition condition3;
     public Quest quest1;
     public Quest quest2;
     public QuestStack questStack1;

@@ -15,7 +15,7 @@ public class QuestStack : MonoBehaviour
     /// <summary>
     /// List of quests
     /// </summary>
-    public Quest[] quests;
+    public Quest[] quests = new Quest[0];
 
     /// <summary>
     /// Should the quests record?

@@ -6,22 +6,55 @@ using UnityEngine;
 using System;
 
 public abstract class DefaultEditor<T> : Editor 
-    where T : UnityEngine.Object
+    where T : MonoBehaviour
 {
     //Working variables
-    bool showDefaultEditor;
+    bool showDefaultEditor = false;
     AnimBool showCaughtErrors = new AnimBool(false);
     AnimBool showPrintedErrors = new AnimBool(false);
     Exception caughtError = null;
 
     //Styles
-    protected GUIStyle ErrorStyle = new GUIStyle();
-    protected GUIStyle WarningStyle = new GUIStyle();
-    protected GUIStyle NormalStyle = new GUIStyle();
-    protected GUIStyle SuccessStyle = new GUIStyle();
 
+    public static GUIStyle ErrorStyle
+    {
+        get
+        {
+            GUIStyle errorStyle = new GUIStyle();
+            errorStyle.normal.textColor = Color.red;
+            return errorStyle;
+        }
+    }
+    public static GUIStyle WarningStyle
+    {
+        get
+        {
+            GUIStyle warningStyle = new GUIStyle();
+            warningStyle.normal.textColor = Color.yellow;
+            return warningStyle;
+        }
+    }
+    public static GUIStyle NormalStyle
+    {
+        get
+        {
+            GUIStyle normalStyle = new GUIStyle();
+            normalStyle.normal.textColor = Color.black;
+            return normalStyle;
+        }
+    }
+    public static GUIStyle SuccessStyle
+    {
+        get
+        {
+            GUIStyle successStyle = new GUIStyle();
+            successStyle.normal.textColor = Color.green;
+            return successStyle;
+        }
+    }
+    
     //Error list
-    protected EditorErrorBox MessageBox = new EditorErrorBox();
+    protected EditorMessageBox MessageBox = new EditorMessageBox();
 
     //Target getter
     public T Target
@@ -37,10 +70,6 @@ public abstract class DefaultEditor<T> : Editor
     {
         showCaughtErrors.valueChanged.AddListener(Repaint);
         showPrintedErrors.valueChanged.AddListener(Repaint);
-        ErrorStyle.normal.textColor = Color.red;
-        WarningStyle.normal.textColor = Color.yellow;
-        NormalStyle.normal.textColor = Color.black;
-        SuccessStyle.normal.textColor = Color.green;
         OnCustomEnable();
     }
 
@@ -48,7 +77,7 @@ public abstract class DefaultEditor<T> : Editor
     public override void OnInspectorGUI()
     {
         //Default editor toggle
-        showDefaultEditor = GUILayout.Toggle(showDefaultEditor, "Show the default editor");
+        showDefaultEditor = EditorGUILayout.Toggle("Show the default editor", showDefaultEditor);
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
 
         //Caught errors
@@ -76,6 +105,17 @@ public abstract class DefaultEditor<T> : Editor
                 caughtError = ex;
             }
         }
+    }
+
+    /// <summary>
+    /// Shows an error if Target GameObject does not have required tag
+    /// </summary>
+    /// <param name="tag">Required tag</param>
+    public void RequireTag(string tag)
+    {
+        //Check tag
+        if (Target.gameObject.tag != tag)
+            MessageBox.AddMessage("This GameObject should have tag \"" + tag + "\"", ErrorStyle);
     }
 
     /// <summary>

@@ -8,24 +8,14 @@ using UnityEngine;
 public class InteractableHighlighter : MonoBehaviour
 {
     /// <summary>
-    /// Override animator
-    /// </summary>
-    public Animator OverrideAnimator = null;
-
-    /// <summary>
     /// Used animator
     /// </summary>
-    Animator animator;
+    public Animator Animator = null;
         
     /// <summary>
-    /// Override collider game object
+    /// Collider game object
     /// </summary>
-    public GameObject OverrideColliderGO = null;
-
-    /// <summary>
-    /// Used collider game object
-    /// </summary>
-    GameObject targetGameObject;
+    public GameObject TargetGameObject = null;
 
     /// <summary>
     /// Trigger proximity (0 = off)
@@ -35,13 +25,11 @@ public class InteractableHighlighter : MonoBehaviour
 
     private void Start()
     {
-        animator = OverrideAnimator;
-        if (OverrideAnimator == null)
-            animator = GetComponent<Interactable>().connectedObject.GetComponent<Animator>();
+        if (Animator == null)
+            Animator = GetComponent<Interactable>().connectedObject.GetComponent<Animator>();
 
-        targetGameObject = OverrideColliderGO;
-        if (OverrideColliderGO == null)
-            targetGameObject = gameObject;
+        if (TargetGameObject == null)
+            TargetGameObject = gameObject;
     }
 
     private void Update()
@@ -54,7 +42,7 @@ public class InteractableHighlighter : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             //Did it hit this gameobject 
-            if (hit.collider.gameObject == targetGameObject)
+            if (hit.collider.gameObject == TargetGameObject)
                 highlightOn = true;
             else
                 highlightOn = false;
@@ -62,14 +50,14 @@ public class InteractableHighlighter : MonoBehaviour
 
         //CHECK PROXIMITY
         Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-        if (Proximity != 0 && Vector3.Distance(targetGameObject.transform.position, playerPosition) <= Proximity)
+        if (Proximity != 0 && Vector3.Distance(TargetGameObject.transform.position, playerPosition) <= Proximity)
             highlightOn = true;
 
 
         //SET ANIMATION
         if (highlightOn)
-            animator.SetBool("Highlight", true);
+            Animator.SetBool("Highlight", true);
         else
-            animator.SetBool("Highlight", false);
+            Animator.SetBool("Highlight", false);
     }
 }

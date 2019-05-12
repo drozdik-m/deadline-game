@@ -552,9 +552,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemType: 4
-  itemState: 1
+  ItemState: 1
   PickableObjectInScene: {fileID: 1519186983}
-  OptionalDropTarget: {fileID: 1610156349}
+  DropTarget: {fileID: 0}
 --- !u!4 &1103940403
 Transform:
   m_ObjectHideFlags: 0
@@ -1023,7 +1023,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519186983}
   m_LocalRotation: {x: 0.14271921, y: -0.21477684, z: 0.22813337, w: 0.9388596}
-  m_LocalPosition: {x: -0.25, y: 1.2, z: 0.09}
+  m_LocalPosition: {x: -0.25, y: 1.2, z: 0.089999914}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1103940403}
@@ -1090,6 +1090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentItem: {fileID: 0}
+  recommendedDropTarget: {fileID: 2079416313}
 --- !u!4 &1797688788
 Transform:
   m_ObjectHideFlags: 0
@@ -1221,10 +1222,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079416313}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.24529426, y: 0.028126838, z: -0.49453688, w: 0.8333505}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1797688788}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.396002, y: 18.247002, z: -65.015}

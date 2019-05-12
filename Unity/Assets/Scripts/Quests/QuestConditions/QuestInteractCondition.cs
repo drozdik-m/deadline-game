@@ -5,13 +5,13 @@ using UnityEngine;
 /// <summary>
 /// Manually triggered quest condition
 /// </summary>
-public class QuestInteractCondition : QuestManualCondition
+public class QuestInteractCondition : QuestCondition
 {
-    public InteractionEventMiddleman interactionEventMiddleman;
+    public InteractionEventMiddleman InteractionEventMiddleman;
 
     private void Start()
     {
-        interactionEventMiddleman.OnInteract += OnInteractReaction;
+        InteractionEventMiddleman.OnInteract += OnInteractReaction;
     }
 
     private void OnInteractReaction(ReactionEvent caller, object args)

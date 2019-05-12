@@ -5,31 +5,26 @@ using UnityEngine;
 /// <summary>
 /// Condition for someone to move somewhere
 /// </summary>
-public class QuestMoveThereCondition : QuestManualCondition
+public class QuestMoveThereCondition : QuestCondition
 {
     /// <summary>
-    /// Override collision trigger (this object by default)
+    /// Vollision trigger (this object by default)
     /// </summary>
-    public CollisionEvent OverrideCollisionTrigger;
+    public CollisionEvent CollisionTrigger = null;
 
     /// <summary>
     /// Tag of the object who should move to desired location
     /// </summary>
     public string CollisionConditionTag = "Player";
 
-    /// <summary>
-    /// Actual collision event
-    /// </summary>
-    CollisionEvent collisionEvent;
-
 
     private void Start()
     {
-        collisionEvent = OverrideCollisionTrigger != null ? OverrideCollisionTrigger :
-            GetComponent<CollisionEvent>();
+        if (CollisionTrigger == null)
+            CollisionTrigger = GetComponent<CollisionEvent>();
 
-        collisionEvent.OnTriggerEnterEvent += OnSomeObjectTriggerEnter;
-        collisionEvent.OnTriggerLeaveEvent += OnSomeObjectTriggerLeave;
+        CollisionTrigger.OnTriggerEnterEvent += OnSomeObjectTriggerEnter;
+        CollisionTrigger.OnTriggerLeaveEvent += OnSomeObjectTriggerLeave;
     }
 
     private void OnSomeObjectTriggerLeave(CollisionEvent caller, Collider otherCollider)

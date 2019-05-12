@@ -8,6 +8,8 @@ public class StageQuest : Stage
 
     public override bool ReadyForNextStage()
     {
+        if (quest == null)
+            return false;
         return quest.IsCompleted();
     }
 

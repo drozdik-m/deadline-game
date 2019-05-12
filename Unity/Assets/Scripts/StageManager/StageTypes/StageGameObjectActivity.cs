@@ -10,21 +10,17 @@ public class StageGameObjectActivity : Stage
     /// <summary>
     /// GameObjects to handle with
     /// </summary>
-    public GameObject[] gameObjectsToHandle;
+    public GameObject[] GameObjectsToHandle = new GameObject[0];
 
     /// <summary>
     /// Should the gameobject en/disable?
     /// </summary>
-    public ObjectActivity setting;
+    public ObjectActivity Setting;
 
-    /// <summary>
-    /// Set "ready" flag, moves to next stage immidiately if true.
-    /// </summary>
-    public bool readyForNextState = true;
 
     public override bool ReadyForNextStage()
     {
-        return readyForNextState;
+        return true;
     }
 
     public override void StageEnd()
@@ -34,10 +30,10 @@ public class StageGameObjectActivity : Stage
 
     public override void StageLoad()
     {
-        bool targetActive = setting == ObjectActivity.Disable ? false : true;
+        bool targetActive = Setting == ObjectActivity.Disable ? false : true;
 
-        for (int i = 0; i < gameObjectsToHandle.Length; i++)
-            gameObjectsToHandle[i].SetActive(targetActive);
+        for (int i = 0; i < GameObjectsToHandle.Length; i++)
+            GameObjectsToHandle[i].SetActive(targetActive);
     }
 
 

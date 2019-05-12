@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class StageQuestStack : Stage
 {
-    public QuestStack questStack;
+    public QuestStack QuestStack = null;
 
     public override bool ReadyForNextStage()
     {
-        return questStack.QuestsAreCompleted();
+        if (QuestStack == null)
+            return false;
+        return QuestStack.QuestsAreCompleted();
     }
 
     public override void StageEnd()
@@ -23,7 +25,9 @@ public class StageQuestStack : Stage
 
     public override void StageLoad()
     {
-        questStack.Recording = true;
+        if (QuestStack == null)
+            QuestStack = GetComponent<QuestStack>();
+        QuestStack.Recording = true;
     }
 
     public override void StageUpdate()

@@ -27,7 +27,7 @@ public class InventoryItem : MonoBehaviour
     /// <summary>
     /// Item state (picked up, dropped, ...)
     /// </summary>
-    public InventoryItemState itemState = InventoryItemState.Dropped;
+    public InventoryItemState ItemState = InventoryItemState.Dropped;
 
 
     //--------------------------------------------------------
@@ -39,11 +39,11 @@ public class InventoryItem : MonoBehaviour
     /// <param name="inventory">Inventory that is associated with this item</param>
     public void PickedUpBy(Inventory inventory)
     {
-        if (itemState == InventoryItemState.PickedUp)
+        if (ItemState == InventoryItemState.PickedUp)
             return;
 
-        itemState = InventoryItemState.PickedUp;
-        PickedUp.Invoke(inventory, new InventoryItemEventArgs(inventory, inventory.OptionalRecommendedDropTarget));
+        ItemState = InventoryItemState.PickedUp;
+        PickedUp.Invoke(inventory, new InventoryItemEventArgs(inventory, inventory.RecommendedDropTarget));
     }
 
     /// <summary>
@@ -52,11 +52,11 @@ public class InventoryItem : MonoBehaviour
     /// <param name="inventory">Inventory that is associated with this item</param>
     public void DroppedBy(Inventory inventory)
     {
-        if (itemState == InventoryItemState.Dropped)
+        if (ItemState == InventoryItemState.Dropped)
             return;
 
-        itemState = InventoryItemState.Dropped;
-        Dropped.Invoke(inventory, new InventoryItemEventArgs(inventory, inventory.OptionalRecommendedDropTarget));
+        ItemState = InventoryItemState.Dropped;
+        Dropped.Invoke(inventory, new InventoryItemEventArgs(inventory, inventory.RecommendedDropTarget));
     }
 
 

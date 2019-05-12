@@ -14,9 +14,23 @@ public class Inventory : MonoBehaviour
     public InventoryItem CurrentItem = null;
 
     /// <summary>
-    /// Game object that will be recommended as default drop target
+    /// Game object that will be recommended as default drop target to all items
     /// </summary>
-    public GameObject OptionalRecommendedDropTarget = null;
+    public GameObject RecommendedDropTarget
+    {
+        get
+        {
+            if (recommendedDropTarget == null)
+                return gameObject;
+            return recommendedDropTarget;
+        }
+        set
+        {
+            recommendedDropTarget = value;
+        }
+    }
+    [SerializeField]
+    GameObject recommendedDropTarget = null;
 
     /// <summary>
     /// Event called on inventory item change
