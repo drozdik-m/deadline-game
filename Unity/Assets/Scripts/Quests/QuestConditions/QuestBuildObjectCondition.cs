@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestBuildObjectCondition : QuestManualCondition
+public class QuestBuildObjectCondition : QuestCondition
 {
-    public BuildableObject buildableObject;
+    public BuildableObject BuildableObject = null;
 
     private void Start()
     {
-        buildableObject.OnFinished += BuildableObjectFinished;
+        BuildableObject.OnFinished += BuildableObjectFinished;
         Completed = false;
     }
 
@@ -16,4 +16,5 @@ public class QuestBuildObjectCondition : QuestManualCondition
     {
         Completed = true;
     }
+
 }

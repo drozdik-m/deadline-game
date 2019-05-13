@@ -8,14 +8,23 @@ using UnityEngine;
 /// </summary>
 public class ClassicInventoryItem : InventoryItem
 {
+    /// <summary>
+    /// GameObject reprezentation in scene
+    /// </summary>
     public GameObject PickableObjectInScene = null;
-    public GameObject OverrideDropTarget = null;
+
+    /// <summary>
+    /// Optional drop target
+    /// </summary>
+    public GameObject DropTarget = null;
     
 
     private void Awake()
     {
         PickedUp += PickUpFromScene;
         Dropped += DropIntoScene;
+        if (PickableObjectInScene == null)
+            PickableObjectInScene = transform.GetChild(0).gameObject;
     }
 
     /// <summary>
@@ -36,7 +45,7 @@ public class ClassicInventoryItem : InventoryItem
     /// <param name="e">Arguments</param>
     private void DropIntoScene(object sender, InventoryItemEventArgs e)
     {
-        GameObject dropPoint = OverrideDropTarget != null ? OverrideDropTarget : e.RecommendedDropPoint;
+        GameObject dropPoint = DropTarget != null ? DropTarget : e.RecommendedDropPoint;
 
         PickableObjectInScene.SetActive(true);
 

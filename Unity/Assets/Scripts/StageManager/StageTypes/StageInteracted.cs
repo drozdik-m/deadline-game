@@ -8,12 +8,21 @@ using UnityEngine;
 /// </summary>
 public class StageInteracted : Stage
 {
-    public InteractionEventMiddleman interactionEventMiddleman;
+    /// <summary>
+    /// Interaction middleman
+    /// </summary>
+    public InteractionEventMiddleman InteractionEventMiddleman = null;
+
+    /// <summary>
+    /// Did some interaction occur?
+    /// </summary>
     private bool hasBeenInteractedWith = false;
 
     private void Start()
     {
-        interactionEventMiddleman.OnInteract += OnReactionEvent;
+        if (InteractionEventMiddleman == null)
+            InteractionEventMiddleman = GetComponent<InteractionEventMiddleman>();
+        InteractionEventMiddleman.OnInteract += OnReactionEvent;
     }
 
     private void OnReactionEvent(ReactionEvent caller, object args)

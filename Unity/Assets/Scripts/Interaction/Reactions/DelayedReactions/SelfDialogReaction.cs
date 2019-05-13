@@ -17,6 +17,7 @@ public class SelfDialogReaction : DelayedReaction
 
     protected override void SpecificInit()
     {
+
         // find dialog manager in the scene
         dialogManagerObj = GameObject.FindGameObjectWithTag("DialogManager");
         if (dialogManagerObj == null)

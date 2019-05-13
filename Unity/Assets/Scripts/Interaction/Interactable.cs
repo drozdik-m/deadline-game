@@ -28,7 +28,7 @@ public class Interactable : MonoBehaviour
     /// Idicates whether interactable uses interactable location
     /// or proximty
     /// </summary>
-    public bool useProximity;
+    public bool useProximity = true;
 
     /// <summary>
     /// How wide the proximity will be

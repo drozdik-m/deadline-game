@@ -82,7 +82,7 @@ public class WorkflowScene : MonoBehaviour
             if (masterUI != null)
             {
                 masterUI.GetComponent<UIMaster>().QuestUI.
-                    SetQuestStack(((StageQuestStack)args.CurrentStage).questStack);
+                    SetQuestStack(((StageQuestStack)args.CurrentStage).QuestStack);
             }
             else
                 Debug.LogWarning("MasterUI not found");

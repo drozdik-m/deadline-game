@@ -10,12 +10,7 @@ public class StageMonologSync : Stage
     /// <summary>
     /// Override dialog manager
     /// </summary>
-    public DialogManager OverrideDialogManager;
-
-    /// <summary>
-    /// Actual working manager
-    /// </summary>
-    DialogManager dialogManager;
+    public DialogManager DialogManager = null;
 
     /// <summary>
     /// What should it say?
@@ -24,7 +19,9 @@ public class StageMonologSync : Stage
 
     public override bool ReadyForNextStage()
     {
-        return !dialogManager.DialogInProgress();
+        if (DialogManager == null)
+            return false;
+        return !DialogManager.DialogInProgress();
     }
 
     public override void StageEnd()
@@ -39,10 +36,10 @@ public class StageMonologSync : Stage
 
     public override void StageLoad()
     {
-        dialogManager = OverrideDialogManager != null ? OverrideDialogManager :
-            GameObject.FindGameObjectWithTag("DialogManager").GetComponent<DialogManager>();
+        if (DialogManager == null)
+            DialogManager = GameObject.FindGameObjectWithTag("DialogManager").GetComponent<DialogManager>();
 
-        dialogManager.AddDialog(WhatToSay);
+        DialogManager.AddDialog(WhatToSay);
     }
 
     public override void StageUpdate()

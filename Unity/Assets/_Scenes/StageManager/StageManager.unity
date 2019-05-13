@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8455a8eaed4a85f469a79c8caa12402f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fader: {fileID: 0}
+  OverrideFader: {fileID: 0}
   FadeInColor: {r: 1, g: 0, b: 0, a: 1}
   FadeInLength: 0.5
   FadeInDelay: 0
@@ -367,8 +367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObjectsToHandle:
   - {fileID: 374643979}
-  disableOnAwake: 1
-  disableObjectOnStageEnd: 1
+  setting: 0
   readyForNextState: 0
 --- !u!1 &291277298
 GameObject:
@@ -505,13 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf300eaf35748ea45875ebce4d69d53a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stages:
-  - {fileID: 1916402369}
-  - {fileID: 2077744185}
-  - {fileID: 680924135}
-  - {fileID: 1835656612}
-  - {fileID: 1687065926}
-  - {fileID: 1370370838}
+  stages: []
   AutomaticStart: 1
 --- !u!1 &374643979
 GameObject:
@@ -768,8 +761,7 @@ MonoBehaviour:
   - {fileID: 1013623209}
   - {fileID: 374643979}
   - {fileID: 291277298}
-  disableOnAwake: 1
-  disableObjectOnStageEnd: 1
+  setting: 0
   readyForNextState: 0
 --- !u!1 &705089738
 GameObject:
@@ -817,8 +809,7 @@ MonoBehaviour:
   gameObjectsToHandle:
   - {fileID: 1013623209}
   - {fileID: 291277298}
-  disableOnAwake: 1
-  disableObjectOnStageEnd: 0
+  setting: 0
   readyForNextState: 1
 --- !u!1 &717734092
 GameObject:
@@ -865,8 +856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObjectsToHandle:
   - {fileID: 1013623209}
-  disableOnAwake: 1
-  disableObjectOnStageEnd: 1
+  setting: 0
   readyForNextState: 0
 --- !u!1 &731886422
 GameObject:
@@ -1036,6 +1026,36 @@ Transform:
   - {fileID: 1109244793}
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &857969063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 857969064}
+  m_Layer: 0
+  m_Name: _StageManager_Stages
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &857969064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857969063}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1916402371}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &939868758
 GameObject:
@@ -1468,7 +1488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8455a8eaed4a85f469a79c8caa12402f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fader: {fileID: 0}
+  OverrideFader: {fileID: 0}
   FadeInColor: {r: 1, g: 0.8792537, b: 0, a: 1}
   FadeInLength: 1
   FadeInDelay: 1
@@ -1517,7 +1537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9e205a7477d5046970e271047446c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fader: {fileID: 0}
+  OverrideFader: {fileID: 0}
   FadeColor: {r: 0, g: 0.15447187, b: 1, a: 1}
   FadeLength: 2
   FadeStyle: 1
@@ -1564,7 +1584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9e205a7477d5046970e271047446c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fader: {fileID: 0}
+  OverrideFader: {fileID: 0}
   FadeColor: {r: 1, g: 0, b: 0, a: 1}
   FadeLength: 2
   FadeStyle: 0
@@ -1746,7 +1766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18e9bd76af5c623458ec4f4ebb966085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageManager: {fileID: 1916402370}
+  StageManager: {fileID: 0}
 --- !u!114 &1916402370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1759,12 +1779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf300eaf35748ea45875ebce4d69d53a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stages:
-  - {fileID: 717734094}
-  - {fileID: 159704113}
-  - {fileID: 705089740}
-  - {fileID: 2077744185}
-  - {fileID: 112390574}
+  stages: []
   AutomaticStart: 0
 --- !u!4 &1916402371
 Transform:
@@ -1776,7 +1791,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 857969064}
   m_Father: {fileID: 354810383}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
