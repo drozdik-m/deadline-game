@@ -4,32 +4,27 @@ using UnityEngine;
 
 public class SoundEffectTest : MonoBehaviour
 {
-    public SoundEffectController controller;
+    public SoundEffectController controllerFoot;
+    public SoundEffectController controllerClick;
+    public SoundEffectController controllerVoice;
 
-    public SoundEffectType type;
-
-    public void Play()
+    public void PlayFoot()
     {
-        controller.PlaySound (type);
+        controllerFoot.PlayLoopSound (0.3f);
     }
 
-    public void PlayButtonClick()
+    public void StopFoot()
     {
-        controller.PlaySound (SoundEffectType.UIButtonClick);
+        controllerFoot.StopLoopSound ();
     }
 
-    public void PlayMaleVoice()
+    public void PlayClick()
     {
-        controller.PlaySound (SoundEffectType.MaleVoiceNormal);
+        controllerClick.PlaySound (transform);
     }
 
-    public void PlayQuestCompl()
+    public void PlayVoice()
     {
-        controller.PlaySound (SoundEffectType.QuestCompleted);
-    }
-
-    public void PlayQuestStackCompl()
-    {
-        controller.PlaySound (SoundEffectType.QuestStackCompleted);
+        controllerVoice.PlaySound (controllerVoice.transform);
     }
 }
