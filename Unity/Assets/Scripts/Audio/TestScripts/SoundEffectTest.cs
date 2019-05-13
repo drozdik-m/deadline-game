@@ -10,7 +10,7 @@ public class SoundEffectTest : MonoBehaviour
 
     public void PlayFoot()
     {
-        controllerFoot.PlayLoopSound (0.3f);
+        controllerFoot.PlayLoopSound (0.6f);
     }
 
     public void StopFoot()

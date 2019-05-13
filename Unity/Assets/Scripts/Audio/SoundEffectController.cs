@@ -14,9 +14,19 @@ public class SoundEffectController : MonoBehaviour
     public AudioMixer AudioMixer;
 
     /// <summary>
+    /// Used type of the sound effect
+    /// </summary>
+    public SoundEffectType SingleSoundEffectType;
+
+    /// <summary>
+    /// Used types of the sound effect for the loop effect
+    /// </summary>
+    public SoundEffectType[] LoopSoundEffectType;
+
+    /// <summary>
     /// Current sound effect
     /// </summary>
-    public AudioClip UsedSoundEffect;
+    private AudioClip soundEffect;
 
     /// <summary>
     /// Sound volume, value from 0 to 1
@@ -33,8 +43,15 @@ public class SoundEffectController : MonoBehaviour
     /// </summary>
     public GameObject SoundEffectParticlePrefab;
 
+    /// <summary>
+    /// The sound effects storage
+    /// </summary>
+    public SoundEffectStorage SoundEffectsStorage;
+
     private void Start()
     {
+        if (SingleSoundEffectType != SoundEffectType.None)
+            soundEffect = SoundEffectsStorage.GetSoundEffect (SingleSoundEffectType);
         UpdateVolume ();
     }
 
@@ -49,7 +66,7 @@ public class SoundEffectController : MonoBehaviour
 
         AudioSource spawnedAudioSource = spawnedSound.GetComponent<AudioSource> ();
         spawnedAudioSource.volume = volume;
-        spawnedAudioSource.clip = UsedSoundEffect;
+        spawnedAudioSource.clip = soundEffect;
         spawnedAudioSource.Play ();
     }
 
@@ -63,7 +80,7 @@ public class SoundEffectController : MonoBehaviour
 
         AudioSource spawnedAudioSource = spawnedSound.GetComponent<AudioSource> ();
         spawnedAudioSource.volume = volume;
-        spawnedAudioSource.clip = UsedSoundEffect;
+        spawnedAudioSource.clip = soundEffect;
         spawnedAudioSource.Play ();
     }
 
@@ -93,8 +110,16 @@ public class SoundEffectController : MonoBehaviour
         loop = true;
         while (loop)
         {
-            PlaySound ();
-            yield return new WaitForSeconds (delay);
+            // Get all sound effects using sound effect types 
+            foreach (var audio in SoundEffectsStorage.GetSoundEffect(LoopSoundEffectType))
+            {
+                soundEffect = audio;
+                PlaySound ();
+                yield return new WaitForSeconds (delay);
+
+                if (!loop)
+                    yield break;
+            }
         }
     }
 
