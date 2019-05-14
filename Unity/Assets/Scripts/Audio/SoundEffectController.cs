@@ -21,7 +21,7 @@ public class SoundEffectController : MonoBehaviour
     /// <summary>
     /// Used types of the sound effect for the loop effect
     /// </summary>
-    public SoundEffectType[] LoopSoundEffectType;
+    private SoundEffectType[] LoopSoundEffectType;
 
     /// <summary>
     /// Current sound effect
@@ -46,12 +46,13 @@ public class SoundEffectController : MonoBehaviour
     /// <summary>
     /// The sound effects storage
     /// </summary>
-    public SoundEffectStorage SoundEffectsStorage;
+    private SoundEffectStorage soundEffectsStorage;
 
     private void Start()
     {
+        soundEffectsStorage = GameObject.FindGameObjectWithTag ("SoundEffectStorage").GetComponent<SoundEffectStorage> ();
         if (SingleSoundEffectType != SoundEffectType.None)
-            soundEffect = SoundEffectsStorage.GetSoundEffect (SingleSoundEffectType);
+            soundEffect = soundEffectsStorage.GetSoundEffect (SingleSoundEffectType);
         UpdateVolume ();
     }
 
@@ -87,9 +88,10 @@ public class SoundEffectController : MonoBehaviour
     /// <summary>
     /// Plays the audio clip in the loop. It instantiates new gameobject so multiple sound effects can play in the same time
     /// </summary>
-    public void PlayLoopSound(float delay)
+    public void PlayLoopSound(SoundEffectType[] types, float delay)
     {
-        StartCoroutine (loopSound (delay));
+        LoopSoundEffectType = types;
+        StartCoroutine (LoopSound (delay));
     }
 
     /// <summary>
@@ -105,13 +107,13 @@ public class SoundEffectController : MonoBehaviour
     /// </summary>
     /// <param name="delay">Delay between each play</param>
     /// <returns></returns>
-    private IEnumerator loopSound(float delay)
+    private IEnumerator LoopSound(float delay)
     {
         loop = true;
         while (loop)
         {
             // Get all sound effects using sound effect types 
-            foreach (var audio in SoundEffectsStorage.GetSoundEffect(LoopSoundEffectType))
+            foreach (var audio in soundEffectsStorage.GetSoundEffect(LoopSoundEffectType))
             {
                 soundEffect = audio;
                 PlaySound ();
@@ -133,6 +135,6 @@ public class SoundEffectController : MonoBehaviour
         AudioMixer.GetFloat ("ExposedSoundEffectsVolume", out soundEffectsVolume);
 
         // Multiply master volume and sound effects volume to get used volume
-        volume = ( ( 80 + masterVolume ) * ( 80 + soundEffectsVolume ) ) / ( 6400 );
+        volume = ( ( 40 + masterVolume ) * ( 40 + soundEffectsVolume ) ) / ( 1600 );
     }
 }

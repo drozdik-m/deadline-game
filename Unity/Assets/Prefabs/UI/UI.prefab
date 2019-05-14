@@ -1040,6 +1040,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OptionsPanel: {fileID: 4811382487787572488}
+  AudioMixerMaster: {fileID: 0}
+  MasterVolumeSlider: {fileID: 0}
+  BackgroundVolumeSlider: {fileID: 0}
+  SoundEffectsVolumeSlider: {fileID: 0}
 --- !u!1 &4811382487151186924
 GameObject:
   m_ObjectHideFlags: 0

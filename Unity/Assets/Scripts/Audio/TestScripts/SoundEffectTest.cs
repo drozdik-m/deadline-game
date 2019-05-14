@@ -4,19 +4,8 @@ using UnityEngine;
 
 public class SoundEffectTest : MonoBehaviour
 {
-    public SoundEffectController controllerFoot;
     public SoundEffectController controllerClick;
     public SoundEffectController controllerVoice;
-
-    public void PlayFoot()
-    {
-        controllerFoot.PlayLoopSound (0.6f);
-    }
-
-    public void StopFoot()
-    {
-        controllerFoot.StopLoopSound ();
-    }
 
     public void PlayClick()
     {
