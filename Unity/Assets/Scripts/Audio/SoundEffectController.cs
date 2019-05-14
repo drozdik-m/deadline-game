@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 /// <summary>
 /// Single sound effect controller, that enables multiple instances of the same clip played.
@@ -8,14 +9,34 @@ using UnityEngine;
 public class SoundEffectController : MonoBehaviour
 {
     /// <summary>
-    /// Audio sound clip
+    /// Audio mixer 
     /// </summary>
-    public AudioClip UsedSoundEffect;
+    public AudioMixer AudioMixer;
 
     /// <summary>
-    /// Value from 0 to 1
+    /// Used type of the sound effect
     /// </summary>
-    public float volume = 1f;
+    public SoundEffectType SingleSoundEffectType;
+
+    /// <summary>
+    /// Used types of the sound effect for the loop effect
+    /// </summary>
+    private SoundEffectType[] LoopSoundEffectType;
+
+    /// <summary>
+    /// Current sound effect
+    /// </summary>
+    private AudioClip soundEffect;
+
+    /// <summary>
+    /// Sound volume, value from 0 to 1
+    /// </summary>
+    private float volume;
+
+    /// <summary>
+    /// Loop sound effect
+    /// </summary>
+    private bool loop;
 
     /// <summary>
     /// Prefab for sound particle (Prefabs/Audio/SoundEffectParticle for regular particle)
@@ -23,22 +44,97 @@ public class SoundEffectController : MonoBehaviour
     public GameObject SoundEffectParticlePrefab;
 
     /// <summary>
-    /// Plays the audio clip. It instantiates new gameobject so multiple sound effects can play in the same time.
+    /// The sound effects storage
     /// </summary>
-    /// <param name="globalSound">If false, the new sound will be child of this gameobject. True for (0,0,0) in global world scope.</param>
-    public void Play(bool globalSound = false)
+    private SoundEffectStorage soundEffectsStorage;
+
+    private void Start()
     {
-        GameObject spawnedSound;
-        if (globalSound)
-            spawnedSound = Instantiate(SoundEffectParticlePrefab);
-        else
-            spawnedSound = Instantiate(SoundEffectParticlePrefab, transform);
-
-        AudioSource spawnedAudioSource = spawnedSound.GetComponent<AudioSource>();
-        spawnedAudioSource.volume = volume;
-        spawnedAudioSource.clip = UsedSoundEffect;
-        spawnedAudioSource.Play();
-
+        soundEffectsStorage = GameObject.FindGameObjectWithTag ("SoundEffectStorage").GetComponent<SoundEffectStorage> ();
+        if (SingleSoundEffectType != SoundEffectType.None)
+            soundEffect = soundEffectsStorage.GetSoundEffect (SingleSoundEffectType);
+        UpdateVolume ();
     }
 
+    /// <summary>
+    /// Plays the audio clip. It instantiates new gameobject so multiple sound effects can play in the same time
+    /// </summary>
+    /// <param name="parent">The new sound will be child of the parent</param>
+    public void PlaySound(Transform parent)
+    {
+        UpdateVolume ();
+        GameObject spawnedSound = Instantiate (SoundEffectParticlePrefab, parent);
+
+        AudioSource spawnedAudioSource = spawnedSound.GetComponent<AudioSource> ();
+        spawnedAudioSource.volume = volume;
+        spawnedAudioSource.clip = soundEffect;
+        spawnedAudioSource.Play ();
+    }
+
+    /// <summary>
+    /// Plays the audio clip. It instantiates new gameobject so multiple sound effects can play in the same time
+    /// </summary>
+    public void PlaySound()
+    {
+        UpdateVolume ();
+        GameObject spawnedSound = Instantiate (SoundEffectParticlePrefab);
+
+        AudioSource spawnedAudioSource = spawnedSound.GetComponent<AudioSource> ();
+        spawnedAudioSource.volume = volume;
+        spawnedAudioSource.clip = soundEffect;
+        spawnedAudioSource.Play ();
+    }
+
+    /// <summary>
+    /// Plays the audio clip in the loop. It instantiates new gameobject so multiple sound effects can play in the same time
+    /// </summary>
+    public void PlayLoopSound(SoundEffectType[] types, float delay)
+    {
+        LoopSoundEffectType = types;
+        StartCoroutine (LoopSound (delay));
+    }
+
+    /// <summary>
+    /// Stops the audio clip in the loop.
+    /// </summary>
+    public void StopLoopSound()
+    {
+        loop = false; 
+    }
+
+    /// <summary>
+    /// Plays sound effect every time
+    /// </summary>
+    /// <param name="delay">Delay between each play</param>
+    /// <returns></returns>
+    private IEnumerator LoopSound(float delay)
+    {
+        loop = true;
+        while (loop)
+        {
+            // Get all sound effects using sound effect types 
+            foreach (var audio in soundEffectsStorage.GetSoundEffect(LoopSoundEffectType))
+            {
+                soundEffect = audio;
+                PlaySound ();
+                yield return new WaitForSeconds (delay);
+
+                if (!loop)
+                    yield break;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Updates sound effect volume
+    /// </summary>
+    public void UpdateVolume()
+    {
+        float masterVolume, soundEffectsVolume;
+        AudioMixer.GetFloat ("ExposedMasterVolume", out masterVolume);
+        AudioMixer.GetFloat ("ExposedSoundEffectsVolume", out soundEffectsVolume);
+
+        // Multiply master volume and sound effects volume to get used volume
+        volume = ( ( 40 + masterVolume ) * ( 40 + soundEffectsVolume ) ) / ( 1600 );
+    }
 }
