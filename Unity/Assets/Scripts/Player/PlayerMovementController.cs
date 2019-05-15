@@ -223,14 +223,9 @@ public class PlayerMovementController : MonoBehaviour
             {
                 this.MoveToPosition(interactable.interactionLocation.position);
             }
-            if (inventory.CurrentItem == null)
-            {
+        
                 currentCoroutine = StartCoroutine(WaitUntil(interactable));
-            }
-            else
-            {
-                proximityMovement = false;
-            }
+           
 
         }
 
