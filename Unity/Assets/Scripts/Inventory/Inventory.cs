@@ -16,7 +16,7 @@ public class Inventory : MonoBehaviour
     /// <summary>
     /// Game object that will be recommended as default drop target to all items
     /// </summary>
-    public GameObject RecommendedDropTarget
+    /*public GameObject RecommendedDropTarget
     {
         get
         {
@@ -29,8 +29,8 @@ public class Inventory : MonoBehaviour
             recommendedDropTarget = value;
         }
     }
-    [SerializeField]
-    GameObject recommendedDropTarget = null;
+    [SerializeField]*/
+    public GameObject RecommendedDropTarget = null;
 
     /// <summary>
     /// Event called on inventory item change
