@@ -135,6 +135,10 @@ public enum InventoryItemID
     Food,
     BigAssBlackDick,
     CardboardBox,
+    Book,
+    Burger,
+    Newspaper,
+    WateringCan,
     None
 }
 
