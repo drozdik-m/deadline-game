@@ -22,6 +22,8 @@ public class InventoryItemReactionEditor : ReactionEditor
     {
         InventoryItemReaction thisReaction = Target as InventoryItemReaction;
 
+        thisReaction.delay = EditorGUILayout.Slider("Delay", thisReaction.delay, 0, 5);
+
         if (thisReaction.overrideInventory == null)
         {
             GameObject mainInventoryGameObject = GameObject.FindGameObjectWithTag(MAIN_INVENTORY_TAG);

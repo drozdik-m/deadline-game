@@ -9,8 +9,8 @@ using UnityEngine;
 [CustomEditor(typeof(Inventory))]
 class InventoryEditor : DefaultEditor<Inventory>
 {
-    OverrideMonoscriptField<GameObject> recommendedGameObjectField
-        = new OverrideMonoscriptField<GameObject>("Recommend drop target", "Drop target");
+    /*OverrideMonoscriptField<GameObject> recommendedGameObjectField
+        = new OverrideMonoscriptField<GameObject>("Recommend drop target", "Drop target");*/
 
     public override void OnCustomInspectorGUI()
     {
@@ -24,7 +24,7 @@ class InventoryEditor : DefaultEditor<Inventory>
 
         //DROP TARGET
         Target.RecommendedDropTarget = EditorGUILayout.ObjectField("Recommended drop target", Target.RecommendedDropTarget, typeof(GameObject), true) as GameObject;
-        if (Target.RecommendedDropTarget == Target.gameObject)
-            MessageBox.AddMessage("Drop target is the same as inventory GameObject (should be separett)", WarningStyle);
+        if (Target.RecommendedDropTarget == null)
+            MessageBox.AddMessage("Drop target is null", ErrorStyle);
     }
 }
