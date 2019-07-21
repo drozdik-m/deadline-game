@@ -5,19 +5,26 @@ using UnityEngine.UI;
 
 public class ReadableObjectUI : MonoBehaviour
 {
+    private void Start()
+    {
+        SetActive(false);
+    }
+
     public void Open()
     {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).gameObject.SetActive(true);
-        }
+        SetActive(true);
     }
 
     public void Close()
     {
-        for (int i = 0; i < transform.childCount; i++)
+        SetActive(false);
+    }
+
+    private void SetActive(bool status)
+    {
+        for (var i = 0; i < transform.childCount; i++)
         {
-            transform.GetChild(i).gameObject.SetActive(false);
+            transform.GetChild(i).gameObject.SetActive(status);
         }
     }
 }
