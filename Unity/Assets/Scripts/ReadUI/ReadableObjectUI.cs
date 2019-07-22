@@ -3,22 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class displays UI of readable objects 
+/// </summary>
 public class ReadableObjectUI : MonoBehaviour
 {
+    /// <summary>
+    /// Text, that shown at the bottom of screen
+    /// </summary>
     public Text ContinueText;
 
+    /// <summary>
+    /// Delay between open readable object and showing text
+    /// </summary>
     private float _delay;
-    private float _fadingDuration;
-    private float _alphaColor;
+
+    /// <summary>
+    /// Duration of showing text 
+    /// </summary>
+    private float _showingDuration;
+
+    /// <summary>
+    /// Final alpha color of the text
+    /// </summary>
+    private float _finalAlphaColor;
 
     private void Start()
     {
         SetActive(false);
         _delay = 4.0f;
-        _fadingDuration = 2.0f;
-        _alphaColor = 0.5f;
+        _showingDuration = 2.0f;
+        _finalAlphaColor = 0.5f;
     }
 
+    /// <summary>
+    /// Opens UI of readable object
+    /// </summary>
     public void Open()
     {
         Color color = ContinueText.color;
@@ -26,15 +46,22 @@ public class ReadableObjectUI : MonoBehaviour
         ContinueText.color = color;
 
         SetActive(true);
-        StartCoroutine(ShowTextEnumerator(_delay, _fadingDuration));
+        StartCoroutine(ShowTextEnumerator(_delay, _showingDuration));
     }
 
+    /// <summary>
+    /// Closes UI of readable object
+    /// </summary>
     public void Close()
     {
         SetActive(false);
         StopAllCoroutines();
     }
 
+    /// <summary>
+    /// Sets active of UI
+    /// </summary>
+    /// <param name="status">Status of UI. Shown, when value is true.</param>
     private void SetActive(bool status)
     {
         for (var i = 0; i < transform.childCount; i++)
@@ -43,6 +70,12 @@ public class ReadableObjectUI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Shows text after for a duration
+    /// </summary>
+    /// <param name="duration">Duration of showing text</param>
+    /// <param name="delay">Delay until showing text</param>
+    /// <returns></returns>
     private IEnumerator ShowTextEnumerator(float duration, float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -60,7 +93,7 @@ public class ReadableObjectUI : MonoBehaviour
         while (startTime + duration > Time.time)
         {
             step -= (1 / duration) * Time.deltaTime;
-            color.a = Mathf.Lerp(_alphaColor, alpha, step);
+            color.a = Mathf.Lerp(_finalAlphaColor, alpha, step);
             ContinueText.color = color;
 
             yield return null;
