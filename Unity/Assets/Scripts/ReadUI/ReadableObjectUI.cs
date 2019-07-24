@@ -9,9 +9,14 @@ using UnityEngine.UI;
 public class ReadableObjectUI : MonoBehaviour
 {
     /// <summary>
-    /// Text, that shown at the bottom of screen
+    /// Text, that shows at the bottom of screen
     /// </summary>
     public Text ContinueText;
+
+    /// <summary>
+    /// Button, that closes UI of readable object
+    /// </summary>
+    public Button QuitButton;
 
     /// <summary>
     /// Delay between open readable object and showing text
@@ -31,8 +36,8 @@ public class ReadableObjectUI : MonoBehaviour
     private void Start()
     {
         SetActive(false);
-        _delay = 4.0f;
-        _showingDuration = 2.0f;
+        _delay = 2.0f;
+        _showingDuration = 10.0f;
         _finalAlphaColor = 0.5f;
     }
 
@@ -46,7 +51,9 @@ public class ReadableObjectUI : MonoBehaviour
         ContinueText.color = color;
 
         SetActive(true);
-        StartCoroutine(ShowTextEnumerator(_delay, _showingDuration));
+        QuitButton.onClick.AddListener(Close);
+
+        StartCoroutine(ShowTextEnumerator(_showingDuration, _delay));
     }
 
     /// <summary>
@@ -64,10 +71,8 @@ public class ReadableObjectUI : MonoBehaviour
     /// <param name="status">Status of UI. Shown, when value is true.</param>
     private void SetActive(bool status)
     {
-        for (var i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).gameObject.SetActive(status);
-        }
+        gameObject.SetActive(status);
+        QuitButton.gameObject.SetActive(status);
     }
 
     /// <summary>
