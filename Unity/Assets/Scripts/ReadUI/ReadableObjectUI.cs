@@ -94,7 +94,7 @@ public class ReadableObjectUI : MonoBehaviour
         // Fading step (depends on fading duration)
         float step = 1;
 
-        // Chages alpha channel every frame by step
+        // Changes alpha channel every frame by step
         while (startTime + duration > Time.time)
         {
             step -= (1 / duration) * Time.deltaTime;
