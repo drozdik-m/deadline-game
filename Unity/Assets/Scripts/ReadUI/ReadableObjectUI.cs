@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,36 +10,68 @@ using UnityEngine.UI;
 public class ReadableObjectUI : MonoBehaviour
 {
     /// <summary>
+    /// Event when UI of readable object is opened
+    /// </summary>
+    public event ReadableObjectUIChangeEventHandler OnOpen;
+
+    /// <summary>
+    /// Event when UI of readable object is closed
+    /// </summary>
+    public event ReadableObjectUIChangeEventHandler OnClose;
+
+    /// <summary>
     /// Text, that shows at the bottom of screen
     /// </summary>
-    public Text ContinueText;
+    static private Text ContinueText;
 
     /// <summary>
     /// Button, that closes UI of readable object
     /// </summary>
-    public Button QuitButton;
+    static private Button QuitButton;
 
     /// <summary>
     /// Delay between open readable object and showing text
     /// </summary>
-    private float _delay;
+    private float _delay = 3.0f;
 
     /// <summary>
     /// Duration of showing text 
     /// </summary>
-    private float _showingDuration;
+    private float _showingDuration = 5.0f;
 
     /// <summary>
     /// Final alpha color of the text
     /// </summary>
-    private float _finalAlphaColor;
+    private float _finalAlphaColor = 0.5f;
 
     private void Start()
     {
+        if (!QuitButton)
+            QuitButton = GameObject.Find("BackgroundButton").GetComponent<Button>();
+        if (!ContinueText)
+            ContinueText = QuitButton.GetComponentInChildren<Text>();
+
         SetActive(false);
-        _delay = 2.0f;
-        _showingDuration = 10.0f;
-        _finalAlphaColor = 0.5f;
+    }
+
+    /// <summary>
+    /// Sets values of showing duration and delay of Continue text parametr
+    /// </summary>
+    /// <param name="duration">Duration of showing text</param>
+    /// <param name="delay">Delay until showing text</param>
+    public void SetTimingOfContinueText(float duration, float delay)
+    {
+        _delay = delay;
+        _showingDuration = duration;
+    }
+
+    /// <summary>
+    /// Checks if readable object is open
+    /// </summary>
+    /// <returns>Status of readable object. True, if it's active</returns>
+    public bool IsOpen()
+    {
+        return gameObject.activeSelf;
     }
 
     /// <summary>
@@ -46,12 +79,17 @@ public class ReadableObjectUI : MonoBehaviour
     /// </summary>
     public void Open()
     {
+        // Set color of Continue text
         Color color = ContinueText.color;
         color.a = 0;
         ContinueText.color = color;
 
+        // Activate readable object
         SetActive(true);
         QuitButton.onClick.AddListener(Close);
+
+        // Event
+        OnOpen?.Invoke(this, new ReadableObjectUIArgs(true));
 
         StartCoroutine(ShowTextEnumerator(_showingDuration, _delay));
     }
@@ -61,8 +99,12 @@ public class ReadableObjectUI : MonoBehaviour
     /// </summary>
     public void Close()
     {
+        // Deactivate readable object
         SetActive(false);
         StopAllCoroutines();
+
+        // Event
+        OnClose?.Invoke(this, new ReadableObjectUIArgs(false));
     }
 
     /// <summary>
@@ -105,3 +147,10 @@ public class ReadableObjectUI : MonoBehaviour
         }
     }
 }
+
+/// <summary>
+/// Delegate for UI of readable object change events
+/// </summary>
+/// <param name="caller">Readable object that called events</param>
+/// <param name="e">Arguments</param>
+public delegate void ReadableObjectUIChangeEventHandler(ReadableObjectUI caller, ReadableObjectUIArgs e);

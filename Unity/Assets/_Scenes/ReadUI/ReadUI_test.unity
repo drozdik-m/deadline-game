@@ -579,7 +579,7 @@ GameObject:
   - component: {fileID: 442704086}
   - component: {fileID: 442704085}
   m_Layer: 5
-  m_Name: Background
+  m_Name: BackgroundButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1087,8 +1087,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b8da69a827ef541b1b14d806d0458c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ContinueText: {fileID: 1636846942}
-  QuitButton: {fileID: 442704085}
 --- !u!224 &742019754
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2283,8 +2281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b8da69a827ef541b1b14d806d0458c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ContinueText: {fileID: 1636846942}
-  QuitButton: {fileID: 442704085}
 --- !u!1 &2079739486
 GameObject:
   m_ObjectHideFlags: 0
