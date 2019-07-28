@@ -89,5 +89,6 @@ public enum SoundEffectType
     MaleVoiceNormal,
     MaleVoiceSurprised,
     QuestCompleted,
-    QuestStackCompleted
+    QuestStackCompleted,
+    Showering
 }
