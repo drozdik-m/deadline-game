@@ -15,6 +15,7 @@ public class ReadUIReactionEditor : ReactionEditor
     {
         ReadUIReaction thisReaction = Target as ReadUIReaction;
 
+        thisReaction.delay = EditorGUILayout.Slider("Delay", thisReaction.delay, 0, 5);
         thisReaction.readableObjectUI = (ReadableObjectUI)EditorGUILayout
             .ObjectField("Readable Object UI",
                          thisReaction.readableObjectUI,
