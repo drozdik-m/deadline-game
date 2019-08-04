@@ -33,14 +33,6 @@ public class ItemProviderReactionEditor : ReactionEditor
     {
         ItemProviderReaction thisReaction = Target as ItemProviderReaction;
 
-        thisReaction.delay = EditorGUILayout.Slider("Delay", thisReaction.delay, 0, 5);
-
-        thisReaction.itemProvider = (ItemProvider)EditorGUILayout
-            .ObjectField("Item Provider",
-                         thisReaction.itemProvider,
-                         typeof(ItemProvider),
-                         true);
-
         // try to find item provider component on interactable parent
         GameObject interactableParent = GetInteractableParent();
         if (interactableParent != null)
@@ -50,11 +42,27 @@ public class ItemProviderReactionEditor : ReactionEditor
                 thisReaction.itemProvider = attachedItemProvider;
             else
                 MessageBox.AddMessage("No Item Provider Component on interactable parent", WarningStyle);
-        }    
+        }
         else
             MessageBox.AddMessage("No parent with interactable component found", WarningStyle);
 
         if (thisReaction.itemProvider == null)
+        {
+            if (GUILayout.Button("Add Item Provider"))
+            {
+                interactableParent.AddComponent<ItemProvider>();
+                thisReaction.itemProvider = interactableParent.GetComponent<ItemProvider>();
+            }
+
             MessageBox.AddMessage("Item Provider is empty", WarningStyle);
+        }
+
+        thisReaction.delay = EditorGUILayout.Slider("Delay", thisReaction.delay, 0, 5);
+
+        thisReaction.itemProvider = (ItemProvider)EditorGUILayout
+            .ObjectField("Item Provider",
+                         thisReaction.itemProvider,
+                         typeof(ItemProvider),
+                         true);
     }
 }
