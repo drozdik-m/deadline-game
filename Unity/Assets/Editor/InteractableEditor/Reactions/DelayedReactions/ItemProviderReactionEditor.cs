@@ -9,6 +9,21 @@ using UnityEditor;
 [CustomEditor(typeof(ItemProviderReaction))]
 public class ItemProviderReactionEditor : ReactionEditor
 {
+    private GameObject GetInteractableParent()
+    {
+        GameObject currObject = Target.gameObject;
+        
+        while (currObject != null)
+        { 
+            if (currObject.GetComponent<Interactable>())
+                return currObject;
+
+            currObject = currObject.transform.parent.gameObject;
+        }
+
+        return null;
+    }
+
     public override string GetFoldoutLabel()
     {
         return "Item Provider Reaction";
@@ -25,6 +40,19 @@ public class ItemProviderReactionEditor : ReactionEditor
                          thisReaction.itemProvider,
                          typeof(ItemProvider),
                          true);
+
+        // try to find item provider component on interactable parent
+        GameObject interactableParent = GetInteractableParent();
+        if (interactableParent != null)
+        {
+            ItemProvider attachedItemProvider = interactableParent.GetComponent<ItemProvider>();
+            if (attachedItemProvider != null)
+                thisReaction.itemProvider = attachedItemProvider;
+            else
+                MessageBox.AddMessage("No Item Provider Component on interactable parent", WarningStyle);
+        }    
+        else
+            MessageBox.AddMessage("No parent with interactable component found", WarningStyle);
 
         if (thisReaction.itemProvider == null)
             MessageBox.AddMessage("Item Provider is empty", WarningStyle);
