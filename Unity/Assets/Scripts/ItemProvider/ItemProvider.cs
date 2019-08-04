@@ -30,6 +30,10 @@ public class ItemProvider : MonoBehaviour
     /// </summary>
     public event ProviderItemsDepleetedHandler ProvidedItemsDepleeted;
 
+    private void Start()
+    {
+        checkPrefabValidity();
+    }
 
     void Update()
     {
@@ -39,11 +43,15 @@ public class ItemProvider : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Provides the specified item to the player's inventory
+    /// </summary>
     public void ProvideItem()
     {
         GameObject invetoryGameObject = GameObject.FindGameObjectWithTag("MainInventory");
 
+
+        // Getting all necessary components
         if (invetoryGameObject)
         {
             playerInvetory = invetoryGameObject.GetComponent<Inventory>();
@@ -57,6 +65,12 @@ public class ItemProvider : MonoBehaviour
             Debug.Log("ItemProvider: Invetory gameobject not found!");
         }
 
+        // Check the prefab validity
+        if (!checkPrefabValidity())
+            return;
+
+
+        // Actual spawning and picking up
         if (!playerInvetory.CurrentItem)
         {
 
@@ -86,6 +100,23 @@ public class ItemProvider : MonoBehaviour
 
         if (ProvidedItemsDepleeted != null)
             ProvidedItemsDepleeted(this, new ItemProviderArgs(prefabInvetoryComponent.ItemType));
+    }
+
+    /// <summary>
+    /// Checks the prefab validity(presence of the InvetoryItem component).
+    /// </summary>
+    /// <returns><c>true</c>, if prefab validity was checked, <c>false</c> otherwise.</returns>
+    private bool checkPrefabValidity()
+    {
+        // Checking validity of the item prefab
+        if (!ProvidedItemPrefab.GetComponent<InventoryItem>())
+        {
+            Debug.Log("ItemProvider: The item prefab has not InvetoryItem component");
+            return false;
+        }
+        return true;
+
+
     }
 
 
