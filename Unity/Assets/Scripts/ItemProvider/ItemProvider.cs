@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,16 +10,33 @@ public class ItemProvider : MonoBehaviour
     /// </summary>
     private Inventory playerInvetory;
     /// <summary>
-    /// Item, which will be provided to the player, into his invetory
+    /// Item prefab, which will be provided to the player, into his invetory
     /// </summary>
-    public InventoryItemID ProvidedItemType;
-
-    public bool InfinitProviding;
+    public GameObject ProvidedItemPrefab;
+    /// <summary>
+    /// If true, infinite providing is enabled
+    /// </summary>
+    public bool InfiniteProviding;
+    /// <summary>
+    ///  Number of items to provide
+    /// </summary>
     public int NumberOfItems;
+    /// <summary>
+    /// Provider items depleeted handler.
+    /// </summary>
+    public delegate void ProviderItemsDepleetedHandler(ItemProvider source, ItemProviderArgs providedItem);
+    /// <summary>
+    /// Occurs when provided items are depleeted.
+    /// </summary>
+    public event ProviderItemsDepleetedHandler ProvidedItemsDepleeted;
 
-    private void Start()
+
+    void Update()
     {
-       // ProvideItem();
+        if (Input.GetKeyDown("space"))
+        {
+             ProvideItem();
+        }
     }
 
 
@@ -42,24 +60,32 @@ public class ItemProvider : MonoBehaviour
         if (!playerInvetory.CurrentItem)
         {
 
+            if(NumberOfItems == 0 && !InfiniteProviding)
+            {
+                OnProviderItemsDepleeted();
+                return;
+            }
 
-            GameObject providedItemGameObject = new GameObject();
+            if (!InfiniteProviding)
+                NumberOfItems--;
 
-            InventoryItem it = providedItemGameObject.AddComponent(typeof(InventoryItem)) as InventoryItem;
+            var instance = Instantiate(ProvidedItemPrefab);
 
+            var invetoryComponent = instance.GetComponent<InventoryItem>();
 
-            it.ItemType = ProvidedItemType;
+            playerInvetory.PickUp(invetoryComponent);
 
-            var instance = Instantiate(providedItemGameObject);
-
-            playerInvetory.PickUp(it);
- 
-
-
-  
         }
 
 
+    }
+
+    protected virtual void OnProviderItemsDepleeted()
+    {
+        var prefabInvetoryComponent = ProvidedItemPrefab.GetComponent<InventoryItem>();
+
+        if (ProvidedItemsDepleeted != null)
+            ProvidedItemsDepleeted(this, new ItemProviderArgs(prefabInvetoryComponent.ItemType));
     }
 
 
