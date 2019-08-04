@@ -33,23 +33,11 @@ public class ItemProviderReactionEditor : ReactionEditor
     {
         ItemProviderReaction thisReaction = Target as ItemProviderReaction;
 
-        // try to find item provider component on interactable parent
-        GameObject interactableParent = GetInteractableParent();
-        if (interactableParent != null)
-        {
-            ItemProvider attachedItemProvider = interactableParent.GetComponent<ItemProvider>();
-            if (attachedItemProvider != null)
-                thisReaction.itemProvider = attachedItemProvider;
-            else
-                MessageBox.AddMessage("No Item Provider Component on interactable parent", WarningStyle);
-        }
-        else
-            MessageBox.AddMessage("No parent with interactable component found", WarningStyle);
-
         if (thisReaction.itemProvider == null)
         {
             if (GUILayout.Button("Add Item Provider"))
             {
+                GameObject interactableParent = GetInteractableParent();
                 interactableParent.AddComponent<ItemProvider>();
                 thisReaction.itemProvider = interactableParent.GetComponent<ItemProvider>();
             }
