@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class MenuTabsManager : MonoBehaviour
 {
+    public Tab ActiveTab;
+    public GameObject Tabs;
 
+    private Tab[] AllTabs;
 
     // Start is called before the first frame update
     void Start()
@@ -12,12 +15,12 @@ public class MenuTabsManager : MonoBehaviour
         
     }
 
-    public void Open(GameObject tab)
+    public void Open(Tab tab)
     {
 
     }
 
-    public void Close(GameObject tab)
+    public void Close(Tab tab)
     {
 
     }
