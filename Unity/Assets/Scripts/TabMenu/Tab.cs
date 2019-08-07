@@ -9,12 +9,13 @@ public class Tab : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _tabsManager = GameObject.FindGameObjectWithTag("MenuTabManager").GetComponent<MenuTabsManager>();
+        _tabsManager = GameObject.FindGameObjectWithTag("MenuTabsManager").GetComponent<MenuTabsManager>();
     }
 
     public void Open()
     {
-
+        _tabsManager.CloseTab(_tabsManager.ActiveTab);
+        _tabsManager.OpenTab(this);
     }
 
     public bool isActive()
