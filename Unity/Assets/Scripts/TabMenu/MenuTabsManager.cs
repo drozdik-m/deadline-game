@@ -12,11 +12,13 @@ public class MenuTabsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Collect all tabs from Tabs object 
         foreach (var tab in Tabs.gameObject.GetComponentsInChildren<Tab>())
         {
             AllTabs.Add(tab);
             CloseTab(tab);
         }
+        // At th begining first tab will be active as default 
         ActiveTab = AllTabs[0];
         CloseMenu();
     }

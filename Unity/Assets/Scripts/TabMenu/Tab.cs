@@ -7,7 +7,7 @@ public class Tab : MonoBehaviour
     private MenuTabsManager _tabsManager;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _tabsManager = GameObject.FindGameObjectWithTag("MenuTabsManager").GetComponent<MenuTabsManager>();
     }
