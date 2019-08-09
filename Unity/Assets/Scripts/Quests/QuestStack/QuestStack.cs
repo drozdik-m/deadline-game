@@ -18,6 +18,11 @@ public class QuestStack : MonoBehaviour
     public Quest[] quests = new Quest[0];
 
     /// <summary>
+    /// Quests will no longer be reconding once all of them are completed
+    /// </summary>
+    public bool FreezeOnComplete = true;
+
+    /// <summary>
     /// Should the quests record?
     /// </summary>
     public bool Recording
@@ -25,7 +30,7 @@ public class QuestStack : MonoBehaviour
         set
         {
             for (int i = 0; i < quests.Length; i++)
-                quests[i].Recording = true;
+                quests[i].Recording = value;
         }
     }
 
@@ -43,6 +48,12 @@ public class QuestStack : MonoBehaviour
     private void OnQuestChangeCallback(Quest caller, QuestArgs args)
     {
         OnChange?.Invoke(this, new QuestStackArgs(QuestsAreCompleted()));
+
+        if (FreezeOnComplete && QuestsAreCompleted())
+        {
+            Recording = false;
+            Debug.Log("Freeze");
+        }
     }
 
     /// <summary>
