@@ -30,7 +30,7 @@ public class Quest : MonoBehaviour
         set
         {
             for (int i = 0; i < conditions.Length; i++)
-                conditions[i].Recording = true;
+                conditions[i].Recording = value;
         }
     }
 
