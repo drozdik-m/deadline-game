@@ -20,7 +20,11 @@ public class QuestStackEditor : DefaultEditor<QuestStack>
     {
         if (Target.QuestsAreCompleted())
             EditorGUILayout.LabelField("[Completed]", SuccessStyle);
+
+        Target.FreezeOnComplete = EditorGUILayout.Toggle("Freeze once all conditions are met", Target.FreezeOnComplete);
+
         Target.quests = questsEditor.Use(Target);
     }
 }
+
 
