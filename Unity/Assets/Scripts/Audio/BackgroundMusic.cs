@@ -7,11 +7,17 @@ using UnityEngine;
 /// </summary>
 public class BackgroundMusic : MonoBehaviour
 {
+   
     //Theme music files
     /// <summary>
     /// Spooky music clip
     /// </summary>
     public AudioClip SpookyMusic;
+
+    /// <summary>
+    /// Background music for day1
+    /// </summary>
+    public AudioClip Day1Music;
 
     /// <summary>
     /// Scary music clip
@@ -63,6 +69,8 @@ public class BackgroundMusic : MonoBehaviour
             fadingController.Fade(SpookyMusic, 1, true);
         if (newTheme == BackgroundMusicTheme.ElevatorMusic)
             fadingController.Fade(ElevatorMusic, 1, true);
+        if (newTheme == BackgroundMusicTheme.Day1Bg)
+            fadingController.Fade(Day1Music, 1, true);
     }
 }
 
@@ -73,5 +81,6 @@ public enum BackgroundMusicTheme{
     Regular,
     Happy,
     NoMusic,
-    ElevatorMusic
+    ElevatorMusic,
+    Day1Bg
 }

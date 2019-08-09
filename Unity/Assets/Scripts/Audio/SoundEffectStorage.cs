@@ -90,5 +90,7 @@ public enum SoundEffectType
     MaleVoiceSurprised,
     QuestCompleted,
     QuestStackCompleted,
-    Showering
+    ShowerSound,
+    ValveSound,
+    TubesSound
 }
