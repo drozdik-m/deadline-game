@@ -4,25 +4,46 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
+/// <summary>
+/// Class represents sound settings
+/// </summary>
 public class TabSoundSettings : Tab
 {
+    /// <summary>
+    /// Slider controls Master volume
+    /// </summary>
     public Slider MasterVolumeSlider;
+
+    /// <summary>
+    /// Slider controls Background volume
+    /// </summary>
     public Slider BackgroundVolumeSlider;
+
+    /// <summary>
+    /// Slider controls Sound effects volume
+    /// </summary>
     public Slider SoundEffectsVolumeSlider;
 
+    /// <summary>
+    /// Audio mixer
+    /// </summary>
     public AudioMixer AudioMixerMaster;
 
+    /// <summary>
+    /// Saves graphics settings to PlayerPrefs
+    /// </summary>
     public override void SaveData()
     {
-        base.SaveData();
         PlayerPrefs.SetFloat("MasterVolume", MasterVolumeSlider.value);
         PlayerPrefs.SetFloat("BackgroundVolume", BackgroundVolumeSlider.value);
         PlayerPrefs.SetFloat("SoundEffectsVolume", SoundEffectsVolumeSlider.value);
     }
 
+    /// <summary>
+    /// Loads graphics settings from PlayerPrefs
+    /// </summary>
     public override void LoadData()
     {
-        base.LoadData();
         MasterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume");
         BackgroundVolumeSlider.value = PlayerPrefs.GetFloat("BackgroundVolume");
         SoundEffectsVolumeSlider.value = PlayerPrefs.GetFloat("SoundEffectsVolume");
