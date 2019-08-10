@@ -7,12 +7,12 @@ public class Tab : MonoBehaviour
 {
     private MenuTabsManager _tabsManager;
 
-    void Awake()
+    protected void Awake()
     {
         _tabsManager = GameObject.FindGameObjectWithTag("MenuTabsManager").GetComponent<MenuTabsManager>();
     }
 
-    void Start()
+    protected void Start()
     {
         bool load = Convert.ToBoolean(PlayerPrefs.GetInt("Saved"));
 

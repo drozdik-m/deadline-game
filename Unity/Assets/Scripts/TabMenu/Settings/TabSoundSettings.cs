@@ -18,10 +18,6 @@ public class TabSoundSettings : Tab
         PlayerPrefs.SetFloat("MasterVolume", MasterVolumeSlider.value);
         PlayerPrefs.SetFloat("BackgroundVolume", BackgroundVolumeSlider.value);
         PlayerPrefs.SetFloat("SoundEffectsVolume", SoundEffectsVolumeSlider.value);
-
-        AudioMixerMaster.SetFloat("ExposedMasterVolume", MasterVolumeSlider.value);
-        AudioMixerMaster.SetFloat("ExposedBackgroundVolume", BackgroundVolumeSlider.value);
-        AudioMixerMaster.SetFloat("ExposedSoundEffectsVolume", SoundEffectsVolumeSlider.value);
     }
 
     public override void LoadData()
@@ -30,5 +26,33 @@ public class TabSoundSettings : Tab
         MasterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume");
         BackgroundVolumeSlider.value = PlayerPrefs.GetFloat("BackgroundVolume");
         SoundEffectsVolumeSlider.value = PlayerPrefs.GetFloat("SoundEffectsVolume");
+
+        SetMasterVolume();
+        SetBackgroundVolume();
+        SetSoundEffectsVolume();
+    }
+
+    /// <summary>
+    /// Change the master volume of the game
+    /// </summary>
+    public void SetMasterVolume()
+    {
+        AudioMixerMaster.SetFloat("ExposedMasterVolume", MasterVolumeSlider.value);
+    }
+
+    /// <summary>
+    /// Change the background volume of the game
+    /// </summary>
+    public void SetBackgroundVolume()
+    {
+        AudioMixerMaster.SetFloat("ExposedBackgroundVolume", BackgroundVolumeSlider.value);
+    }
+
+    /// <summary>
+    /// Change the volume of the game
+    /// </summary>
+    public void SetSoundEffectsVolume()
+    {
+        AudioMixerMaster.SetFloat("ExposedSoundEffectsVolume", SoundEffectsVolumeSlider.value);
     }
 }
