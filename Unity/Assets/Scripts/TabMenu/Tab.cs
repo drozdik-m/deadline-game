@@ -16,8 +16,6 @@ public class Tab : MonoBehaviour
     {
         bool load = Convert.ToBoolean(PlayerPrefs.GetInt("Saved"));
 
-        Debug.Log(transform.name + " load: " + load);
-
         if (load)
         {
             LoadData();

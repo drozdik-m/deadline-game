@@ -7,13 +7,14 @@ using UnityEngine.UI;
 public class TabGraphicsSettings : Tab
 {
     public Dropdown ResolutionDropdown;
+    public Dropdown QualityDropdown;
     public Toggle FullscreenToogle;
 
     private Resolution[] _resolutions;
 
-    new void Start()
+    new void Awake()
     {
-        base.Start();
+        base.Awake();
 
         List<string> options = new List<string>();
 
@@ -29,14 +30,15 @@ public class TabGraphicsSettings : Tab
         ResolutionDropdown.AddOptions(options);
     }
 
-    public void SetQuality(int qualityIndex)
+
+    public void SetQuality()
     {
-        QualitySettings.SetQualityLevel(qualityIndex);
+        QualitySettings.SetQualityLevel(QualityDropdown.value);
     }
 
-    public void SetResolution(int resolutionIndex)
+    public void SetResolution()
     {
-        Resolution resolution = _resolutions[resolutionIndex];
+        Resolution resolution = _resolutions[ResolutionDropdown.value];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
@@ -48,23 +50,20 @@ public class TabGraphicsSettings : Tab
     public override void SaveData()
     {
         base.SaveData();
-        PlayerPrefs.SetInt("Resolution width", Screen.currentResolution.width);
-        PlayerPrefs.SetInt("Resolution height", Screen.currentResolution.height);
-        PlayerPrefs.SetInt("Fullscreen", Convert.ToInt32(Screen.fullScreen));
-        PlayerPrefs.SetInt("Quality", QualitySettings.GetQualityLevel());
+        PlayerPrefs.SetInt("Resolution index", ResolutionDropdown.value);
+        PlayerPrefs.SetInt("Fullscreen", Convert.ToInt32(FullscreenToogle.isOn));
+        PlayerPrefs.SetInt("Quality index", QualityDropdown.value);
     }
 
     public override void LoadData()
     {
         base.LoadData();
-
         FullscreenToogle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("Fullscreen"));
-        int qualityIndex = PlayerPrefs.GetInt("Quality");
-        int screenWidth = PlayerPrefs.GetInt("Resolution width");
-        int screenHeight = PlayerPrefs.GetInt("Resolution height");
+        QualityDropdown.value = PlayerPrefs.GetInt("Quality index");
+        ResolutionDropdown.value = PlayerPrefs.GetInt("Resolution index");
 
         SetFullscreen();
-        SetQuality(qualityIndex);
-        Screen.SetResolution(screenWidth, screenHeight, Screen.fullScreen);
+        SetQuality();
+        SetResolution();
     }
 }
