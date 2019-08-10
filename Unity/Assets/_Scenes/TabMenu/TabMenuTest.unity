@@ -252,8 +252,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_PressedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -975,9 +975,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
-    m_PressedColor: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -3347,7 +3347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioMixer: {fileID: 24100000, guid: 5001ef365d14281468d7f6377f01c6ee, type: 2}
-  SingleSoundEffectType: 9
+  SingleSoundEffectType: 3
   SoundEffectParticlePrefab: {fileID: 7304934356568275014, guid: ad108bf728dd85d4f83044956ed516ed,
     type: 3}
 --- !u!1 &994693633
@@ -4496,8 +4496,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2078429017}
   - {fileID: 4050582074615583528}
+  - {fileID: 2078429017}
   m_Father: {fileID: 817562421}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6311,7 +6311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1930759186
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6495,7 +6495,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1422134975}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6790,20 +6790,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2093892285}
   m_CullTransparentMesh: 0
---- !u!114 &966576685597495922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4050582074615583531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9814bc9ccc3c539498510818f94f28e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FadeOutThreshold: 0.05
-  FadeSpeed: 0.05
 --- !u!82 &3231331256250967823
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6816,10 +6802,10 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 243242827135054484, guid: 5001ef365d14281468d7f6377f01c6ee,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 88c6ca32df28e0642a1304d049fba89e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -6913,25 +6899,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1422134975}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4050582074615583529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4050582074615583531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45219bc6173da364c9d6c176f5014b13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpookyMusic: {fileID: 8300000, guid: 88c6ca32df28e0642a1304d049fba89e, type: 3}
-  ScaryMusic: {fileID: 8300000, guid: 88c6ca32df28e0642a1304d049fba89e, type: 3}
-  RegularMusic: {fileID: 8300000, guid: 88c6ca32df28e0642a1304d049fba89e, type: 3}
-  HappyMusic: {fileID: 8300000, guid: 88c6ca32df28e0642a1304d049fba89e, type: 3}
-  ElevatorMusic: {fileID: 8300000, guid: 88c6ca32df28e0642a1304d049fba89e, type: 3}
 --- !u!1 &4050582074615583531
 GameObject:
   m_ObjectHideFlags: 0
@@ -6941,11 +6910,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4050582074615583528}
-  - component: {fileID: 4050582074615583529}
   - component: {fileID: 3231331256250967823}
-  - component: {fileID: 966576685597495922}
   m_Layer: 0
-  m_Name: BackgroundMusic
+  m_Name: TestBackgroundSound
   m_TagString: BackgroundMusic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
