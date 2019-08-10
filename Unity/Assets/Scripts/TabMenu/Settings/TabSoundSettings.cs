@@ -1,36 +1,32 @@
 ﻿using System.Collections;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
-public class SoundSettings : MonoBehaviour
+public class TabSoundSettings : Tab
 {
     public Slider MasterVolumeSlider;
     public Slider BackgroundVolumeSlider;
     public Slider SoundEffectsVolumeSlider;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        bool load = Convert.ToBoolean( PlayerPrefs.GetInt("Saved") );
+    public AudioMixer AudioMixerMaster;
 
-        if (load)
-        {
-            LoadData();
-        }
-    }
-
-    public void SaveData()
+    public override void SaveData()
     {
+        base.SaveData();
         PlayerPrefs.SetFloat("MasterVolume", MasterVolumeSlider.value);
         PlayerPrefs.SetFloat("BackgroundVolume", BackgroundVolumeSlider.value);
         PlayerPrefs.SetFloat("SoundEffectsVolume", SoundEffectsVolumeSlider.value);
-        PlayerPrefs.SetInt("Saved", 1);
+
+        AudioMixerMaster.SetFloat("ExposedMasterVolume", MasterVolumeSlider.value);
+        AudioMixerMaster.SetFloat("ExposedBackgroundVolume", BackgroundVolumeSlider.value);
+        AudioMixerMaster.SetFloat("ExposedSoundEffectsVolume", SoundEffectsVolumeSlider.value);
     }
 
-    void LoadData()
+    public override void LoadData()
     {
+        base.LoadData();
         MasterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume");
         BackgroundVolumeSlider.value = PlayerPrefs.GetFloat("BackgroundVolume");
         SoundEffectsVolumeSlider.value = PlayerPrefs.GetFloat("SoundEffectsVolume");

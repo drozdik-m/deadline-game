@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class MenuTabsManager : MonoBehaviour
 {
     public Tab ActiveTab;
     public GameObject Tabs;
 
-    private List<Tab> AllTabs = new List<Tab> ();
+    private List<Tab> _allTabs = new List<Tab> ();
 
     // Start is called before the first frame update
     void Start()
@@ -15,11 +16,11 @@ public class MenuTabsManager : MonoBehaviour
         // Collect all tabs from Tabs object 
         foreach (var tab in Tabs.gameObject.GetComponentsInChildren<Tab>())
         {
-            AllTabs.Add(tab);
+            _allTabs.Add(tab);
             CloseTab(tab);
         }
         // At th begining first tab will be active as default 
-        ActiveTab = AllTabs[0];
+        ActiveTab = _allTabs[0];
         CloseMenu();
     }
 
@@ -49,5 +50,14 @@ public class MenuTabsManager : MonoBehaviour
     public void CloseTab(Tab tab)
     {
         tab.gameObject.SetActive(false);
+    }
+
+    public void SaveSettingsData()
+    {
+        if(EditorUtility.DisplayDialog("Save settings", "Do you want to save changes in settings?", "Yes", "No"))
+            foreach (var item in _allTabs)
+            {
+                item.SaveData();
+            }
     }
 }

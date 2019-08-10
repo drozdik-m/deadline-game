@@ -2153,7 +2153,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1099822031}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1880615689}
+        m_MethodName: SaveSettingsData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1099822031
@@ -2951,9 +2962,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1577584335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 780fd5e0c998cf6409b6f868641950c9, type: 3}
+  m_Script: {fileID: 11500000, guid: b203563dcf6cacf40b74022a3d75435b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MasterVolumeSlider: {fileID: 1163819219}
+  BackgroundVolumeSlider: {fileID: 225280837}
+  SoundEffectsVolumeSlider: {fileID: 747050275}
+  AudioMixerMaster: {fileID: 24100000, guid: 5001ef365d14281468d7f6377f01c6ee, type: 2}
 --- !u!114 &1577584339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3931,8 +3946,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1930759186}
   - component: {fileID: 1930759187}
-  - component: {fileID: 1930759188}
   - component: {fileID: 1930759189}
+  - component: {fileID: 1930759188}
   m_Layer: 5
   m_Name: TabGraphicsSettings
   m_TagString: Untagged
@@ -3977,7 +3992,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1930759185}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 780fd5e0c998cf6409b6f868641950c9, type: 3}
+  m_Script: {fileID: 11500000, guid: 07d4856f9a9aac4419c0a6b1a8ecf609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1930759189

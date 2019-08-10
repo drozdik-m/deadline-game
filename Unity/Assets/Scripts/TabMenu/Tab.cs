@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,10 +7,21 @@ public class Tab : MonoBehaviour
 {
     private MenuTabsManager _tabsManager;
 
-    // Start is called before the first frame update
     void Awake()
     {
         _tabsManager = GameObject.FindGameObjectWithTag("MenuTabsManager").GetComponent<MenuTabsManager>();
+    }
+
+    void Start()
+    {
+        bool load = Convert.ToBoolean(PlayerPrefs.GetInt("Saved"));
+
+        Debug.Log(transform.name + " load: " + load);
+
+        if (load)
+        {
+            LoadData();
+        }
     }
 
     public void Open()
@@ -21,5 +33,16 @@ public class Tab : MonoBehaviour
     public bool isActive()
     {
         return gameObject.activeSelf;
+    }
+
+    public virtual void LoadData()
+    {
+        Debug.Log("Restore settings in " + transform.name);
+    }
+
+    public virtual void SaveData()
+    {
+        Debug.Log("Save settings in " + transform.name);
+        PlayerPrefs.SetInt("Saved", 1);
     }
 }
