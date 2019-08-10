@@ -56,7 +56,7 @@ public class MenuTabsManager : MonoBehaviour
 
     public void SaveSettingsData()
     {
-        if(EditorUtility.DisplayDialog("Save settings", "Do you want to save changes in settings?", "Yes", "No"))
+        if(EditorUtility.DisplayDialog("Save settings", "Do you want to save changes?", "Yes", "No"))
             foreach (var item in _allTabs)
             {
                 item.SaveData();
