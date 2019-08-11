@@ -31,6 +31,26 @@ public class TransformerUIController : MonoBehaviour
 
     void Start()
     {
+        CreateNewNeededItemsImages();
+    }
+
+    public void OpenUIDialog()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void CloseUIDialog()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void UpdateState(string stateText)
+    {
+        StateText.text = stateText;
+    }
+
+    private void CreateNewNeededItemsImages()
+    {
         Image tmpImage;
         Vector3 position = transform.position;
         int offset = 90;
@@ -51,26 +71,6 @@ public class TransformerUIController : MonoBehaviour
         GameObject.Instantiate<Image>(ImagePrefabItem, position, transform.rotation, transform);
     }
 
-    public void OpenUIDialog()
-    {
-        gameObject.SetActive(true);
-    }
-
-    public void CloseUIDialog()
-    {
-        gameObject.SetActive(false);
-    }
-
-    public void UpdateState(string stateText)
-    {
-        StateText.text = stateText;
-    }
-
-    private void CreateNewNeededItemsImages()
-    {
-
-    }
-
     public void UpdateNeededItemsImages()
     {
         foreach (var item in NeededItemsImages)
@@ -80,6 +80,4 @@ public class TransformerUIController : MonoBehaviour
 
         CreateNewNeededItemsImages();
     }
-
-
 }
