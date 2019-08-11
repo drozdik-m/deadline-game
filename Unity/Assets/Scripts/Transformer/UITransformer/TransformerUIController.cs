@@ -7,11 +7,15 @@ public class TransformerUIController : MonoBehaviour
 {
     public GameObject TransformerItem;
     public Text StateText;
+    public RectTransform BackgroundPanel;
+    public Image ImagePrefabItem;
 
     /// <summary>
     /// Contain all the images available using the type of the item
     /// </summary>
     private Dictionary<InventoryItemID, Sprite> spritesStorage;
+
+    private List<Image> NeededItemsImages = new List<Image>();
 
     void Awake()
     {
@@ -19,24 +23,32 @@ public class TransformerUIController : MonoBehaviour
 
         spritesStorage = new Dictionary<InventoryItemID, Sprite>();
 
-        foreach (InventoryUIController.ItemImage image in imagesStorage)
+        foreach (var image in imagesStorage)
         {
             spritesStorage.Add(image.type, image.sprite);
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        Image imageItem = new GameObject().AddComponent<Image>();
+        Image tmpImage;
         Vector3 position = transform.position;
+        int offset = 90;
 
-        imageItem.sprite = spritesStorage[InventoryItemID.Axe];
-        GameObject.Instantiate<Image>(imageItem, position, transform.rotation, transform);
+        ImagePrefabItem.sprite = spritesStorage[InventoryItemID.Axe];
+        tmpImage = GameObject.Instantiate<Image>(ImagePrefabItem, position, transform.rotation, transform);
+        tmpImage.name = InventoryItemID.Axe.ToString();
+        NeededItemsImages.Add(tmpImage);
 
-        imageItem.sprite = spritesStorage[InventoryItemID.Book];
-        position += new Vector3(30, 0, 0);
-        GameObject.Instantiate<Image>(imageItem, position, transform.rotation, transform);
+        ImagePrefabItem.sprite = spritesStorage[InventoryItemID.Book];
+        position += new Vector3(offset, 0, 0);
+        BackgroundPanel.offsetMax += new Vector2(offset, 0);
+        GameObject.Instantiate<Image>(ImagePrefabItem, position, transform.rotation, transform);
+
+        ImagePrefabItem.sprite = spritesStorage[InventoryItemID.Broom];
+        position += new Vector3(offset, 0, 0);
+        BackgroundPanel.offsetMax += new Vector2(offset, 0);
+        GameObject.Instantiate<Image>(ImagePrefabItem, position, transform.rotation, transform);
     }
 
     public void OpenUIDialog()
@@ -53,4 +65,21 @@ public class TransformerUIController : MonoBehaviour
     {
         StateText.text = stateText;
     }
+
+    private void CreateNewNeededItemsImages()
+    {
+
+    }
+
+    public void UpdateNeededItemsImages()
+    {
+        foreach (var item in NeededItemsImages)
+        {
+            GameObject.Destroy(item);
+        }
+
+        CreateNewNeededItemsImages();
+    }
+
+
 }
