@@ -296,7 +296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneName: Story_Day1
   MainStageManger: {fileID: 0}
-  StageMusicTheme: 4
+  StageMusicTheme: 6
   NextSceneTransitionColor: {r: 0, g: 0, b: 0, a: 1}
   NextSceneTransitionSpeed: 2
 --- !u!1 &8378615142784298959
@@ -376,6 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpookyMusic: {fileID: 8300000, guid: 9877f4c767dfdb448a25e3f19273b2ac, type: 3}
+  Day1Music: {fileID: 0}
   ScaryMusic: {fileID: 8300000, guid: 50d20f56dbda8c14e8386997db510c28, type: 3}
   RegularMusic: {fileID: 8300000, guid: 50d20f56dbda8c14e8386997db510c28, type: 3}
   HappyMusic: {fileID: 8300000, guid: 50d20f56dbda8c14e8386997db510c28, type: 3}

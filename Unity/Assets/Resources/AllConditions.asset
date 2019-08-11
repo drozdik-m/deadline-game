@@ -19,6 +19,21 @@ MonoBehaviour:
   - {fileID: 114601097521669786}
   - {fileID: 114500123606575120}
   - {fileID: 114950330937588998}
+  - {fileID: 114080199412182666}
+--- !u!114 &114080199412182666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: BrokerDialogFinished
+  m_EditorClassIdentifier: 
+  description: BrokerDialogFinished
+  satisfied: 0
 --- !u!114 &114309623241424138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,7 +47,7 @@ MonoBehaviour:
   m_Name: EatCondition
   m_EditorClassIdentifier: 
   description: EatCondition
-  satisfied: 1
+  satisfied: 0
 --- !u!114 &114413789276795694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,7 +61,7 @@ MonoBehaviour:
   m_Name: NoWater
   m_EditorClassIdentifier: 
   description: NoWater
-  satisfied: 1
+  satisfied: 0
 --- !u!114 &114500123606575120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +89,7 @@ MonoBehaviour:
   m_Name: NextLevel
   m_EditorClassIdentifier: 
   description: NextLevel
-  satisfied: 1
+  satisfied: 0
 --- !u!114 &114601097521669786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,7 +103,7 @@ MonoBehaviour:
   m_Name: WaterIsOn
   m_EditorClassIdentifier: 
   description: WaterIsOn
-  satisfied: 1
+  satisfied: 0
 --- !u!114 &114950330937588998
 MonoBehaviour:
   m_ObjectHideFlags: 0
