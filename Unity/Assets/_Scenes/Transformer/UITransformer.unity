@@ -145,7 +145,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -99.41, y: 33.03}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 214.18, y: 181.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &776699044
@@ -565,6 +565,7 @@ GameObject:
   - component: {fileID: 1460768937}
   - component: {fileID: 1460768936}
   - component: {fileID: 1460768935}
+  - component: {fileID: 1460768939}
   m_Layer: 5
   m_Name: UITransformer
   m_TagString: Untagged
@@ -649,9 +650,23 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 33, y: -88}
-  m_SizeDelta: {x: 726, y: 424}
+  m_AnchoredPosition: {x: -221.4, y: 28.2}
+  m_SizeDelta: {x: 217.3, y: 191.5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1460768939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460768934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57cd28ec552619d45ac7d871af6b66f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransformerItem: {fileID: 0}
+  StateText: {fileID: 0}
 --- !u!1 &2134819267
 GameObject:
   m_ObjectHideFlags: 0
