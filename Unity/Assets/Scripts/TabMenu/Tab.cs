@@ -11,11 +11,11 @@ public abstract class Tab : MonoBehaviour
     /// <summary>
     /// MenuTabs manager
     /// </summary>
-    private MenuTabsManager _tabsManager;
+    private MenuTabsManager tabsManager;
 
     protected void Awake()
     {
-        _tabsManager = GameObject.FindGameObjectWithTag("MenuTabsManager").GetComponent<MenuTabsManager>();
+        tabsManager = GameObject.FindGameObjectWithTag("MenuTabsManager").GetComponent<MenuTabsManager>();
     }
 
     protected void Start()
@@ -34,8 +34,8 @@ public abstract class Tab : MonoBehaviour
     /// </summary>
     public void Open()
     {
-        _tabsManager.CloseTab(_tabsManager.ActiveTab);
-        _tabsManager.OpenTab(this);
+        tabsManager.CloseTab(tabsManager.ActiveTab);
+        tabsManager.OpenTab(this);
     }
 
     /// <summary>

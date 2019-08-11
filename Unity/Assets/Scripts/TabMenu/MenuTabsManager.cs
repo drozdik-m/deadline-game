@@ -21,18 +21,19 @@ public class MenuTabsManager : MonoBehaviour
     /// <summary>
     /// All children tabs of GameObject Tabs
     /// </summary>
-    private List<Tab> _allTabs = new List<Tab> ();
+    private readonly List<Tab> allTabs = new List<Tab> ();
 
     void Start()
     {
         // Collect all tabs from Tabs object 
         foreach (var tab in Tabs.gameObject.GetComponentsInChildren<Tab>())
         {
-            _allTabs.Add(tab);
+            allTabs.Add(tab);
             CloseTab(tab);
         }
-        // At th begining first tab will be active as default 
-        ActiveTab = _allTabs[0];
+
+        // At the begining first tab will be active as default 
+        ActiveTab = allTabs[0];
         CloseMenu();
     }
 
@@ -85,7 +86,7 @@ public class MenuTabsManager : MonoBehaviour
     {
         if(EditorUtility.DisplayDialog("Save settings", "Do you want to save changes?", "Yes", "No"))
         {
-            foreach (var item in _allTabs)
+            foreach (var item in allTabs)
             {
                 item.SaveData();
             }

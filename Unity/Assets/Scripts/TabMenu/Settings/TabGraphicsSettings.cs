@@ -33,7 +33,7 @@ public class TabGraphicsSettings : Tab
     {
         base.Awake();
 
-        List<string> options = new List<string>();
+        var options = new List<string>();
 
         // Add all existing resolutions
         _resolutions = Screen.resolutions;
