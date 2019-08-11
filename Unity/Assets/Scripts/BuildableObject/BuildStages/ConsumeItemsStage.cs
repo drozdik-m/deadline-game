@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+public delegate void ConsumeItemsStageHandler(BuildStage source,ConsumeItemsStageArgs consumeItemsStageArgs);
+
 [Serializable]
 public struct InvetoryItemIDCount
 {
@@ -28,7 +30,18 @@ public class ConsumeItemsStage : BuildStage
     /// Desired items and their count needed in a dictionary (internal use)
     /// </summary>
     private Dictionary<InventoryItemID, int> requiredItems = new Dictionary<InventoryItemID, int>();
-
+    /// <summary>
+    /// Occurs when player tries to interact with transformer with an empty invetory.
+    /// </summary>
+    public event ConsumeItemsStageHandler OnEmptyInvetoryTransformTry;
+    /// <summary>
+    /// Occurs when on wrong item transform try.
+    /// </summary>
+    public event ConsumeItemsStageHandler OnWrongItemTransformTry;
+    /// <summary>
+    /// Occurs when the item is accepted by the transformer.
+    /// </summary>
+    public event ConsumeItemsStageHandler OnItemAccepted;
     /// <summary>
     /// Checks if the conditions for going to next stage are satisfied
     /// </summary>
@@ -47,14 +60,32 @@ public class ConsumeItemsStage : BuildStage
         }
 
         //Try to take the item
-        var currentItem = overrideInventory.CurrentItem.ItemType;
-        var countNeeded = requiredItems[currentItem]; //Exception?
+
+        var currentItem = overrideInventory.CurrentItem;
+        if (!currentItem)
+        {
+            OnEmptyInvetoryTransformTry?.Invoke(this,new ConsumeItemsStageArgs(requiredItems));
+            return false;
+        }
+        int countNeeded;
+
+        try
+        {
+            countNeeded = requiredItems[currentItem.ItemType]; //Exception?
+        }
+        catch
+        {
+            OnWrongItemTransformTry?.Invoke(this, new ConsumeItemsStageArgs(requiredItems));
+            return false;
+        }
 
         //Decrement 
         if (countNeeded > 0)
         {
+            Debug.Log("Accpeted");
+            OnItemAccepted?.Invoke(this, new ConsumeItemsStageArgs(requiredItems));
             DestroyInventoryItem();
-            requiredItems[currentItem] = countNeeded - 1;
+            requiredItems[currentItem.ItemType] = countNeeded - 1;
         }
 
         return requiredItems.All(e => e.Value <= 0);
@@ -64,7 +95,6 @@ public class ConsumeItemsStage : BuildStage
     {
         transferToDictionary();
     }
-
     /// <summary>
     /// Destroys item in the inventory
     /// </summary>
