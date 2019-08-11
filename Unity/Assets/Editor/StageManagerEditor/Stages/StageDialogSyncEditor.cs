@@ -10,7 +10,7 @@ public class StageDialogSyncEditor : StageEditor
 
     public override string GetFoldoutLabel()
     {
-        return "StageMonologSync";
+        return "StageDialogSync";
     }
 
     public override void OnStageInspectorGUI()
