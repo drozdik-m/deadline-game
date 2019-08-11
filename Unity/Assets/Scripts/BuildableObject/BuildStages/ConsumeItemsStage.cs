@@ -4,6 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[Serializable]
+public struct InvetoryItemIDCount
+{
+    public InventoryItemID InvetoryItemID;
+    public int ItemCount;
+}
+
 /// <summary>
 /// Build Stage that needs item in inventory to be done and after commiting to stage, the item will be removed
 /// </summary>
@@ -13,11 +20,14 @@ public class ConsumeItemsStage : BuildStage
     /// Optional inventory to check item in
     /// </summary>
     public Inventory overrideInventory;
-
     /// <summary>
-    /// Desired items and their count needed
+    /// The required items and their counts needed.
     /// </summary>
-    public Dictionary<InventoryItemID, int> RequiredItems;
+    public InvetoryItemIDCount[] RequiredItems;
+    /// <summary>
+    /// Desired items and their count needed in a dictionary (internal use)
+    /// </summary>
+    private Dictionary<InventoryItemID, int> requiredItems = new Dictionary<InventoryItemID, int>();
 
     /// <summary>
     /// Checks if the conditions for going to next stage are satisfied
@@ -38,16 +48,21 @@ public class ConsumeItemsStage : BuildStage
 
         //Try to take the item
         var currentItem = overrideInventory.CurrentItem.ItemType;
-        var countNeeded = RequiredItems[currentItem]; //Exception?
+        var countNeeded = requiredItems[currentItem]; //Exception?
 
         //Decrement 
         if (countNeeded > 0)
         {
             DestroyInventoryItem();
-            RequiredItems[currentItem] = countNeeded - 1;
+            requiredItems[currentItem] = countNeeded - 1;
         }
 
-        return RequiredItems.All(e => e.Value <= 0);
+        return requiredItems.All(e => e.Value <= 0);
+    }
+
+    private void Start()
+    {
+        transferToDictionary();
     }
 
     /// <summary>
@@ -56,5 +71,15 @@ public class ConsumeItemsStage : BuildStage
     private void DestroyInventoryItem()
     {
         overrideInventory.DisposeCurrentItem();
+    }
+    /// <summary>
+    /// Transfers items from array to dictionary.
+    /// </summary>
+    private void transferToDictionary()
+    {
+        foreach (var i in RequiredItems)
+        {
+            requiredItems.Add(i.InvetoryItemID, i.ItemCount);
+        }
     }
 }
