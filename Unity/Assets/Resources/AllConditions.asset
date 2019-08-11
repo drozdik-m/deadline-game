@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: AllConditions
   m_EditorClassIdentifier: 
   conditions:
-  - {fileID: 114756619226754724}
-  - {fileID: 114723932316495068}
---- !u!114 &114723932316495068
+  - {fileID: 114572117426428046}
+  - {fileID: 114413789276795694}
+  - {fileID: 114309623241424138}
+  - {fileID: 114601097521669786}
+  - {fileID: 114500123606575120}
+  - {fileID: 114950330937588998}
+--- !u!114 &114309623241424138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25,11 +29,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
-  m_Name: asdfasdfasdfasdf
+  m_Name: EatCondition
   m_EditorClassIdentifier: 
-  description: asdfasdfasdfasdf
+  description: EatCondition
+  satisfied: 1
+--- !u!114 &114413789276795694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: NoWater
+  m_EditorClassIdentifier: 
+  description: NoWater
+  satisfied: 1
+--- !u!114 &114500123606575120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: NeedAFix
+  m_EditorClassIdentifier: 
+  description: NeedAFix
   satisfied: 0
---- !u!114 &114756619226754724
+--- !u!114 &114572117426428046
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -39,7 +71,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
-  m_Name: HasCube
+  m_Name: NextLevel
   m_EditorClassIdentifier: 
-  description: HasCube
+  description: NextLevel
+  satisfied: 1
+--- !u!114 &114601097521669786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: WaterIsOn
+  m_EditorClassIdentifier: 
+  description: WaterIsOn
+  satisfied: 1
+--- !u!114 &114950330937588998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: IAmClean
+  m_EditorClassIdentifier: 
+  description: IAmClean
   satisfied: 0

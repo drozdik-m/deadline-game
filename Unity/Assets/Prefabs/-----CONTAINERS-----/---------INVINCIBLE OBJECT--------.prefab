@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StoryScenes:
   - {fileID: 8292773984288845756}
-  - {fileID: 8136030439053023921}
+  - {fileID: 281075842651695979}
   - {fileID: 2643460336622110525}
 --- !u!1 &2091308908984778331
 GameObject:
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 3403621515532084685}
   - component: {fileID: 2643460336622110525}
   m_Layer: 0
-  m_Name: '#8 [WorkflowScene] Func_Thanks'
+  m_Name: '#10 [WorkflowScene] Func_Thanks'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,7 +184,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7826836128741378585}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2643460336622110525
 MonoBehaviour:
@@ -199,54 +199,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneName: Func_Thanks
-  MainStageManger: {fileID: 0}
-  StageMusicTheme: 4
-  NextSceneTransitionColor: {r: 0, g: 0, b: 0, a: 1}
-  NextSceneTransitionSpeed: 2
---- !u!1 &4121736956332954867
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7633802084348273440}
-  - component: {fileID: 8136030439053023921}
-  m_Layer: 0
-  m_Name: '#7 [WorkflowScene] Story_Day1'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7633802084348273440
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4121736956332954867}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7826836128741378585}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8136030439053023921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4121736956332954867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ade3f317aa6ec8a4882ed9cf64c7886c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SceneName: Story_Day1
   MainStageManger: {fileID: 0}
   StageMusicTheme: 4
   NextSceneTransitionColor: {r: 0, g: 0, b: 0, a: 1}
@@ -280,7 +232,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7826836128741378585}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8292773984288845756
 MonoBehaviour:
@@ -298,6 +250,54 @@ MonoBehaviour:
   MainStageManger: {fileID: 0}
   StageMusicTheme: 4
   NextSceneTransitionColor: {r: 1, g: 1, b: 1, a: 1}
+  NextSceneTransitionSpeed: 2
+--- !u!1 &6244554474844411086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 358833076278158042}
+  - component: {fileID: 281075842651695979}
+  m_Layer: 0
+  m_Name: '#9 [WorkflowScene] Day1'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &358833076278158042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6244554474844411086}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7826836128741378585}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &281075842651695979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6244554474844411086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ade3f317aa6ec8a4882ed9cf64c7886c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneName: Story_Day1
+  MainStageManger: {fileID: 0}
+  StageMusicTheme: 4
+  NextSceneTransitionColor: {r: 0, g: 0, b: 0, a: 1}
   NextSceneTransitionSpeed: 2
 --- !u!1 &8378615142784298959
 GameObject:
@@ -518,9 +518,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6639907220704834715}
-  - {fileID: 7633802084348273440}
   - {fileID: 3403621515532084685}
+  - {fileID: 6639907220704834715}
+  - {fileID: 358833076278158042}
   m_Father: {fileID: 2091308908571814759}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

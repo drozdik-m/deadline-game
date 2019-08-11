@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 149586432}
   - component: {fileID: 149586433}
   m_Layer: 0
-  m_Name: '#39 [StageWait] WaitForAnim'
+  m_Name: '#42 [StageWait] WaitForAnim'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -594,7 +594,7 @@ GameObject:
   - component: {fileID: 244817024}
   - component: {fileID: 244817025}
   m_Layer: 0
-  m_Name: '#35 [StageGameObjectActivity] TurnOffKitchenDoor'
+  m_Name: '#38 [StageGameObjectActivity] TurnOffKitchenDoor'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -810,6 +810,53 @@ Transform:
   m_Father: {fileID: 337948258}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &440677608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 440677609}
+  - component: {fileID: 440677610}
+  m_Layer: 0
+  m_Name: ShowerSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &440677609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440677608}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1879130370}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &440677610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440677608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e5c09ebd298d574b9ae5933c0eff0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioMixer: {fileID: 24100000, guid: 5001ef365d14281468d7f6377f01c6ee, type: 2}
+  SingleSoundEffectType: 13
+  SoundEffectParticlePrefab: {fileID: 7304934356568275014, guid: ad108bf728dd85d4f83044956ed516ed,
+    type: 3}
 --- !u!1 &450390786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,6 +1623,53 @@ MonoBehaviour:
   conditions:
   - {fileID: 1626414057}
   QuestDescription: Find some food
+--- !u!1 &822028455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 822028456}
+  - component: {fileID: 822028457}
+  m_Layer: 0
+  m_Name: '#2 [StageFade] ShowerFadeIn'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &822028456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822028455}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1332630756}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &822028457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822028455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af9e205a7477d5046970e271047446c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fader: {fileID: 0}
+  FadeColor: {r: 0, g: 0, b: 0, a: 1}
+  FadeLength: 1
+  FadeStyle: 0
 --- !u!1 &823510600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1682,6 +1776,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0
   selfTalkDialog: {fileID: 11400000, guid: 3b411a3f96e547545829d17a48188c4f, type: 2}
+--- !u!1 &834526269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 834526270}
+  - component: {fileID: 834526271}
+  m_Layer: 0
+  m_Name: '#3 [StagePlaySound] PlayShowerSound'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &834526270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834526269}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1332630756}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &834526271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834526269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde16b6ce64b93a4594ead4bfaeba6e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundEffectController: {fileID: 440677610}
 --- !u!4 &836325748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1744926681517122438, guid: 49a1ee76d1fec487882cf292dd3628b7,
@@ -1883,7 +2021,7 @@ MonoBehaviour:
   - {fileID: 1272725990}
   - {fileID: 220624143}
   - {fileID: 823510601}
-  - {fileID: 1733571353}
+  - {fileID: 1879130372}
   - {fileID: 244817025}
   - {fileID: 1608608378}
   - {fileID: 1401703818}
@@ -2320,6 +2458,39 @@ Transform:
   m_Father: {fileID: 1732715355}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1332630755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1332630756}
+  m_Layer: 0
+  m_Name: '[Array]{StageManager} Stages'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1332630756
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332630755}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 822028456}
+  - {fileID: 834526270}
+  - {fileID: 2145616254}
+  m_Father: {fileID: 1879130370}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1354170877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2445,7 +2616,7 @@ GameObject:
   - component: {fileID: 1401703817}
   - component: {fileID: 1401703818}
   m_Layer: 0
-  m_Name: '#37 [StageGameObjectActivity] TurnOnKitchenObjects'
+  m_Name: '#40 [StageGameObjectActivity] TurnOnKitchenObjects'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2613,7 +2784,7 @@ GameObject:
   - component: {fileID: 1513109860}
   - component: {fileID: 1513109859}
   m_Layer: 0
-  m_Name: '#38 [StageQuestStack] HaveADinner'
+  m_Name: '#41 [StageQuestStack] HaveADinner'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2867,7 +3038,7 @@ Transform:
   - {fileID: 1272725989}
   - {fileID: 220624142}
   - {fileID: 823510603}
-  - {fileID: 1733571352}
+  - {fileID: 1879130370}
   - {fileID: 244817024}
   - {fileID: 1608608379}
   - {fileID: 1401703817}
@@ -2952,6 +3123,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 23800000, guid: feac0e0ca4754da4aaac4d7972126cab,
         type: 2}
+    - target: {fileID: 2925028876093783486, guid: b4352481b31e9df4abe19197df8a52dc,
+        type: 3}
+      propertyPath: UsedSoundEffects.Array.data[12].audio
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ba39291628b0954996bbfd50aa06a95, type: 3}
+    - target: {fileID: 2925028876093783486, guid: b4352481b31e9df4abe19197df8a52dc,
+        type: 3}
+      propertyPath: UsedSoundEffects.Array.data[12].type
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4352481b31e9df4abe19197df8a52dc, type: 3}
 --- !u!1 &1608608377
@@ -2965,7 +3146,7 @@ GameObject:
   - component: {fileID: 1608608379}
   - component: {fileID: 1608608378}
   m_Layer: 0
-  m_Name: '#36 [StageMonologSync] Hunger'
+  m_Name: '#39 [StageMonologSync] Hunger'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3202,55 +3383,6 @@ Transform:
   m_Father: {fileID: 1149693092}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1733571351
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1733571352}
-  - component: {fileID: 1733571353}
-  m_Layer: 0
-  m_Name: '#34 [StageFadeInOut] Showering'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1733571352
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1733571351}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1596738104}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1733571353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1733571351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8455a8eaed4a85f469a79c8caa12402f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Fader: {fileID: 0}
-  FadeInColor: {r: 0, g: 0, b: 0, a: 1}
-  FadeInLength: 1
-  FadeInDelay: 0
-  FadeOutColor: {r: 0, g: 0, b: 0, a: 1}
-  FadeOutLength: 1
 --- !u!1 &1741750787
 GameObject:
   m_ObjectHideFlags: 0
@@ -3480,6 +3612,70 @@ Transform:
   m_Father: {fileID: 2099074399}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1879130369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1879130370}
+  - component: {fileID: 1879130372}
+  - component: {fileID: 1879130371}
+  m_Layer: 0
+  m_Name: '#37 [StageSubManager] Showering'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1879130370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879130369}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1332630756}
+  - {fileID: 440677609}
+  m_Father: {fileID: 1596738104}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1879130371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879130369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf300eaf35748ea45875ebce4d69d53a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stages:
+  - {fileID: 822028457}
+  - {fileID: 834526271}
+  - {fileID: 2145616255}
+  AutomaticStart: 0
+--- !u!114 &1879130372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879130369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e9bd76af5c623458ec4f4ebb966085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StageManager: {fileID: 0}
 --- !u!4 &1947875681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: f9eb5d52b9a13f743ac5d413685eb070,
@@ -3497,7 +3693,7 @@ GameObject:
   - component: {fileID: 1969428152}
   - component: {fileID: 1969428153}
   m_Layer: 0
-  m_Name: '#41 [StageMonologSync] Tired'
+  m_Name: '#44 [StageMonologSync] Tired'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3606,7 +3802,7 @@ GameObject:
   - component: {fileID: 2055412339}
   - component: {fileID: 2055412340}
   m_Layer: 0
-  m_Name: '#40 [StageFadeInOut] Eating'
+  m_Name: '#43 [StageFadeInOut] Eating'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3739,6 +3935,53 @@ MonoBehaviour:
   - {fileID: 4632529356506492460}
   - {fileID: 1205225359}
   Setting: 0
+--- !u!1 &2145616253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2145616254}
+  - component: {fileID: 2145616255}
+  m_Layer: 0
+  m_Name: '#4 [StageFade] ShowerFadeOut'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2145616254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145616253}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1332630756}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2145616255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145616253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af9e205a7477d5046970e271047446c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fader: {fileID: 0}
+  FadeColor: {r: 0, g: 0, b: 0, a: 1}
+  FadeLength: 1
+  FadeStyle: 1
 --- !u!4 &52510590951107414
 Transform:
   m_ObjectHideFlags: 0
