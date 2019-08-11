@@ -2611,51 +2611,6 @@ MonoBehaviour:
   reactions:
   - {fileID: 39238269}
   - {fileID: 2138078485}
---- !u!1 &617964647
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 617964648}
-  - component: {fileID: 617964649}
-  m_Layer: 0
-  m_Name: '#2 [SelfDialogReaction] INeedToGetCloser'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &617964648
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 617964647}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.1223087, y: -0.81568074, z: 2.7657728}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8477846973118753824}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &617964649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 617964647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05909c15606506342af71a081de4d92c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
-  selfTalkDialog: {fileID: 11400000, guid: 968d570900e2b66489b1cb908a225510, type: 2}
 --- !u!1 &618748852
 GameObject:
   m_ObjectHideFlags: 0
@@ -17871,8 +17826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20172e4b42e54de4aaf5cd0d749c4017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactions:
-  - {fileID: 617964649}
+  reactions: []
 --- !u!1 &3908781591967883058
 GameObject:
   m_ObjectHideFlags: 0
@@ -18238,6 +18192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4329988129752493202}
   - component: {fileID: 4672286880154799617}
+  - component: {fileID: 4329988129752493207}
   m_Layer: 11
   m_Name: Broker
   m_TagString: Untagged
@@ -18245,6 +18200,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!208 &4329988129752493207
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4329988129752493206}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.14, y: 1, z: 0.14}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.96, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!114 &4329988130233229810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23244,8 +23215,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.1023082, y: -0.014319373, z: -0.12577277}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 617964648}
+  m_Children: []
   m_Father: {fileID: 6449976604924820392}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
