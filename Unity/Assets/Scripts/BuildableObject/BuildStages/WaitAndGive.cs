@@ -10,6 +10,10 @@ public delegate void WaitAndGiveHanlder(BuildStage source, WaitAndGiveArgs consu
 public class WaitAndGive : BuildStage
 {
     /// <summary>
+    /// Optional inventory to check item in
+    /// </summary>
+    public Inventory overrideInventory;
+    /// <summary>
     /// If is the counter finished, then true
     /// </summary>
     public bool CounterFinished = false;
@@ -32,7 +36,19 @@ public class WaitAndGive : BuildStage
 
     public override bool ConditionsSatisfied()
     {
-    
+
+        // check if the item is in the inventory
+        if (overrideInventory == null)
+            overrideInventory = GameObject.FindGameObjectWithTag("MainInventory").GetComponent<Inventory>();
+
+        //Check null inventory
+        if (overrideInventory == null)
+        {
+            Debug.LogError("PersistentItemStage: Inventory is null event after trying to find it");
+            return false;
+        }
+
+
         if (CounterFinished)
         {
             OnTransformationFinished?.Invoke(this, new WaitAndGiveArgs(CounterFinished, Delay));
