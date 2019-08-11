@@ -52,7 +52,8 @@ public class BuildableObject : MonoBehaviour
             nextStage.Init();
             BuildStage currStage = nextStage;
             nextStage = stageObjectCollection.GetNext();
-            nextStage.Load();
+            if (nextStage != null)
+                nextStage.Load();
 
             // we are finished
             if (nextStage == null)
