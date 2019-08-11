@@ -50,10 +50,7 @@ public class QuestStack : MonoBehaviour
         OnChange?.Invoke(this, new QuestStackArgs(QuestsAreCompleted()));
 
         if (FreezeOnComplete && QuestsAreCompleted())
-        {
             Recording = false;
-            Debug.Log("Freeze");
-        }
     }
 
     /// <summary>
