@@ -14,6 +14,18 @@ public class TransformerUIController : MonoBehaviour
     /// Contain all the images available using the type of the item
     /// </summary>
     private Dictionary<InventoryItemID, Sprite> spritesStorage;
+    /// <summary>
+    /// The buildable game object refference.
+    /// </summary>
+    public GameObject BuildableGameObject;
+    /// <summary>
+    /// The required items dictionary, it's a pair of item type(Food,Burger, etc.) and count if the needed items.
+    /// </summary>
+    private Dictionary<InventoryItemID, int> requiredItemsDictionary = new Dictionary<InventoryItemID, int>();
+    /// <summary>
+    /// The consume items stage component.
+    /// </summary>
+    private ConsumeItemsStage consumeItemsStageComponent;
 
     private List<Image> NeededItemsImages = new List<Image>();
 
@@ -27,6 +39,8 @@ public class TransformerUIController : MonoBehaviour
         {
             spritesStorage.Add(image.type, image.sprite);
         }
+
+
     }
 
     public void OnItemAcceptedChange (BuildStage source, ConsumeItemsStageArgs consumeItemsStageArgs)
@@ -37,6 +51,16 @@ public class TransformerUIController : MonoBehaviour
     void Start()
     {
         CreateNewNeededItemsImages();
+
+        // Gets the ConsumeItemsStage component
+        consumeItemsStageComponent = BuildableGameObject.GetComponentInChildren<ConsumeItemsStage>();
+        if (!consumeItemsStageComponent)
+        {
+            Debug.Log("ConsumeItemsStage component not found!");
+            return;
+        }
+        consumeItemsStageComponent.OnDictionaryLoaded += OnDictionaryLoaded;
+        consumeItemsStageComponent.OnItemAccepted += OnItemAccepted;
     }
 
     public void OpenUIDialog()
@@ -79,6 +103,7 @@ public class TransformerUIController : MonoBehaviour
         GameObject.Instantiate<Image>(ImagePrefabItem, position, transform.rotation, transform);
 
         transform.LookAt(Camera.main.transform.position);
+
     }
 
     public void UpdateNeededItemsImages()
@@ -89,5 +114,30 @@ public class TransformerUIController : MonoBehaviour
         }
 
         CreateNewNeededItemsImages();
+    }
+
+
+    public void getRequiredItems()
+    {
+     
+        // Gets the dictionary
+        requiredItemsDictionary = consumeItemsStageComponent.RequiredItemsInDictionary;
+    }
+
+    /// <summary>
+    /// Consumes the items stage.
+    /// </summary>
+    /// <param name="source">Source.</param>
+    /// <param name="consumeItemsStageArgs">Consume items stage arguments.</param>
+    public void OnDictionaryLoaded(BuildStage source, ConsumeItemsStageArgs consumeItemsStageArgs) {
+        getRequiredItems();
+    }
+    /// <summary>
+    /// Ons the item accepted.
+    /// </summary>
+    /// <param name="source">Source.</param>
+    /// <param name="consumeItemsStageArgs">Consume items stage arguments.</param>
+    public void OnItemAccepted(BuildStage source, ConsumeItemsStageArgs consumeItemsStageArgs) {
+        getRequiredItems();
     }
 }
