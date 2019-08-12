@@ -32,7 +32,7 @@ public class ConsumeItemsStage : BuildStage
     /// <summary>
     /// Desired items and their count needed in a dictionary (internal use)
     /// </summary>
-    private Dictionary<InventoryItemID, int> requiredItems = new Dictionary<InventoryItemID, int>();
+    Dictionary<InventoryItemID, int> requiredItems = new Dictionary<InventoryItemID, int>();
     /// <summary>
     /// Occurs when player tries to interact with transformer with an empty invetory.
     /// </summary>
@@ -45,6 +45,10 @@ public class ConsumeItemsStage : BuildStage
     /// Occurs when the item is accepted by the transformer.
     /// </summary>
     public event ConsumeItemsStageHandler OnItemAccepted;
+    /// <summary>
+    /// Occurs when on dictionary loaded(items were trasnfered from array).
+    /// </summary>
+    public event ConsumeItemsStageHandler OnDictionaryLoaded;
     /// <summary>
     /// Gets the required items in dictionary.
     /// </summary>
@@ -124,5 +128,6 @@ public class ConsumeItemsStage : BuildStage
         {
             requiredItems.Add(i.InvetoryItemID, i.ItemCount);
         }
+        OnDictionaryLoaded?.Invoke(this, new ConsumeItemsStageArgs(requiredItems));
     }
 }
