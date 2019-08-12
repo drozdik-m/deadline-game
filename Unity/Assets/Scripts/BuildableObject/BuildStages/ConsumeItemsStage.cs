@@ -100,9 +100,9 @@ public class ConsumeItemsStage : BuildStage
         //Decrement 
         if (countNeeded > 0)
         {
-            OnItemAccepted?.Invoke(this, new ConsumeItemsStageArgs(requiredItems));
             DestroyInventoryItem();
             requiredItems[currentItem.ItemType] = countNeeded - 1;
+            OnItemAccepted?.Invoke(this, new ConsumeItemsStageArgs(requiredItems));
         }
 
         return requiredItems.All(e => e.Value <= 0);
