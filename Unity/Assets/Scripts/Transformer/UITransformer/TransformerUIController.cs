@@ -27,6 +27,7 @@ public class TransformerUIController : MonoBehaviour
     /// </summary>
     private ConsumeItemsStage consumeItemsStageComponent;
     private WaitAndGive waitAndGiveComponent;
+    public float MinimumDistanceToAppear = 3;
 
     private float offsetImagePosition = -0.85f;
     private float offsetBackground = 90f;
@@ -75,6 +76,18 @@ public class TransformerUIController : MonoBehaviour
 
 
         transform.LookAt(Camera.main.transform.position);
+    }
+
+    private void Update()
+    {
+        if (CheckCloseToTag())
+        {
+            OpenUIDialog();
+        }
+        else
+        {
+            CloseUIDialog();
+        }
     }
 
     public void OpenUIDialog()
@@ -157,7 +170,6 @@ public class TransformerUIController : MonoBehaviour
     public void OnTransformationFinished(BuildStage source, WaitAndGiveArgs consumeItemsStageArgs)
     {
         // When transformation finished
-        Debug.Log("Finish");
         UpdateState("Completed");
         isCompleted = true;
     }
@@ -165,9 +177,17 @@ public class TransformerUIController : MonoBehaviour
     public void OnTransformationStarted(BuildStage source, WaitAndGiveArgs consumeItemsStageArgs)
     {
         // When transformation starts
-        Debug.Log("Start");
         UpdateState("Preparing");
         BackgroundPanel.gameObject.SetActive(false);
+    }
+
+    bool CheckCloseToTag()
+    {
+        GameObject goWithTag = GameObject.FindGameObjectWithTag("Player");
+
+        if (Vector3.Distance(transform.position, goWithTag.transform.position) <= MinimumDistanceToAppear)
+                return true;
+        return false;
     }
 
 
