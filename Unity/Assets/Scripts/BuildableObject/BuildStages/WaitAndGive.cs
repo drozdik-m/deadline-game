@@ -57,7 +57,6 @@ public class WaitAndGive : BuildStage
 
         if (CounterFinished)
         {
-            OnTransformationFinished?.Invoke(this, new WaitAndGiveArgs(CounterFinished, Delay));
             //Provide set item
             ItemProvider = this.GetComponentInParent<ItemProvider>();
             if (!ItemProvider)
@@ -87,6 +86,7 @@ public class WaitAndGive : BuildStage
         OnTransformationStarted?.Invoke(this, new WaitAndGiveArgs(CounterFinished, Delay));
         yield return new WaitForSeconds(Delay);
         CounterFinished = true;
+        OnTransformationFinished?.Invoke(this, new WaitAndGiveArgs(CounterFinished, Delay));
     }
 
     public override void Load()
