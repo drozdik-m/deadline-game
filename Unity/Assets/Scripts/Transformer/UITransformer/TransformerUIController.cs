@@ -26,6 +26,7 @@ public class TransformerUIController : MonoBehaviour
     /// The consume items stage component.
     /// </summary>
     private ConsumeItemsStage consumeItemsStageComponent;
+    private WaitAndGive waitAndGiveComponent;
 
     private float offsetImagePosition = -0.85f;
     private float offsetBackground = 90f;
@@ -55,11 +56,25 @@ public class TransformerUIController : MonoBehaviour
         consumeItemsStageComponent = BuildableGameObject.GetComponentInChildren<ConsumeItemsStage>();
         if (!consumeItemsStageComponent)
         {
-            Debug.Log("ConsumeItemsStage component not found!");
+            Debug.LogError("ConsumeItemsStage component not found!");
             return;
         }
+
+        waitAndGiveComponent = BuildableGameObject.GetComponentInChildren<WaitAndGive>();
+        if (!waitAndGiveComponent)
+        {
+            Debug.LogError("WaitAndGive component not found!");
+            return;
+        }
+
+        // Consume items events
         consumeItemsStageComponent.OnDictionaryLoaded += OnDictionaryLoaded;
         consumeItemsStageComponent.OnItemAccepted += OnItemAccepted;
+
+        // WaitAndGive events
+        waitAndGiveComponent.OnTransformationFinished += OnTransformationFinished;
+        waitAndGiveComponent.OnTransformationStarted += OnTransformationStarted;
+
 
         transform.LookAt(Camera.main.transform.position);
     }
@@ -150,4 +165,18 @@ public class TransformerUIController : MonoBehaviour
         getRequiredItems();
         UpdateNeededItemsImages();
     }
+
+    public void OnTransformationFinished(BuildStage source, WaitAndGiveArgs consumeItemsStageArgs)
+    {
+        // When transformation finished
+        Debug.Log("Finish");
+    }
+
+    public void OnTransformationStarted(BuildStage source, WaitAndGiveArgs consumeItemsStageArgs)
+    {
+        // When transformation starts
+        Debug.Log("Start");
+    }
+
+
 }
