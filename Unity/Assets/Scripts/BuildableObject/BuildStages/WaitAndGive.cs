@@ -7,6 +7,7 @@ public delegate void WaitAndGiveHanlder(BuildStage source, WaitAndGiveArgs consu
 /// <summary>
 /// Represents build stage for what player does not need anything
 /// </summary>
+[System.Serializable]
 public class WaitAndGive : BuildStage
 {
     /// <summary>
@@ -20,6 +21,7 @@ public class WaitAndGive : BuildStage
     /// <summary>
     /// The delay of the transformation
     /// </summary>
+    [HideInInspector]
     public float Delay;
     /// <summary>
     /// Occurs when on transformation started.
@@ -33,6 +35,10 @@ public class WaitAndGive : BuildStage
     /// Occurs when the player tries to collect the new item before the process is finished
     /// </summary>
     public event WaitAndGiveHanlder OnCollectBeforeFinishedTry;
+    /// <summary>
+    /// The item provider.
+    /// </summary>
+    public ItemProvider ItemProvider;
 
     public override bool ConditionsSatisfied()
     {
@@ -53,14 +59,14 @@ public class WaitAndGive : BuildStage
         {
             OnTransformationFinished?.Invoke(this, new WaitAndGiveArgs(CounterFinished, Delay));
             //Provide set item
-            var itemProvider = this.GetComponentInParent<ItemProvider>();
-            if (!itemProvider)
+            ItemProvider = this.GetComponentInParent<ItemProvider>();
+            if (!ItemProvider)
             {
                 Debug.LogError("No Item provider found!");
                 return false;
             }
 
-            itemProvider.ProvideItem();
+            ItemProvider.ProvideItem();
 
             return true;
         }

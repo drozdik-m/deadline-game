@@ -16,6 +16,7 @@ public struct InvetoryItemIDCount
 /// <summary>
 /// Build Stage that needs item in inventory to be done and after commiting to stage, the item will be removed
 /// </summary>
+[System.Serializable]
 public class ConsumeItemsStage : BuildStage
 {
     /// <summary>
@@ -82,7 +83,6 @@ public class ConsumeItemsStage : BuildStage
         //Decrement 
         if (countNeeded > 0)
         {
-            Debug.Log("Accpeted");
             OnItemAccepted?.Invoke(this, new ConsumeItemsStageArgs(requiredItems));
             DestroyInventoryItem();
             requiredItems[currentItem.ItemType] = countNeeded - 1;

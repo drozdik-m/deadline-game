@@ -19,6 +19,16 @@ public class WaitAndGiveEditor : BuildStageEditor, IArrayItemEditor
         return "WaitAndGive";
     }
 
+    private GameObject getParent() => Target.gameObject.transform.parent.gameObject.transform.parent.gameObject;
+
+    private bool checkProviderPresence()
+    {
+        var parent = getParent();
+        if (parent.GetComponent<ItemProvider>())
+            return true;
+        return false;
+    }
+
     protected override void OnBuildStageInspectorGUI()
     {
         //DrawDefaultInspector();
@@ -39,18 +49,43 @@ public class WaitAndGiveEditor : BuildStageEditor, IArrayItemEditor
         targetInventoryField.CheckForNullOverride(thisBuildStage.overrideInventory,
                                                   MessageBox, "Inventory is overriden but empty",
                                                   WarningStyle);
+                                                  
+
+        if (!checkProviderPresence())
+        {
+            if (GUILayout.Button("Add Item Provider"))
+            {
+                GameObject objectParent = getParent();
+                objectParent.AddComponent<ItemProvider>();
+                thisBuildStage.ItemProvider = objectParent.GetComponent<ItemProvider>();
+            }
+
+            MessageBox.AddMessage("Item Provider is empty", WarningStyle);
+        }
+        else
+        {
+            thisBuildStage.ItemProvider = null;
+        }
 
 
+        thisBuildStage.Delay = EditorGUILayout.FloatField("Delay", thisBuildStage.Delay);
+        thisBuildStage.CounterFinished = EditorGUILayout.Toggle("Transforming finished", thisBuildStage.CounterFinished);
 
+        /*
         var delayProperty = new SerializedObject(target).FindProperty("Delay");
         var finishedProperty = new SerializedObject(target).FindProperty("CounterFinished");
-        new SerializedObject(target).Update();
+        serializedObject.Update();
         EditorGUILayout.PropertyField(delayProperty, true);
         EditorGUILayout.PropertyField(finishedProperty, true);
         new SerializedObject(target).ApplyModifiedProperties();
+        */
 
-       
-                                                  
+        // delayProperty = GUILayout.NejakyInput("Label", Target.property);
+
+
+
+
+
     }
 
 }
