@@ -5,17 +5,9 @@ using UnityEngine.UI;
 
 public class TransformerUIController : MonoBehaviour
 {
-    /// <summary>
-    /// Text item's state (Needed, Preparing, Completed)
-    /// </summary>
+    public BuildableObject TransformerItem;
     public Text StateText;
-    /// <summary>
-    /// Background for items images, that changes dynamically
-    /// </summary>
     public RectTransform BackgroundPanel;
-    /// <summary>
-    /// Prefab image for items images
-    /// </summary>
     public Image ImagePrefabItem;
 
     /// <summary>
@@ -35,23 +27,12 @@ public class TransformerUIController : MonoBehaviour
     /// </summary>
     private ConsumeItemsStage consumeItemsStageComponent;
     private WaitAndGive waitAndGiveComponent;
+    public float MinimumDistanceToAppear = 3;
 
-    /// <summary>
-    /// Offset between images
-    /// </summary>
     private float offsetImagePosition = -0.85f;
-    /// <summary>
-    /// Offset for changing background
-    /// </summary>
     private float offsetBackground = 90f;
-    /// <summary>
-    /// Checks if items is completed
-    /// </summary>
     private bool  isCompleted = false;
 
-    /// <summary>
-    /// List of all images, that appeared in the UI
-    /// </summary>
     private List<Image> NeededItemsImages = new List<Image>();
 
     void Awake()
@@ -93,60 +74,53 @@ public class TransformerUIController : MonoBehaviour
         waitAndGiveComponent.OnTransformationFinished += OnTransformationFinished;
         waitAndGiveComponent.OnTransformationStarted += OnTransformationStarted;
 
-        // Rotate UI to the camera
+
         transform.LookAt(Camera.main.transform.position);
     }
 
-    /// <summary>
-    /// Opens Transformer UI
-    /// </summary>
+    private void Update()
+    {
+        if (CheckCloseToTag())
+        {
+            OpenUIDialog();
+        }
+        else
+        {
+            CloseUIDialog();
+        }
+    }
+
     public void OpenUIDialog()
     {
         if(!isCompleted)
             gameObject.SetActive(true);
     }
 
-    /// <summary>
-    /// Closes Transformer UI
-    /// </summary>
     public void CloseUIDialog()
     {
         gameObject.SetActive(false);
     }
 
-    /// <summary>
-    /// Changes text state
-    /// </summary>
-    /// <param name="stateText">Text of the state(Needed, Preparing, Completed)</param>
     public void UpdateState(string stateText)
     {
         StateText.text = stateText;
     }
 
-    /// <summary>
-    /// Creates new images in the UI
-    /// </summary>
     private void CreateNewNeededItemsImages()
     {
         Image tmpImage;
         Vector3 position = transform.position;
         int index = 0;
 
-        // Create one image for each item
         foreach (var item in requiredItemsDictionary)
         {
-            // If count of needed items is greater than zero
             if (item.Value > 0)
             {
-                // Get sprite
+                Debug.Log(item.Key.ToString() + " " + item.Value.ToString() );
                 ImagePrefabItem.sprite = spritesStorage[item.Key];
-                // Update position
                 position += new Vector3(index * offsetImagePosition, 0, 0);
-                // Change Background panel size
                 BackgroundPanel.offsetMax += new Vector2(index * offsetBackground, 0);
-                // Create new image for UI (parent will be this object)
                 tmpImage = GameObject.Instantiate<Image>(ImagePrefabItem, position, transform.rotation, transform);
-                // Change name to item's name
                 tmpImage.name = item.Key.ToString();
                 NeededItemsImages.Add(tmpImage);
                 index ++;
@@ -154,9 +128,6 @@ public class TransformerUIController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Updates items images in the UI
-    /// </summary>
     public void UpdateNeededItemsImages()
     {
         foreach (var item in NeededItemsImages)
@@ -168,9 +139,7 @@ public class TransformerUIController : MonoBehaviour
         CreateNewNeededItemsImages();
     }
 
-    /// <summary>
-    /// Gets required items from the stage
-    /// </summary>
+
     public void getRequiredItems()
     {
         // Gets the dictionary
@@ -198,29 +167,28 @@ public class TransformerUIController : MonoBehaviour
         UpdateState("Needed");
     }
 
-    /// <summary>
-    /// Transformation of the item is finished
-    /// </summary>
-    /// <param name="source">Source.</param>
-    /// <param name="consumeItemsStageArgs">Wait and give stage arguments.</param>
     public void OnTransformationFinished(BuildStage source, WaitAndGiveArgs consumeItemsStageArgs)
     {
         // When transformation finished
-        Debug.Log("Finish");
         UpdateState("Completed");
         isCompleted = true;
     }
 
-    /// <summary>
-    /// Transformation of the item is started
-    /// </summary>
-    /// <param name="source">Source.</param>
-    /// <param name="consumeItemsStageArgs">Wait and give stage arguments.</param>
     public void OnTransformationStarted(BuildStage source, WaitAndGiveArgs consumeItemsStageArgs)
     {
         // When transformation starts
-        Debug.Log("Start");
         UpdateState("Preparing");
         BackgroundPanel.gameObject.SetActive(false);
     }
+
+    bool CheckCloseToTag()
+    {
+        GameObject goWithTag = GameObject.FindGameObjectWithTag("Player");
+
+        if (Vector3.Distance(transform.position, goWithTag.transform.position) <= MinimumDistanceToAppear)
+                return true;
+        return false;
+    }
+
+
 }

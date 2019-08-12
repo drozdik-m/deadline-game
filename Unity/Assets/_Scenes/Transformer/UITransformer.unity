@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4494112, g: 0.49633646, b: 0.5587733, a: 1}
+  m_IndirectSpecularColor: {r: 0.44941115, g: 0.4963364, b: 0.55877256, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -970,12 +970,12 @@ PrefabInstance:
     - target: {fileID: 6935151445438147237, guid: bf7711b4182818747a960cbc3a6e7528,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.89239913
+      value: 0.8923991
       objectReference: {fileID: 0}
     - target: {fileID: 6935151445438147237, guid: bf7711b4182818747a960cbc3a6e7528,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.3696438
+      value: 0.36964378
       objectReference: {fileID: 0}
     - target: {fileID: 6935151444287920912, guid: bf7711b4182818747a960cbc3a6e7528,
         type: 3}
@@ -1453,7 +1453,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1460768935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1522,7 +1522,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460768934}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.378}
+  m_LocalPosition: {x: 0, y: 0, z: 0.61823124}
   m_LocalScale: {x: 0.0099958265, y: 0.0075577092, z: 0.009007278}
   m_Children:
   - {fileID: 2134819268}
@@ -1532,7 +1532,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -1.445, y: 2.46}
+  m_AnchoredPosition: {x: -1.381047, y: 1.3582649}
   m_SizeDelta: {x: 100, y: 98.46}
   m_Pivot: {x: 0.5, y: 0.47298038}
 --- !u!114 &1460768939
@@ -1552,6 +1552,7 @@ MonoBehaviour:
   BackgroundPanel: {fileID: 2134819268}
   ImagePrefabItem: {fileID: 1863948384}
   BuildableGameObject: {fileID: 549167567}
+  MinimumDistanceToAppear: 4
 --- !u!1 &1476531653
 GameObject:
   m_ObjectHideFlags: 0
