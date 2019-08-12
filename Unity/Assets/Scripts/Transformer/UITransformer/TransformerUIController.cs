@@ -43,8 +43,6 @@ public class TransformerUIController : MonoBehaviour
         {
             spritesStorage.Add(image.type, image.sprite);
         }
-
-
     }
 
     void Start()
@@ -79,7 +77,7 @@ public class TransformerUIController : MonoBehaviour
     {
         string stateText;
         if (requiredItemsDictionary.Count > 0)
-            stateText = "Prepared";
+            stateText = "Needed";
         else
             stateText = "Completed";
 
@@ -105,11 +103,6 @@ public class TransformerUIController : MonoBehaviour
                 NeededItemsImages.Add(tmpImage);
                 index ++;
             }
-        }
-        if(NeededItemsImages.Count < 0)
-        {
-            CloseUIDialog();
-            isCompleted = true;
         }
     }
 
