@@ -109,9 +109,6 @@ public class TransformerUIController : MonoBehaviour
         // WaitAndGive events
         waitAndGiveComponent.OnTransformationFinished += OnTransformationFinished;
         waitAndGiveComponent.OnTransformationStarted += OnTransformationStarted;
-
-        // Change rotation of the object
-        transform.LookAt(Camera.main.transform.position);
     }
 
     private void Update()
