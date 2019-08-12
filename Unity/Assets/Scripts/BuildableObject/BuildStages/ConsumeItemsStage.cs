@@ -46,6 +46,17 @@ public class ConsumeItemsStage : BuildStage
     /// </summary>
     public event ConsumeItemsStageHandler OnItemAccepted;
     /// <summary>
+    /// Gets the required items in dictionary.
+    /// </summary>
+    /// <value>The required items in dictionary.</value>
+    public Dictionary<InventoryItemID, int> RequiredItemsInDictionary 
+    {
+        get
+        {
+            return requiredItems;
+        }
+    }
+    /// <summary>
     /// Checks if the conditions for going to next stage are satisfied
     /// </summary>
     /// <returns></returns>
