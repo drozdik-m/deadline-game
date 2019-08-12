@@ -88,14 +88,8 @@ public class TransformerUIController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void UpdateState()
+    public void UpdateState(string stateText)
     {
-        string stateText;
-        if (requiredItemsDictionary.Count > 0)
-            stateText = "Needed";
-        else
-            stateText = "Completed";
-
         StateText.text = stateText;
     }
 
@@ -130,7 +124,6 @@ public class TransformerUIController : MonoBehaviour
         }
         NeededItemsImages.Clear();
         CreateNewNeededItemsImages();
-        UpdateState();
     }
 
 
@@ -148,6 +141,7 @@ public class TransformerUIController : MonoBehaviour
     public void OnDictionaryLoaded(BuildStage source, ConsumeItemsStageArgs consumeItemsStageArgs) {
         getRequiredItems();
         UpdateNeededItemsImages();
+        UpdateState("Needed");
     }
     /// <summary>
     /// Ons the item accepted.
@@ -157,18 +151,23 @@ public class TransformerUIController : MonoBehaviour
     public void OnItemAccepted(BuildStage source, ConsumeItemsStageArgs consumeItemsStageArgs) {
         getRequiredItems();
         UpdateNeededItemsImages();
+        UpdateState("Needed");
     }
 
     public void OnTransformationFinished(BuildStage source, WaitAndGiveArgs consumeItemsStageArgs)
     {
         // When transformation finished
         Debug.Log("Finish");
+        UpdateState("Completed");
+        isCompleted = true;
     }
 
     public void OnTransformationStarted(BuildStage source, WaitAndGiveArgs consumeItemsStageArgs)
     {
         // When transformation starts
         Debug.Log("Start");
+        UpdateState("Preparing");
+        BackgroundPanel.gameObject.SetActive(false);
     }
 
 
