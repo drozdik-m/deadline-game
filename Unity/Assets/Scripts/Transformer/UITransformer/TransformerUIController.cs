@@ -27,6 +27,9 @@ public class TransformerUIController : MonoBehaviour
     /// </summary>
     private ConsumeItemsStage consumeItemsStageComponent;
 
+    private float offsetImagePosition = -0.85f;
+    private float offsetBackground = 90f;
+
     private List<Image> NeededItemsImages = new List<Image>();
 
     void Awake()
@@ -43,11 +46,6 @@ public class TransformerUIController : MonoBehaviour
 
     }
 
-    public void OnItemAcceptedChange (BuildStage source, ConsumeItemsStageArgs consumeItemsStageArgs)
-    {
-
-    }
-
     void Start()
     {
         CreateNewNeededItemsImages();
@@ -61,6 +59,8 @@ public class TransformerUIController : MonoBehaviour
         }
         consumeItemsStageComponent.OnDictionaryLoaded += OnDictionaryLoaded;
         consumeItemsStageComponent.OnItemAccepted += OnItemAccepted;
+
+        transform.LookAt(Camera.main.transform.position);
     }
 
     public void OpenUIDialog()
@@ -73,8 +73,14 @@ public class TransformerUIController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void UpdateState(string stateText)
+    public void UpdateState()
     {
+        string stateText;
+        if (requiredItemsDictionary.Count > 0)
+            stateText = "Prepared";
+        else
+            stateText = "Completed";
+
         StateText.text = stateText;
     }
 
@@ -82,44 +88,39 @@ public class TransformerUIController : MonoBehaviour
     {
         Image tmpImage;
         Vector3 position = transform.position;
-        float offset = -0.85f;
-        float offsetBackground = 90f;
+        int index = 0;
 
-        ImagePrefabItem.sprite = spritesStorage[InventoryItemID.Axe];
-        tmpImage = GameObject.Instantiate<Image>(ImagePrefabItem, position, transform.rotation, transform);
-        tmpImage.name = InventoryItemID.Axe.ToString();
-        NeededItemsImages.Add(tmpImage);
-
-        ImagePrefabItem.sprite = spritesStorage[InventoryItemID.Book];
-        position += new Vector3(offset, 0, 0);
-        BackgroundPanel.offsetMax += new Vector2(offsetBackground, 0);
-        tmpImage =  GameObject.Instantiate<Image>(ImagePrefabItem, position, transform.rotation, transform);
-        tmpImage.name = InventoryItemID.Book.ToString();
-        NeededItemsImages.Add(tmpImage);
-
-        ImagePrefabItem.sprite = spritesStorage[InventoryItemID.Broom];
-        position += new Vector3(offset, 0, 0);
-        BackgroundPanel.offsetMax += new Vector2(offsetBackground, 0);
-        GameObject.Instantiate<Image>(ImagePrefabItem, position, transform.rotation, transform);
-
-        transform.LookAt(Camera.main.transform.position);
-
+        foreach (var item in requiredItemsDictionary)
+        {
+            if (item.Value > 0)
+            {
+                Debug.Log(item.Key.ToString() + " " + item.Value.ToString() );
+                ImagePrefabItem.sprite = spritesStorage[item.Key];
+                position += new Vector3(index * offsetImagePosition, 0, 0);
+                BackgroundPanel.offsetMax += new Vector2(index * offsetBackground, 0);
+                tmpImage = GameObject.Instantiate<Image>(ImagePrefabItem, position, transform.rotation, transform);
+                tmpImage.name = item.Key.ToString();
+                NeededItemsImages.Add(tmpImage);
+                index ++;
+            }
+        }
     }
 
     public void UpdateNeededItemsImages()
     {
         foreach (var item in NeededItemsImages)
         {
-            GameObject.Destroy(item);
+            GameObject.Destroy(item.gameObject);
+            Debug.Log("destroy" + item.name);
         }
-
+        NeededItemsImages.Clear();
         CreateNewNeededItemsImages();
+        UpdateState();
     }
 
 
     public void getRequiredItems()
     {
-     
         // Gets the dictionary
         requiredItemsDictionary = consumeItemsStageComponent.RequiredItemsInDictionary;
     }
@@ -131,6 +132,7 @@ public class TransformerUIController : MonoBehaviour
     /// <param name="consumeItemsStageArgs">Consume items stage arguments.</param>
     public void OnDictionaryLoaded(BuildStage source, ConsumeItemsStageArgs consumeItemsStageArgs) {
         getRequiredItems();
+        UpdateNeededItemsImages();
     }
     /// <summary>
     /// Ons the item accepted.
@@ -139,5 +141,6 @@ public class TransformerUIController : MonoBehaviour
     /// <param name="consumeItemsStageArgs">Consume items stage arguments.</param>
     public void OnItemAccepted(BuildStage source, ConsumeItemsStageArgs consumeItemsStageArgs) {
         getRequiredItems();
+        UpdateNeededItemsImages();
     }
 }
