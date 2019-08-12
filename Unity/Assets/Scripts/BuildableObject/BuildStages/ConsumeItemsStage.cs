@@ -5,7 +5,9 @@ using System.Linq;
 using UnityEngine;
 
 public delegate void ConsumeItemsStageHandler(BuildStage source,ConsumeItemsStageArgs consumeItemsStageArgs);
-
+/// <summary>
+/// Invetory item and it`s count structure.
+/// </summary>
 [Serializable]
 public struct InvetoryItemIDCount
 {
@@ -16,7 +18,7 @@ public struct InvetoryItemIDCount
 /// <summary>
 /// Build Stage that needs item in inventory to be done and after commiting to stage, the item will be removed
 /// </summary>
-[System.Serializable]
+[Serializable]
 public class ConsumeItemsStage : BuildStage
 {
     /// <summary>
@@ -72,7 +74,7 @@ public class ConsumeItemsStage : BuildStage
 
         try
         {
-            countNeeded = requiredItems[currentItem.ItemType]; //Exception?
+            countNeeded = requiredItems[currentItem.ItemType];
         }
         catch
         {
@@ -93,7 +95,7 @@ public class ConsumeItemsStage : BuildStage
 
     private void Start()
     {
-        transferToDictionary();
+        TransferToDictionary();
     }
     /// <summary>
     /// Destroys item in the inventory
@@ -105,7 +107,7 @@ public class ConsumeItemsStage : BuildStage
     /// <summary>
     /// Transfers items from array to dictionary.
     /// </summary>
-    private void transferToDictionary()
+    private void TransferToDictionary()
     {
         foreach (var i in RequiredItems)
         {
