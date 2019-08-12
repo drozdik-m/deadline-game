@@ -29,6 +29,7 @@ public class TransformerUIController : MonoBehaviour
 
     private float offsetImagePosition = -0.85f;
     private float offsetBackground = 90f;
+    private bool  isCompleted = false;
 
     private List<Image> NeededItemsImages = new List<Image>();
 
@@ -65,7 +66,8 @@ public class TransformerUIController : MonoBehaviour
 
     public void OpenUIDialog()
     {
-        gameObject.SetActive(true);
+        if(!isCompleted)
+            gameObject.SetActive(true);
     }
 
     public void CloseUIDialog()
@@ -103,6 +105,11 @@ public class TransformerUIController : MonoBehaviour
                 NeededItemsImages.Add(tmpImage);
                 index ++;
             }
+        }
+        if(NeededItemsImages.Count < 0)
+        {
+            CloseUIDialog();
+            isCompleted = true;
         }
     }
 
