@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44941115, g: 0.4963364, b: 0.55877256, a: 1}
+  m_IndirectSpecularColor: {r: 0.4494112, g: 0.49633646, b: 0.5587733, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -970,12 +970,12 @@ PrefabInstance:
     - target: {fileID: 6935151445438147237, guid: bf7711b4182818747a960cbc3a6e7528,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.8923991
+      value: 0.89239913
       objectReference: {fileID: 0}
     - target: {fileID: 6935151445438147237, guid: bf7711b4182818747a960cbc3a6e7528,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.36964378
+      value: 0.3696438
       objectReference: {fileID: 0}
     - target: {fileID: 6935151444287920912, guid: bf7711b4182818747a960cbc3a6e7528,
         type: 3}
@@ -1453,7 +1453,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1460768935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1547,7 +1547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57cd28ec552619d45ac7d871af6b66f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TransformerItem: {fileID: 0}
   StateText: {fileID: 2028685919}
   BackgroundPanel: {fileID: 2134819268}
   ImagePrefabItem: {fileID: 1863948384}

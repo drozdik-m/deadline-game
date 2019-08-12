@@ -5,10 +5,23 @@ using UnityEngine.UI;
 
 public class TransformerUIController : MonoBehaviour
 {
-    public BuildableObject TransformerItem;
+    /// <summary>
+    /// Text item's state (Needed, Preparing, Completed)
+    /// </summary>
     public Text StateText;
+    /// <summary>
+    /// Background for items images, that changes dynamically
+    /// </summary>
     public RectTransform BackgroundPanel;
+    /// <summary>
+    /// Prefab image for items images
+    /// </summary>
     public Image ImagePrefabItem;
+
+    /// <summary>
+    /// Canvas of the Transformer UI object
+    /// </summary>
+    private Canvas transformerUICanvas;
 
     /// <summary>
     /// Contain all the images available using the type of the item
@@ -26,13 +39,31 @@ public class TransformerUIController : MonoBehaviour
     /// The consume items stage component.
     /// </summary>
     private ConsumeItemsStage consumeItemsStageComponent;
+    /// <summary>
+    /// Wait and give item stage component
+    /// </summary>
     private WaitAndGive waitAndGiveComponent;
+
+    /// <summary>
+    /// Minimum disstance to the player to appear
+    /// </summary>
     public float MinimumDistanceToAppear = 3;
-
+    /// <summary>
+    /// Offset between images
+    /// </summary>
     private float offsetImagePosition = -0.85f;
+    /// <summary>
+    /// Offset for changing background
+    /// </summary>
     private float offsetBackground = 90f;
-    private bool  isCompleted = false;
+    /// <summary>
+    /// Checks if items is completed
+    /// </summary>
+    private bool isCompleted = false;
 
+    /// <summary>
+    /// List of all images, that appeared in the UI
+    /// </summary>
     private List<Image> NeededItemsImages = new List<Image>();
 
     void Awake()
@@ -50,6 +81,8 @@ public class TransformerUIController : MonoBehaviour
     void Start()
     {
         CreateNewNeededItemsImages();
+
+        transformerUICanvas = GetComponent<Canvas>();
 
         // Gets the ConsumeItemsStage component
         consumeItemsStageComponent = BuildableGameObject.GetComponentInChildren<ConsumeItemsStage>();
@@ -74,7 +107,7 @@ public class TransformerUIController : MonoBehaviour
         waitAndGiveComponent.OnTransformationFinished += OnTransformationFinished;
         waitAndGiveComponent.OnTransformationStarted += OnTransformationStarted;
 
-
+        // Change rotation of the object
         transform.LookAt(Camera.main.transform.position);
     }
 
@@ -90,44 +123,66 @@ public class TransformerUIController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Opens Transformer UI
+    /// </summary>
     public void OpenUIDialog()
     {
-        if(!isCompleted)
-            gameObject.SetActive(true);
+        if (!isCompleted)
+            transformerUICanvas.enabled = true;
     }
 
+    /// <summary>
+    /// Closes Transformer UI
+    /// </summary>
     public void CloseUIDialog()
     {
-        gameObject.SetActive(false);
+        transformerUICanvas.enabled = false;
     }
 
+    /// <summary>
+    /// Changes text state
+    /// </summary>
+    /// <param name="stateText">Text of the state(Needed, Preparing, Completed)</param>
     public void UpdateState(string stateText)
     {
         StateText.text = stateText;
     }
 
+    /// <summary>
+    /// Creates new images in the UI
+    /// </summary>
     private void CreateNewNeededItemsImages()
     {
         Image tmpImage;
         Vector3 position = transform.position;
         int index = 0;
 
+        // Create one image for each item
         foreach (var item in requiredItemsDictionary)
         {
+            // If count of needed items is greater than zero
             if (item.Value > 0)
             {
-                Debug.Log(item.Key.ToString() + " " + item.Value.ToString() );
+                // Get sprite
                 ImagePrefabItem.sprite = spritesStorage[item.Key];
+                // Update position
                 position += new Vector3(index * offsetImagePosition, 0, 0);
+                // Change Background panel size
                 BackgroundPanel.offsetMax += new Vector2(index * offsetBackground, 0);
+                // Create new image for UI (parent will be this object)
                 tmpImage = GameObject.Instantiate<Image>(ImagePrefabItem, position, transform.rotation, transform);
+                // Change name to item's name
                 tmpImage.name = item.Key.ToString();
                 NeededItemsImages.Add(tmpImage);
-                index ++;
+                index++;
             }
         }
     }
 
+    /// <summary>
+    /// Updates items images in the UI
+    /// </summary>
     public void UpdateNeededItemsImages()
     {
         foreach (var item in NeededItemsImages)
@@ -139,7 +194,9 @@ public class TransformerUIController : MonoBehaviour
         CreateNewNeededItemsImages();
     }
 
-
+    /// <summary>
+    /// Gets required items from the stage
+    /// </summary>
     public void getRequiredItems()
     {
         // Gets the dictionary
@@ -151,7 +208,8 @@ public class TransformerUIController : MonoBehaviour
     /// </summary>
     /// <param name="source">Source.</param>
     /// <param name="consumeItemsStageArgs">Consume items stage arguments.</param>
-    public void OnDictionaryLoaded(BuildStage source, ConsumeItemsStageArgs consumeItemsStageArgs) {
+    public void OnDictionaryLoaded(BuildStage source, ConsumeItemsStageArgs consumeItemsStageArgs)
+    {
         getRequiredItems();
         UpdateNeededItemsImages();
         UpdateState("Needed");
@@ -161,12 +219,18 @@ public class TransformerUIController : MonoBehaviour
     /// </summary>
     /// <param name="source">Source.</param>
     /// <param name="consumeItemsStageArgs">Consume items stage arguments.</param>
-    public void OnItemAccepted(BuildStage source, ConsumeItemsStageArgs consumeItemsStageArgs) {
+    public void OnItemAccepted(BuildStage source, ConsumeItemsStageArgs consumeItemsStageArgs)
+    {
         getRequiredItems();
         UpdateNeededItemsImages();
         UpdateState("Needed");
     }
 
+    /// <summary>
+    /// Transformation of the item is finished
+    /// </summary>
+    /// <param name="source">Source.</param>
+    /// <param name="consumeItemsStageArgs">Wait and give stage arguments.</param>
     public void OnTransformationFinished(BuildStage source, WaitAndGiveArgs consumeItemsStageArgs)
     {
         // When transformation finished
@@ -174,6 +238,11 @@ public class TransformerUIController : MonoBehaviour
         isCompleted = true;
     }
 
+    /// <summary>
+    /// Transformation of the item is started
+    /// </summary>
+    /// <param name="source">Source.</param>
+    /// <param name="consumeItemsStageArgs">Wait and give stage arguments.</param>
     public void OnTransformationStarted(BuildStage source, WaitAndGiveArgs consumeItemsStageArgs)
     {
         // When transformation starts
@@ -189,6 +258,4 @@ public class TransformerUIController : MonoBehaviour
                 return true;
         return false;
     }
-
-
 }
