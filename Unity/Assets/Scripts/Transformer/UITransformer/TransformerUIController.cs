@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class controlls UI of transformer items. Shows all needed items in images and state of the transformation.
+/// </summary>
 public class TransformerUIController : MonoBehaviour
 {
     /// <summary>
