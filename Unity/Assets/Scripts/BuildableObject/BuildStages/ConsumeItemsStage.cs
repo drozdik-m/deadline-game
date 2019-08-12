@@ -5,7 +5,9 @@ using System.Linq;
 using UnityEngine;
 
 public delegate void ConsumeItemsStageHandler(BuildStage source,ConsumeItemsStageArgs consumeItemsStageArgs);
-
+/// <summary>
+/// Invetory item and it`s count structure.
+/// </summary>
 [Serializable]
 public struct InvetoryItemIDCount
 {
@@ -16,6 +18,7 @@ public struct InvetoryItemIDCount
 /// <summary>
 /// Build Stage that needs item in inventory to be done and after commiting to stage, the item will be removed
 /// </summary>
+[Serializable]
 public class ConsumeItemsStage : BuildStage
 {
     /// <summary>
@@ -42,6 +45,17 @@ public class ConsumeItemsStage : BuildStage
     /// Occurs when the item is accepted by the transformer.
     /// </summary>
     public event ConsumeItemsStageHandler OnItemAccepted;
+    /// <summary>
+    /// Gets the required items in dictionary.
+    /// </summary>
+    /// <value>The required items in dictionary.</value>
+    public Dictionary<InventoryItemID, int> RequiredItemsInDictionary 
+    {
+        get
+        {
+            return requiredItems;
+        }
+    }
     /// <summary>
     /// Checks if the conditions for going to next stage are satisfied
     /// </summary>
@@ -71,7 +85,7 @@ public class ConsumeItemsStage : BuildStage
 
         try
         {
-            countNeeded = requiredItems[currentItem.ItemType]; //Exception?
+            countNeeded = requiredItems[currentItem.ItemType];
         }
         catch
         {
@@ -82,7 +96,6 @@ public class ConsumeItemsStage : BuildStage
         //Decrement 
         if (countNeeded > 0)
         {
-            Debug.Log("Accpeted");
             OnItemAccepted?.Invoke(this, new ConsumeItemsStageArgs(requiredItems));
             DestroyInventoryItem();
             requiredItems[currentItem.ItemType] = countNeeded - 1;
@@ -93,7 +106,7 @@ public class ConsumeItemsStage : BuildStage
 
     private void Start()
     {
-        transferToDictionary();
+        TransferToDictionary();
     }
     /// <summary>
     /// Destroys item in the inventory
@@ -105,7 +118,7 @@ public class ConsumeItemsStage : BuildStage
     /// <summary>
     /// Transfers items from array to dictionary.
     /// </summary>
-    private void transferToDictionary()
+    private void TransferToDictionary()
     {
         foreach (var i in RequiredItems)
         {
