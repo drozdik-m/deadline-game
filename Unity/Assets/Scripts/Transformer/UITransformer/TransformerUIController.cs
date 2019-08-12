@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TransformerUIController : MonoBehaviour
 {
-    public GameObject TransformerItem;
+    public BuildableObject TransformerItem;
     public Text StateText;
     public RectTransform BackgroundPanel;
     public Image ImagePrefabItem;
@@ -53,7 +53,8 @@ public class TransformerUIController : MonoBehaviour
     {
         Image tmpImage;
         Vector3 position = transform.position;
-        int offset = 90;
+        float offset = -1.3f;
+        float offsetBackground = 90f;
 
         ImagePrefabItem.sprite = spritesStorage[InventoryItemID.Axe];
         tmpImage = GameObject.Instantiate<Image>(ImagePrefabItem, position, transform.rotation, transform);
@@ -62,13 +63,17 @@ public class TransformerUIController : MonoBehaviour
 
         ImagePrefabItem.sprite = spritesStorage[InventoryItemID.Book];
         position += new Vector3(offset, 0, 0);
-        BackgroundPanel.offsetMax += new Vector2(offset, 0);
-        GameObject.Instantiate<Image>(ImagePrefabItem, position, transform.rotation, transform);
+        BackgroundPanel.offsetMax += new Vector2(offsetBackground, 0);
+        tmpImage =  GameObject.Instantiate<Image>(ImagePrefabItem, position, transform.rotation, transform);
+        tmpImage.name = InventoryItemID.Book.ToString();
+        NeededItemsImages.Add(tmpImage);
 
         ImagePrefabItem.sprite = spritesStorage[InventoryItemID.Broom];
         position += new Vector3(offset, 0, 0);
-        BackgroundPanel.offsetMax += new Vector2(offset, 0);
+        BackgroundPanel.offsetMax += new Vector2(offsetBackground, 0);
         GameObject.Instantiate<Image>(ImagePrefabItem, position, transform.rotation, transform);
+
+        transform.LookAt(Camera.main.transform.position);
     }
 
     public void UpdateNeededItemsImages()
