@@ -29,6 +29,11 @@ public class TransformerUIController : MonoBehaviour
         }
     }
 
+    public void OnItemAcceptedChange (BuildStage source, ConsumeItemsStageArgs consumeItemsStageArgs)
+    {
+
+    }
+
     void Start()
     {
         CreateNewNeededItemsImages();
@@ -53,7 +58,7 @@ public class TransformerUIController : MonoBehaviour
     {
         Image tmpImage;
         Vector3 position = transform.position;
-        float offset = -1.3f;
+        float offset = -0.85f;
         float offsetBackground = 90f;
 
         ImagePrefabItem.sprite = spritesStorage[InventoryItemID.Axe];
