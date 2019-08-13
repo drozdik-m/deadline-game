@@ -7,7 +7,6 @@ public delegate void WaitAndGiveHanlder(BuildStage source, WaitAndGiveArgs consu
 /// <summary>
 /// Represents build stage for what player does not need anything
 /// </summary>
-[System.Serializable]
 public class WaitAndGive : BuildStage
 {
     /// <summary>

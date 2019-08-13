@@ -18,7 +18,6 @@ public struct InvetoryItemIDCount
 /// <summary>
 /// Build Stage that needs item in inventory to be done and after commiting to stage, the item will be removed
 /// </summary>
-[Serializable]
 public class ConsumeItemsStage : BuildStage
 {
     /// <summary>
@@ -85,7 +84,8 @@ public class ConsumeItemsStage : BuildStage
             OnEmptyInvetoryTransformTry?.Invoke(this,new ConsumeItemsStageArgs(requiredItems));
             return false;
         }
-        int countNeeded;
+
+        var countNeeded = 0;
 
         try
         {
