@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4494115, g: 0.49633682, b: 0.55877405, a: 1}
+  m_IndirectSpecularColor: {r: 0.4494112, g: 0.49633646, b: 0.5587733, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 521907615}
-  QuestDescription: Go sleep
+  QuestDescription: Go to sleep
 --- !u!4 &9833571
 Transform:
   m_ObjectHideFlags: 0
@@ -655,7 +655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 492677236}
-  QuestDescription: Go to bathroom
+  QuestDescription: Go to the bathroom
 --- !u!4 &81832685 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 939207491538063571, guid: 6d94a25bf86dc4dc1b06ecda7f6edb2d,
@@ -1619,7 +1619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 556112222}
-  QuestDescription: Go to cellar
+  QuestDescription: Go to the cellar
 --- !u!1 &349343003
 GameObject:
   m_ObjectHideFlags: 0
@@ -2836,7 +2836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 1872008751}
-  QuestDescription: Go to kitchen
+  QuestDescription: Go to the kitchen
 --- !u!1 &680225206
 GameObject:
   m_ObjectHideFlags: 0
@@ -4624,7 +4624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 1197604862}
-  QuestDescription: Go to bathroom
+  QuestDescription: Go to the bathroom
 --- !u!1 &1267864882
 GameObject:
   m_ObjectHideFlags: 0
@@ -18061,17 +18061,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.22
       objectReference: {fileID: 0}
-    - target: {fileID: 6489729499236083068, guid: 8ae1564347fc54fe3a3fdcd0abc8391f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 6489729499236083064, guid: 8ae1564347fc54fe3a3fdcd0abc8391f,
         type: 3}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6489729499236083066, guid: 8ae1564347fc54fe3a3fdcd0abc8391f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6489729499236083068, guid: 8ae1564347fc54fe3a3fdcd0abc8391f,
         type: 3}
       propertyPath: m_Layer
       value: 11
@@ -20143,16 +20143,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2975851318089187706, guid: 90e2b2ad7c99e3a44b563feff72a1d26,
-        type: 3}
-      propertyPath: BypassEffects
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8378615142899236475, guid: 90e2b2ad7c99e3a44b563feff72a1d26,
-        type: 3}
-      propertyPath: Day1Music
-      value: 
-      objectReference: {fileID: 8300000, guid: 946a1821e78f46c44af35a267b97302e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90e2b2ad7c99e3a44b563feff72a1d26, type: 3}
 --- !u!1001 &6078646151520058509
