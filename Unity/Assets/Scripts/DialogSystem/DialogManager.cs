@@ -26,6 +26,7 @@ public class DialogManager : MonoBehaviour
     /// </summary>
     public BubbleSpawner spawner;
     private DialogType currentType;
+    private string currentlyDisplayed;
 
     private DialogManager()
     {
@@ -35,8 +36,7 @@ public class DialogManager : MonoBehaviour
 
     void Start()
     {
-   
-        
+        currentlyDisplayed = null;
     }
 
     /// <summary>
@@ -54,7 +54,12 @@ public class DialogManager : MonoBehaviour
 
         foreach (var sentence in dialog.sentences)
         {
-            sentences.Enqueue(new SentenceWrapper(target.transform, sentence, DialogType.Self));
+            var newSentence = new SentenceWrapper(target.transform, sentence, DialogType.Self);
+            if (sentences.Contains(newSentence) || newSentence.Sentence == currentlyDisplayed)
+            {
+                return;
+            }
+            sentences.Enqueue(newSentence);
         }
 
         prepareForStart();
@@ -72,10 +77,20 @@ public class DialogManager : MonoBehaviour
             targetA = getPlayerHead();
         }
 
+        
+
         foreach (var structuredSentence in dialog.structuredSentences)
         {
             var currentTarget = structuredSentence.CharacterID == TwinTalkDialog.SentenceStructure.CharacterIdentifier.A  ? targetA : targetB;
-            sentences.Enqueue(new SentenceWrapper(currentTarget.transform, structuredSentence.sentence, DialogType.Twin));
+
+            var newSentence = new SentenceWrapper(currentTarget.transform, structuredSentence.sentence, DialogType.Twin);
+
+            if (sentences.Contains(newSentence) || newSentence.Sentence == currentlyDisplayed )
+            {
+                return;
+            }
+
+            sentences.Enqueue(newSentence);
         }
         prepareForStart();
     }
@@ -92,6 +107,9 @@ public class DialogManager : MonoBehaviour
         }
 
         var sentenceWrapper = sentences.Dequeue();
+
+        currentlyDisplayed = sentenceWrapper.Sentence;
+
         // Set the current target
         currentType = sentenceWrapper.Type;
         HandlePlayerMovement();
@@ -106,6 +124,7 @@ public class DialogManager : MonoBehaviour
     /// </summary>
     private void endOfDialog()
     {
+        currentlyDisplayed = null;
         isActive = false;
         setPlayerMovement(false);
         CancelInvoke();
