@@ -29,6 +29,7 @@ public class BuildableObject : MonoBehaviour
     private void Start()
     {
         isFinished = false;
+        initialStage.Load();
         initialStage.Init();
         stageObjectCollection = GetComponent<BuildStageCollection>();
 
@@ -51,6 +52,8 @@ public class BuildableObject : MonoBehaviour
             nextStage.Init();
             BuildStage currStage = nextStage;
             nextStage = stageObjectCollection.GetNext();
+            if (nextStage != null)
+                nextStage.Load();
 
             // we are finished
             if (nextStage == null)

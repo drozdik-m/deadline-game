@@ -24,6 +24,14 @@ public abstract class BuildStage : MonoBehaviour
     public abstract bool ConditionsSatisfied();
 
     /// <summary>
+    /// Triggers on stage load, before first ConditionsSatisfied call (and all other methods)
+    /// </summary>
+    public virtual void Load()
+    {
+
+    }
+
+    /// <summary>
     /// Initializes the stage
     /// </summary>
     public virtual void Init()
