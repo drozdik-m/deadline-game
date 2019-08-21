@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6669845739629025196}
   - component: {fileID: 6669845739629025197}
   - component: {fileID: 2910479045291420766}
+  - component: {fileID: 7275563881682219011}
+  - component: {fileID: 6624284637978820623}
   m_Layer: 5
   m_Name: DialogBubble
   m_TagString: Untagged
@@ -116,6 +118,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0
   isDynamic: 0
+--- !u!95 &7275563881682219011
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6669845739629025198}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9000f7e487b85428fb7685da1f24fad9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &6624284637978820623
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6669845739629025198}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6669845740096369619
 GameObject:
   m_ObjectHideFlags: 0
