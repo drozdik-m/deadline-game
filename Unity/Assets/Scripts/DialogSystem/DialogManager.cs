@@ -25,8 +25,22 @@ public class DialogManager : MonoBehaviour
     /// Current dialog bubble target.
     /// </summary>
     public BubbleSpawner spawner;
+    /// <summary>
+    /// The type of the current.
+    /// </summary>
     private DialogType currentType;
+    /// <summary>
+    /// The currently displayed.
+    /// </summary>
     private string currentlyDisplayed;
+    /// <summary>
+    /// The auto delay.
+    /// </summary>
+    public bool autoDelay;
+    /// <summary>
+    /// The current delay.
+    /// </summary>
+    private float currentDelay;
 
     private DialogManager()
     {
@@ -116,7 +130,19 @@ public class DialogManager : MonoBehaviour
 
         Transform currentTarget = sentenceWrapper.Position;
         bool isDynamic = sentenceWrapper.Type == DialogType.Self ? true : false;
-        spawner.Spawn(ref currentTarget, sentenceWrapper.Sentence, DialogDelay, isDynamic);
+
+        if (autoDelay)
+        {
+            currentDelay = calculateDelayToLength(sentenceWrapper.Sentence);
+            spawner.Spawn(ref currentTarget, sentenceWrapper.Sentence, currentDelay , isDynamic);
+        }
+        else
+        {
+            currentDelay = DialogDelay;
+            spawner.Spawn(ref currentTarget, sentenceWrapper.Sentence, currentDelay, isDynamic);
+        }
+
+
 
     }
     /// <summary>
@@ -128,6 +154,22 @@ public class DialogManager : MonoBehaviour
         isActive = false;
         setPlayerMovement(false);
         CancelInvoke();
+        currentDelay = 0;
+    }
+
+    private float calculateDelayToLength(string sentence)
+    {
+        int strlen = sentence.Length;
+        float calculatedDelay = strlen * 0.15f;
+        if (calculatedDelay < 1.5)
+            calculatedDelay = 1.5f;
+
+        if (calculatedDelay > 3.5)
+        {
+            calculatedDelay = 3.5f;
+        }
+        return calculatedDelay;     
+
     }
     /// <summary>
     /// Gets the player head (point of bubble render).
@@ -153,7 +195,7 @@ public class DialogManager : MonoBehaviour
     {
         if (!isActive)
         {
-
+            currentDelay = 0;
             isActive = true;
             setPlayerMovement(isBlocking);
             nextSentence();
@@ -180,7 +222,7 @@ public class DialogManager : MonoBehaviour
     {
         while (isActive)
         {
-            yield return new WaitForSeconds(DialogDelay);
+            yield return new WaitForSeconds(currentDelay);
             nextSentence();
         }
     }
