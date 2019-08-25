@@ -209,7 +209,11 @@ public class DialogManager : MonoBehaviour
             currentDelay = 0;
             isActive = true;
             setPlayerMovement(isBlocking);
-//            soundEffectController.PlaySound();
+
+            if (!soundEffectController)
+                soundEffectController = GetComponent<SoundEffectController>();
+            soundEffectController.PlaySound();
+
             nextSentence();
             StartCoroutine(Invoker());
         }

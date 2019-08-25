@@ -6586,6 +6586,11 @@ PrefabInstance:
       propertyPath: UsedSoundEffects.Array.data[12].audio
       value: 
       objectReference: {fileID: 8300000, guid: a1656332883f10a489fe8b3cc26ebb5a, type: 3}
+    - target: {fileID: 2925028876093783486, guid: b4352481b31e9df4abe19197df8a52dc,
+        type: 3}
+      propertyPath: UsedSoundEffects.Array.data[16].audio
+      value: 
+      objectReference: {fileID: 8300000, guid: 6be33fce69078407ebeadd337e6f31fb, type: 3}
     - target: {fileID: 4762340782769584819, guid: b4352481b31e9df4abe19197df8a52dc,
         type: 3}
       propertyPath: m_IsActive
@@ -6594,7 +6599,7 @@ PrefabInstance:
     - target: {fileID: 1186363606686411412, guid: b4352481b31e9df4abe19197df8a52dc,
         type: 3}
       propertyPath: SingleSoundEffectType
-      value: 1
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4352481b31e9df4abe19197df8a52dc, type: 3}

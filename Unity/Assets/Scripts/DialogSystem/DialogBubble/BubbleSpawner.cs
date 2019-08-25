@@ -40,8 +40,12 @@ public class BubbleSpawner : MonoBehaviour
     /// <param name="isDynamic">If set to <c>true</c> is dynamic.</param>
     public void Spawn(ref Transform position,string text,float delay, bool isDynamic)
     {
+    
+        if(!soundEffectController)
+            soundEffectController = GetComponent<SoundEffectController>();
 
         soundEffectController.PlaySound();
+
 
         position.rotation = Quaternion.Euler(0, Rotation, 0);
         GameObject bubbleInstance = (GameObject)Instantiate(BubblePrefab,
