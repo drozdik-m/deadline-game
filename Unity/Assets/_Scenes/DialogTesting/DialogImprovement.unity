@@ -358,6 +358,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 23800000, guid: 38a6df5fc62814319be820259a70a637,
         type: 2}
+    - target: {fileID: 2925028876093783486, guid: b4352481b31e9df4abe19197df8a52dc,
+        type: 3}
+      propertyPath: UsedSoundEffects.Array.size
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925028876093783486, guid: b4352481b31e9df4abe19197df8a52dc,
+        type: 3}
+      propertyPath: UsedSoundEffects.Array.data[15].audio
+      value: 
+      objectReference: {fileID: 8300000, guid: 848d225117b2047fda2232892330bf43, type: 3}
+    - target: {fileID: 2925028876093783486, guid: b4352481b31e9df4abe19197df8a52dc,
+        type: 3}
+      propertyPath: UsedSoundEffects.Array.data[15].type
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925028876093783486, guid: b4352481b31e9df4abe19197df8a52dc,
+        type: 3}
+      propertyPath: UsedSoundEffects.Array.data[16].audio
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d0046cf3531541e5b9a800e1d036b81, type: 3}
+    - target: {fileID: 2925028876093783486, guid: b4352481b31e9df4abe19197df8a52dc,
+        type: 3}
+      propertyPath: UsedSoundEffects.Array.data[16].type
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 4762340782769584819, guid: b4352481b31e9df4abe19197df8a52dc,
         type: 3}
       propertyPath: m_IsActive

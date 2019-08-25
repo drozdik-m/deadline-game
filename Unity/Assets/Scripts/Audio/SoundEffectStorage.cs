@@ -93,5 +93,6 @@ public enum SoundEffectType
     ShowerSound,
     ValveSound,
     TubesSound,
-    DialogBubblePopUp
+    DialogBubblePopUp,
+    MaleMurMur
 }

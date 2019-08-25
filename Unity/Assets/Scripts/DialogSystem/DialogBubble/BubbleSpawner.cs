@@ -41,8 +41,6 @@ public class BubbleSpawner : MonoBehaviour
     public void Spawn(ref Transform position,string text,float delay, bool isDynamic)
     {
 
-
-        // Sound
         soundEffectController.PlaySound();
 
         position.rotation = Quaternion.Euler(0, Rotation, 0);

@@ -27,12 +27,15 @@ public class Bubble : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       animator = GetComponent<Animator>();
+
+        animator = GetComponent<Animator>();
         if (animator == null)
             Debug.LogError("Bubble: Animator not found");
 
         animator.Play("BubbleFadeIn");
         StartCoroutine(WaitFor(delay));
+
+
     }
 
     public void SetRef(ref Transform pos)
@@ -68,4 +71,5 @@ public class Bubble : MonoBehaviour
         yield return new WaitForSeconds(delay);
         Destroy(this);
     }
+
 }

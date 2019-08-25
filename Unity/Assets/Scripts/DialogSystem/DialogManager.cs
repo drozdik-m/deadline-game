@@ -41,6 +41,10 @@ public class DialogManager : MonoBehaviour
     /// The current delay.
     /// </summary>
     private float currentDelay;
+    /// <summary>
+    /// The sound effect controller.
+    /// </summary>
+    private SoundEffectController soundEffectController;
 
     private DialogManager()
     {
@@ -51,6 +55,12 @@ public class DialogManager : MonoBehaviour
     void Start()
     {
         currentlyDisplayed = null;
+
+        soundEffectController = GetComponent<SoundEffectController>();
+        if (!soundEffectController)
+            Debug.LogError("BubbleSpawner: SoundEffectController not found");
+
+
     }
 
     /// <summary>
@@ -155,6 +165,7 @@ public class DialogManager : MonoBehaviour
         setPlayerMovement(false);
         CancelInvoke();
         currentDelay = 0;
+        soundEffectController.StopCurrentSound();
     }
 
     private float calculateDelayToLength(string sentence)
@@ -198,6 +209,7 @@ public class DialogManager : MonoBehaviour
             currentDelay = 0;
             isActive = true;
             setPlayerMovement(isBlocking);
+//            soundEffectController.PlaySound();
             nextSentence();
             StartCoroutine(Invoker());
         }
