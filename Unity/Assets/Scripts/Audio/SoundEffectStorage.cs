@@ -92,5 +92,6 @@ public enum SoundEffectType
     QuestStackCompleted,
     ShowerSound,
     ValveSound,
-    TubesSound
+    TubesSound,
+    DialogBubblePopUp
 }
