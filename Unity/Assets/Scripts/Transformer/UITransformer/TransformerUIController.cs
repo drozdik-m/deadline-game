@@ -71,11 +71,9 @@ public class TransformerUIController : MonoBehaviour
 
     void Awake()
     {
-        var imagesStorage = GameObject.FindGameObjectWithTag("MasterUI").GetComponent<UIMaster>().InventoryUI.ImagesStorage;
-
         spritesStorage = new Dictionary<InventoryItemID, Sprite>();
 
-        foreach (var image in imagesStorage)
+        foreach (var image in GameObject.FindGameObjectWithTag("MasterUI").GetComponent<UIMaster>().InventoryUI.ImagesStorage)
         {
             spritesStorage.Add(image.type, image.sprite);
         }
