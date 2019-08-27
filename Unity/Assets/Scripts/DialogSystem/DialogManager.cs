@@ -212,6 +212,7 @@ public class DialogManager : MonoBehaviour
 
             if (!soundEffectController)
                 soundEffectController = GetComponent<SoundEffectController>();
+
             soundEffectController.PlaySound();
 
             nextSentence();
