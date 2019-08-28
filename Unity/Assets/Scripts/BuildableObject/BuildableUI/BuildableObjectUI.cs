@@ -3,26 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class BuildableObjectUI : MonoBehaviour
+public class BuildableObjectUI : MonoBehaviour
 {
     /// <summary>
     /// Text item's state (Needed, Preparing, Completed)
     /// </summary>
-    protected Text StateText;
+    protected Text stateText;
 
     /// <summary>
     /// The buildable game object refference.
     /// </summary>
-    protected GameObject BuildableGameObject;
+    protected GameObject buildableGameObject;
 
     /// <summary>
     /// Canvas of the Transformer UI object
     /// </summary>
     protected Canvas transformerUICanvas;
 
-    protected void Start()
+    public BuildableObjectUI(GameObject buildableObject, Text state, Canvas canvasUI)
     {
-        transformerUICanvas = GetComponent<Canvas>();
+        buildableGameObject = buildableObject;
+        stateText = state;
+        transformerUICanvas = canvasUI;
     }
 
     /// <summary>
@@ -44,12 +46,9 @@ public abstract class BuildableObjectUI : MonoBehaviour
     /// <summary>
     /// Changes text state
     /// </summary>
-    /// <param name="stateText">Text of the state(Needed, Preparing, Completed)</param>
-    public void UpdateState(string stateText)
+    /// <param name="text">Text of the state</param>
+    public void UpdateState(string text)
     {
-        StateText.text = stateText;
+        stateText.text = text;
     }
-
-    public abstract void ActivateUI(GameObject buildableGameObject);
-
 }
