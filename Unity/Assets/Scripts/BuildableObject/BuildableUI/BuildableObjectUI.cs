@@ -8,12 +8,22 @@ public abstract class BuildableObjectUI : MonoBehaviour
     /// <summary>
     /// Text item's state (Needed, Preparing, Completed)
     /// </summary>
-    public Text StateText;
+    protected Text StateText;
+
+    /// <summary>
+    /// The buildable game object refference.
+    /// </summary>
+    protected GameObject BuildableGameObject;
 
     /// <summary>
     /// Canvas of the Transformer UI object
     /// </summary>
-    private Canvas transformerUICanvas;
+    protected Canvas transformerUICanvas;
+
+    protected void Start()
+    {
+        transformerUICanvas = GetComponent<Canvas>();
+    }
 
     /// <summary>
     /// Opens Transformer UI
@@ -40,6 +50,6 @@ public abstract class BuildableObjectUI : MonoBehaviour
         StateText.text = stateText;
     }
 
-    public abstract void UpdateUI();
+    public abstract void ActivateUI(GameObject buildableGameObject);
 
 }
