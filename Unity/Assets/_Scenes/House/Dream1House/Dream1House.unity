@@ -483,6 +483,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1357069524018085983, guid: 5b2bbff0dbba6a84f98f5b006915e910,
+        type: 3}
+      propertyPath: TargetLocation
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357069524018085983, guid: 5b2bbff0dbba6a84f98f5b006915e910,
+        type: 3}
+      propertyPath: DoorLocation
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b2bbff0dbba6a84f98f5b006915e910, type: 3}
 --- !u!4 &684253769 stripped
