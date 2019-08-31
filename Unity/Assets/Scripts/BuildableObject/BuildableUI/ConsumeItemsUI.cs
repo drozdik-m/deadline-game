@@ -13,7 +13,12 @@ public class ConsumeItemsUI : BuildableObjectUI
     /// <summary>
     /// Background for items images, that changes dynamically
     /// </summary>
-    private RectTransform BackgroundPanel;
+    private RectTransform backgroundPanel;
+
+    /// <summary>
+    /// Prefab image for items counter
+    /// </summary>
+    private Text textPrefabCounterItems;
 
     /// <summary>
     /// Contain all the images available using the type of the item
@@ -28,22 +33,31 @@ public class ConsumeItemsUI : BuildableObjectUI
     /// <summary>
     /// List of all images, that appeared in the UI
     /// </summary>
-    private List<Image> NeededItemsImages = new List<Image>();
+    private List<Image> neededItemsImages = new List<Image>();
 
     /// <summary>
     /// Offset between images
     /// </summary>
-    private float offsetImagePosition = -0.85f;
+    private float offsetImagePosition = 1.1f;
+
+    /// <summary>
+    /// Offset between text counter
+    /// </summary>
+    private float offsetTextCounterPosition = -0.45f;
+
     /// <summary>
     /// Offset for changing background
     /// </summary>
-    private float offsetBackground = 90f;
+    private float offsetBackground = 80f;
 
-    public ConsumeItemsUI(GameObject buildableObject, Text state, Canvas canvasUI, RectTransform backgroundImagesPanel) : 
+
+    public ConsumeItemsUI(GameObject buildableObject, Text state, Canvas canvasUI, RectTransform backgroundImagesPanel, Text prefabTextCounter) : 
         base(buildableObject, state, canvasUI)
     {
+        // Set all required items
         consumeItemsStageComponent = buildableGameObject.GetComponentInChildren<ConsumeItemsStage>();
-        BackgroundPanel = backgroundImagesPanel;
+        backgroundPanel = backgroundImagesPanel;
+        textPrefabCounterItems = prefabTextCounter;
 
         foreach (var image in GameObject.FindGameObjectWithTag("MasterUI").GetComponent<UIMaster>().InventoryUI.ImagesStorage)
         {
@@ -60,12 +74,14 @@ public class ConsumeItemsUI : BuildableObjectUI
     /// </summary>
     public void UpdateNeededItemsImages()
     {
-        foreach (var item in NeededItemsImages)
+        // Delete all items images and set background panel size to zero
+        foreach (var item in neededItemsImages)
         {
             GameObject.Destroy(item.gameObject);
-            Debug.Log("destroy" + item.name);
+            backgroundPanel.offsetMax = Vector2.zero;
         }
-        NeededItemsImages.Clear();
+        neededItemsImages.Clear();
+
         CreateNewNeededItemsImages();
     }
 
@@ -77,6 +93,10 @@ public class ConsumeItemsUI : BuildableObjectUI
         Image tmpImage;
         Vector3 position = transform.position;
         int index = 0;
+
+        // Save rotation and set to zero
+        Quaternion savedRotation = transform.rotation;
+        transform.rotation = Quaternion.Euler(Vector3.zero);
 
         // Create prefab Image for each item's image
         GameObject prefabObject = new GameObject();
@@ -93,19 +113,23 @@ public class ConsumeItemsUI : BuildableObjectUI
                 // Update position
                 position += new Vector3(index * offsetImagePosition, 0, 0);
                 // Change Background panel size
-                BackgroundPanel.offsetMax += new Vector2(index * offsetBackground, 0);
+                backgroundPanel.offsetMax += new Vector2(index * offsetBackground, 0);
                 // Create new image for UI (parent will be this object)
                 tmpImage = GameObject.Instantiate<Image>(imagePrefab, position, transform.rotation, transform);
                 // Change name to item's name
                 tmpImage.name = item.Key.ToString();
 
-                ///TODO     Amount of each items, create text for each image
+                // Change rotation of the text
+                Vector3 textRotation = new Vector3(0, 180, 0);
+                // Create new items counter (parent will be image of the item)
+                GameObject.Instantiate<Text>(textPrefabCounterItems, position + new Vector3(offsetTextCounterPosition, 0.3f, 0), Quaternion.Euler(textRotation), tmpImage.transform);
 
-                NeededItemsImages.Add(tmpImage);
+                neededItemsImages.Add(tmpImage);
                 index++;
             }
         }
         GameObject.Destroy(prefabObject);
+        transform.rotation = savedRotation;
     }
 
     /// <summary>
