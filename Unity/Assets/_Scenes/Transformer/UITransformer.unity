@@ -1472,6 +1472,7 @@ GameObject:
   - component: {fileID: 1460768936}
   - component: {fileID: 1460768935}
   - component: {fileID: 1460768939}
+  - component: {fileID: 1460768940}
   m_Layer: 5
   m_Name: UITransformer
   m_TagString: Untagged
@@ -1567,7 +1568,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460768934}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57cd28ec552619d45ac7d871af6b66f5, type: 3}
   m_Name: 
@@ -1577,6 +1578,23 @@ MonoBehaviour:
   ImagePrefabItem: {fileID: 1863948384}
   TextPrefabCounterItems: {fileID: 1588418645}
   BuildableGameObject: {fileID: 549167567}
+  MinimumDistanceToAppear: 4
+--- !u!114 &1460768940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460768934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07990fecd011ee44eb3c973f6fa60f35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuildableGameObject: {fileID: 549167567}
+  BackgroundPanel: {fileID: 2134819268}
+  StateText: {fileID: 2028685919}
+  TextPrefabCounterItems: {fileID: 1588418645}
   MinimumDistanceToAppear: 4
 --- !u!1 &1476531653
 GameObject:

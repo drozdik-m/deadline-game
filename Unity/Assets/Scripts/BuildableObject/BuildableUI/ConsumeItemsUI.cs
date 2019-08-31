@@ -13,12 +13,12 @@ public class ConsumeItemsUI : BuildableObjectUI
     /// <summary>
     /// Background for items images, that changes dynamically
     /// </summary>
-    private RectTransform backgroundPanel;
+    public RectTransform backgroundPanel;
 
     /// <summary>
     /// Prefab image for items counter
     /// </summary>
-    private Text textPrefabCounterItems;
+    public Text textPrefabCounterItems;
 
     /// <summary>
     /// Contain all the images available using the type of the item
@@ -38,7 +38,7 @@ public class ConsumeItemsUI : BuildableObjectUI
     /// <summary>
     /// Offset between images
     /// </summary>
-    private float offsetImagePosition = 1.1f;
+    private float offsetImagePosition = 1f;
 
     /// <summary>
     /// Offset between text counter
@@ -48,13 +48,14 @@ public class ConsumeItemsUI : BuildableObjectUI
     /// <summary>
     /// Offset for changing background
     /// </summary>
-    private float offsetBackground = 80f;
+    private float offsetBackground = 95f;
 
 
-    public ConsumeItemsUI(GameObject buildableObject, Text state, Canvas canvasUI, RectTransform backgroundImagesPanel, Text prefabTextCounter) : 
-        base(buildableObject, state, canvasUI)
+    public void SetUI(GameObject buildableObject, Text state, Canvas canvasUI, RectTransform backgroundImagesPanel, Text prefabTextCounter) 
     {
-        // Set all required items
+        // Set all required items with base
+        base.SetUI(buildableObject, state, canvasUI);
+
         consumeItemsStageComponent = buildableGameObject.GetComponentInChildren<ConsumeItemsStage>();
         backgroundPanel = backgroundImagesPanel;
         textPrefabCounterItems = prefabTextCounter;
@@ -67,6 +68,8 @@ public class ConsumeItemsUI : BuildableObjectUI
         // Consume items events
         consumeItemsStageComponent.OnDictionaryLoaded += OnDictionaryLoaded;
         consumeItemsStageComponent.OnItemAccepted += OnItemAccepted;
+
+        UpdateNeededItemsImages();
     }
 
     /// <summary>
@@ -91,7 +94,7 @@ public class ConsumeItemsUI : BuildableObjectUI
     private void CreateNewNeededItemsImages()
     {
         Image tmpImage;
-        Vector3 position = transform.position;
+        Vector3 position;
         int index = 0;
 
         // Save rotation and set to zero
@@ -111,21 +114,25 @@ public class ConsumeItemsUI : BuildableObjectUI
                 // Get sprite
                 imagePrefab.sprite = spritesStorage[item.Key];
                 // Update position
-                position += new Vector3(index * offsetImagePosition, 0, 0);
+                position = transform.position + new Vector3(index * offsetImagePosition, 0, 0);
                 // Change Background panel size
-                backgroundPanel.offsetMax += new Vector2(index * offsetBackground, 0);
+                backgroundPanel.offsetMax = new Vector2(index * offsetBackground, 0);
                 // Create new image for UI (parent will be this object)
                 tmpImage = GameObject.Instantiate<Image>(imagePrefab, position, transform.rotation, transform);
                 // Change name to item's name
                 tmpImage.name = item.Key.ToString();
 
+                neededItemsImages.Add(tmpImage);
+                index++;
+
                 // Change rotation of the text
                 Vector3 textRotation = new Vector3(0, 180, 0);
+                // Set amount of items text
+                textPrefabCounterItems.text = item.Value.ToString();
                 // Create new items counter (parent will be image of the item)
                 GameObject.Instantiate<Text>(textPrefabCounterItems, position + new Vector3(offsetTextCounterPosition, 0.3f, 0), Quaternion.Euler(textRotation), tmpImage.transform);
 
-                neededItemsImages.Add(tmpImage);
-                index++;
+
             }
         }
         GameObject.Destroy(prefabObject);
@@ -150,7 +157,7 @@ public class ConsumeItemsUI : BuildableObjectUI
     {
         getRequiredItems();
         UpdateNeededItemsImages();
-        UpdateState("Needed");
+        UpdateStateText("Needed");
     }
 
     /// <summary>
@@ -162,6 +169,6 @@ public class ConsumeItemsUI : BuildableObjectUI
     {
         getRequiredItems();
         UpdateNeededItemsImages();
-        UpdateState("Needed");
+        UpdateStateText("Needed");
     }
 }

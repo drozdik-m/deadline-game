@@ -67,7 +67,7 @@ public class TransformerUIController : MonoBehaviour
     /// <summary>
     /// Offset for changing background
     /// </summary>
-    private float offsetBackground = 80f;
+    private float offsetBackground = 90f;
     /// <summary>
     /// Checks if items is completed
     /// </summary>
@@ -162,7 +162,7 @@ public class TransformerUIController : MonoBehaviour
     private void CreateNewNeededItemsImages()
     {
         Image tmpImage;
-        Vector3 position = transform.position;
+        Vector3 position;
         int index = 0;
 
         Quaternion originalRotation = transform.rotation;
@@ -178,9 +178,9 @@ public class TransformerUIController : MonoBehaviour
                 // Get sprite
                 ImagePrefabItem.sprite = spritesStorage[item.Key];
                 // Update position
-                position += new Vector3(index * offsetImagePosition, 0, 0);
+                position = transform.position + new Vector3(index * offsetImagePosition, 0, 0);
                 // Change Background panel size
-                BackgroundPanel.offsetMax += new Vector2(index * offsetBackground, 0);
+                BackgroundPanel.offsetMax = new Vector2(index * offsetBackground, 0);
                 // Create new image for UI (parent will be this object)
                 tmpImage = GameObject.Instantiate<Image>(ImagePrefabItem, position, transform.rotation, transform);
                 // Change name to item's name
