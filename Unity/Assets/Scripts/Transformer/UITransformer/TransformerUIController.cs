@@ -22,6 +22,11 @@ public class TransformerUIController : MonoBehaviour
     public Image ImagePrefabItem;
 
     /// <summary>
+    /// Prefab image for items images
+    /// </summary>
+    public Text TextPrefabCounterItems;
+
+    /// <summary>
     /// Canvas of the Transformer UI object
     /// </summary>
     private Canvas transformerUICanvas;
@@ -54,11 +59,15 @@ public class TransformerUIController : MonoBehaviour
     /// <summary>
     /// Offset between images
     /// </summary>
-    private float offsetImagePosition = -0.85f;
+    private float offsetImagePosition = 1.1f;
+    /// <summary>
+    /// Offset between text counter
+    /// </summary>
+    private float offsetTextCounterPosition = -0.45f;
     /// <summary>
     /// Offset for changing background
     /// </summary>
-    private float offsetBackground = 90f;
+    private float offsetBackground = 80f;
     /// <summary>
     /// Checks if items is completed
     /// </summary>
@@ -156,6 +165,10 @@ public class TransformerUIController : MonoBehaviour
         Vector3 position = transform.position;
         int index = 0;
 
+        Quaternion originalRotation = transform.rotation;
+
+        transform.rotation = Quaternion.Euler(Vector3.zero);
+
         // Create one image for each item
         foreach (var item in requiredItemsDictionary)
         {
@@ -172,10 +185,17 @@ public class TransformerUIController : MonoBehaviour
                 tmpImage = GameObject.Instantiate<Image>(ImagePrefabItem, position, transform.rotation, transform);
                 // Change name to item's name
                 tmpImage.name = item.Key.ToString();
+
                 NeededItemsImages.Add(tmpImage);
                 index++;
+
+                TextPrefabCounterItems.text = item.Value.ToString();
+                Vector3 rot = new Vector3(0, 180, 0);
+                GameObject.Instantiate<Text>(TextPrefabCounterItems, position + new Vector3(offsetTextCounterPosition, 0.3f, 0), Quaternion.Euler(rot), tmpImage.transform);
+
             }
         }
+        transform.rotation = originalRotation;
     }
 
     /// <summary>
@@ -187,6 +207,7 @@ public class TransformerUIController : MonoBehaviour
         {
             GameObject.Destroy(item.gameObject);
             Debug.Log("destroy" + item.name);
+            BackgroundPanel.offsetMax = Vector2.zero;
         }
         NeededItemsImages.Clear();
         CreateNewNeededItemsImages();
