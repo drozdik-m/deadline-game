@@ -50,11 +50,10 @@ public class ConsumeItemsUI : BuildableObjectUI
     /// </summary>
     private float offsetBackground = 95f;
 
-
-    public void SetUI(GameObject buildableObject, Text state, Canvas canvasUI, RectTransform backgroundImagesPanel, Text prefabTextCounter) 
+    public void SetUI(GameObject buildableObject, Text state, RectTransform backgroundImagesPanel, Text prefabTextCounter) 
     {
         // Set all required items with base
-        base.SetUI(buildableObject, state, canvasUI);
+        base.SetUI(buildableObject, state);
 
         consumeItemsStageComponent = buildableGameObject.GetComponentInChildren<ConsumeItemsStage>();
         backgroundPanel = backgroundImagesPanel;
@@ -68,7 +67,11 @@ public class ConsumeItemsUI : BuildableObjectUI
         // Consume items events
         consumeItemsStageComponent.OnDictionaryLoaded += OnDictionaryLoaded;
         consumeItemsStageComponent.OnItemAccepted += OnItemAccepted;
+    }
 
+    public override void Activate()
+    {
+        backgroundPanel.gameObject.SetActive(true);
         UpdateNeededItemsImages();
     }
 

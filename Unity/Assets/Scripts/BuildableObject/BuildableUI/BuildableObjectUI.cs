@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuildableObjectUI : MonoBehaviour
+public abstract class BuildableObjectUI : MonoBehaviour
 {
     /// <summary>
     /// Text item's state (Needed, Preparing, Completed)
@@ -15,16 +15,12 @@ public class BuildableObjectUI : MonoBehaviour
     /// </summary>
     public GameObject buildableGameObject;
 
-    /// <summary>
-    /// Canvas of the Transformer UI object
-    /// </summary>
-    public Canvas transformerUICanvas;
+    public abstract void Activate();
 
-    public virtual void SetUI(GameObject buildableObject, Text state, Canvas canvasUI)
+    public virtual void SetUI(GameObject buildableObject, Text state)
     {
         buildableGameObject = buildableObject;
         stateText = state;
-        transformerUICanvas = canvasUI;
     }
 
     /// <summary>

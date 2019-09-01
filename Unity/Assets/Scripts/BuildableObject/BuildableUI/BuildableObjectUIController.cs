@@ -26,6 +26,8 @@ public class BuildableObjectUIController : MonoBehaviour
     /// </summary>
     public Text TextPrefabCounterItems;
 
+    public Slider ProgressProcentSlider;
+
     /// <summary>
     /// Minimum disstance to the player to appear
     /// </summary>
@@ -36,13 +38,21 @@ public class BuildableObjectUIController : MonoBehaviour
     /// </summary>
     private Canvas transformerUICanvas;
 
-    private BuildableObjectUI currentStage;
+    /// <summary>
+    /// Checks if items is completed
+    /// </summary>
+    private bool isCompleted = false;
+
+    private BuildableObjectUI currentStageUI;
 
     private void Start()
     {
         transformerUICanvas = GetComponent<Canvas>();
+
+        SetNewStage (BuildableGameObject.GetComponent<BuildStageCollection>().stages[0]);
+        currentStageUI.Activate();
+
         BuildableGameObject.GetComponent<BuildableObject>().OnChange += OnChangeStage;
-        SetNewStage(BuildableGameObject.GetComponent<BuildStageCollection>().stages[0]);
     }
 
     private void Update()
@@ -62,7 +72,8 @@ public class BuildableObjectUIController : MonoBehaviour
     /// </summary>
     public void OpenUIDialog()
     {
-        transformerUICanvas.enabled = true;
+        if(!isCompleted)
+            transformerUICanvas.enabled = true;
     }
 
     /// <summary>
@@ -76,28 +87,52 @@ public class BuildableObjectUIController : MonoBehaviour
     private void SetNewStage(BuildStage buildStage)
     { 
         Type stageType = buildStage.GetType();
-        GameObject prefabGameObject = new GameObject();
+        Debug.Log("It is " + stageType.Name);
 
         if (stageType == typeof(ConsumeItemsStage))
         {
-            Debug.Log("It is " + stageType.Name);
-
-            GameObject stageUIGameObject = GameObject.Instantiate(prefabGameObject, transform.position, transform.rotation, transform);
-
-            // Create prefab Image for each item's image
-            ConsumeItemsUI stageUI = stageUIGameObject.AddComponent<ConsumeItemsUI>();
-            stageUIGameObject.AddComponent<RectTransform>();
-            stageUI.SetUI(BuildableGameObject, StateText, transformerUICanvas, BackgroundPanel, TextPrefabCounterItems);
-
-            currentStage = stageUI;
+            ConsumeItemsUI stageUI = new ConsumeItemsUI();
+            CreateNewStageUI(ref stageUI);
+            stageUI.SetUI(BuildableGameObject, StateText, BackgroundPanel, TextPrefabCounterItems);
+            ProgressProcentSlider.gameObject.SetActive(false);
+            currentStageUI = stageUI;
         }
+        else if (stageType == typeof(WaitAndGive))
+        {
+            WaitAndGiveUI stageUI = new WaitAndGiveUI();
+            CreateNewStageUI(ref stageUI);
+            stageUI.SetUI(BuildableGameObject, StateText, ProgressProcentSlider);
+            BackgroundPanel.gameObject.SetActive(false);
+            currentStageUI = stageUI;
+        }
+    }
+
+    private void CreateNewStageUI<T>(ref T stageUI) where T : BuildableObjectUI
+    {
+        GameObject prefabGameObject = new GameObject();
+        GameObject stageUIGameObject = GameObject.Instantiate(prefabGameObject, transform.position, transform.rotation, transform);
+
+        // Create prefab Image for each item's image
+        stageUI = stageUIGameObject.AddComponent<T>();
+        stageUIGameObject.AddComponent<RectTransform>();
 
         GameObject.Destroy(prefabGameObject);
     }
 
     public void OnChangeStage(BuildableObject caller, BuildStageChangeEventArgs e)
     {
+        GameObject.Destroy(currentStageUI.gameObject);
+       
         SetNewStage(e.buildStage);
+
+        currentStageUI.Activate();
+    }
+
+    public void OnBuildStageFinished(BuildableObject caller, BuildStageFinishedEventArgs e)
+    {
+        GameObject.Destroy(currentStageUI.gameObject);
+
+        isCompleted = true;
     }
 
     bool CheckCloseToTag()
