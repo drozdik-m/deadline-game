@@ -9,14 +9,11 @@ public class StageReactionCondition : Stage
     /// </summary>
     public Condition Condition;
 
-    /// <summary>
-    /// New satisfied value for condition
-    /// </summary>
-    public bool Satisfied;
-
     public override bool ReadyForNextStage()
     {
-        return true;
+        if (Condition == null)
+            return false;
+        return Condition.satisfied;
     }
 
     public override void StageEnd()
@@ -26,7 +23,7 @@ public class StageReactionCondition : Stage
 
     public override void StageLoad()
     {
-        Condition.satisfied = Satisfied;
+        
     }
 
     public override void StageFixedUpdate()
