@@ -12,9 +12,20 @@ public class StageConditionalSubManager : StageSubManager
     /// </summary>
     public Condition Condition = null;
 
+    private bool originalCondition;
+
+    public override bool ReadyForNextStage()
+    {
+        if (!originalCondition)
+            return true;
+        if (StageManager == null)
+            return false;
+        return StageManager.IsFinished();
+    }
+
     public override void StageLoad()
     {
-        if (Condition != null && Condition.satisfied)
+        if (Condition != null && (originalCondition = Condition.satisfied))
         {
             if (StageManager == null)
                 StageManager = GetComponent<StageManager>();
