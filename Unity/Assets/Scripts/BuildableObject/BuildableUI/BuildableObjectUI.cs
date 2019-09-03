@@ -16,6 +16,7 @@ public abstract class BuildableObjectUI : MonoBehaviour
     public GameObject buildableGameObject;
 
     public abstract void Activate();
+    public abstract void Deactivate();
 
     public virtual void SetUI(GameObject buildableObject, Text state)
     {

@@ -24,8 +24,7 @@ public class WaitAndGiveUI : BuildableObjectUI
         waitAndGiveComponent = buildableGameObject.GetComponentInChildren<WaitAndGive>();
         delay = waitAndGiveComponent.Delay;
 
-        // Consume items events
-        waitAndGiveComponent.OnTransformationStarted += OnTransformationStarted;
+        // Consume items event
         waitAndGiveComponent.OnTransformationFinished += OnTransformationFinished;
     }
 
@@ -36,16 +35,9 @@ public class WaitAndGiveUI : BuildableObjectUI
         StartCoroutine(LoadProgressEnumerator());
     }
 
-    /// <summary>
-    /// Transformation of the item is started
-    /// </summary>
-    /// <param name="source">Source.</param>
-    /// <param name="consumeItemsStageArgs">Wait and give stage arguments.</param>
-    public void OnTransformationStarted(BuildStage source, WaitAndGiveArgs consumeItemsStageArgs)
+    public override void Deactivate()
     {
-        // When transformation starts
-        UpdateStateText("Preparing");
-        StartCoroutine(LoadProgressEnumerator());
+        progressSlider.gameObject.SetActive(false);
     }
 
     private IEnumerator LoadProgressEnumerator()

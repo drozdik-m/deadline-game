@@ -75,6 +75,11 @@ public class ConsumeItemsUI : BuildableObjectUI
         UpdateNeededItemsImages();
     }
 
+    public override void Deactivate()
+    {
+        backgroundPanel.gameObject.SetActive(false);
+    }
+
     /// <summary>
     /// Updates items images in the UI
     /// </summary>

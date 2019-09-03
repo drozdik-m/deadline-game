@@ -53,6 +53,7 @@ public class BuildableObjectUIController : MonoBehaviour
         currentStageUI.Activate();
 
         BuildableGameObject.GetComponent<BuildableObject>().OnChange += OnChangeStage;
+        BuildableGameObject.GetComponent<BuildableObject>().OnFinished += OnBuildStageFinished;
     }
 
     private void Update()
@@ -94,7 +95,6 @@ public class BuildableObjectUIController : MonoBehaviour
             ConsumeItemsUI stageUI = new ConsumeItemsUI();
             CreateNewStageUI(ref stageUI);
             stageUI.SetUI(BuildableGameObject, StateText, BackgroundPanel, TextPrefabCounterItems);
-            ProgressProcentSlider.gameObject.SetActive(false);
             currentStageUI = stageUI;
         }
         else if (stageType == typeof(WaitAndGive))
@@ -102,7 +102,27 @@ public class BuildableObjectUIController : MonoBehaviour
             WaitAndGiveUI stageUI = new WaitAndGiveUI();
             CreateNewStageUI(ref stageUI);
             stageUI.SetUI(BuildableGameObject, StateText, ProgressProcentSlider);
-            BackgroundPanel.gameObject.SetActive(false);
+            currentStageUI = stageUI;
+        }
+        else if (stageType == typeof(ConsumeItemStage))
+        {
+            ConsumeItemUI stageUI = new ConsumeItemUI();
+            CreateNewStageUI(ref stageUI);
+            stageUI.SetUI(BuildableGameObject, StateText, BackgroundPanel);
+            currentStageUI = stageUI;
+        }
+        else if (stageType == typeof(NoItemStage))
+        {
+            NoItemUI stageUI = new NoItemUI();
+            CreateNewStageUI(ref stageUI);
+            stageUI.SetUI(BuildableGameObject, StateText);
+            currentStageUI = stageUI;
+        }
+        else if (stageType == typeof(PersistentItemStage))
+        {
+            PersistentItemUI stageUI = new PersistentItemUI();
+            CreateNewStageUI(ref stageUI);
+            stageUI.SetUI(BuildableGameObject, StateText, BackgroundPanel);
             currentStageUI = stageUI;
         }
     }
@@ -121,6 +141,7 @@ public class BuildableObjectUIController : MonoBehaviour
 
     public void OnChangeStage(BuildableObject caller, BuildStageChangeEventArgs e)
     {
+        currentStageUI.Deactivate();
         GameObject.Destroy(currentStageUI.gameObject);
        
         SetNewStage(e.buildStage);
@@ -133,6 +154,8 @@ public class BuildableObjectUIController : MonoBehaviour
         GameObject.Destroy(currentStageUI.gameObject);
 
         isCompleted = true;
+
+        Debug.Log("Completed");
     }
 
     bool CheckCloseToTag()
