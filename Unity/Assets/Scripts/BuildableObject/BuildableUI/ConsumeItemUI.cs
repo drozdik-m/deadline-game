@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class represents UI for consume item stage
+/// </summary>
 public class ConsumeItemUI : BuildableObjectUI
 {
     /// <summary>
@@ -10,10 +13,22 @@ public class ConsumeItemUI : BuildableObjectUI
     /// </summary>
     private RectTransform backgroundPanel;
 
+    /// <summary>
+    /// Consume Item stage component
+    /// </summary>
     private ConsumeItemStage consumeItemStageComponent;
 
+    /// <summary>
+    /// Sprite of the desired item
+    /// </summary>
     private Sprite desiredItemSprite;
 
+    /// <summary>
+    /// Sets necessary values for stage UI
+    /// </summary>
+    /// <param name="buildableObject">Game Object that contains Buildable object</param>
+    /// <param name="state">State text UI</param>
+    /// <param name="backgroundImagesPanel">Background for Items images</param>
     public void SetUI(GameObject buildableObject, Text state, RectTransform backgroundImagesPanel)
     {
         // Set all required items with base
@@ -31,6 +46,9 @@ public class ConsumeItemUI : BuildableObjectUI
         }
     }
 
+    /// <summary>
+    /// Activates stage UI
+    /// </summary>
     public override void Activate()
     {
         backgroundPanel.gameObject.SetActive(true);
@@ -38,11 +56,17 @@ public class ConsumeItemUI : BuildableObjectUI
         CreateNewDesiredItem();
     }
 
+    /// <summary>
+    /// Deactivates stage UI
+    /// </summary>
     public override void Deactivate()
     {
         backgroundPanel.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Creates and sets new Image for desired Item
+    /// </summary>
     private void CreateNewDesiredItem()
     {
         Image tmpImage;

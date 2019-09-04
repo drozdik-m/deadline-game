@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class represents UI for consume items stage
+/// </summary>
 public class ConsumeItemsUI : BuildableObjectUI
 {
     /// <summary>
-    /// The consume items stage component.
+    /// Consume items stage component.
     /// </summary>
     private ConsumeItemsStage consumeItemsStageComponent;
 
@@ -50,6 +53,13 @@ public class ConsumeItemsUI : BuildableObjectUI
     /// </summary>
     private float offsetBackground = 95f;
 
+    /// <summary>
+    /// Sets necessary values for stage UI
+    /// </summary>
+    /// <param name="buildableObject">Game Object that contains Buildable object</param>
+    /// <param name="state">State text UI</param>
+    /// <param name="backgroundImagesPanel">Background for Items images</param>
+    /// <param name="prefabTextCounter">Prefab of the text for counter of desired Items</param>
     public void SetUI(GameObject buildableObject, Text state, RectTransform backgroundImagesPanel, Text prefabTextCounter) 
     {
         // Set all required items with base
@@ -69,12 +79,18 @@ public class ConsumeItemsUI : BuildableObjectUI
         consumeItemsStageComponent.OnItemAccepted += OnItemAccepted;
     }
 
+    /// <summary>
+    /// Activates stage UI
+    /// </summary>
     public override void Activate()
     {
         backgroundPanel.gameObject.SetActive(true);
         UpdateNeededItemsImages();
     }
 
+    /// <summary>
+    /// Deactivates stage UI
+    /// </summary>
     public override void Deactivate()
     {
         backgroundPanel.gameObject.SetActive(false);

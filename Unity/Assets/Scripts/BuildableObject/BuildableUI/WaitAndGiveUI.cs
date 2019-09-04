@@ -3,22 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class represents UI for wait and give item stage
+/// </summary>
 public class WaitAndGiveUI : BuildableObjectUI
 {
-    public Slider progressSlider;
+    /// <summary>
+    /// Slider for progress of preparing Item
+    /// </summary>
+    private Slider progressSlider;
 
-    public Text procentText;
+    /// <summary>
+    /// Text procent of prepared Item
+    /// </summary>
+    private Text procentText;
 
     /// <summary>
     /// Wait and give item stage component
     /// </summary>
-    public WaitAndGive waitAndGiveComponent;
+    private WaitAndGive waitAndGiveComponent;
 
+    /// <summary>
+    /// Time for preparing Item
+    /// </summary>
     private float delay;
 
+    /// <summary>
+    /// Sets necessary values for stage UI
+    /// </summary>
+    /// <param name="buildableObject">Game Object that contains Buildable object</param>
+    /// <param name="state">State text UI</param>
+    /// <param name="progressProcentSlider">Slider for progress of preparing Item</param>
     public void SetUI(GameObject buildableObject, Text state, Slider progressProcentSlider)
     {
         base.SetUI(buildableObject, state);
+
         progressSlider = progressProcentSlider;
         procentText = progressSlider.GetComponentInChildren<Text>();
         waitAndGiveComponent = buildableGameObject.GetComponentInChildren<WaitAndGive>();
@@ -28,6 +47,9 @@ public class WaitAndGiveUI : BuildableObjectUI
         waitAndGiveComponent.OnTransformationFinished += OnTransformationFinished;
     }
 
+    /// <summary>
+    /// Activates stage UI
+    /// </summary>
     public override void Activate()
     {
         progressSlider.gameObject.SetActive(true);
@@ -35,11 +57,18 @@ public class WaitAndGiveUI : BuildableObjectUI
         StartCoroutine(LoadProgressEnumerator());
     }
 
+    /// <summary>
+    /// Deactivates stage UI
+    /// </summary>
     public override void Deactivate()
     {
         progressSlider.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Update progress UI every frame
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator LoadProgressEnumerator()
     {
         // Time, when the script was run
