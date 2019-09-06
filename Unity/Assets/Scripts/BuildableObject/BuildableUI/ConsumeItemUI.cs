@@ -52,7 +52,7 @@ public class ConsumeItemUI : BuildableObjectUI
     public override void Activate()
     {
         backgroundPanel.gameObject.SetActive(true);
-        UpdateStateText("Needed");
+        UpdateStateText("Need");
         CreateNewDesiredItem();
     }
 

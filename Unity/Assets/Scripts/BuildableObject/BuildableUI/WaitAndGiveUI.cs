@@ -99,7 +99,7 @@ public class WaitAndGiveUI : BuildableObjectUI
     public void OnTransformationFinished(BuildStage source, WaitAndGiveArgs consumeItemsStageArgs)
     {
         // When transformation finished
-        UpdateStateText("Completed");
+        UpdateStateText("Complete");
         StopAllCoroutines();
         progressSlider.value = 100.0f;
         procentText.text = "100%";

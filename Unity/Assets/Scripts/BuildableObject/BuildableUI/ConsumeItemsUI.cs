@@ -181,7 +181,7 @@ public class ConsumeItemsUI : BuildableObjectUI
     {
         getRequiredItems();
         UpdateNeededItemsImages();
-        UpdateStateText("Needed");
+        UpdateStateText("Need");
     }
 
     /// <summary>
@@ -193,6 +193,6 @@ public class ConsumeItemsUI : BuildableObjectUI
     {
         getRequiredItems();
         UpdateNeededItemsImages();
-        UpdateStateText("Needed");
+        UpdateStateText("Need");
     }
 }
