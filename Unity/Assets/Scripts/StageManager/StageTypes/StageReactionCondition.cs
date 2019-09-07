@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Changes satisfied state of a condition
+/// </summary>
 public class StageReactionCondition : Stage
 {
     /// <summary>
@@ -9,11 +12,14 @@ public class StageReactionCondition : Stage
     /// </summary>
     public Condition Condition;
 
+    /// <summary>
+    /// New satisfied value for condition
+    /// </summary>
+    public bool Satisfied;
+
     public override bool ReadyForNextStage()
     {
-        if (Condition == null)
-            return false;
-        return Condition.satisfied;
+        return true;
     }
 
     public override void StageEnd()
@@ -23,7 +29,7 @@ public class StageReactionCondition : Stage
 
     public override void StageLoad()
     {
-        
+        Condition.satisfied = Satisfied;
     }
 
     public override void StageFixedUpdate()

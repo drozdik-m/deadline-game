@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlickeringLight : MonoBehaviour
 {
-    Light light;
+    public new Light light;
 
     /// <summary>
     /// Bottom limit of waiting time
