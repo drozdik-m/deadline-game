@@ -20,6 +20,29 @@ MonoBehaviour:
   - {fileID: 114500123606575120}
   - {fileID: 114950330937588998}
   - {fileID: 114080199412182666}
+  - {fileID: 114496156788161312}
+  - {fileID: 114013746504252048}
+  - {fileID: 114793037607939964}
+  - {fileID: 114492798104735998}
+  - {fileID: 114521848893167140}
+  - {fileID: 114485809332491114}
+  - {fileID: 114910278427709820}
+  - {fileID: 114155399692788714}
+  - {fileID: 114986812942250282}
+--- !u!114 &114013746504252048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: KitchenDoor
+  m_EditorClassIdentifier: 
+  description: KitchenDoor
+  satisfied: 1
 --- !u!114 &114080199412182666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33,6 +56,20 @@ MonoBehaviour:
   m_Name: BrokerDialogFinished
   m_EditorClassIdentifier: 
   description: BrokerDialogFinished
+  satisfied: 0
+--- !u!114 &114155399692788714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: BathroomLastDoor
+  m_EditorClassIdentifier: 
+  description: BathroomLastDoor
   satisfied: 0
 --- !u!114 &114309623241424138
 MonoBehaviour:
@@ -62,6 +99,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: NoWater
   satisfied: 0
+--- !u!114 &114485809332491114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: CellarReadyCondition
+  m_EditorClassIdentifier: 
+  description: CellarReadyCondition
+  satisfied: 0
+--- !u!114 &114492798104735998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: BathroomDoor
+  m_EditorClassIdentifier: 
+  description: BathroomDoor
+  satisfied: 1
+--- !u!114 &114496156788161312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: KitchenReadyCondition
+  m_EditorClassIdentifier: 
+  description: KitchenReadyCondition
+  satisfied: 0
 --- !u!114 &114500123606575120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,6 +154,20 @@ MonoBehaviour:
   m_Name: NeedAFix
   m_EditorClassIdentifier: 
   description: NeedAFix
+  satisfied: 0
+--- !u!114 &114521848893167140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: BathroomReadyCondition
+  m_EditorClassIdentifier: 
+  description: BathroomReadyCondition
   satisfied: 0
 --- !u!114 &114572117426428046
 MonoBehaviour:
@@ -104,6 +197,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: WaterIsOn
   satisfied: 0
+--- !u!114 &114793037607939964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: CellarDoor
+  m_EditorClassIdentifier: 
+  description: CellarDoor
+  satisfied: 0
+--- !u!114 &114910278427709820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: KitchenLastDoor
+  m_EditorClassIdentifier: 
+  description: KitchenLastDoor
+  satisfied: 0
 --- !u!114 &114950330937588998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,3 +239,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: IAmClean
   satisfied: 0
+--- !u!114 &114986812942250282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: CellarLastDoor
+  m_EditorClassIdentifier: 
+  description: CellarLastDoor
+  satisfied: 1
