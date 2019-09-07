@@ -2229,7 +2229,7 @@ GameObject:
   - component: {fileID: 601475573}
   - component: {fileID: 601475574}
   m_Layer: 0
-  m_Name: '#32 [StageComponentActivity] TurnOnDoorAnimator'
+  m_Name: '#33 [StageComponentActivity] TurnOnDoorAnimator'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2247,7 +2247,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &601475574
 MonoBehaviour:
@@ -2417,6 +2417,7 @@ MonoBehaviour:
   - {fileID: 1792933324}
   - {fileID: 1738039721}
   - {fileID: 1720809845}
+  - {fileID: 1038882385}
   - {fileID: 1415106174}
   - {fileID: 736359208}
   - {fileID: 1941420776}
@@ -2615,7 +2616,7 @@ GameObject:
   - component: {fileID: 708368761}
   - component: {fileID: 708368760}
   m_Layer: 0
-  m_Name: '#31 [StageConditionalSubManager] CellarLastRoom'
+  m_Name: '#32 [StageConditionalSubManager] CellarLastRoom'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2634,7 +2635,7 @@ Transform:
   m_Children:
   - {fileID: 734829668}
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &708368760
 MonoBehaviour:
@@ -2811,7 +2812,7 @@ GameObject:
   - component: {fileID: 736359207}
   - component: {fileID: 736359208}
   m_Layer: 0
-  m_Name: '#28 [StageMonologSync] Locked'
+  m_Name: '#29 [StageMonologSync] Locked'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2829,7 +2830,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &736359208
 MonoBehaviour:
@@ -3037,7 +3038,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &824376624
 MonoBehaviour:
@@ -3270,7 +3271,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &844319412
 MonoBehaviour:
@@ -3715,6 +3716,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0
   intecationEventMiddleman: {fileID: 3305354240079585579}
+--- !u!1 &1038882383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1038882384}
+  - component: {fileID: 1038882385}
+  m_Layer: 0
+  m_Name: '#21 [StageMonologSync] Nothing'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1038882384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038882383}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1613110960}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1038882385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038882383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e0245c24a1008c4680441421928a839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogManager: {fileID: 0}
+  WhatToSay: {fileID: 11400000, guid: 1648754c9f09cf74ab34ba39383a7c19, type: 2}
 --- !u!1 &1044322020
 GameObject:
   m_ObjectHideFlags: 0
@@ -4029,7 +4075,7 @@ GameObject:
   - component: {fileID: 1164634143}
   - component: {fileID: 1164634142}
   m_Layer: 0
-  m_Name: '#33 [StageComponentActivity] TurnOnController'
+  m_Name: '#34 [StageComponentActivity] TurnOnController'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4062,7 +4108,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1168666882
 GameObject:
@@ -4658,7 +4704,7 @@ GameObject:
   - component: {fileID: 1415106174}
   - component: {fileID: 1415106173}
   m_Layer: 0
-  m_Name: '#21 [StageQuestStack] ReturnToLivingroom'
+  m_Name: '#28 [StageQuestStack] ReturnToLivingroom'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4677,7 +4723,7 @@ Transform:
   m_Children:
   - {fileID: 961252354}
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1415106173
 MonoBehaviour:
@@ -5108,7 +5154,7 @@ GameObject:
   - component: {fileID: 1542899213}
   - component: {fileID: 1542899212}
   m_Layer: 0
-  m_Name: '#30 [StageConditionalSubManager] BathroomLastRoom'
+  m_Name: '#31 [StageConditionalSubManager] BathroomLastRoom'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5127,7 +5173,7 @@ Transform:
   m_Children:
   - {fileID: 1576658001}
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1542899212
 MonoBehaviour:
@@ -5332,6 +5378,7 @@ Transform:
   - {fileID: 1738039719}
   - {fileID: 1720809844}
   - {fileID: 2044568686}
+  - {fileID: 1038882384}
   - {fileID: 1415106172}
   - {fileID: 736359207}
   - {fileID: 1941420774}
@@ -5615,6 +5662,7 @@ MonoBehaviour:
   - {fileID: 5053521731215344781}
   - {fileID: 2442903135474566890}
   - {fileID: 1474023109003353964}
+  - {fileID: 123774161}
 --- !u!4 &1722376828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2168025629113795651, guid: af355758c90d6854099afdf0f814f95d,
@@ -6436,7 +6484,7 @@ GameObject:
   - component: {fileID: 1941420776}
   - component: {fileID: 1941420775}
   m_Layer: 0
-  m_Name: '#29 [StageConditionalSubManager] KitchenLastRoom'
+  m_Name: '#30 [StageConditionalSubManager] KitchenLastRoom'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6455,7 +6503,7 @@ Transform:
   m_Children:
   - {fileID: 1914599890}
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1941420775
 MonoBehaviour:
