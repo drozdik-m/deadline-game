@@ -13,6 +13,9 @@ public abstract class Tab : MonoBehaviour
     /// </summary>
     private MenuTabsManager tabsManager;
 
+    /// <summary>
+    /// Button which activate this tab
+    /// </summary>
     public Button ActivationButton;
 
     protected void Awake()
