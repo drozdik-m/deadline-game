@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+using UnityEngine.UI;
 
 /// <summary>
 /// Class controlls all tabs settings and there UI representation. 
@@ -11,12 +11,22 @@ public class MenuTabsManager : MonoBehaviour
     /// <summary>
     /// Active tab
     /// </summary>
-    public Tab ActiveTab;
+    private Tab activeTab;
 
     /// <summary>
-    /// Gameobject that has all tabs children
+    /// Game object that has all tabs children
     /// </summary>
     public GameObject Tabs;
+
+    /// <summary>
+    /// Game object that has all buttons children
+    /// </summary>
+    public GameObject Buttons;
+
+    /// <summary>
+    /// Prefab for Display dialog
+    /// </summary>
+    public DisplayDialog DisplayDialogUI;
 
     /// <summary>
     /// All children tabs of GameObject Tabs
@@ -33,7 +43,7 @@ public class MenuTabsManager : MonoBehaviour
         }
 
         // At the begining first tab will be active as default 
-        ActiveTab = allTabs[0];
+        activeTab = allTabs[0];
         CloseMenu();
     }
 
@@ -46,7 +56,7 @@ public class MenuTabsManager : MonoBehaviour
         {
             transform.GetChild(i).gameObject.SetActive(true);
         }
-        OpenTab(ActiveTab);
+        OpenTab(activeTab);
     }
 
     /// <summary>
@@ -66,8 +76,10 @@ public class MenuTabsManager : MonoBehaviour
     /// <param name="tab">Tab, that should be opened</param>
     public void OpenTab(Tab tab)
     {
-        ActiveTab = tab;
+        activeTab = tab;
         tab.gameObject.SetActive(true);
+        tab.ActivationButton.GetComponent<Image>().color = Color.gray;
+        tab.ActivationButton.GetComponentInChildren<Text>().color = Color.white;
     }
 
     /// <summary>
@@ -77,6 +89,18 @@ public class MenuTabsManager : MonoBehaviour
     public void CloseTab(Tab tab)
     {
         tab.gameObject.SetActive(false);
+        tab.ActivationButton.GetComponent<Image>().color = Color.white;
+        tab.ActivationButton.GetComponentInChildren<Text>().color = Color.black;
+    }
+
+    /// <summary>
+    /// Closes active tab
+    /// </summary>
+    public void CloseActiveTab()
+    {
+        activeTab.gameObject.SetActive(false);
+        activeTab.ActivationButton.GetComponent<Image>().color = Color.white;
+        activeTab.ActivationButton.GetComponentInChildren<Text>().color = Color.black;
     }
 
     /// <summary>
@@ -84,7 +108,31 @@ public class MenuTabsManager : MonoBehaviour
     /// </summary>
     public void SaveSettingsData()
     {
-        if(EditorUtility.DisplayDialog("Save settings", "Do you want to save changes?", "Yes", "No"))
+        DisplayDialog dialog = GameObject.Instantiate<DisplayDialog>(DisplayDialogUI, transform.position, transform.rotation, transform);
+
+        // Disable all buttons
+        foreach (var button in Buttons.gameObject.GetComponentsInChildren<Button>())
+        {
+            button.interactable = false;
+        }
+
+        StartCoroutine(AnswerSelectionEnumerator(dialog));
+    }
+
+    /// <summary>
+    /// Waits until player choose one of the options
+    /// </summary>
+    /// <param name="dialog">Display dialog</param>
+    /// <returns></returns>
+    private IEnumerator AnswerSelectionEnumerator(DisplayDialog dialog)
+    {
+        // Wait until player chooses one of the options
+        while (!dialog.FalseState && !dialog.TrueState)
+        {
+            yield return null;
+        }
+
+        if (dialog.TrueState)
         {
             foreach (var item in allTabs)
             {
@@ -92,5 +140,14 @@ public class MenuTabsManager : MonoBehaviour
             }
             PlayerPrefs.SetInt("Saved", 1);
         }
+
+        foreach (var button in Buttons.gameObject.GetComponentsInChildren<Button>())
+        {
+            button.interactable = true;
+        }
+
+        GameObject.Destroy(dialog.gameObject);
+
+        yield break;
     }
 }

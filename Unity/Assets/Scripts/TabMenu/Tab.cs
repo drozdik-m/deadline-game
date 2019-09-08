@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Class represent single tab for MenuTabs manager. Inherited by another classes, that will represent settings.
@@ -12,6 +12,8 @@ public abstract class Tab : MonoBehaviour
     /// MenuTabs manager
     /// </summary>
     private MenuTabsManager tabsManager;
+
+    public Button ActivationButton;
 
     protected void Awake()
     {
@@ -34,7 +36,7 @@ public abstract class Tab : MonoBehaviour
     /// </summary>
     public void Open()
     {
-        tabsManager.CloseTab(tabsManager.ActiveTab);
+        tabsManager.CloseActiveTab();
         tabsManager.OpenTab(this);
     }
 
