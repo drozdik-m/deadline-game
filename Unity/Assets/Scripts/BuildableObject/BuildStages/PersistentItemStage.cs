@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +17,14 @@ public class PersistentItemStage : BuildStage
     /// The desired item id that player need to get through stage
     /// </summary>
     public InventoryItemID desiredItem;
+
+    public override Type UIBuildableStageType
+    {
+        get
+        {
+            return typeof(PersistentItemUI);
+        }
+    }
 
     /// <summary>
     /// Checks if the conditions for going to next stage are satisfied

@@ -134,48 +134,7 @@ public class BuildableObjectUIController : MonoBehaviour
     /// <param name="buildStage">New build stage</param>
     private void SetNewStage(BuildStage buildStage)
     {
-        //var stageType = buildStage.GetType();
-        //Debug.Log("It is " + stageType.Name);
-
         currentStageUI = CreateNewStageUI(buildStage);
-
-        /*//Get the target method
-        var createMethod = typeof(BuildableObjectUIController).GetMethods()
-            .Where(e => e.Name == "CreateNewStageUI")
-            .SingleOrDefault();;
-        if (createMethod == null)
-            Debug.LogError("createMethod not found");
-
-        //Create the method with target generic parameters
-        var genericMethod = createMethod.MakeGenericMethod(new[] { stageType });
-
-        //Invoke the method
-        genericMethod.Invoke(this, new object[0]);*/
-
-
-        // For each stage creates specific stage UI
-        /*if (stageType == typeof(ConsumeItemsStage))
-        {
-            currentStageUI = CreateNewStageUI<ConsumeItemsUI>();
-        }
-        else if (stageType == typeof(WaitAndGive))
-        {
-            currentStageUI = CreateNewStageUI<WaitAndGiveUI>();
-        }
-        else if (stageType == typeof(ConsumeItemStage))
-        {
-            currentStageUI = CreateNewStageUI<ConsumeItemUI>();
-        }
-        else if (stageType == typeof(NoItemStage))
-        {
-            currentStageUI = CreateNewStageUI<NoItemUI>();
-        }
-        else if (stageType == typeof(PersistentItemStage))
-        {
-            currentStageUI = CreateNewStageUI<PersistentItemUI>();
-        }*/
-
-
         currentStageUI.SetUI(allArguments);
     }
 
@@ -222,8 +181,6 @@ public class BuildableObjectUIController : MonoBehaviour
         GameObject.Destroy(currentStageUI.gameObject);
 
         isCompleted = true;
-
-        Debug.Log("Completed");
     }
 
     /// <summary>

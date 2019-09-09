@@ -78,5 +78,7 @@ public class ConsumeItemUI : BuildableObjectUI
         imagePrefab.sprite = desiredItemSprite;
         tmpImage = GameObject.Instantiate<Image>(imagePrefab, transform.position, transform.rotation, transform);
         tmpImage.name = consumeItemStageComponent.desiredItem.ToString();
+
+        Destroy(prefabObject);
     }
 }

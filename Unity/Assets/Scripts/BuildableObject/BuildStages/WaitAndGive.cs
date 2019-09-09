@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public delegate void WaitAndGiveHanlder(BuildStage source, WaitAndGiveArgs consumeItemsStageArgs);
@@ -38,6 +39,14 @@ public class WaitAndGive : BuildStage
     /// The item provider.
     /// </summary>
     public ItemProvider ItemProvider;
+
+    public override Type UIBuildableStageType
+    {
+        get
+        {
+            return typeof(WaitAndGiveUI);
+        }
+    }
 
     public override bool ConditionsSatisfied()
     {
