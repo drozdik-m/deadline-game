@@ -58,7 +58,10 @@ public class TabSoundSettings : Tab
     /// </summary>
     public void SetMasterVolume()
     {
-        AudioMixerMaster.SetFloat("ExposedMasterVolume", MasterVolumeSlider.value);
+        if (MasterVolumeSlider.value == MasterVolumeSlider.minValue)
+            AudioMixerMaster.SetFloat("ExposedMasterVolume", -80);
+        else
+            AudioMixerMaster.SetFloat("ExposedMasterVolume", MasterVolumeSlider.value);
     }
 
     /// <summary>
@@ -66,7 +69,10 @@ public class TabSoundSettings : Tab
     /// </summary>
     public void SetBackgroundVolume()
     {
-        AudioMixerMaster.SetFloat("ExposedBackgroundVolume", BackgroundVolumeSlider.value);
+        if (BackgroundVolumeSlider.value == BackgroundVolumeSlider.minValue)
+            AudioMixerMaster.SetFloat("ExposedBackgroundVolume", -80);
+        else
+            AudioMixerMaster.SetFloat("ExposedBackgroundVolume", BackgroundVolumeSlider.value);
     }
 
     /// <summary>
@@ -74,6 +80,9 @@ public class TabSoundSettings : Tab
     /// </summary>
     public void SetSoundEffectsVolume()
     {
-        AudioMixerMaster.SetFloat("ExposedSoundEffectsVolume", SoundEffectsVolumeSlider.value);
+        if (SoundEffectsVolumeSlider.value == SoundEffectsVolumeSlider.minValue)
+            AudioMixerMaster.SetFloat("ExposedSoundEffectsVolume", -80);
+        else
+            AudioMixerMaster.SetFloat("ExposedSoundEffectsVolume", SoundEffectsVolumeSlider.value);
     }
 }

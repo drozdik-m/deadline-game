@@ -52,10 +52,8 @@ public class MenuTabsManager : MonoBehaviour
     /// </summary>
     public void OpenMenu()
     {
-        for (var i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).gameObject.SetActive(true);
-        }
+        Tabs.SetActive(true);
+        Buttons.SetActive(true);
         OpenTab(activeTab);
     }
 
@@ -64,10 +62,8 @@ public class MenuTabsManager : MonoBehaviour
     /// </summary>
     public void CloseMenu()
     {
-        for (var i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).gameObject.SetActive(false);
-        }
+        Tabs.SetActive(false);
+        Buttons.SetActive(false);
     }
 
     /// <summary>
