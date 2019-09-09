@@ -52,7 +52,7 @@ public class MenuTabsManager : MonoBehaviour
     /// </summary>
     public void OpenMenu()
     {
-        for (int i = 0; i < transform.childCount; i++)
+        for (var i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).gameObject.SetActive(true);
         }
@@ -64,7 +64,7 @@ public class MenuTabsManager : MonoBehaviour
     /// </summary>
     public void CloseMenu()
     {
-        for (int i = 0; i < transform.childCount; i++)
+        for (var i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).gameObject.SetActive(false);
         }
@@ -108,7 +108,7 @@ public class MenuTabsManager : MonoBehaviour
     /// </summary>
     public void SaveSettingsData()
     {
-        DisplayDialog dialog = GameObject.Instantiate<DisplayDialog>(DisplayDialogUI, transform.position, transform.rotation, transform);
+        var dialog = Instantiate(DisplayDialogUI, transform.position, transform.rotation, transform);
 
         // Disable all buttons
         foreach (var button in Buttons.gameObject.GetComponentsInChildren<Button>())
@@ -146,7 +146,7 @@ public class MenuTabsManager : MonoBehaviour
             button.interactable = true;
         }
 
-        GameObject.Destroy(dialog.gameObject);
+        Destroy(dialog.gameObject);
 
         yield break;
     }
