@@ -60,14 +60,14 @@ public class ConsumeItemsUI : BuildableObjectUI
     /// <param name="state">State text UI</param>
     /// <param name="backgroundImagesPanel">Background for Items images</param>
     /// <param name="prefabTextCounter">Prefab of the text for counter of desired Items</param>
-    public void SetUI(GameObject buildableObject, Text state, RectTransform backgroundImagesPanel, Text prefabTextCounter) 
+    public override void SetUI(SetUIArguments args) 
     {
         // Set all required items with base
-        base.SetUI(buildableObject, state);
+        base.SetUI(args);
 
         consumeItemsStageComponent = buildableGameObject.GetComponentInChildren<ConsumeItemsStage>();
-        backgroundPanel = backgroundImagesPanel;
-        textPrefabCounterItems = prefabTextCounter;
+        backgroundPanel = args.BackgroundPanel;
+        textPrefabCounterItems = args.TextPrefabCounterItems;
 
         foreach (var image in GameObject.FindGameObjectWithTag("MasterUI").GetComponent<UIMaster>().InventoryUI.ImagesStorage)
         {

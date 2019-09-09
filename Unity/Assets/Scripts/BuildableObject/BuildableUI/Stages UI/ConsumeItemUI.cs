@@ -29,13 +29,13 @@ public class ConsumeItemUI : BuildableObjectUI
     /// <param name="buildableObject">Game Object that contains Buildable object</param>
     /// <param name="state">State text UI</param>
     /// <param name="backgroundImagesPanel">Background for Items images</param>
-    public void SetUI(GameObject buildableObject, Text state, RectTransform backgroundImagesPanel)
+    public override void SetUI(SetUIArguments args)
     {
         // Set all required items with base
-        base.SetUI(buildableObject, state);
+        base.SetUI(args);
 
         consumeItemStageComponent = buildableGameObject.GetComponentInChildren<ConsumeItemStage>();
-        backgroundPanel = backgroundImagesPanel;
+        backgroundPanel = args.BackgroundPanel;
 
         foreach (var image in GameObject.FindGameObjectWithTag("MasterUI").GetComponent<UIMaster>().InventoryUI.ImagesStorage)
         {

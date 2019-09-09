@@ -33,10 +33,10 @@ public abstract class BuildableObjectUI : MonoBehaviour
     /// </summary>
     /// <param name="buildableObject">Game Object that contains Buildable object</param>
     /// <param name="state">State text UI</param>
-    public virtual void SetUI(GameObject buildableObject, Text state)
+    public virtual void SetUI(SetUIArguments args)
     {
-        buildableGameObject = buildableObject;
-        stateText = state;
+        buildableGameObject = args.BuildableGameObject;
+        stateText = args.StateText;
     }
 
     /// <summary>

@@ -34,11 +34,11 @@ public class WaitAndGiveUI : BuildableObjectUI
     /// <param name="buildableObject">Game Object that contains Buildable object</param>
     /// <param name="state">State text UI</param>
     /// <param name="progressProcentSlider">Slider for progress of preparing Item</param>
-    public void SetUI(GameObject buildableObject, Text state, Slider progressProcentSlider)
+    public override void SetUI(SetUIArguments args)
     {
-        base.SetUI(buildableObject, state);
+        base.SetUI(args);
 
-        progressSlider = progressProcentSlider;
+        progressSlider = args.ProgressProcentSlider;
         procentText = progressSlider.GetComponentInChildren<Text>();
         waitAndGiveComponent = buildableGameObject.GetComponentInChildren<WaitAndGive>();
         delay = waitAndGiveComponent.Delay;

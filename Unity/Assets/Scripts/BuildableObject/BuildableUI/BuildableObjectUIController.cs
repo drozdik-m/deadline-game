@@ -5,6 +5,31 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
+/// Class contains all arguments for each stage UI, which sets in the controller
+/// </summary>
+public class SetUIArguments
+{
+    public SetUIArguments(GameObject    buildableGameObject, 
+                          RectTransform backgroundPanel,
+                          Text          stateText, 
+                          Text          textPrefabCounterItems, 
+                          Slider        progressProcentSlider)
+    {
+        BuildableGameObject     = buildableGameObject;
+        BackgroundPanel         = backgroundPanel;
+        StateText               = stateText;
+        TextPrefabCounterItems  = textPrefabCounterItems;
+        ProgressProcentSlider   = progressProcentSlider;
+    }
+
+    public GameObject BuildableGameObject;
+    public RectTransform BackgroundPanel;
+    public Text StateText;
+    public Text TextPrefabCounterItems;
+    public Slider ProgressProcentSlider;
+}
+
+/// <summary>
 /// Clss creates, activate and deactivate UI for different stages
 /// </summary>
 public class BuildableObjectUIController : MonoBehaviour
@@ -54,9 +79,16 @@ public class BuildableObjectUIController : MonoBehaviour
     /// </summary>
     private BuildableObjectUI currentStageUI;
 
+    /// <summary>
+    /// Contains all arguments for each stage UI
+    /// </summary>
+    private SetUIArguments allArguments;
+
     private void Start()
     {
         transformerUICanvas = GetComponent<Canvas>();
+
+        allArguments = new SetUIArguments(BuildableGameObject, BackgroundPanel, StateText, TextPrefabCounterItems, ProgressProcentSlider);
 
         SetNewStage (BuildableGameObject.GetComponent<BuildStageCollection>().stages[0]);
         currentStageUI.Activate();
@@ -99,40 +131,33 @@ public class BuildableObjectUIController : MonoBehaviour
     /// </summary>
     /// <param name="buildStage">New build stage</param>
     private void SetNewStage(BuildStage buildStage)
-    { 
+    {
         Type stageType = buildStage.GetType();
         Debug.Log("It is " + stageType.Name);
 
+        // For each stage creates specific stage UI
         if (stageType == typeof(ConsumeItemsStage))
         {
-            ConsumeItemsUI stageUI = CreateNewStageUI<ConsumeItemsUI>();
-            stageUI.SetUI(BuildableGameObject, StateText, BackgroundPanel, TextPrefabCounterItems);
-            currentStageUI = stageUI;
+            currentStageUI = CreateNewStageUI<ConsumeItemsUI>();
         }
         else if (stageType == typeof(WaitAndGive))
         {
-            WaitAndGiveUI stageUI = CreateNewStageUI<WaitAndGiveUI>();
-            stageUI.SetUI(BuildableGameObject, StateText, ProgressProcentSlider);
-            currentStageUI = stageUI;
+            currentStageUI = CreateNewStageUI<WaitAndGiveUI>();
         }
         else if (stageType == typeof(ConsumeItemStage))
         {
-            ConsumeItemUI stageUI = CreateNewStageUI<ConsumeItemUI>();
-            stageUI.SetUI(BuildableGameObject, StateText, BackgroundPanel);
-            currentStageUI = stageUI;
+            currentStageUI = CreateNewStageUI<ConsumeItemUI>();
         }
         else if (stageType == typeof(NoItemStage))
         {
-            NoItemUI stageUI = CreateNewStageUI<NoItemUI>();
-            stageUI.SetUI(BuildableGameObject, StateText);
-            currentStageUI = stageUI;
+            currentStageUI = CreateNewStageUI<NoItemUI>();
         }
         else if (stageType == typeof(PersistentItemStage))
         {
-            PersistentItemUI stageUI = CreateNewStageUI<PersistentItemUI>();
-            stageUI.SetUI(BuildableGameObject, StateText, BackgroundPanel);
-            currentStageUI = stageUI;
+            currentStageUI = CreateNewStageUI<PersistentItemUI>();
         }
+
+        currentStageUI.SetUI(allArguments);
     }
 
     /// <summary>
@@ -162,8 +187,9 @@ public class BuildableObjectUIController : MonoBehaviour
     {
         currentStageUI.Deactivate();
         GameObject.Destroy(currentStageUI.gameObject);
-       
-        SetNewStage(e.buildStage);
+
+        if (e.buildStage)
+            SetNewStage(e.buildStage);
 
         currentStageUI.Activate();
     }
