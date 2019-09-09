@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,6 +23,11 @@ public abstract class BuildStage : MonoBehaviour
     /// </summary>
     /// <returns>True if conditions are satisfied, false if not</returns>
     public abstract bool ConditionsSatisfied();
+
+    /// <summary>
+    /// Tells what class implements this stages UI
+    /// </summary>
+    public abstract Type UIBuildableStageType { get; }
 
     /// <summary>
     /// Triggers on stage load, before first ConditionsSatisfied call (and all other methods)

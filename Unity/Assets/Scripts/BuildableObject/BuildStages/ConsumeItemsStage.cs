@@ -59,6 +59,15 @@ public class ConsumeItemsStage : BuildStage
             return requiredItems;
         }
     }
+
+    public override Type UIBuildableStageType
+    {
+        get
+        {
+            return typeof(ConsumeItemsUI);
+        }
+    }
+
     /// <summary>
     /// Checks if the conditions for going to next stage are satisfied
     /// </summary>

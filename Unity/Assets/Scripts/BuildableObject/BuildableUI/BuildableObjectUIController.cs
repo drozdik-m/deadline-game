@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
+using System.Reflection;
 
 /// <summary>
 /// Class contains all arguments for each stage UI, which sets in the controller
@@ -132,11 +134,27 @@ public class BuildableObjectUIController : MonoBehaviour
     /// <param name="buildStage">New build stage</param>
     private void SetNewStage(BuildStage buildStage)
     {
-        Type stageType = buildStage.GetType();
-        Debug.Log("It is " + stageType.Name);
+        //var stageType = buildStage.GetType();
+        //Debug.Log("It is " + stageType.Name);
+
+        currentStageUI = CreateNewStageUI(buildStage);
+
+        /*//Get the target method
+        var createMethod = typeof(BuildableObjectUIController).GetMethods()
+            .Where(e => e.Name == "CreateNewStageUI")
+            .SingleOrDefault();;
+        if (createMethod == null)
+            Debug.LogError("createMethod not found");
+
+        //Create the method with target generic parameters
+        var genericMethod = createMethod.MakeGenericMethod(new[] { stageType });
+
+        //Invoke the method
+        genericMethod.Invoke(this, new object[0]);*/
+
 
         // For each stage creates specific stage UI
-        if (stageType == typeof(ConsumeItemsStage))
+        /*if (stageType == typeof(ConsumeItemsStage))
         {
             currentStageUI = CreateNewStageUI<ConsumeItemsUI>();
         }
@@ -155,7 +173,8 @@ public class BuildableObjectUIController : MonoBehaviour
         else if (stageType == typeof(PersistentItemStage))
         {
             currentStageUI = CreateNewStageUI<PersistentItemUI>();
-        }
+        }*/
+
 
         currentStageUI.SetUI(allArguments);
     }
@@ -163,17 +182,16 @@ public class BuildableObjectUIController : MonoBehaviour
     /// <summary>
     /// Creates new Game object for stage UI
     /// </summary>
-    /// <typeparam name="T">Type of the object should be BuildableObjectUI.</typeparam>
-    private T CreateNewStageUI<T>() where T : BuildableObjectUI
+    private BuildableObjectUI CreateNewStageUI(BuildStage buildStage)
     {
-        GameObject prefabGameObject = new GameObject();
-        GameObject stageUIGameObject = GameObject.Instantiate(prefabGameObject, transform.position, transform.rotation, transform);
+        var prefabGameObject = new GameObject();
+        var stageUIGameObject = Instantiate(prefabGameObject, transform.position, transform.rotation, transform);
 
-        // Create prefab Image for each item's image
-        T stageUI = stageUIGameObject.AddComponent<T>();
+        // Create var Image for each item's image
+        var stageUI = (BuildableObjectUI)stageUIGameObject.AddComponent(buildStage.UIBuildableStageType);
         stageUIGameObject.AddComponent<RectTransform>();
 
-        GameObject.Destroy(prefabGameObject);
+        Destroy(prefabGameObject);
 
         return stageUI;
     }
