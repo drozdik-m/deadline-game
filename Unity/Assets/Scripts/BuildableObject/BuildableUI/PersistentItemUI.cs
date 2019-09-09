@@ -52,7 +52,7 @@ public class PersistentItemUI : BuildableObjectUI
     public override void Activate()
     {
         backgroundPanel.gameObject.SetActive(true);
-        UpdateStateText("Show");
+        UpdateStateText("Use");
         CreateNewDesiredItem();
     }
 

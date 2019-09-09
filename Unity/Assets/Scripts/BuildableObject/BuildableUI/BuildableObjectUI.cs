@@ -14,7 +14,7 @@ public abstract class BuildableObjectUI : MonoBehaviour
     protected Text stateText;
 
     /// <summary>
-    /// The buildable game object refference.
+    /// The buildable game object reference.
     /// </summary>
     protected GameObject buildableGameObject;
 
