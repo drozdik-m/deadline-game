@@ -772,12 +772,12 @@ PrefabInstance:
     - target: {fileID: 2560476567572211780, guid: 4e2feda7125774da6b7e46104771918a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.47
+      value: -3.224
       objectReference: {fileID: 0}
     - target: {fileID: 2560476567572211780, guid: 4e2feda7125774da6b7e46104771918a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.02
+      value: 1.275
       objectReference: {fileID: 0}
     - target: {fileID: 2560476567572211780, guid: 4e2feda7125774da6b7e46104771918a,
         type: 3}
@@ -1074,17 +1074,17 @@ PrefabInstance:
     - target: {fileID: 8469204958766230680, guid: 4e4d14f111b9a446aa71935e47ba9b43,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.902
+      value: -3.75
       objectReference: {fileID: 0}
     - target: {fileID: 8469204958766230680, guid: 4e4d14f111b9a446aa71935e47ba9b43,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.494
+      value: 0.582
       objectReference: {fileID: 0}
     - target: {fileID: 8469204958766230680, guid: 4e4d14f111b9a446aa71935e47ba9b43,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.557
+      value: -0.238
       objectReference: {fileID: 0}
     - target: {fileID: 8469204958766230680, guid: 4e4d14f111b9a446aa71935e47ba9b43,
         type: 3}
@@ -1125,6 +1125,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8469204958766230680, guid: 4e4d14f111b9a446aa71935e47ba9b43,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.072698034
+      objectReference: {fileID: 0}
+    - target: {fileID: 8469204958766230680, guid: 4e4d14f111b9a446aa71935e47ba9b43,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.072698034
+      objectReference: {fileID: 0}
+    - target: {fileID: 8469204958766230680, guid: 4e4d14f111b9a446aa71935e47ba9b43,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.072698034
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e4d14f111b9a446aa71935e47ba9b43, type: 3}
