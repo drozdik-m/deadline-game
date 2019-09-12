@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Changes satisfied state of a condition
+/// </summary>
 public class StageReactionCondition : Stage
 {
     /// <summary>

@@ -92,5 +92,7 @@ public enum SoundEffectType
     QuestStackCompleted,
     ShowerSound,
     ValveSound,
-    TubesSound
+    TubesSound,
+    ThunderSound,
+    AlarmSound
 }
