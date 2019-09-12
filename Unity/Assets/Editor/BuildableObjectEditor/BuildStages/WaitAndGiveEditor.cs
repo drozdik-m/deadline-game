@@ -60,7 +60,7 @@ public class WaitAndGiveEditor : BuildStageEditor, IArrayItemEditor
                 thisBuildStage.ItemProvider = objectParent.GetComponent<ItemProvider>();
             }
 
-            MessageBox.AddMessage("Item Provider is empty", WarningStyle);
+            MessageBox.AddMessage("Item Provider is empty", ErrorStyle);
         }
         else
         {
@@ -68,23 +68,13 @@ public class WaitAndGiveEditor : BuildStageEditor, IArrayItemEditor
         }
 
 
-        thisBuildStage.Delay = EditorGUILayout.FloatField("Delay", thisBuildStage.Delay);
-        thisBuildStage.CounterFinished = EditorGUILayout.Toggle("Transforming finished", thisBuildStage.CounterFinished);
-
-        /*
-        var delayProperty = new SerializedObject(target).FindProperty("Delay");
-        var finishedProperty = new SerializedObject(target).FindProperty("CounterFinished");
-        serializedObject.Update();
-        EditorGUILayout.PropertyField(delayProperty, true);
-        EditorGUILayout.PropertyField(finishedProperty, true);
-        new SerializedObject(target).ApplyModifiedProperties();
-        */
-
-        // delayProperty = GUILayout.NejakyInput("Label", Target.property);
+        thisBuildStage.Delay = EditorGUILayout.FloatField("Delay [sec]", thisBuildStage.Delay);
 
 
-
-
+        if (thisBuildStage.CounterFinished)
+        {
+            MessageBox.AddMessage("[Transforming is finished]", SuccessStyle);
+        }
 
     }
 

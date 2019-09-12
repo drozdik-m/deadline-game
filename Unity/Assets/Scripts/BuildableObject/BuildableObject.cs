@@ -59,7 +59,7 @@ public class BuildableObject : MonoBehaviour
             if (nextStage == null)
                 isFinished = true;
 
-            OnChange?.Invoke(this, new BuildStageChangeEventArgs(currStage, IsFinished()));
+            OnChange?.Invoke(this, new BuildStageChangeEventArgs(nextStage, IsFinished()));
 
             if (IsFinished())
                 OnFinished?.Invoke(this, new BuildStageFinishedEventArgs(currStage));

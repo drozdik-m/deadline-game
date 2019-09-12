@@ -23,7 +23,6 @@ public class ConsumeItemsStageEditor : BuildStageEditor, IArrayItemEditor
         EditorGUILayout.PropertyField(arrayProperty, true);
         new SerializedObject(Target).ApplyModifiedProperties();
         */
-        EditorGUILayout.LabelField("Custom editor:");
         var serialObject = new SerializedObject(target);
         var property = serialObject.FindProperty("RequiredItems");
         serialObject.Update();

@@ -18,6 +18,14 @@ public class ConsumeItemStage : BuildStage
     /// </summary>
     public InventoryItemID desiredItem;
 
+    public override Type UIBuildableStageType
+    {
+        get
+        {
+            return typeof(ConsumeItemUI);
+        }
+    }
+
     /// <summary>
     /// Checks if the conditions for going to next stage are satisfied
     /// </summary>
