@@ -140,6 +140,7 @@ public enum InventoryItemID
     Burger,
     Newspaper,
     WateringCan,
+    Money,
     None
 }
 
