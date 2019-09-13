@@ -34,6 +34,14 @@ public class QuestsUIController : MonoBehaviour
     /// </summary>
     private int positionOffset = 40;
 
+    void Start()
+    {
+        if (FindObjectOfType<SkyboxController>().TimesOfDay == SkyboxController.Time.night)
+        {
+            QuestUIPanelPrefab.QuestDescriptionText.color = Color.white;
+        }
+    }
+
     /// <summary>
     /// Changes quest UI
     /// </summary>
