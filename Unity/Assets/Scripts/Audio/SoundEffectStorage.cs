@@ -94,5 +94,7 @@ public enum SoundEffectType
     ValveSound,
     TubesSound,
     ThunderSound,
-    AlarmSound
+    AlarmSound,
+    MaleMurMur,
+    DialogBubblePop
 }
