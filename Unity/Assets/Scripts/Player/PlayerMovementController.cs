@@ -212,7 +212,7 @@ public class PlayerMovementController : MonoBehaviour
     {
          isRunning = true;
 
-        if (!isInteracting)
+        if (!isInteracting && !isDisabled )
         {
             if (interactable.useProximity)
             {

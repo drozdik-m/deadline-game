@@ -25,7 +25,26 @@ public class DialogManager : MonoBehaviour
     /// Current dialog bubble target.
     /// </summary>
     public BubbleSpawner spawner;
+    /// <summary>
+    /// The type of the current.
+    /// </summary>
     private DialogType currentType;
+    /// <summary>
+    /// The currently displayed.
+    /// </summary>
+    private string currentlyDisplayed;
+    /// <summary>
+    /// The auto delay.
+    /// </summary>
+    public bool autoDelay;
+    /// <summary>
+    /// The current delay.
+    /// </summary>
+    private float currentDelay;
+    /// <summary>
+    /// The sound effect controller.
+    /// </summary>
+    private SoundEffectController soundEffectController;
 
     private DialogManager()
     {
@@ -35,8 +54,13 @@ public class DialogManager : MonoBehaviour
 
     void Start()
     {
-   
-        
+        currentlyDisplayed = null;
+
+        soundEffectController = GetComponent<SoundEffectController>();
+        if (!soundEffectController)
+            Debug.LogError("BubbleSpawner: SoundEffectController not found");
+
+
     }
 
     /// <summary>
@@ -54,7 +78,12 @@ public class DialogManager : MonoBehaviour
 
         foreach (var sentence in dialog.sentences)
         {
-            sentences.Enqueue(new SentenceWrapper(target.transform, sentence, DialogType.Self));
+            var newSentence = new SentenceWrapper(target.transform, sentence, DialogType.Self);
+            if (sentences.Contains(newSentence) || newSentence.Sentence == currentlyDisplayed)
+            {
+                return;
+            }
+            sentences.Enqueue(newSentence);
         }
 
         prepareForStart();
@@ -72,10 +101,20 @@ public class DialogManager : MonoBehaviour
             targetA = getPlayerHead();
         }
 
+        
+
         foreach (var structuredSentence in dialog.structuredSentences)
         {
             var currentTarget = structuredSentence.CharacterID == TwinTalkDialog.SentenceStructure.CharacterIdentifier.A  ? targetA : targetB;
-            sentences.Enqueue(new SentenceWrapper(currentTarget.transform, structuredSentence.sentence, DialogType.Twin));
+
+            var newSentence = new SentenceWrapper(currentTarget.transform, structuredSentence.sentence, DialogType.Twin);
+
+            if (sentences.Contains(newSentence) || newSentence.Sentence == currentlyDisplayed )
+            {
+                return;
+            }
+
+            sentences.Enqueue(newSentence);
         }
         prepareForStart();
     }
@@ -92,13 +131,28 @@ public class DialogManager : MonoBehaviour
         }
 
         var sentenceWrapper = sentences.Dequeue();
+
+        currentlyDisplayed = sentenceWrapper.Sentence;
+
         // Set the current target
         currentType = sentenceWrapper.Type;
         HandlePlayerMovement();
 
         Transform currentTarget = sentenceWrapper.Position;
         bool isDynamic = sentenceWrapper.Type == DialogType.Self ? true : false;
-        spawner.Spawn(ref currentTarget, sentenceWrapper.Sentence, DialogDelay, isDynamic);
+
+        if (autoDelay)
+        {
+            currentDelay = calculateDelayToLength(sentenceWrapper.Sentence);
+            spawner.Spawn(ref currentTarget, sentenceWrapper.Sentence, currentDelay , isDynamic);
+        }
+        else
+        {
+            currentDelay = DialogDelay;
+            spawner.Spawn(ref currentTarget, sentenceWrapper.Sentence, currentDelay, isDynamic);
+        }
+
+
 
     }
     /// <summary>
@@ -106,9 +160,27 @@ public class DialogManager : MonoBehaviour
     /// </summary>
     private void endOfDialog()
     {
+        currentlyDisplayed = null;
         isActive = false;
         setPlayerMovement(false);
         CancelInvoke();
+        currentDelay = 0;
+        soundEffectController.StopCurrentSound();
+    }
+
+    private float calculateDelayToLength(string sentence)
+    {
+        int strlen = sentence.Length;
+        float calculatedDelay = strlen * 0.15f;
+        if (calculatedDelay < 1.5)
+            calculatedDelay = 1.5f;
+
+        if (calculatedDelay > 3.5)
+        {
+            calculatedDelay = 3.5f;
+        }
+        return calculatedDelay;     
+
     }
     /// <summary>
     /// Gets the player head (point of bubble render).
@@ -134,9 +206,15 @@ public class DialogManager : MonoBehaviour
     {
         if (!isActive)
         {
-
+            currentDelay = 0;
             isActive = true;
             setPlayerMovement(isBlocking);
+
+            if (!soundEffectController)
+                soundEffectController = GetComponent<SoundEffectController>();
+
+            soundEffectController.PlaySound();
+
             nextSentence();
             StartCoroutine(Invoker());
         }
@@ -161,7 +239,7 @@ public class DialogManager : MonoBehaviour
     {
         while (isActive)
         {
-            yield return new WaitForSeconds(DialogDelay);
+            yield return new WaitForSeconds(currentDelay);
             nextSentence();
         }
     }

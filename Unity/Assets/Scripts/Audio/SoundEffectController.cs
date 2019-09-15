@@ -47,6 +47,10 @@ public class SoundEffectController : MonoBehaviour
     /// The sound effects storage
     /// </summary>
     private SoundEffectStorage soundEffectsStorage;
+    /// <summary>
+    /// The spawned audio source.
+    /// </summary>
+    private AudioSource spawnedAudioSource;
 
     private void Start()
     {
@@ -65,7 +69,7 @@ public class SoundEffectController : MonoBehaviour
         UpdateVolume ();
         GameObject spawnedSound = Instantiate (SoundEffectParticlePrefab, parent);
 
-        AudioSource spawnedAudioSource = spawnedSound.GetComponent<AudioSource> ();
+        spawnedAudioSource = spawnedSound.GetComponent<AudioSource> ();
         spawnedAudioSource.volume = volume;
         spawnedAudioSource.clip = soundEffect;
         spawnedAudioSource.Play ();
@@ -79,7 +83,7 @@ public class SoundEffectController : MonoBehaviour
         UpdateVolume ();
         GameObject spawnedSound = Instantiate (SoundEffectParticlePrefab);
 
-        AudioSource spawnedAudioSource = spawnedSound.GetComponent<AudioSource> ();
+        spawnedAudioSource = spawnedSound.GetComponent<AudioSource> ();
         spawnedAudioSource.volume = volume;
         spawnedAudioSource.clip = soundEffect;
         spawnedAudioSource.Play ();
@@ -94,6 +98,15 @@ public class SoundEffectController : MonoBehaviour
         StartCoroutine (LoopSound (delay));
     }
 
+    public bool StopCurrentSound()
+    {
+        if (spawnedAudioSource)
+        {
+            spawnedAudioSource.Stop();
+            return true;
+        }
+        return false;
+    }
     /// <summary>
     /// Stops the audio clip in the loop.
     /// </summary>

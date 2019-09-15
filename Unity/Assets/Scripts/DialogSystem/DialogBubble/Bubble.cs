@@ -19,11 +19,23 @@ public class Bubble : MonoBehaviour
     /// The position of the bubble
     /// </summary>
     private Transform position;
+    /// <summary>
+    /// The animator.
+    /// </summary>
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        animator = GetComponent<Animator>();
+        if (animator == null)
+            Debug.LogError("Bubble: Animator not found");
+
+        animator.Play("BubbleFadeIn");
         StartCoroutine(WaitFor(delay));
+
+
     }
 
     public void SetRef(ref Transform pos)
@@ -48,6 +60,16 @@ public class Bubble : MonoBehaviour
     IEnumerator WaitFor(float del)
     {
         yield return new WaitForSeconds(delay);
-        Destroy(gameObject);
+        animator.Play("BubbleFadeOut");
+
+        var animLength = animator.GetCurrentAnimatorStateInfo(0).length;
+        DestroyAfter(animLength);
     }
+
+    IEnumerator DestroyAfter(float del)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(this);
+    }
+
 }
