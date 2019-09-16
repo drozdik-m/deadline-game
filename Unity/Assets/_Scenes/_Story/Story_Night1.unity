@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4494115, g: 0.49633682, b: 0.55877405, a: 1}
+  m_IndirectSpecularColor: {r: 0.4494112, g: 0.49633646, b: 0.5587733, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1347,6 +1347,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7348015048523386182, guid: bf7711b4182818747a960cbc3a6e7528,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935151445438147237, guid: bf7711b4182818747a960cbc3a6e7528,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.74141
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935151445438147237, guid: bf7711b4182818747a960cbc3a6e7528,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25.796528
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935151445438147237, guid: bf7711b4182818747a960cbc3a6e7528,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.2177935
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935151444287920912, guid: bf7711b4182818747a960cbc3a6e7528,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.74141
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935151444287920912, guid: bf7711b4182818747a960cbc3a6e7528,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25.796528
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935151444287920912, guid: bf7711b4182818747a960cbc3a6e7528,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.2177935
+      objectReference: {fileID: 0}
     - target: {fileID: 5633529619415987781, guid: bf7711b4182818747a960cbc3a6e7528,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1387,45 +1422,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -3.6
       objectReference: {fileID: 0}
-    - target: {fileID: 6935151445438147237, guid: bf7711b4182818747a960cbc3a6e7528,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 19.74141
-      objectReference: {fileID: 0}
-    - target: {fileID: 6935151445438147237, guid: bf7711b4182818747a960cbc3a6e7528,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -25.796528
-      objectReference: {fileID: 0}
-    - target: {fileID: 6935151445438147237, guid: bf7711b4182818747a960cbc3a6e7528,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.2177935
-      objectReference: {fileID: 0}
-    - target: {fileID: 6935151444287920912, guid: bf7711b4182818747a960cbc3a6e7528,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 19.74141
-      objectReference: {fileID: 0}
-    - target: {fileID: 6935151444287920912, guid: bf7711b4182818747a960cbc3a6e7528,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -25.796528
-      objectReference: {fileID: 0}
-    - target: {fileID: 6935151444287920912, guid: bf7711b4182818747a960cbc3a6e7528,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.2177935
-      objectReference: {fileID: 0}
     - target: {fileID: 8715326153088815230, guid: bf7711b4182818747a960cbc3a6e7528,
         type: 3}
       propertyPath: TimesOfDay
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7348015048523386182, guid: bf7711b4182818747a960cbc3a6e7528,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 20.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf7711b4182818747a960cbc3a6e7528, type: 3}
@@ -2729,7 +2729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 2097914446}
-  QuestDescription: Go to livingroom
+  QuestDescription: Go to the livingroom
 --- !u!4 &421428985 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7969941713991858556, guid: 5677f41812dd24979ba3651fb3b59a76,
@@ -4006,7 +4006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 1612972559}
-  QuestDescription: Inspect money
+  QuestDescription: Inspect the money
 --- !u!1 &601475572
 GameObject:
   m_ObjectHideFlags: 0
@@ -5859,7 +5859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 273265744}
-  QuestDescription: Return to bedroom
+  QuestDescription: Return to the bedroom
 --- !u!1 &832206008
 GameObject:
   m_ObjectHideFlags: 0
@@ -7987,7 +7987,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1188313206}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.5900645, y: -1.477148, z: -1.1993594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 686344100}
@@ -8189,7 +8189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 1086630345}
-  QuestDescription: Return all bucks
+  QuestDescription: Gather all your money
 --- !u!4 &1198971126
 Transform:
   m_ObjectHideFlags: 0
@@ -13002,22 +13002,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5562965544591535250, guid: 1b12915c3f04a9245900018ef0b99ef8,
-        type: 3}
-      propertyPath: ImagesStorage.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5562965544591535250, guid: 1b12915c3f04a9245900018ef0b99ef8,
-        type: 3}
-      propertyPath: ImagesStorage.Array.data[9].type
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 5562965544591535250, guid: 1b12915c3f04a9245900018ef0b99ef8,
-        type: 3}
-      propertyPath: ImagesStorage.Array.data[9].sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a8c84e6f928cac04d8085b65129d1a4e,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b12915c3f04a9245900018ef0b99ef8, type: 3}
 --- !u!1 &1844128743
@@ -38109,11 +38093,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6256413837342972157}
     m_Modifications:
-    - target: {fileID: 2168025629113636963, guid: af355758c90d6854099afdf0f814f95d,
-        type: 3}
-      propertyPath: m_Name
-      value: smallLamp
-      objectReference: {fileID: 0}
     - target: {fileID: 2168025629113795651, guid: af355758c90d6854099afdf0f814f95d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38168,6 +38147,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168025629113636963, guid: af355758c90d6854099afdf0f814f95d,
+        type: 3}
+      propertyPath: m_Name
+      value: smallLamp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af355758c90d6854099afdf0f814f95d, type: 3}

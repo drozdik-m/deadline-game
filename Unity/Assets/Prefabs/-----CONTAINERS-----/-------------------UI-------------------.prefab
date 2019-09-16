@@ -219,7 +219,7 @@ PrefabInstance:
     - target: {fileID: 72859943486776556, guid: df5b84aa457c4d94bad36c129214deb1,
         type: 3}
       propertyPath: ImagesStorage.Array.size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 72859943486776556, guid: df5b84aa457c4d94bad36c129214deb1,
         type: 3}
@@ -286,6 +286,17 @@ PrefabInstance:
       propertyPath: ImagesStorage.Array.data[8].sprite
       value: 
       objectReference: {fileID: 21300000, guid: 446baa4934bb7ae48b54649c6de3429b,
+        type: 3}
+    - target: {fileID: 72859943486776556, guid: df5b84aa457c4d94bad36c129214deb1,
+        type: 3}
+      propertyPath: ImagesStorage.Array.data[9].type
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 72859943486776556, guid: df5b84aa457c4d94bad36c129214deb1,
+        type: 3}
+      propertyPath: ImagesStorage.Array.data[9].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a8c84e6f928cac04d8085b65129d1a4e,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df5b84aa457c4d94bad36c129214deb1, type: 3}
