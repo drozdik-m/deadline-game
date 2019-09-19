@@ -22,6 +22,11 @@ public class CursorManager : MonoBehaviour
     /// </summary>
     public CursorMode CursorMode = CursorMode.Auto;
 
+    /// <summary>
+    /// Current texture for smarter swapping
+    /// </summary>
+    private Texture2D currentTexture = null;
+
     private void Start()
     {
         ChangeCursorToNormal();
@@ -29,9 +34,8 @@ public class CursorManager : MonoBehaviour
 
     void Update()
     {
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out var hit))
         {
             //Did it hit interactable object?
             if (hit.collider.gameObject.GetComponent<Interactable>() != null)
@@ -43,6 +47,8 @@ public class CursorManager : MonoBehaviour
                 ChangeCursorToNormal();
             }
         }
+        else
+            ChangeCursorToNormal();
     }
 
    
@@ -51,7 +57,12 @@ public class CursorManager : MonoBehaviour
     /// </summary>
     public void ChangeCursorToNormal()
     {
-        Cursor.SetCursor(NormalCursorTexture, new Vector2(75, 0), CursorMode);
+        //Cursor.SetCursor(NormalCursorTexture, new Vector2(75, 0), CursorMode);
+        if (currentTexture != NormalCursorTexture)
+        {
+            Cursor.SetCursor(NormalCursorTexture, Vector2.zero, CursorMode);
+            currentTexture = NormalCursorTexture;
+        }
     }
 
     /// <summary>
@@ -59,6 +70,11 @@ public class CursorManager : MonoBehaviour
     /// </summary>
     public void ChangeCursorToPoint()
     {
-        Cursor.SetCursor(PointerCursorTexture, Vector2.zero, CursorMode);
+        if (currentTexture != PointerCursorTexture)
+        {
+            Cursor.SetCursor(PointerCursorTexture, Vector2.zero, CursorMode);
+            currentTexture = PointerCursorTexture;
+        }
+        
     }
 }
