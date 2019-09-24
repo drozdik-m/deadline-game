@@ -11,12 +11,22 @@ public class MenuUIManager : MonoBehaviour
     /// Menu panel
     /// </summary>
     public GameObject MenuPanel;
+
+    /// <summary>
+    /// Status of menu (opened or closed)
+    /// </summary>
     private bool menuOpen;
+
+    /// <summary>
+    /// Option menu with tabs
+    /// </summary>
+    private MenuTabsManager optionTabsMenu;
 
     private void Start()
     {
         MenuPanel.SetActive (false);
         menuOpen = false;
+        optionTabsMenu = GameObject.FindGameObjectWithTag("MenuTabsManager").GetComponent<MenuTabsManager>();
     }
 
     private void Update()
@@ -42,8 +52,7 @@ public class MenuUIManager : MonoBehaviour
             Time.timeScale = 1f;
 
             // Close Option panel, if it was opened
-            MenuController optionPanel = MenuPanel.GetComponent<MenuController> ();
-            optionPanel.CloseOptionsMenu ();
+            optionTabsMenu.CloseMenu ();
         }
         MenuPanel.SetActive (menuOpen);
     }
