@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,10 +36,15 @@ public class MenuTabsManager : MonoBehaviour
 
     void Start()
     {
+        bool load = Convert.ToBoolean(PlayerPrefs.GetInt("Saved"));
+
         // Collect all tabs from Tabs object 
         foreach (var tab in Tabs.gameObject.GetComponentsInChildren<Tab>())
         {
             allTabs.Add(tab);
+            if (load)
+                tab.LoadData();
+
             CloseTab(tab);
         }
 
