@@ -42,6 +42,9 @@ public class MenuUIManager : MonoBehaviour
     /// </summary>
     public void ChangeMenuStatus()
     {
+        if (optionTabsMenu.IsSaving)
+            return;
+
         // Change value to opposite
         menuOpen = !menuOpen;
 

@@ -30,6 +30,11 @@ public class MenuTabsManager : MonoBehaviour
     public DisplayDialog DisplayDialogUI;
 
     /// <summary>
+    /// Is game saving at the moment
+    /// </summary>
+    public bool IsSaving { get; private set; } = false;
+
+    /// <summary>
     /// All children tabs of GameObject Tabs
     /// </summary>
     private readonly List<Tab> allTabs = new List<Tab> ();
@@ -112,12 +117,6 @@ public class MenuTabsManager : MonoBehaviour
     {
         var dialog = Instantiate(DisplayDialogUI, transform.position, transform.rotation, transform);
 
-        // Disable all buttons
-        foreach (var button in Buttons.gameObject.GetComponentsInChildren<Button>())
-        {
-            button.interactable = false;
-        }
-
         StartCoroutine(AnswerSelectionEnumerator(dialog));
     }
 
@@ -128,6 +127,8 @@ public class MenuTabsManager : MonoBehaviour
     /// <returns></returns>
     private IEnumerator AnswerSelectionEnumerator(DisplayDialog dialog)
     {
+        IsSaving = true;
+
         // Wait until player chooses one of the options
         while (!dialog.FalseState && !dialog.TrueState)
         {
@@ -143,12 +144,8 @@ public class MenuTabsManager : MonoBehaviour
             PlayerPrefs.SetInt("Saved", 1);
         }
 
-        foreach (var button in Buttons.gameObject.GetComponentsInChildren<Button>())
-        {
-            button.interactable = true;
-        }
-
         Destroy(dialog.gameObject);
+        IsSaving = false;
 
         yield break;
     }
