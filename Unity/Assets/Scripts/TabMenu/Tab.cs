@@ -23,17 +23,6 @@ public abstract class Tab : MonoBehaviour
         tabsManager = GameObject.FindGameObjectWithTag("MenuTabsManager").GetComponent<MenuTabsManager>();
     }
 
-    protected void Start()
-    {
-        bool load = Convert.ToBoolean(PlayerPrefs.GetInt("Saved"));
-
-        // Checks if old settings were saved
-        if (load)
-        {
-            LoadData();
-        }
-    }
-
     /// <summary>
     /// Opens Tab UI
     /// </summary>

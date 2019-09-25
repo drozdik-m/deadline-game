@@ -34,9 +34,9 @@ public class MenuController : MonoBehaviour
     /// </summary>
     public Slider SoundEffectsVolumeSlider;
 
-    private void Start()
+    private void Awake()
     {
-        OptionsPanel.SetActive (false);
+        OptionsPanel.SetActive (true);
     }
 
     /// <summary>
