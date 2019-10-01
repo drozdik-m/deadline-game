@@ -146,7 +146,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18.15, y: 534}
+  m_AnchoredPosition: {x: 18.15, y: 541}
   m_SizeDelta: {x: 540.3, y: 283}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &72787410
@@ -4200,8 +4200,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.5, y: -187.05524}
-  m_SizeDelta: {x: 576.6, y: 1278.8}
+  m_AnchoredPosition: {x: -5.5, y: -388.975}
+  m_SizeDelta: {x: 576.6, y: 1323.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &913045185
 GameObject:
@@ -4886,7 +4886,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.2201e-10, y: -457.99997}
+  m_AnchoredPosition: {x: -4.2201e-10, y: -450.99997}
   m_SizeDelta: {x: 540.3, y: 270.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1146770508
@@ -4923,8 +4923,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -14.1, y: -142.7}
-  m_SizeDelta: {x: 496, y: 195.6}
+  m_AnchoredPosition: {x: -14.1, y: -152.9}
+  m_SizeDelta: {x: 496, y: 259}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1146770510
 MonoBehaviour:
@@ -4957,10 +4957,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Information about external tools/packages/files, that were used in the
-    game (UI images, sounds and etc.)
-
-    Websites, links or path to license file which contains all information.'
+  m_Text: "Information about external tools/packages/files, that were used in the
+    game (UI images, sounds and etc.) Websites or links.\n\nName of used file\t\t-
+    Website, link, name of the author\n"
 --- !u!222 &1146770511
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6362,7 +6361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18.149994, y: 129}
+  m_AnchoredPosition: {x: 18.149994, y: 136}
   m_SizeDelta: {x: 540.3, y: 568}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1402389811
@@ -7229,8 +7228,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 137164388}
   m_HandleRect: {fileID: 137164387}
   m_Direction: 2
-  m_Value: 0.75499994
-  m_Size: 0.42637628
+  m_Value: 1
+  m_Size: 0.41206923
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9287,6 +9286,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -245.59991}
+  m_AnchoredPosition: {x: 0, y: -238.59991}
   m_SizeDelta: {x: 540.3, y: 153.9}
   m_Pivot: {x: 0.5, y: 0.5}
