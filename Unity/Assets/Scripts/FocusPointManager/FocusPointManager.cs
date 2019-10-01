@@ -19,11 +19,12 @@ public class FocusPointManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var FocusPointerModel = GameObject.FindGameObjectWithTag("FocusPointer");
+        FocusPointerModel = GameObject.FindGameObjectWithTag("FocusPointer");
         if (!FocusPointerModel)
         {
             Debug.LogError("FocusPointerManager: No focus pointer model found!");
         }
+
         focusPointLocationsQueue = new Queue<GameObject>();
 
         foreach(var i in FocusPointsLocations)
@@ -36,7 +37,7 @@ public class FocusPointManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("space"))
+        if (Input.GetKeyDown("space"))
         {
             NextFocusPoint();
         }
