@@ -9,7 +9,7 @@ public class BugResolver : MonoBehaviour
     /// <summary>
     /// The void treshold (When is an item considered to be falling).
     /// </summary>
-    public double voidTreshold;
+    public double VoidTreshold;
     /// <summary>
     /// The drop point of the bugged item.
     /// </summary>
@@ -40,26 +40,34 @@ public class BugResolver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var interactableGameObjects = GameObject.FindGameObjectsWithTag("Hazardous");
+        // Find all items with potential risk
+        var interactableGameObjects = GameObject.FindGameObjectsWithTag("CheckForBugs");
 
         foreach (var go in interactableGameObjects)
         {
-           if (go.transform.position.y < voidTreshold)
+           if (go.transform.position.y < VoidTreshold)
             {
+                // Teleport the bugged item to the player
                 var rb = go.GetComponent<Rigidbody>();
+                // Reset its velocity
                 rb.velocity = new Vector3(0, 0, 0);
                 go.transform.position = dropPoint.position;
                 ItemBugged(go);
 
             }
         }
-
     }
+    /// <summary>
+    /// Takes care of item bugged event
+    /// </summary>
+    /// <param name="buggedGameObject">Bugged game object.</param>
     protected virtual void ItemBugged(GameObject buggedGameObject)
     {
         OnItemBugged?.Invoke(this, new BugResolverArgs(buggedGameObject, false));
     }
-
+    /// <summary>
+    /// Takes care of player bugged event
+    /// </summary>
     protected virtual void PlayerBugged()
     {
         OnItemBugged?.Invoke(this, new BugResolverArgs(null, true));
