@@ -18,10 +18,6 @@ public class BugResolver : MonoBehaviour
     /// Occurs when an item gets bugged (falls into void).
     /// </summary>
     public event BugResolverHandler OnItemBugged;
-    /// <summary>
-    /// Occurs when player gets bugged.
-    /// </summary>
-    public event BugResolverHandler OnPlayerBugged;
 
     // Start is called before the first frame update
     void Start()
@@ -63,13 +59,6 @@ public class BugResolver : MonoBehaviour
     /// <param name="buggedGameObject">Bugged game object.</param>
     protected virtual void ItemBugged(GameObject buggedGameObject)
     {
-        OnItemBugged?.Invoke(this, new BugResolverArgs(buggedGameObject, false));
-    }
-    /// <summary>
-    /// Takes care of player bugged event
-    /// </summary>
-    protected virtual void PlayerBugged()
-    {
-        OnItemBugged?.Invoke(this, new BugResolverArgs(null, true));
+        OnItemBugged?.Invoke(this, new BugResolverArgs(buggedGameObject));
     }
 }
