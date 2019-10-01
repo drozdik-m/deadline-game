@@ -24,11 +24,13 @@ public class FocusPointManager : MonoBehaviour
         {
             Debug.LogError("FocusPointerManager: No focus pointer model found!");
         }
+        focusPointLocationsQueue = new Queue<GameObject>();
 
         foreach(var i in FocusPointsLocations)
         {
             focusPointLocationsQueue.Enqueue(i);
         }
+
     }
 
     // Update is called once per frame
