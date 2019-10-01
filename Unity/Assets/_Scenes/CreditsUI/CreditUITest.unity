@@ -146,8 +146,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18.15, y: 330}
-  m_SizeDelta: {x: 540.3, y: 153.9}
+  m_AnchoredPosition: {x: 18.15, y: 534}
+  m_SizeDelta: {x: 540.3, y: 283}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &72787410
 GameObject:
@@ -1130,8 +1130,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -18.126984, y: -23.000122}
-  m_SizeDelta: {x: 195.65, y: 66.44}
+  m_AnchoredPosition: {x: 0, y: -22}
+  m_SizeDelta: {x: 349.85, y: 66.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &265189619
 MonoBehaviour:
@@ -1164,9 +1164,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'License
-
-'
+  m_Text: External materials
 --- !u!222 &265189620
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1442,8 +1440,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -18.126984, y: -103.950165}
-  m_SizeDelta: {x: 504.1, y: 118.20999}
+  m_AnchoredPosition: {x: -18.126984, y: -313.7}
+  m_SizeDelta: {x: 504.1, y: 537.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &323548304
 MonoBehaviour:
@@ -1476,7 +1474,16 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: All information about game, links.
+  m_Text: 'All information about game, links.
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu ipsum vehicula,
+    facilisis lacus a, egestas nisl. Aliquam nisl velit, mollis eu turpis sed, volutpat
+    varius elit. Nullam pulvinar porta neque a accumsan. Vivamus sodales placerat
+    facilisis. Sed ac velit dolor. Maecenas nec placerat ex. Mauris ullamcorper est
+    at lacus tempus aliquam. Fusce id dui eu mi venenatis vestibulum at in dolor.
+    Curabitur iaculis neque urna, id finibus nisi tincidunt vitae. Vivamus in consequat
+    eros, vitae cursus purus. Phasellus lacinia fringilla ex vitae vehicula. Suspendisse
+    posuere sodales finibus.'
 --- !u!222 &323548305
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3406,8 +3413,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -18.126984, y: -103.950165}
-  m_SizeDelta: {x: 504.1, y: 118.20999}
+  m_AnchoredPosition: {x: -18.126984, y: -143}
+  m_SizeDelta: {x: 504.1, y: 196.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &722103401
 MonoBehaviour:
@@ -3440,9 +3447,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Mama Mia - Main Developer
-
-    Nana Nia - Super-main developer'
+  m_Text: "Mama Mia \t\t- Main Developer\nNana Nia \t\t- Super-main developer\nJames
+    Bond\t- Agent 007\nMario\t\t\t\t- Italian plumber\nLuigi\t\t\t\t- Mario's brother"
 --- !u!222 &722103402
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3562,7 +3568,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -11.07, y: -33.25}
+  m_AnchoredPosition: {x: -11.07, y: -40}
   m_SizeDelta: {x: 284, y: 66.399994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &753328731
@@ -4194,8 +4200,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.5, y: -115.92498}
-  m_SizeDelta: {x: 576.6, y: 777.1}
+  m_AnchoredPosition: {x: -5.5, y: -187.05524}
+  m_SizeDelta: {x: 576.6, y: 1278.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &913045185
 GameObject:
@@ -4277,7 +4283,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -18.127, y: -43.78}
+  m_AnchoredPosition: {x: -18.127, y: -25}
   m_SizeDelta: {x: 195.65, y: 66.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &923449908
@@ -4856,7 +4862,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1069287604}
   m_Layer: 5
-  m_Name: License
+  m_Name: ExternalMaterials
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4880,7 +4886,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.2201e-10, y: -223.5}
+  m_AnchoredPosition: {x: -4.2201e-10, y: -457.99997}
   m_SizeDelta: {x: 540.3, y: 270.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1146770508
@@ -6356,8 +6362,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18.149994, y: 168}
-  m_SizeDelta: {x: 540.3, y: 153.9}
+  m_AnchoredPosition: {x: 18.149994, y: 129}
+  m_SizeDelta: {x: 540.3, y: 568}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1402389811
 GameObject:
@@ -7223,8 +7229,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 137164388}
   m_HandleRect: {fileID: 137164387}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.70164716
+  m_Value: 0.75499994
+  m_Size: 0.42637628
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9281,6 +9287,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 19}
+  m_AnchoredPosition: {x: 0, y: -245.59991}
   m_SizeDelta: {x: 540.3, y: 153.9}
   m_Pivot: {x: 0.5, y: 0.5}
