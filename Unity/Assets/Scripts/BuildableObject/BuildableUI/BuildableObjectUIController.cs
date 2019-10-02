@@ -166,9 +166,10 @@ public class BuildableObjectUIController : MonoBehaviour
         GameObject.Destroy(currentStageUI.gameObject);
 
         if (e.buildStage)
+        {
             SetNewStage(e.buildStage);
-
-        currentStageUI.Activate();
+            currentStageUI.Activate();
+        }
     }
 
     /// <summary>
@@ -179,6 +180,8 @@ public class BuildableObjectUIController : MonoBehaviour
     public void OnBuildStageFinished(BuildableObject caller, BuildStageFinishedEventArgs e)
     {
         GameObject.Destroy(currentStageUI.gameObject);
+
+        gameObject.SetActive(false);
 
         isCompleted = true;
     }
