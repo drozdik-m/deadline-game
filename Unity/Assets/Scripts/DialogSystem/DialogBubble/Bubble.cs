@@ -61,15 +61,8 @@ public class Bubble : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         animator.Play("BubbleFadeOut");
-
-        var animLength = animator.GetCurrentAnimatorStateInfo(0).length;
-        DestroyAfter(animLength);
-    }
-
-    IEnumerator DestroyAfter(float del)
-    {
-        yield return new WaitForSeconds(delay);
-        Destroy(this);
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+        Destroy(gameObject);
     }
 
 }
