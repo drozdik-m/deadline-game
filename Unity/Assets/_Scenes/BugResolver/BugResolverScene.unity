@@ -609,7 +609,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 38a6df5fc62814319be820259a70a637,
+      objectReference: {fileID: 23800000, guid: 4e672eb0c6e7c4758ad2a12afeaf8f8f,
         type: 2}
     - target: {fileID: 2738785619027742040, guid: b4352481b31e9df4abe19197df8a52dc,
         type: 3}
@@ -730,7 +730,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b886189f373cc4060afdb454db4594b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VoidTreshold: -10
 --- !u!4 &1611273325
 Transform:
   m_ObjectHideFlags: 0
@@ -864,13 +863,27 @@ GameObject:
   - component: {fileID: 2260600827587426093}
   - component: {fileID: 604410317066672996}
   - component: {fileID: 2926735082409475930}
+  - component: {fileID: 910805337004916597}
   m_Layer: 11
   m_Name: BookModel
-  m_TagString: CheckForBugs
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &910805337004916597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910805337004916596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32c5bb93c20c43bd9c384dff31b3e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoidTreshold: -10
 --- !u!65 &1358372479890474150
 BoxCollider:
   m_ObjectHideFlags: 0
