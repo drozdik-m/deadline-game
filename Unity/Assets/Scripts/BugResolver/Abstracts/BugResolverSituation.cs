@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public delegate void BugResolverHandler(BugResolverSituation source, BugResolverArgs buggedObject);
+﻿using UnityEngine;
 /// <summary>
 /// <see langword="abstract"/> Bug resolver situation, abstra
 /// </summary>

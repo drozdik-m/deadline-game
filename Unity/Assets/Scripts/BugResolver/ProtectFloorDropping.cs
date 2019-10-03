@@ -14,10 +14,6 @@ public class ProtectFloorDropping : BugResolverSituation
     /// The drop point of the bugged item.
     /// </summary>
     private Transform dropPoint;
-    /// <summary>
-    /// Occurs when on item bugged.
-    /// </summary>
-    public event BugResolverHandler OnItemBugged;
 
     void Start()
     {
@@ -41,14 +37,9 @@ public class ProtectFloorDropping : BugResolverSituation
             // Reset its velocity
             rb.velocity = new Vector3(0, 0, 0);
             gameObject.transform.position = dropPoint.position;
-            ItemBugged(gameObject);
             return true;
         }
         return false;
     }
 
-    protected virtual void ItemBugged(GameObject buggedGameObject)
-    {
-        OnItemBugged?.Invoke(this, new BugResolverArgs(buggedGameObject));
-    }
 }
