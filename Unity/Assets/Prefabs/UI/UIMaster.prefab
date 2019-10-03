@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2121269034876520616}
+  - component: {fileID: 6456063081535656717}
   m_Layer: 5
   m_Name: DebugConsole
   m_TagString: Untagged
@@ -36,6 +37,21 @@ RectTransform:
   m_AnchoredPosition: {x: 200.5, y: 75.5}
   m_SizeDelta: {x: 400, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6456063081535656717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49725478593662261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f044cb96319616b478aaf02ed2c69514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commandInput: {fileID: 4101039946244281951}
+  logText: {fileID: 862753119785337595}
+  viewContainer: {fileID: 1255045607110128695}
 --- !u!1 &312918789739062561
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,27 +612,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Lorem ipsum dolor amet butcher keytar fingerstache, umami sartorial drinking
-    vinegar vape vaporware actually hashtag banjo leggings whatever. Distillery unicorn
-    locavore blog 90's cray wolf pickled disrupt tattooed ramps knausgaard cred gastropub
-    typewriter. Paleo umami bicycle rights, edison bulb pour-over church-key brooklyn
-    lomo live-edge taiyaki man bun pop-up. Art party lomo twee fanny pack snackwave,
-    flexitarian normcore. Beard umami pok pok aesthetic vegan direct trade, +1 seitan
-    flannel meggings.\r\n\r\nGlossier scenester gastropub, readymade pitchfork art
-    party blue bottle cred ugh craft beer jianbing hexagon single-origin coffee you
-    probably haven't heard of them lomo. Quinoa hoodie 3 wolf moon raw denim. Woke
-    yuccie cardigan YOLO church-key, narwhal intelligentsia. Health goth poke artisan
-    snackwave hashtag cred. Post-ironic small batch jean shorts, bushwick try-hard
-    occupy locavore taiyaki typewriter brooklyn. Kickstarter af celiac adaptogen trust
-    fund normcore quinoa 3 wolf moon meggings chambray. Glossier drinking vinegar
-    kombucha aesthetic unicorn migas four loko umami hammock.\r\n\r\nKeffiyeh tattooed
-    hella next level. Tote bag narwhal mustache, ugh chambray chillwave umami intelligentsia
-    normcore jean shorts forage. Flannel trust fund post-ironic man bun. Chambray
-    shaman franzen selvage, vinyl thundercats dreamcatcher DIY four dollar toast.
-    +1 fanny pack shabby chic shoreditch thundercats vegan tacos tbh authentic tousled
-    vexillologist locavore. Fingerstache ramps truffaut gentrify chicharrones health
-    goth cronut wayfarers aesthetic selfies. Man braid fanny pack tousled aesthetic
-    bespoke vape."
+  m_Text: 
 --- !u!1 &1255045607110128695
 GameObject:
   m_ObjectHideFlags: 0
