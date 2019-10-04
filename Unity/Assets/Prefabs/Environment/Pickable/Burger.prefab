@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 2228071206256552000}
   - component: {fileID: 7376482021591895557}
   - component: {fileID: 2617363948130169376}
+  - component: {fileID: 2694135889308134124}
   m_Layer: 0
   m_Name: BurgerModel
   m_TagString: CheckForBugs
@@ -429,6 +430,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2694135889308134124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8143496232993750723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32c5bb93c20c43bd9c384dff31b3e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoidTreshold: -10
 --- !u!1 &8143496232993750725
 GameObject:
   m_ObjectHideFlags: 0
