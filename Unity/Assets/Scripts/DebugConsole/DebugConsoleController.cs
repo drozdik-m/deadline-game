@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,7 +34,7 @@ public class DebugConsoleController : MonoBehaviour
             commandInput.text = "";
 
             // add command to log view
-            logText.text += createLogLine(enteredCommand);
+            logLine(enteredCommand);
 
             handleCommand(enteredCommand);
 
@@ -44,14 +45,27 @@ public class DebugConsoleController : MonoBehaviour
     void handleCommand(string commandStr)
     {
         Debug.Log("Handle command: '" + commandStr + "'");
-        //Command command = CommandFactory.GetCommand(commandStr);
 
-        //if (command == null)
-        //    logText.text += createLogLine("Command not found. Try command 'help' for list of available commands");
+        try
+        {
+            Command command = CommandFactory.GetCommand(commandStr);
 
-        //command.Run();
+            command.Run();
 
-        //logText.text += createLogLine(command.ResultMessage);
+            logLine(command.resultMessage);
+        }
+        catch (CommandFactoryException e)
+        {
+            logLine("Error when constructing command: " + e.Message);
+        }
+        catch (CommandException e)
+        {
+            logLine("Error when processing command: " + e.Message);
+        }
+        catch (Exception e)
+        {
+            logLine("Fatal Error: " + e.Message);
+        }
     }
 
     void focusCommandInput()
@@ -60,8 +74,8 @@ public class DebugConsoleController : MonoBehaviour
         commandInput.ActivateInputField();
     }
 
-    string createLogLine(string str)
+    void logLine(string str)
     {
-        return $"\n{str}";
+        logText.text += $"\n{str}";
     }
 }
