@@ -49,6 +49,13 @@ public class DebugConsoleController : MonoBehaviour
                     lastBuggedItem = bra.BuggedItemGameObject.name;
                 }
             };
+
+        // subscribe to all messages from unity
+        Application.logMessageReceived += (string cond, string stackTrace, LogType type) =>
+        {
+            logLine("Unity Exception: " + cond);
+            logLine(stackTrace);
+        };
     }
 
     void Update()
