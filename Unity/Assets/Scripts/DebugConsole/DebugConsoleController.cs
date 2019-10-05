@@ -24,10 +24,31 @@ public class DebugConsoleController : MonoBehaviour
     /// </summary>
     public GameObject viewContainer;
 
+    /// <summary>
+    /// Name of the GameObject that was lagged last time
+    /// </summary>
+    string lastBuggedItem;
+
     void Start()
     {
         // hide console when start
         viewContainer.SetActive(false);
+
+        // subscribe to bug resolver event
+        BugResolver[] bugResolvers = FindObjectsOfType<BugResolver>();
+        if (bugResolvers == null || bugResolvers.Length < 1)
+            logLine("Bug Resolver not found -> could not subscribe to Bug Resolver");
+        else
+            bugResolvers[0].OnObjectBugged +=
+            (BugResolver br, BugResolverArgs bra) =>
+            {
+                // avoid logging one item over and over again
+                if (lastBuggedItem != bra.BuggedItemGameObject.name)
+                {
+                    logLine($"BugResolver: GameObject '{bra.BuggedItemGameObject.name}' is bugged");
+                    lastBuggedItem = bra.BuggedItemGameObject.name;
+                }
+            };
     }
 
     void Update()
@@ -52,14 +73,17 @@ public class DebugConsoleController : MonoBehaviour
                 logLine("Error: Command is invalid, could not be parsed");
 
             // add command to log view
-            logLine("*" + onlyCommand + " " + onlyParams + "*");
-
-            handleCommand(onlyCommand, onlyParams);
+            if (string.IsNullOrWhiteSpace(onlyCommand))
+                logLine("");
+            else
+            {
+                logLine("*" + onlyCommand + " " + onlyParams + "*");
+                handleCommand(onlyCommand, onlyParams);
+            }
+                
 
             focusCommandInput();
         }
-
-
     }
 
     // handles command based on string
@@ -119,7 +143,7 @@ public class DebugConsoleController : MonoBehaviour
     {
         onlyCommand = onlyParams = "";
 
-        if (string.IsNullOrWhiteSpace(commandStr)) return false;
+        if (string.IsNullOrWhiteSpace(commandStr)) return true;
 
         // remove starting spacing (allowing commands like "    restartLevel")
         commandStr = remStartingSpaces(commandStr);
