@@ -9,7 +9,8 @@ public class ProtectFloorDropping : BugResolverSituation
     /// <summary>
     /// The void treshold (When is an item considered to be falling).
     /// </summary>
-    public double VoidTreshold;
+    public double VoidTreshold = -50f;
+
     /// <summary>
     /// The drop point of the bugged item.
     /// </summary>
