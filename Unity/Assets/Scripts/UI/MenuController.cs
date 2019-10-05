@@ -87,6 +87,14 @@ public class MenuController : MonoBehaviour
     }
 
     /// <summary>
+    /// Start tutorial
+    /// </summary>
+    public void StartTutorial()
+    {
+        FindObjectOfType<ScenesWorkflow>().ChangeScene("TutorialScene");
+    }
+
+    /// <summary>
     /// Quit the game
     /// </summary>
     public void QuitTheGame()
