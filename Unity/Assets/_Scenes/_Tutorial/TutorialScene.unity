@@ -686,7 +686,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 897131907}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &213365621
 MonoBehaviour:
@@ -713,7 +713,7 @@ GameObject:
   - component: {fileID: 233987947}
   - component: {fileID: 233987948}
   m_Layer: 0
-  m_Name: '#15 [StageMonologAsync] LibraryMonolog'
+  m_Name: '#17 [StageMonologAsync] LibraryMonolog'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -731,7 +731,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 897131907}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &233987948
 MonoBehaviour:
@@ -758,7 +758,7 @@ GameObject:
   - component: {fileID: 245785732}
   - component: {fileID: 245785733}
   m_Layer: 0
-  m_Name: '#23 [StageMonologAsync] PickUpAgain'
+  m_Name: '#24 [StageMonologAsync] PickUpAgain'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -776,7 +776,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 897131907}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &245785733
 MonoBehaviour:
@@ -851,7 +851,7 @@ Transform:
   m_Children:
   - {fileID: 996473944}
   m_Father: {fileID: 897131907}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &283072919
 GameObject:
@@ -915,7 +915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 1845309458}
-  QuestDescription: Interact with the mailbox
+  QuestDescription: Interact with the mailbox (point & click)
 --- !u!4 &299773450
 Transform:
   m_ObjectHideFlags: 0
@@ -1161,7 +1161,7 @@ Transform:
   m_Children:
   - {fileID: 470407564}
   m_Father: {fileID: 897131907}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &394090621
 GameObject:
@@ -1389,7 +1389,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 897131907}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &667756875
 MonoBehaviour:
@@ -1463,7 +1463,7 @@ GameObject:
   - component: {fileID: 718314739}
   - component: {fileID: 718314738}
   m_Layer: 0
-  m_Name: '#14 [StageQuestStack] PickupTheBook'
+  m_Name: '#15 [StageQuestStack] PickupTheBook'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1482,7 +1482,7 @@ Transform:
   m_Children:
   - {fileID: 10526219}
   m_Father: {fileID: 897131907}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &718314738
 MonoBehaviour:
@@ -1676,7 +1676,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 897131907}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &755706145
 MonoBehaviour:
@@ -1705,7 +1705,7 @@ GameObject:
   - component: {fileID: 779046990}
   - component: {fileID: 779046991}
   m_Layer: 0
-  m_Name: '#24 [StageQuestStack] Box2'
+  m_Name: '#25 [StageQuestStack] Box2'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1752,7 +1752,7 @@ Transform:
   m_Children:
   - {fileID: 730917416}
   m_Father: {fileID: 897131907}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &803341875
 GameObject:
@@ -1844,7 +1844,7 @@ GameObject:
   - component: {fileID: 896406666}
   - component: {fileID: 896406665}
   m_Layer: 0
-  m_Name: '#21 [StageQuestStack] Box'
+  m_Name: '#23 [StageQuestStack] Box'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1863,7 +1863,7 @@ Transform:
   m_Children:
   - {fileID: 407728816}
   m_Father: {fileID: 897131907}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &896406665
 MonoBehaviour:
@@ -1923,6 +1923,7 @@ Transform:
   - {fileID: 693805851}
   - {fileID: 352081916}
   - {fileID: 522795870}
+  - {fileID: 1379024992}
   - {fileID: 718314737}
   - {fileID: 233987947}
   - {fileID: 1355833537}
@@ -1999,7 +2000,7 @@ GameObject:
   - component: {fileID: 948961138}
   - component: {fileID: 948961139}
   m_Layer: 0
-  m_Name: '#20 [StageMonologAsync] LookBox'
+  m_Name: '#21 [StageMonologAsync] LookBox'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2017,7 +2018,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 897131907}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &948961139
 MonoBehaviour:
@@ -2442,7 +2443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 998591812}
-  QuestDescription: 'Drop the box and pick it up again! '
+  QuestDescription: Drop the box (letf top cross) and pick it up again!
 --- !u!4 &1256550800
 Transform:
   m_ObjectHideFlags: 0
@@ -2487,7 +2488,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 897131907}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1329659187
 MonoBehaviour:
@@ -2515,7 +2516,7 @@ GameObject:
   - component: {fileID: 1355833535}
   - component: {fileID: 1355833536}
   m_Layer: 0
-  m_Name: '#17 [StageQuestStack] Library'
+  m_Name: '#18 [StageQuestStack] Library'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2562,7 +2563,7 @@ Transform:
   m_Children:
   - {fileID: 856151327}
   m_Father: {fileID: 897131907}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1371252762
 GameObject:
@@ -2595,6 +2596,51 @@ Transform:
   m_Father: {fileID: 1256550800}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1379024991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1379024992}
+  - component: {fileID: 1379024993}
+  m_Layer: 0
+  m_Name: '#14 [StageMonologAsync] LookABook'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1379024992
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379024991}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 897131907}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1379024993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379024991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a1b5a1ae94a81e4cb7b3920918d0681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogManager: {fileID: 0}
+  WhatToSay: {fileID: 11400000, guid: ae6a0b3e5259e1e49bfbd91246e5fd75, type: 2}
 --- !u!1 &1531821998
 GameObject:
   m_ObjectHideFlags: 0
@@ -2946,7 +2992,7 @@ GameObject:
   - component: {fileID: 1739826620}
   - component: {fileID: 1739826621}
   m_Layer: 0
-  m_Name: '#18 [StageGameObjectActivity] ShowBox'
+  m_Name: '#20 [StageGameObjectActivity] ShowBox'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2964,7 +3010,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 897131907}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1739826621
 MonoBehaviour:
@@ -3038,7 +3084,7 @@ GameObject:
   - component: {fileID: 1776415536}
   - component: {fileID: 1776415535}
   m_Layer: 0
-  m_Name: '#25 [StageMonologSync] Outro'
+  m_Name: '#26 [StageMonologSync] Outro'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3070,7 +3116,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 897131907}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1826821271
 GameObject:
@@ -3168,6 +3214,7 @@ MonoBehaviour:
   - {fileID: 693805850}
   - {fileID: 352081915}
   - {fileID: 522795871}
+  - {fileID: 1379024993}
   - {fileID: 718314739}
   - {fileID: 233987948}
   - {fileID: 1355833535}
@@ -3389,6 +3436,21 @@ PrefabInstance:
       propertyPath: ImagesStorage.Array.data[5].type
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 4520685518539833654, guid: 1b12915c3f04a9245900018ef0b99ef8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -7.475006
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032587108343626345, guid: 1b12915c3f04a9245900018ef0b99ef8,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032587108343626345, guid: 1b12915c3f04a9245900018ef0b99ef8,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b12915c3f04a9245900018ef0b99ef8, type: 3}
 --- !u!1 &2049979647
@@ -3515,7 +3577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 745289637}
-  QuestDescription: Pick up the book
+  QuestDescription: Pick up the book (point & click)
 --- !u!114 &80191446386168637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3531,25 +3593,6 @@ MonoBehaviour:
   delay: 1.5
   overrideInventory: {fileID: 0}
   item: {fileID: 6679466291513089411}
---- !u!95 &109514482092619242
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1331238162480790963}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c62385101bbee4969a9027127e5b02b6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!65 &145355935076196728
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3670,9 +3713,9 @@ GameObject:
   - component: {fileID: 1331238162480750995}
   - component: {fileID: 1331238162482045363}
   - component: {fileID: 1331238162483045235}
-  - component: {fileID: 109514482092619242}
   - component: {fileID: 1637372193773869475}
   - component: {fileID: 3911249437046472093}
+  - component: {fileID: 1331238162480790964}
   m_Layer: 11
   m_Name: BookModel
   m_TagString: Untagged
@@ -3680,6 +3723,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1331238162480790964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331238162480790963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32c5bb93c20c43bd9c384dff31b3e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoidTreshold: -10
 --- !u!33 &1331238162482045363
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4634,7 +4690,6 @@ GameObject:
   - component: {fileID: 865744719116797537}
   - component: {fileID: 323321881248376245}
   - component: {fileID: 2904462725909545065}
-  - component: {fileID: 8304220178500811072}
   m_Layer: 11
   m_Name: Interactable
   m_TagString: Interactable
@@ -6541,21 +6596,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reactions:
   - {fileID: 13527289}
---- !u!114 &8304220178500811072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4412665564920634514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c54575eefcf71f645bdcd1ad71ea086e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Animator: {fileID: 0}
-  TargetGameObject: {fileID: 0}
-  Proximity: 0.5
 --- !u!114 &8647332317095813993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6606,6 +6646,7 @@ GameObject:
   - component: {fileID: 8809236578841439818}
   - component: {fileID: 4053175249737251597}
   - component: {fileID: 8809236578839441549}
+  - component: {fileID: 8809236578839441547}
   m_Layer: 0
   m_Name: CardboardBoxModel
   m_TagString: CheckForBugs
@@ -6613,6 +6654,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8809236578839441547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8809236578839441546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32c5bb93c20c43bd9c384dff31b3e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoidTreshold: -10
 --- !u!54 &8809236578839441549
 Rigidbody:
   m_ObjectHideFlags: 0
