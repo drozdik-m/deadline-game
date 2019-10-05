@@ -3,50 +3,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// CommandFactory creates right command based on passed string version of the command (and parameters)
+/// </summary>
 public static class CommandFactory
 {
-    private static bool parseCommandStr(string commandStr, out string onlyCommand, out string onlyParams)
+    public static Command GetCommand(string commandStr, string cparams)
     {
-        onlyCommand = onlyParams = "";
-
-        if (string.IsNullOrWhiteSpace(commandStr)) return false;
-
-        // remove starting spacing (allowing commands like "    restartLevel")
-        commandStr = remStartingSpaces(commandStr);
-
-        // read the command until the first space
-        commandStr = readUntilSpace(commandStr, out onlyCommand);
-
-        if (string.IsNullOrWhiteSpace(onlyCommand)) return false;
-
-        // remove spaces between onlyCommand and onlyParams (allowing commands like "changeLevel               <scene_name>")
-        onlyParams = remStartingSpaces(commandStr);
-
-        return true;
-    }
-
-    private static string readUntilSpace(string commandStr, out string onlyCommand) => throw new NotImplementedException();
-    private static string remStartingSpaces(string commandStr) => throw new NotImplementedException();
-
-    public static Command GetCommand(string commandStr)
-    {
-        string onlyCommand, onlyParams;
-
-        if (!parseCommandStr(commandStr, out onlyCommand, out onlyParams))
-            throw new CommandFactoryException("Command is invalid, could not be parsed");
-
-        switch (onlyCommand)
+        switch (commandStr)
         {
+            case "changeScene":
             case "changeLevel":
-                return new ChangeLevelCommand(onlyParams);
+                return new ChangeLevelCommand(cparams);
+
+            case "restartScene":
             case "restartLevel":
+                if (!string.IsNullOrWhiteSpace(cparams))
+                    throw new CommandFactoryException("Restart level command cannot take arguments");
                 return new RestartLevelCommand();
+
+            case "listScenes":
+            case "listLevels":
+                return new ListScenesCommand();
+                
+            case "clear":
+                return new ClearCommand();
+
+            case "help":
+                return new HelpCommand();
+
             default:
-                throw new CommandFactoryException("Command could not be found");
+                throw new CommandFactoryException("Command not found");
         }
     }
 }
 
+/// <summary>
+/// Exception for catching command factory assining errors
+/// </summary>
 public class CommandFactoryException : Exception
 {
     public CommandFactoryException(string message) : base(message) { }

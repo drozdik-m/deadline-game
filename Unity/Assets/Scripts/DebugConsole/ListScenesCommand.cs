@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Command for restaring current scene
+/// Command for listing all available scenes
 /// </summary>
-public class RestartLevelCommand : Command
+public class ListScenesCommand : Command
 {
     public override void Run()
     {
@@ -16,8 +15,9 @@ public class RestartLevelCommand : Command
         if (objectsWithScenesWorkflowComponent == null || objectsWithScenesWorkflowComponent.Length < 1)
             throw new CommandException("Error: No 'ScenesWorkflowComponent' found");
 
-        // change scene to the current scene -> restart scene
-        objectsWithScenesWorkflowComponent[0].ChangeScene(SceneManager.GetActiveScene().name);
-        resultMessage = "Level (scene) restarted";
+        // print available scenes in result
+        resultMessage += "Available scenes (levels):";
+        foreach (WorkflowScene scene in objectsWithScenesWorkflowComponent[0].StoryScenes)
+            resultMessage += "\n" + scene.SceneName;
     }
 }
