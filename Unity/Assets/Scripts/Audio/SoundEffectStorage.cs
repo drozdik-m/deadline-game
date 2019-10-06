@@ -96,5 +96,8 @@ public enum SoundEffectType
     ThunderSound,
     AlarmSound,
     MaleMurMur,
-    DialogBubblePop
+    DialogBubblePop,
+    PhoneSound,
+    BeepSound,
+    WarningSound
 }

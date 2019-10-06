@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f1d5b40d133740409b34fe9a748232b, type: 3}
+  m_Name: PostmanDialog
+  m_EditorClassIdentifier: 
+  structuredSentences:
+  - CharacterID: 1
+    sentence: Hey, you are the new owner, right?
+  - CharacterID: 0
+    sentence: Hell.
+  - CharacterID: 0
+    sentence: I mean... yeah, i think it's me.
+  - CharacterID: 1
+    sentence: I'm Bill. A postman.
+  - CharacterID: 0
+    sentence: I know. I saw your car through the window.
+  - CharacterID: 1
+    sentence: "Do you know, what is postman's favourite organ?\r\n"
+  - CharacterID: 0
+    sentence: No, what?
+  - CharacterID: 1
+    sentence: The liver. Hahahah.
+  - CharacterID: 0
+    sentence: Yeah, deliver. It's...funny.
+  - CharacterID: 1
+    sentence: I need to go. Your newspaper is in mailbox.
+  - CharacterID: 0
+    sentence: Ok...Bye.
