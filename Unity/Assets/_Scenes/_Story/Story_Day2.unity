@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 33493609}
   - component: {fileID: 33493610}
   m_Layer: 0
-  m_Name: '#6 [StageFade] FadeOut'
+  m_Name: '#7 [StageFade] FadeOut'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2494,7 +2494,7 @@ GameObject:
   - component: {fileID: 364761178}
   - component: {fileID: 364761177}
   m_Layer: 0
-  m_Name: '#53 [StageSubManager] ShowSecondGarbage'
+  m_Name: '#54 [StageSubManager] ShowSecondGarbage'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2513,7 +2513,7 @@ Transform:
   m_Children:
   - {fileID: 846030725}
   m_Father: {fileID: 765443168}
-  m_RootOrder: 33
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &364761177
 MonoBehaviour:
@@ -2556,7 +2556,7 @@ GameObject:
   - component: {fileID: 373067959}
   - component: {fileID: 373067960}
   m_Layer: 0
-  m_Name: '#6 [StageFade] FadeOut'
+  m_Name: '#7 [StageFade] FadeOut'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2853,6 +2853,51 @@ Transform:
   m_Father: {fileID: 1799376116}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &419310809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 419310810}
+  - component: {fileID: 419310811}
+  m_Layer: 0
+  m_Name: '#53 [StageWait] Wait'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &419310810
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419310809}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 765443168}
+  m_RootOrder: 33
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &419310811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419310809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6fe34caa035165449508dd48d0b6c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitSeconds: 1
+  readyForNextStage: 0
 --- !u!1 &429340970
 GameObject:
   m_ObjectHideFlags: 0
@@ -2973,7 +3018,7 @@ GameObject:
   - component: {fileID: 478295529}
   - component: {fileID: 478295530}
   m_Layer: 0
-  m_Name: '#56 [StageReactionCondition] CantEat'
+  m_Name: '#57 [StageReactionCondition] CantEat'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2991,7 +3036,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 36
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &478295530
 MonoBehaviour:
@@ -4629,14 +4674,15 @@ Transform:
   - {fileID: 1703545635}
   - {fileID: 1574478106}
   - {fileID: 2041314357}
+  - {fileID: 419310810}
   - {fileID: 364761176}
   - {fileID: 1102558095}
   - {fileID: 1467090061}
   - {fileID: 478295529}
   - {fileID: 1065951016}
   - {fileID: 1280014953}
-  - {fileID: 1834166098}
   - {fileID: 1403786753}
+  - {fileID: 1834166098}
   - {fileID: 1143495127}
   - {fileID: 1555810137}
   - {fileID: 778194446}
@@ -4782,7 +4828,7 @@ Transform:
   m_Children:
   - {fileID: 448543775}
   m_Father: {fileID: 765443168}
-  m_RootOrder: 43
+  m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &778194447
 MonoBehaviour:
@@ -6307,7 +6353,7 @@ GameObject:
   - component: {fileID: 1065951016}
   - component: {fileID: 1065951017}
   m_Layer: 0
-  m_Name: '#57 [StageComponentActivity] TurnOnController'
+  m_Name: '#58 [StageComponentActivity] TurnOnController'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6325,7 +6371,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 37
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1065951017
 MonoBehaviour:
@@ -6411,7 +6457,7 @@ GameObject:
   - component: {fileID: 1102558095}
   - component: {fileID: 1102558096}
   m_Layer: 0
-  m_Name: '#54 [StageMonologSync] StupidWork'
+  m_Name: '#55 [StageMonologSync] StupidWork'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6429,7 +6475,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 34
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1102558096
 MonoBehaviour:
@@ -6661,7 +6707,7 @@ GameObject:
   - component: {fileID: 1143495125}
   - component: {fileID: 1143495126}
   m_Layer: 0
-  m_Name: '#60 [StageQuestStack] GoSleep'
+  m_Name: '#61 [StageQuestStack] GoSleep'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6708,7 +6754,7 @@ Transform:
   m_Children:
   - {fileID: 677480987}
   m_Father: {fileID: 765443168}
-  m_RootOrder: 41
+  m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1154865365 stripped
 MonoBehaviour:
@@ -7444,7 +7490,7 @@ GameObject:
   - component: {fileID: 1280014953}
   - component: {fileID: 1280014952}
   m_Layer: 0
-  m_Name: '#58 [StageMonologSync] Ready'
+  m_Name: '#59 [StageMonologSync] Ready'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7476,7 +7522,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 38
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1286409177
 GameObject:
@@ -8795,6 +8841,7 @@ MonoBehaviour:
   - {fileID: 1703545636}
   - {fileID: 1574478107}
   - {fileID: 2041314359}
+  - {fileID: 419310811}
   - {fileID: 364761178}
   - {fileID: 1102558096}
   - {fileID: 1467090063}
@@ -8831,7 +8878,7 @@ GameObject:
   - component: {fileID: 1467090063}
   - component: {fileID: 1467090062}
   m_Layer: 0
-  m_Name: '#55 [StageSubManager] ShowThirdGarbage'
+  m_Name: '#56 [StageSubManager] ShowThirdGarbage'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8850,7 +8897,7 @@ Transform:
   m_Children:
   - {fileID: 1264480458}
   m_Father: {fileID: 765443168}
-  m_RootOrder: 35
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1467090062
 MonoBehaviour:
@@ -9141,7 +9188,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 42
+  m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1555810138
 MonoBehaviour:
@@ -10727,7 +10774,7 @@ GameObject:
   - component: {fileID: 1834166098}
   - component: {fileID: 1834166099}
   m_Layer: 0
-  m_Name: '#59 [StageReactionCondition] SleepCondition'
+  m_Name: '#60 [StageReactionCondition] SleepCondition'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10745,7 +10792,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 39
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1834166099
 MonoBehaviour:
@@ -11483,7 +11530,7 @@ GameObject:
   - component: {fileID: 1970722782}
   - component: {fileID: 1970722783}
   m_Layer: 0
-  m_Name: '#4 [StageFade] FadeOut'
+  m_Name: '#5 [StageFade] FadeOut'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12349,7 +12396,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 44
+  m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2072919811
 MonoBehaviour:
