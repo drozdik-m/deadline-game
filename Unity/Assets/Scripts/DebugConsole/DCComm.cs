@@ -5,8 +5,9 @@ using UnityEngine;
 
 /// <summary>
 /// Command class represents specific functionality usable in debug console
+/// DCComm stands dor 'Debug Console Command'
 /// </summary>
-public abstract class Command
+public abstract class DCComm
 {
     /// <summary>
     /// Parameters for command

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -98,9 +99,9 @@ public class DebugConsoleController : MonoBehaviour
     {
         try
         {
-            Command command = CommandFactory.GetCommand(commandStr, cparams);
+            DCComm command = CommandFactory.GetCommand(commandStr, cparams);
 
-            if (command is ClearCommand)
+            if (command is ClearDCComm)
                 logText.text = "";
             else
                 command.Run();
@@ -136,6 +137,15 @@ public class DebugConsoleController : MonoBehaviour
     /// <param name="str">The addition to the console output</param>
     void logLine(string str)
     {
+        // if there is more than 1000 lines, crop it to half
+        if (logText.text.Count(c => c == '\n') > 1000)
+        {
+            string[] lines = logText.text.Split('\n');
+            string[] newLines = lines.Skip(lines.Length / 2).ToArray();
+
+            logText.text = string.Join("\n", newLines);
+        }
+            
         logText.text += $"\n{str}";
     }
 

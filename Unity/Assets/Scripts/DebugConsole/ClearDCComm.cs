@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Command that clears console
 /// </summary>
-public class ClearCommand : Command
+public class ClearDCComm : DCComm
 {
     public override void Run() { }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Command for listing all available scenes
 /// </summary>
-public class ListScenesCommand : Command
+public class ListScenesDCComm : DCComm
 {
     public override void Run()
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HelpCommand : Command
+public class HelpDCComm : DCComm
 {
     public override void Run()
     {

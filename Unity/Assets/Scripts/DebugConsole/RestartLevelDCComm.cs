@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// Command for restaring current scene
 /// </summary>
-public class RestartLevelCommand : Command
+public class RestartLevelDCComm : DCComm
 {
     public override void Run()
     {

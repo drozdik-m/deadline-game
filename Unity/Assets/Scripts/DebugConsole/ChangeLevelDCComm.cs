@@ -5,9 +5,9 @@ using UnityEngine;
 /// <summary>
 /// Command that changes scenes
 /// </summary>
-public class ChangeLevelCommand : Command
+public class ChangeLevelDCComm : DCComm
 {
-    public ChangeLevelCommand(string commandParams)
+    public ChangeLevelDCComm(string commandParams)
     {
         this.commandParams = commandParams;
     }

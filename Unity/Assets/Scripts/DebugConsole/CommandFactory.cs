@@ -8,29 +8,29 @@ using UnityEngine;
 /// </summary>
 public static class CommandFactory
 {
-    public static Command GetCommand(string commandStr, string cparams)
+    public static DCComm GetCommand(string commandStr, string cparams)
     {
         switch (commandStr)
         {
             case "changeScene":
             case "changeLevel":
-                return new ChangeLevelCommand(cparams);
+                return new ChangeLevelDCComm(cparams);
 
             case "restartScene":
             case "restartLevel":
                 if (!string.IsNullOrWhiteSpace(cparams))
                     throw new CommandFactoryException("Restart level command cannot take arguments");
-                return new RestartLevelCommand();
+                return new RestartLevelDCComm();
 
             case "listScenes":
             case "listLevels":
-                return new ListScenesCommand();
+                return new ListScenesDCComm();
                 
             case "clear":
-                return new ClearCommand();
+                return new ClearDCComm();
 
             case "help":
-                return new HelpCommand();
+                return new HelpDCComm();
 
             default:
                 throw new CommandFactoryException("Command not found");
