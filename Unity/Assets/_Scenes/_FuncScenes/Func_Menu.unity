@@ -3001,6 +3001,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CreditsPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 7428367287034149557, guid: a20d898ba051d7f4d98afc44b8e9f731,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6552910028917167471, guid: a20d898ba051d7f4d98afc44b8e9f731,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3125,6 +3130,50 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 812385319344170561, guid: a20d898ba051d7f4d98afc44b8e9f731,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 315.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 812385319344170561, guid: a20d898ba051d7f4d98afc44b8e9f731,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 733.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315101299757566879, guid: a20d898ba051d7f4d98afc44b8e9f731,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315101299757566879, guid: a20d898ba051d7f4d98afc44b8e9f731,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315101299757566879, guid: a20d898ba051d7f4d98afc44b8e9f731,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941223915321806817, guid: a20d898ba051d7f4d98afc44b8e9f731,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -375.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941223915321806817, guid: a20d898ba051d7f4d98afc44b8e9f731,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 660.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342974068168432074, guid: a20d898ba051d7f4d98afc44b8e9f731,
+        type: 3}
+      propertyPath: m_Text
+      value: "Martin Drozd\xEDk (team lead, programmer) - drozdik.m@seznam.cz\n\nAdam
+        Gelatka (programmer) - gelatka@seznam.cz\n\nIan Mustiats (UI, design) - ianmustiats@seznam.cz\n\nLuk\xE1\u0161
+        Peka\u0159 (programmer, devops) - lukaspekar8@gmail.com\n\nIhor Salov (scene
+        building) - saloviho@fit.cvut.cz\n\nJan \u0160ef\u010D\xEDk (3D modelling.
+        design) - sefcik.jan@email.cz"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a20d898ba051d7f4d98afc44b8e9f731, type: 3}
