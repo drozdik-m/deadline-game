@@ -43,31 +43,39 @@ public class SkyboxController : MonoBehaviour
     void Start()
     {
         MainCamera.clearFlags = CameraClearFlags.SolidColor;
-        ChangeTime ();
+        ChangeTime();
     }
 
     /// <summary>
     /// Change time of the day, depends on the variable TimesOfDay
     /// </summary>
-    private void ChangeTime()
+    public void ChangeTime(Time newTime)
     {
-        Quaternion direction = new Quaternion ();
+        var direction = new Quaternion();
+
+        TimesOfDay = newTime;
 
         if (TimesOfDay == Time.night)
         {
             direction.eulerAngles = NightLightDirectionSun;
             GetComponent<Light> ().color = Color.black;
             MainCamera.backgroundColor = NightColor;
-            TimesOfDay = Time.night;
         }
         else
         {
             direction.eulerAngles = DayLightDirectionSun;
             GetComponent<Light> ().color = Color.gray;
             MainCamera.backgroundColor = DayColor;
-            TimesOfDay = Time.day;
         }
 
         transform.rotation = direction;
+    }
+
+    public void ChangeTime()
+    {
+        if (TimesOfDay == Time.day)
+            ChangeTime(Time.night);
+        else
+            ChangeTime(Time.day);
     }
 }

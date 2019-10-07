@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4494115, g: 0.49633682, b: 0.55877405, a: 1}
+  m_IndirectSpecularColor: {r: 0.4494112, g: 0.49633646, b: 0.5587733, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 2051922402}
-  QuestDescription: Read a newspaper
+  QuestDescription: Read the newspapers
 --- !u!4 &38716551 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1744926681517122438, guid: 49a1ee76d1fec487882cf292dd3628b7,
@@ -555,7 +555,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &65570775
 MonoBehaviour:
@@ -1013,7 +1013,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114255564
 MonoBehaviour:
@@ -1211,7 +1211,7 @@ Transform:
   m_Children:
   - {fileID: 508434436}
   m_Father: {fileID: 765443168}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &141674850
 MonoBehaviour:
@@ -1715,7 +1715,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &191764532
 MonoBehaviour:
@@ -1761,7 +1761,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &198413340
 MonoBehaviour:
@@ -1843,7 +1843,7 @@ Transform:
   m_Children:
   - {fileID: 1958205122}
   m_Father: {fileID: 765443168}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &235632650
 MonoBehaviour:
@@ -2038,7 +2038,7 @@ Transform:
   m_Children:
   - {fileID: 91732772}
   m_Father: {fileID: 765443168}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &283836990
 MonoBehaviour:
@@ -2329,7 +2329,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &335296286
 MonoBehaviour:
@@ -2513,7 +2513,7 @@ Transform:
   m_Children:
   - {fileID: 846030725}
   m_Father: {fileID: 765443168}
-  m_RootOrder: 34
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &364761177
 MonoBehaviour:
@@ -2621,7 +2621,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &375123836
 MonoBehaviour:
@@ -2882,7 +2882,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 33
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &419310811
 MonoBehaviour:
@@ -3036,7 +3036,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 37
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &478295530
 MonoBehaviour:
@@ -3267,7 +3267,7 @@ GameObject:
   - component: {fileID: 546490196}
   - component: {fileID: 546490197}
   m_Layer: 0
-  m_Name: '#5 [StageComponentActivity] TurnOffController'
+  m_Name: '#3 [StageComponentActivity] TurnOffController'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3285,7 +3285,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 29
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &546490197
 MonoBehaviour:
@@ -4168,7 +4168,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &689449228
 MonoBehaviour:
@@ -4393,7 +4393,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &715331481
 MonoBehaviour:
@@ -4641,6 +4641,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1398900010}
   - {fileID: 689449227}
   - {fileID: 1990203772}
   - {fileID: 1211377287}
@@ -4659,7 +4660,7 @@ Transform:
   - {fileID: 141674849}
   - {fileID: 375123835}
   - {fileID: 191764531}
-  - {fileID: 1398900010}
+  - {fileID: 546490196}
   - {fileID: 335296285}
   - {fileID: 1102277856}
   - {fileID: 283836989}
@@ -4670,7 +4671,7 @@ Transform:
   - {fileID: 1576629714}
   - {fileID: 1124371537}
   - {fileID: 1823604956}
-  - {fileID: 546490196}
+  - {fileID: 1403786753}
   - {fileID: 1703545635}
   - {fileID: 1574478106}
   - {fileID: 2041314357}
@@ -4681,7 +4682,6 @@ Transform:
   - {fileID: 478295529}
   - {fileID: 1065951016}
   - {fileID: 1280014953}
-  - {fileID: 1403786753}
   - {fileID: 1834166098}
   - {fileID: 1143495127}
   - {fileID: 1555810137}
@@ -5120,7 +5120,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &856387792
 MonoBehaviour:
@@ -5182,7 +5182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 876159401}
-  QuestDescription: Go to frontyard
+  QuestDescription: Go to the frontyard
 --- !u!1 &865288810
 GameObject:
   m_ObjectHideFlags: 0
@@ -5641,6 +5641,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -58.934002
       objectReference: {fileID: 0}
+    - target: {fileID: 8715326153088815230, guid: bf7711b4182818747a960cbc3a6e7528,
+        type: 3}
+      propertyPath: TimesOfDay
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf7711b4182818747a960cbc3a6e7528, type: 3}
 --- !u!1 &927394541
@@ -5787,7 +5792,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &959952138
 MonoBehaviour:
@@ -6371,7 +6376,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 38
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1065951017
 MonoBehaviour:
@@ -6429,7 +6434,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1102277857
 MonoBehaviour:
@@ -6475,7 +6480,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 35
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1102558096
 MonoBehaviour:
@@ -6570,7 +6575,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1124371538
 MonoBehaviour:
@@ -7030,7 +7035,7 @@ Transform:
   m_Children:
   - {fileID: 219695943}
   m_Father: {fileID: 765443168}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1211377288
 MonoBehaviour:
@@ -7522,7 +7527,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 39
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1286409177
 GameObject:
@@ -7696,7 +7701,7 @@ Transform:
   m_Children:
   - {fileID: 1511554218}
   m_Father: {fileID: 765443168}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1302122273
 MonoBehaviour:
@@ -7889,7 +7894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 1336828154}
-  QuestDescription: Go sleep
+  QuestDescription: Go to sleep
 --- !u!4 &1349149638
 Transform:
   m_ObjectHideFlags: 0
@@ -7966,7 +7971,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1360653985
 MonoBehaviour:
@@ -8314,7 +8319,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1391610257
 MonoBehaviour:
@@ -8391,7 +8396,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1396675384
 MonoBehaviour:
@@ -8424,7 +8429,7 @@ GameObject:
   - component: {fileID: 1398900010}
   - component: {fileID: 1398900011}
   m_Layer: 0
-  m_Name: '#3 [StageGameObjectActivity] TurnOffObjects'
+  m_Name: '#1 [StageGameObjectActivity] TurnOffObjects'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8442,7 +8447,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 18
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1398900011
 MonoBehaviour:
@@ -8555,7 +8560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 109916967}
-  QuestDescription: Take a newspaper
+  QuestDescription: Take the newspapers
 --- !u!1 &1403786752
 GameObject:
   m_ObjectHideFlags: 0
@@ -8567,7 +8572,7 @@ GameObject:
   - component: {fileID: 1403786753}
   - component: {fileID: 1403786754}
   m_Layer: 0
-  m_Name: '#6 [StageMonologSync] WakeUpDialog'
+  m_Name: '#5 [StageMonologSync] WakeUpDialog'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8585,7 +8590,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 40
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1403786754
 MonoBehaviour:
@@ -8859,7 +8864,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464893189}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 21.456375, y: -23.792946, z: -16.1701}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 765443168}
@@ -8897,7 +8902,7 @@ Transform:
   m_Children:
   - {fileID: 1264480458}
   m_Father: {fileID: 765443168}
-  m_RootOrder: 36
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1467090062
 MonoBehaviour:
@@ -9251,7 +9256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 1212251737}
-  QuestDescription: Answer the phone
+  QuestDescription: Answer the phone in the kitchen
 --- !u!1 &1574478105
 GameObject:
   m_ObjectHideFlags: 0
@@ -9281,7 +9286,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 31
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1574478107
 MonoBehaviour:
@@ -9378,7 +9383,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1576629715
 MonoBehaviour:
@@ -9620,10 +9625,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.75
-  m_Text: 'Often the boss does not understand that even though
-
-
-    you work from home, you should also have a day off.'
+  m_Text: "Bosses often don\u2019t understand, that even though you work from home,
+    you can\u2019t work all the time and need some time off."
 --- !u!222 &1608420369
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9750,7 +9753,7 @@ MonoBehaviour:
   m_Text: 'Lack of rest can cause depression, as well as complete emotional exhaustion.
 
 
-    It is called burnout.'
+    It is called BURNOUT.'
 --- !u!222 &1648187758
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9873,7 +9876,7 @@ Transform:
   m_Children:
   - {fileID: 161541428}
   m_Father: {fileID: 765443168}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1657321574
 MonoBehaviour:
@@ -10066,7 +10069,7 @@ Transform:
   m_Children:
   - {fileID: 616984857}
   m_Father: {fileID: 765443168}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1703545636
 MonoBehaviour:
@@ -10715,7 +10718,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1823604957
 MonoBehaviour:
@@ -10838,7 +10841,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1857983553
 MonoBehaviour:
@@ -11029,7 +11032,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1882725550
 MonoBehaviour:
@@ -11169,7 +11172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 1862627695}
-  QuestDescription: Play games
+  QuestDescription: Play some games on the PC
 --- !u!1 &1901806941
 GameObject:
   m_ObjectHideFlags: 0
@@ -11626,7 +11629,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765443168}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1990203773
 MonoBehaviour:
@@ -11953,7 +11956,7 @@ Transform:
   m_Children:
   - {fileID: 102275985}
   m_Father: {fileID: 765443168}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2036197625
 MonoBehaviour:
@@ -12014,7 +12017,7 @@ Transform:
   m_Children:
   - {fileID: 697752164}
   m_Father: {fileID: 765443168}
-  m_RootOrder: 32
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2041314358
 MonoBehaviour:
@@ -12462,7 +12465,7 @@ Transform:
   m_Children:
   - {fileID: 927394542}
   m_Father: {fileID: 765443168}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2105843592
 MonoBehaviour:
