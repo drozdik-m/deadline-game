@@ -192,11 +192,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7842440559971485273}
     m_Modifications:
-    - target: {fileID: 8472181978204779553, guid: 3069564b96ae642cc87a7e83b0b56aaa,
-        type: 3}
-      propertyPath: m_Name
-      value: RoomManager
-      objectReference: {fileID: 0}
     - target: {fileID: 636100186291947767, guid: 3069564b96ae642cc87a7e83b0b56aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -252,6 +247,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8472181978204779553, guid: 3069564b96ae642cc87a7e83b0b56aaa,
+        type: 3}
+      propertyPath: m_Name
+      value: RoomManager
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3069564b96ae642cc87a7e83b0b56aaa, type: 3}
 --- !u!4 &7207469816974837736 stripped
@@ -267,11 +267,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7842440559971485273}
     m_Modifications:
-    - target: {fileID: 5393039807932966666, guid: ec1337d9ba88543c69a101f463900630,
-        type: 3}
-      propertyPath: m_Name
-      value: DialogSystem
-      objectReference: {fileID: 0}
     - target: {fileID: 5393039807932966667, guid: ec1337d9ba88543c69a101f463900630,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -327,6 +322,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5393039807932966666, guid: ec1337d9ba88543c69a101f463900630,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogSystem
+      objectReference: {fileID: 0}
     - target: {fileID: 7950287124077032851, guid: ec1337d9ba88543c69a101f463900630,
         type: 3}
       propertyPath: SingleSoundEffectType
@@ -336,6 +336,11 @@ PrefabInstance:
         type: 3}
       propertyPath: SingleSoundEffectType
       value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393039808557198710, guid: ec1337d9ba88543c69a101f463900630,
+        type: 3}
+      propertyPath: autoDelay
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec1337d9ba88543c69a101f463900630, type: 3}
