@@ -34,12 +34,9 @@ public class QuestsUIController : MonoBehaviour
     /// </summary>
     private int positionOffset = 40;
 
-    void Start()
+    void Awake()
     {
-        if (FindObjectOfType<SkyboxController>().TimesOfDay == SkyboxController.Time.night)
-        {
-            QuestUIPanelPrefab.QuestDescriptionText.color = Color.white;
-        }
+        FindObjectOfType<SkyboxController>().OnChange += SkyboxOnChange;
     }
 
     /// <summary>
@@ -105,5 +102,18 @@ public class QuestsUIController : MonoBehaviour
             else
                 questUIStorage[i].SetNewUI (quest.QuestDescription, Color.red, 1.0f);
         }
+    }
+
+    /// <summary>
+    /// Change text color of quests
+    /// </summary>
+    /// <param name="source">Caller</param>
+    /// <param name="e">Arguments</param>
+    public void SkyboxOnChange(SkyboxController caller, SkyboxChangeHandlerArgs e)
+    {
+        if (e.NewDayTime == SkyboxController.Time.night)
+            QuestUIPanelPrefab.QuestDescriptionText.color = Color.white;
+        else
+            QuestUIPanelPrefab.QuestDescriptionText.color = Color.black;
     }
 }
