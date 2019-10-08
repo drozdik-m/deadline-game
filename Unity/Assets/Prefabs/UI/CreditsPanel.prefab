@@ -1,5 +1,42 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &162099222101553583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5624066703837738559}
+  m_Layer: 5
+  m_Name: Contributors
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5624066703837738559
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162099222101553583}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3269111275642197176}
+  - {fileID: 6394821541995094305}
+  m_Father: {fileID: 4085957464648868610}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 18.15, y: 103}
+  m_SizeDelta: {x: 540.3, y: 123.2}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &273052941379070488
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,11 +67,11 @@ RectTransform:
   - {fileID: 2825573580291753572}
   - {fileID: 7180468625923103980}
   m_Father: {fileID: 4085957464648868610}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.2201e-10, y: -450.99997}
+  m_AnchoredPosition: {x: 5, y: -762}
   m_SizeDelta: {x: 540.3, y: 270.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &309487047280414114
@@ -71,7 +108,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -14.1, y: -152.9}
+  m_AnchoredPosition: {x: -7, y: -135.45}
   m_SizeDelta: {x: 496, y: 259}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5221634664403766018
@@ -423,7 +460,7 @@ RectTransform:
   m_Father: {fileID: 411186452966036801}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5879308}
+  m_AnchorMin: {x: 0, y: 0.68557173}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -497,7 +534,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -22}
+  m_AnchoredPosition: {x: 0, y: -27}
   m_SizeDelta: {x: 349.85, y: 66.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6544781953235640124
@@ -570,11 +607,11 @@ RectTransform:
   - {fileID: 5113577521482324363}
   - {fileID: 8662891832159750335}
   m_Father: {fileID: 4085957464648868610}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18.149994, y: 136}
+  m_AnchoredPosition: {x: 5, y: -284}
   m_SizeDelta: {x: 540.3, y: 568}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2835556628083370424
@@ -760,8 +797,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -18.126984, y: -143}
-  m_SizeDelta: {x: 504.1, y: 196.4}
+  m_AnchoredPosition: {x: -18.126984, y: -375.1}
+  m_SizeDelta: {x: 504.1, y: 660.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1379772255209517555
 CanvasRenderer:
@@ -802,11 +839,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Martin Drozd\xEDk (team lead, programming) - drozdik.m@seznam.cz\n\nAdam
-    Gelatka (programming) - gelatka@seznam.cz\n\nIan Mustiats (UI, design) - ianmustiats@seznam.cz\n\nLuk\xE1\u0161
-    Peka\u0159 (programming, devops) - lukaspekar8@gmail.com\n\nIhor Salov (scene
-    building) - saloviho@fit.cvut.cz\n\nJan \u0160ef\u010D\xEDk (3D modelling. design)
-    - sefcik.jan@email.cz"
+  m_Text: "Martin Drozd\xEDk (team lead, programmer) - drozdik.m@seznam.cz\n\nAdam
+    Gelatka (programmer) - gelatka@seznam.cz\n\nIan Mustiats (UI, design) - ianmustiats@seznam.cz\n\nLuk\xE1\u0161
+    Peka\u0159 (programmer, devops) - lukaspekar8@gmail.com\n\nIhor Salov (scene building)
+    - saloviho@fit.cvut.cz\n\nJan \u0160ef\u010D\xEDk (3D modelling. design) - sefcik.jan@email.cz"
 --- !u!1 &5318282090073688582
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,13 +873,90 @@ RectTransform:
   - {fileID: 7289462466269277788}
   - {fileID: 6988865450087409314}
   m_Father: {fileID: 4085957464648868610}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -238.59991}
+  m_AnchoredPosition: {x: 5, y: -541}
   m_SizeDelta: {x: 540.3, y: 153.9}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &5377855403235400516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6394821541995094305}
+  - component: {fileID: 7570903128658947797}
+  - component: {fileID: 6039289209814603256}
+  m_Layer: 5
+  m_Name: CreditsText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6394821541995094305
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5377855403235400516}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5624066703837738559}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -18.126984, y: -117.1}
+  m_SizeDelta: {x: 504.1, y: 254.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &7570903128658947797
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5377855403235400516}
+  m_CullTransparentMesh: 0
+--- !u!114 &6039289209814603256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5377855403235400516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 17e3ca7a804f41d428729a5fbd94dd97, type: 3}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "Anton\xEDn Prantl (3D modelling) - prantant@fit.cvut.cz\n"
 --- !u!1 &5482479457923581092
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,7 +1069,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -18.126984, y: -313.7}
+  m_AnchoredPosition: {x: -7, y: -250.85}
   m_SizeDelta: {x: 504.1, y: 537.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7266070160197181449
@@ -998,12 +1111,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'This game has been created as a part of courses Software Team Project 1
-    and Software Team Project 2, led by Ing. Marek Skotnica at Czech Technical University
-    in Prague. The game tells a beginning of a story of Bob, which has troubles with
-    work overloading and burning out. We (software developers) sometimes feel the
-    same way and we wanted to (at least a little bit) illustrate the frustrations
-    through this game. '
+  m_Text: "This game has been created as a part of courses Software Team Project 1
+    and Software Team Project 2, lead by Ing. Marek Skotnica at Czech Technical University
+    in Prague. \n\nThe game tells a beginning of a story of Bob, which has troubles
+    with work overloading and burning out. We (software developers) sometimes feel
+    the same way and we wanted to (at least a little bit) illustrate the frustrations
+    through this game. "
 --- !u!1 &5829371529411107212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,7 +1151,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000011444092, y: 0}
+  m_AnchoredPosition: {x: 0.000011444092, y: 18}
   m_SizeDelta: {x: 272.44, y: 66.44}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &3164432195256664484
@@ -1109,6 +1222,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 812385319344170561}
+  - {fileID: 5624066703837738559}
   - {fileID: 3097300589486346585}
   - {fileID: 2845285506225112220}
   - {fileID: 6229354632823158371}
@@ -1117,8 +1231,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.5, y: -388.975}
-  m_SizeDelta: {x: 576.6, y: 1323.2}
+  m_AnchoredPosition: {x: -5.5, y: -594.4249}
+  m_SizeDelta: {x: 576.6, y: 1734.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6945298996145135113
 GameObject:
@@ -1285,6 +1399,83 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   delegates: []
+--- !u!1 &7401751485457891123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3269111275642197176}
+  - component: {fileID: 6886584763885157117}
+  - component: {fileID: 8846261983389823699}
+  m_Layer: 5
+  m_Name: CreditTitle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3269111275642197176
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7401751485457891123}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5624066703837738559}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -18.126995, y: -23}
+  m_SizeDelta: {x: 222.4, y: 66.4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6886584763885157117
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7401751485457891123}
+  m_CullTransparentMesh: 0
+--- !u!114 &8846261983389823699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7401751485457891123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.4433962, g: 0.16104484, b: 0.21454203, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 17e3ca7a804f41d428729a5fbd94dd97, type: 3}
+    m_FontSize: 46
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 46
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Contributors
 --- !u!1 &7402673770035973152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,7 +1590,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8315101299757566879}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.41206923
+  m_Size: 0.31442827
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1427,7 +1618,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7428367287034149557}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1475,8 +1666,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18.15, y: 541}
-  m_SizeDelta: {x: 540.3, y: 283}
+  m_AnchoredPosition: {x: 18.15, y: 599}
+  m_SizeDelta: {x: 540.3, y: 569}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8641878983241814480
 GameObject:
