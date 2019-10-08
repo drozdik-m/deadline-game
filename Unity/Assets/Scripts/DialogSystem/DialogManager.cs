@@ -160,12 +160,14 @@ public class DialogManager : MonoBehaviour
     /// </summary>
     private void endOfDialog()
     {
+        soundEffectController.StopLoopSound();
+        soundEffectController.StopCurrentSound();
         currentlyDisplayed = null;
         isActive = false;
         setPlayerMovement(false);
         CancelInvoke();
         currentDelay = 0;
-        soundEffectController.StopCurrentSound();
+   
     }
 
     private float calculateDelayToLength(string sentence)
@@ -213,7 +215,9 @@ public class DialogManager : MonoBehaviour
             if (!soundEffectController)
                 soundEffectController = GetComponent<SoundEffectController>();
 
-            soundEffectController.PlaySound();
+            SoundEffectType[] sfType = new SoundEffectType[] { SoundEffectType.MaleMurMur };
+            soundEffectController.PlayLoopSound(sfType, 22.094f);
+
             //Debug.Log("Sound (" + (bool)soundEffectController + ")");
 
             nextSentence();
