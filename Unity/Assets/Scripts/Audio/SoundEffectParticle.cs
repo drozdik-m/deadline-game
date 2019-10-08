@@ -17,6 +17,8 @@ public class SoundEffectParticle : MonoBehaviour
     void Update()
     {
         if (!audioSource.isPlaying)
-            Destroy(gameObject);
+        {
+            //Destroy(gameObject);
+        }
     }
 }

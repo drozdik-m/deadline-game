@@ -214,6 +214,7 @@ public class DialogManager : MonoBehaviour
                 soundEffectController = GetComponent<SoundEffectController>();
 
             soundEffectController.PlaySound();
+            //Debug.Log("Sound (" + (bool)soundEffectController + ")");
 
             nextSentence();
             StartCoroutine(Invoker());

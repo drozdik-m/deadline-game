@@ -67,7 +67,7 @@ public class SoundEffectController : MonoBehaviour
     public void PlaySound(Transform parent)
     {
         UpdateVolume ();
-        GameObject spawnedSound = Instantiate (SoundEffectParticlePrefab, parent);
+        var spawnedSound = Instantiate (SoundEffectParticlePrefab, parent);
 
         spawnedAudioSource = spawnedSound.GetComponent<AudioSource> ();
         spawnedAudioSource.volume = volume;
@@ -81,12 +81,14 @@ public class SoundEffectController : MonoBehaviour
     public void PlaySound()
     {
         UpdateVolume ();
-        GameObject spawnedSound = Instantiate (SoundEffectParticlePrefab);
+        var spawnedSound = Instantiate (SoundEffectParticlePrefab);
 
         spawnedAudioSource = spawnedSound.GetComponent<AudioSource> ();
         spawnedAudioSource.volume = volume;
         spawnedAudioSource.clip = soundEffect;
         spawnedAudioSource.Play ();
+
+        //Debug.Log("Sound play - " + spawnedSound);
     }
 
     /// <summary>

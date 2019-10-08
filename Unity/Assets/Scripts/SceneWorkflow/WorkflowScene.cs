@@ -46,10 +46,17 @@ public class WorkflowScene : MonoBehaviour
         return false;
     }
 
+
     /// <summary>
     /// Initiates scene (should be called once on load)
     /// </summary>
     public void InitiateScene()
+    {
+        initiate = true;
+    }
+
+    private bool initiate = false;
+    private void InitiateSceneLoader()
     {
         GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<BackgroundMusic>()
             .ChangeTheme(StageMusicTheme, NextSceneTransitionSpeed);
@@ -67,18 +74,24 @@ public class WorkflowScene : MonoBehaviour
             MainStageManger.OnStageChange -= OnMainStageManagerChange;
             MainStageManger.OnStageChange += OnMainStageManagerChange;
             MainStageManger.InitiateStages();
-            
-        }
-            
 
-        
+        }
+    }
+
+    private void Update()
+    {
+        if (initiate)
+        {
+            InitiateSceneLoader();
+            initiate = false;
+        }
     }
 
     private void OnMainStageManagerChange(StageManager caller, StageManagerArgs args)
     {
         if (args.CurrentStage.GetType() == typeof(StageQuestStack))
         {
-            GameObject masterUI = GameObject.FindGameObjectWithTag("MasterUI");
+            var masterUI = GameObject.FindGameObjectWithTag("MasterUI");
             if (masterUI != null)
             {
                 masterUI.GetComponent<UIMaster>().QuestUI.
