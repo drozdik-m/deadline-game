@@ -96,5 +96,8 @@ public enum SoundEffectType
     ThunderSound,
     AlarmSound,
     MaleMurMur,
-    DialogBubblePop
+    DialogBubblePop,
+    Hammer,
+    Wrench,
+    Screwdriver
 }

@@ -141,6 +141,9 @@ public enum InventoryItemID
     Newspaper,
     WateringCan,
     Money,
+    Screwdriver,
+    Wrench,
+    Hammer,
     None
 }
 
