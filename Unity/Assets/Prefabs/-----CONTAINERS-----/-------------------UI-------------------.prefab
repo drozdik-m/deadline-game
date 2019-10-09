@@ -216,25 +216,40 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2542349478397735447, guid: df5b84aa457c4d94bad36c129214deb1,
+    - target: {fileID: 6229988093058447578, guid: df5b84aa457c4d94bad36c129214deb1,
         type: 3}
-      propertyPath: m_AnchorMin.y
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000011444092
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229988093058447578, guid: df5b84aa457c4d94bad36c129214deb1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -165
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960002844592672727, guid: df5b84aa457c4d94bad36c129214deb1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20862.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 1888101045264284867, guid: df5b84aa457c4d94bad36c129214deb1,
+        type: 3}
+      propertyPath: m_Value
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2542349478397735447, guid: df5b84aa457c4d94bad36c129214deb1,
+    - target: {fileID: 1888101045264284867, guid: df5b84aa457c4d94bad36c129214deb1,
         type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2542349478397735447, guid: df5b84aa457c4d94bad36c129214deb1,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
+      propertyPath: m_Size
+      value: 0.009318378
       objectReference: {fileID: 0}
     - target: {fileID: 1793972492440937511, guid: df5b84aa457c4d94bad36c129214deb1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 123.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 1793972492440937511, guid: df5b84aa457c4d94bad36c129214deb1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 16.32
       objectReference: {fileID: 0}
     - target: {fileID: 1793972492440937511, guid: df5b84aa457c4d94bad36c129214deb1,
         type: 3}
@@ -245,51 +260,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 32.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 1793972492440937511, guid: df5b84aa457c4d94bad36c129214deb1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 16.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 49725478593662261, guid: df5b84aa457c4d94bad36c129214deb1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6229988093058447578, guid: df5b84aa457c4d94bad36c129214deb1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -165
-      objectReference: {fileID: 0}
-    - target: {fileID: 6229988093058447578, guid: df5b84aa457c4d94bad36c129214deb1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.000011444092
-      objectReference: {fileID: 0}
-    - target: {fileID: 6229988093058447578, guid: df5b84aa457c4d94bad36c129214deb1,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6229988093058447578, guid: df5b84aa457c4d94bad36c129214deb1,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6229988093058447578, guid: df5b84aa457c4d94bad36c129214deb1,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6229988093058447578, guid: df5b84aa457c4d94bad36c129214deb1,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5504160716871632428, guid: df5b84aa457c4d94bad36c129214deb1,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 5504160716871632428, guid: df5b84aa457c4d94bad36c129214deb1,
         type: 3}
@@ -311,20 +281,19 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.75686276
       objectReference: {fileID: 0}
-    - target: {fileID: 2960002844592672727, guid: df5b84aa457c4d94bad36c129214deb1,
+    - target: {fileID: 5504160716871632428, guid: df5b84aa457c4d94bad36c129214deb1,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 20862.004
+      propertyPath: m_FontData.m_FontSize
+      value: 22
       objectReference: {fileID: 0}
-    - target: {fileID: 1888101045264284867, guid: df5b84aa457c4d94bad36c129214deb1,
+    - target: {fileID: 1613842588197071249, guid: df5b84aa457c4d94bad36c129214deb1,
         type: 3}
-      propertyPath: m_Value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1888101045264284867, guid: df5b84aa457c4d94bad36c129214deb1,
-        type: 3}
-      propertyPath: m_Size
-      value: 0.011475409
+      propertyPath: m_Text
+      value: "Martin Drozd\xEDk (team lead, programmer) - drozdik.m@seznam.cz\n\nAdam
+        Gelatka (programmer) - gelatka@seznam.cz\n\nIan Mustiats (UI, design) - ianmustiats@seznam.cz\n\nLuk\xE1\u0161
+        Peka\u0159 (programmer, devops) - lukaspekar8@gmail.com\n\nIhor Salov (scene
+        building) - saloviho@fit.cvut.cz\n\nJan \u0160ef\u010D\xEDk (3D modelling,
+        design) - sefcik.jan@email.cz"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df5b84aa457c4d94bad36c129214deb1, type: 3}
