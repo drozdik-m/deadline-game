@@ -106,7 +106,8 @@ public class DebugConsoleController : MonoBehaviour
             else
                 command.Run();
 
-            logLine(command.resultMessage);
+            if (!command.manipulatingScene)
+                ; logLine(command.resultMessage);
         }
         catch (CommandFactoryException e)
         {

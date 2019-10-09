@@ -18,6 +18,8 @@ public class RestartLevelDCComm : DCComm
 
         // change scene to the current scene -> restart scene
         objectsWithScenesWorkflowComponent[0].ChangeScene(SceneManager.GetActiveScene().name);
-        resultMessage = "Level (scene) restarted";
+
+        // mark this command as command that is manipulating with scene
+        manipulatingScene = true;
     }
 }

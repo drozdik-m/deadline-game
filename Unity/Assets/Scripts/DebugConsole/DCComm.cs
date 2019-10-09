@@ -20,6 +20,11 @@ public abstract class DCComm
     public string resultMessage { get; protected set; }
 
     /// <summary>
+    /// Idicates whether the command manipulates with the scene
+    /// </summary>
+    public bool manipulatingScene { get; protected set; } = false;
+
+    /// <summary>
     /// Command functionality itself
     /// </summary>
     public abstract void Run();

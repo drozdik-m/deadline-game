@@ -36,7 +36,9 @@ public class ChangeLevelDCComm : DCComm
         if (found)
         {
             scenesWorkflow.ChangeScene(commandParams);
-            resultMessage = $"Level (scene) changed to '{commandParams}'";
+
+            // mark this command as command that is manipulating with scene
+            manipulatingScene = true;
         }
         else
             throw new CommandException($"Scene '{commandParams}' not found. \n" +
