@@ -2773,16 +2773,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1649109546122730527, guid: a20d898ba051d7f4d98afc44b8e9f731,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1928987561}
     - target: {fileID: 8171323184290482937, guid: a20d898ba051d7f4d98afc44b8e9f731,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 604536877}
+    - target: {fileID: 1649109546122730527, guid: a20d898ba051d7f4d98afc44b8e9f731,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1928987561}
     - target: {fileID: 8315101299757566879, guid: a20d898ba051d7f4d98afc44b8e9f731,
         type: 3}
       propertyPath: m_AnchorMin.y
