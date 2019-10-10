@@ -26,6 +26,11 @@ public class BackgroundMusic : MonoBehaviour
     public AudioClip DarkPiano;
 
     /// <summary>
+    /// Dark/scary music for night2
+    /// </summary>
+    public AudioClip FantasyMusic;
+
+    /// <summary>
     /// Scary music clip
     /// </summary>
     public AudioClip ScaryMusic;
@@ -79,6 +84,8 @@ public class BackgroundMusic : MonoBehaviour
             fadingController.Fade(Day1Music, 1, true);
         if (newTheme == BackgroundMusicTheme.DarkPiano)
             fadingController.Fade(DarkPiano, 1, true);
+        if (newTheme == BackgroundMusicTheme.FantasyMusic)
+            fadingController.Fade(FantasyMusic, 1, true);
     }
 }
 
@@ -91,5 +98,6 @@ public enum BackgroundMusicTheme{
     NoMusic,
     ElevatorMusic,
     Day1Bg,
-    DarkPiano
+    DarkPiano,
+    FantasyMusic
 }
