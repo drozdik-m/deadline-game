@@ -48,7 +48,7 @@ public class SkyboxController : MonoBehaviour
     void Start()
     {
         MainCamera.clearFlags = CameraClearFlags.SolidColor;
-        ChangeTime();
+        ChangeTime(TimesOfDay);
     }
 
     /// <summary>
