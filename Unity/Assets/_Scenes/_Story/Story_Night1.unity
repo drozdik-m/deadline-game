@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32c5bb93c20c43bd9c384dff31b3e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VoidTreshold: -50
+  VoidTreshold: -10
 --- !u!1 &6407627
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +392,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1258774714}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -461,16 +471,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -736,6 +736,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7842440559971485278, guid: b4352481b31e9df4abe19197df8a52dc,
+        type: 3}
+      propertyPath: m_Name
+      value: '--------------MANAGERS-------------'
+      objectReference: {fileID: 0}
     - target: {fileID: 7842440559971485273, guid: b4352481b31e9df4abe19197df8a52dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -790,11 +795,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7842440559971485278, guid: b4352481b31e9df4abe19197df8a52dc,
-        type: 3}
-      propertyPath: m_Name
-      value: '--------------MANAGERS-------------'
       objectReference: {fileID: 0}
     - target: {fileID: 8280740135606123340, guid: b4352481b31e9df4abe19197df8a52dc,
         type: 3}
@@ -1293,6 +1293,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 918147373465472163, guid: bf7711b4182818747a960cbc3a6e7528,
+        type: 3}
+      propertyPath: m_Name
+      value: '------------ENVIRONMENT-----------'
+      objectReference: {fileID: 0}
     - target: {fileID: 918147373465472162, guid: bf7711b4182818747a960cbc3a6e7528,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1347,16 +1352,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 918147373465472163, guid: bf7711b4182818747a960cbc3a6e7528,
-        type: 3}
-      propertyPath: m_Name
-      value: '------------ENVIRONMENT-----------'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7348015048523386182, guid: bf7711b4182818747a960cbc3a6e7528,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 20.1
       objectReference: {fileID: 0}
     - target: {fileID: 6935151445438147237, guid: bf7711b4182818747a960cbc3a6e7528,
         type: 3}
@@ -1432,6 +1427,11 @@ PrefabInstance:
         type: 3}
       propertyPath: TimesOfDay
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348015048523386182, guid: bf7711b4182818747a960cbc3a6e7528,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf7711b4182818747a960cbc3a6e7528, type: 3}
@@ -4687,7 +4687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32c5bb93c20c43bd9c384dff31b3e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VoidTreshold: -50
+  VoidTreshold: -10
 --- !u!54 &675282094
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6370,6 +6370,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1880739322}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6439,16 +6449,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -7231,6 +7231,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1931562856}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7300,16 +7310,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -8487,6 +8487,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1214050478}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8556,16 +8566,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -9629,6 +9629,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 701631418}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9698,16 +9708,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -10335,6 +10335,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2076117670}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10404,16 +10414,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -10892,7 +10892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32c5bb93c20c43bd9c384dff31b3e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VoidTreshold: -50
+  VoidTreshold: -10
 --- !u!1 &1560050459
 GameObject:
   m_ObjectHideFlags: 0
@@ -12571,6 +12571,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 325011273}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12640,16 +12650,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -13131,6 +13131,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5490246437910085710, guid: 1b12915c3f04a9245900018ef0b99ef8,
+        type: 3}
+      propertyPath: m_Name
+      value: '-------------------UI-------------------'
+      objectReference: {fileID: 0}
     - target: {fileID: 5490246437910085697, guid: 1b12915c3f04a9245900018ef0b99ef8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13185,11 +13190,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5490246437910085710, guid: 1b12915c3f04a9245900018ef0b99ef8,
-        type: 3}
-      propertyPath: m_Name
-      value: '-------------------UI-------------------'
       objectReference: {fileID: 0}
     - target: {fileID: 8032587108343626345, guid: 1b12915c3f04a9245900018ef0b99ef8,
         type: 3}
@@ -13318,7 +13318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32c5bb93c20c43bd9c384dff31b3e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VoidTreshold: -50
+  VoidTreshold: -10
 --- !u!4 &1870338287 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5697322302645170496, guid: 9db3e7000cd969a47911fe27192bc1da,
@@ -14242,6 +14242,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 815740150}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14311,16 +14321,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -15092,7 +15092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32c5bb93c20c43bd9c384dff31b3e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VoidTreshold: -50
+  VoidTreshold: -10
 --- !u!54 &2116472172
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21532,6 +21532,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8976152058319851005}
     m_Modifications:
+    - target: {fileID: 4607954680517346075, guid: d2d8c646eca5641e3bd896a0fedaf201,
+        type: 3}
+      propertyPath: m_Name
+      value: Mirror
+      objectReference: {fileID: 0}
     - target: {fileID: 703533098950154626, guid: d2d8c646eca5641e3bd896a0fedaf201,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21586,11 +21591,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4607954680517346075, guid: d2d8c646eca5641e3bd896a0fedaf201,
-        type: 3}
-      propertyPath: m_Name
-      value: Mirror
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2d8c646eca5641e3bd896a0fedaf201, type: 3}
@@ -21789,6 +21789,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 767158621}
     m_Modifications:
+    - target: {fileID: 854235477249480613, guid: be0c9dc29f6232145bd041698a60623a,
+        type: 3}
+      propertyPath: m_Name
+      value: PizzaBox
+      objectReference: {fileID: 0}
     - target: {fileID: 854235477249248133, guid: be0c9dc29f6232145bd041698a60623a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21858,11 +21863,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.23202357
-      objectReference: {fileID: 0}
-    - target: {fileID: 854235477249480613, guid: be0c9dc29f6232145bd041698a60623a,
-        type: 3}
-      propertyPath: m_Name
-      value: PizzaBox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be0c9dc29f6232145bd041698a60623a, type: 3}
@@ -22026,6 +22026,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 767158621}
     m_Modifications:
+    - target: {fileID: 1222178499629169272, guid: 49a1ee76d1fec487882cf292dd3628b7,
+        type: 3}
+      propertyPath: m_Name
+      value: MugBlue
+      objectReference: {fileID: 0}
     - target: {fileID: 1744926681517122438, guid: 49a1ee76d1fec487882cf292dd3628b7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22080,11 +22085,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1222178499629169272, guid: 49a1ee76d1fec487882cf292dd3628b7,
-        type: 3}
-      propertyPath: m_Name
-      value: MugBlue
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49a1ee76d1fec487882cf292dd3628b7, type: 3}
@@ -27367,6 +27367,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1556902786}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27436,11 +27441,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.073997825
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -28097,6 +28097,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 675282092}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28167,11 +28172,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.07399794
       objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -28231,6 +28231,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6220401}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28301,11 +28306,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.0739979
       objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -28365,6 +28365,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2116472170}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28435,11 +28440,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.07399789
       objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -28499,6 +28499,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8114996737773119035}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28568,16 +28578,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -28638,6 +28638,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8114996737884399990}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28707,16 +28717,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -28777,6 +28777,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8114996737907490791}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28847,16 +28857,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.07399779
       objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -28916,6 +28916,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1858129977}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28986,11 +28991,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.0739979
       objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -29050,6 +29050,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8114996737398825552}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29119,16 +29129,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -29189,6 +29189,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8114996737415882946}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29258,16 +29268,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -29328,6 +29328,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8114996736925123364}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29397,16 +29407,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -29467,6 +29467,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8114996736970547433}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29536,16 +29546,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -29606,6 +29606,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8114996737070897761}
     m_Modifications:
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29675,16 +29685,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -38366,6 +38366,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6256413837342972157}
     m_Modifications:
+    - target: {fileID: 2168025629113636963, guid: af355758c90d6854099afdf0f814f95d,
+        type: 3}
+      propertyPath: m_Name
+      value: smallLamp
+      objectReference: {fileID: 0}
     - target: {fileID: 2168025629113795651, guid: af355758c90d6854099afdf0f814f95d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38420,11 +38425,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2168025629113636963, guid: af355758c90d6854099afdf0f814f95d,
-        type: 3}
-      propertyPath: m_Name
-      value: smallLamp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af355758c90d6854099afdf0f814f95d, type: 3}

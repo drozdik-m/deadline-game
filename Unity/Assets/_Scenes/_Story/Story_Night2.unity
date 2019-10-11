@@ -4198,7 +4198,12 @@ PrefabInstance:
     - target: {fileID: 7288316149822408617, guid: 1b12915c3f04a9245900018ef0b99ef8,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000022644748
+      value: 0.000030517578
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288316149822408617, guid: 1b12915c3f04a9245900018ef0b99ef8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20862
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b12915c3f04a9245900018ef0b99ef8, type: 3}
@@ -5822,6 +5827,7 @@ GameObject:
   - component: {fileID: 905884218}
   - component: {fileID: 905884217}
   - component: {fileID: 905884219}
+  - component: {fileID: 905884220}
   m_Layer: 0
   m_Name: Wrapper
   m_TagString: Untagged
@@ -5887,6 +5893,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.21, y: 0.74, z: 0.2}
   m_Center: {x: 0, y: 0.02, z: -1.21}
+--- !u!114 &905884220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905884215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32c5bb93c20c43bd9c384dff31b3e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoidTreshold: -60
 --- !u!1 &909236374
 GameObject:
   m_ObjectHideFlags: 0
@@ -14518,6 +14537,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6570918701141826483, guid: 90e2b2ad7c99e3a44b563feff72a1d26,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3403621515532084685, guid: 90e2b2ad7c99e3a44b563feff72a1d26,
         type: 3}
       propertyPath: m_RootOrder
@@ -14536,11 +14560,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: '#13 [WorkflowScene] Func_Thanks'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6570918701141826483, guid: 90e2b2ad7c99e3a44b563feff72a1d26,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90e2b2ad7c99e3a44b563feff72a1d26, type: 3}
@@ -14989,6 +15008,7 @@ GameObject:
   - component: {fileID: 418325121909824793}
   - component: {fileID: 418325121919348443}
   - component: {fileID: 418325121919348442}
+  - component: {fileID: 418325121919348444}
   m_Layer: 0
   m_Name: Screwdriver
   m_TagString: Untagged
@@ -15025,6 +15045,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 90
   m_CollisionDetection: 0
+--- !u!114 &418325121919348444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418325121919348441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32c5bb93c20c43bd9c384dff31b3e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoidTreshold: -60
 --- !u!33 &418325121920152281
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -30334,6 +30367,7 @@ GameObject:
   - component: {fileID: 6237547929363456196}
   - component: {fileID: 6237547929372971784}
   - component: {fileID: 6237547929372971783}
+  - component: {fileID: 6237547929372971785}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: Untagged
@@ -30370,6 +30404,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.64, y: 3.02, z: 1}
   m_Center: {x: 0, y: 1.08, z: 0}
+--- !u!114 &6237547929372971785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6237547929372971782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32c5bb93c20c43bd9c384dff31b3e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoidTreshold: -60
 --- !u!4 &6253183034006280249
 Transform:
   m_ObjectHideFlags: 0
@@ -31736,6 +31783,7 @@ GameObject:
   - component: {fileID: 6985305623392901872}
   - component: {fileID: 6985305623383386418}
   - component: {fileID: 6985305623383386417}
+  - component: {fileID: 6985305623383386419}
   m_Layer: 0
   m_Name: Wrench
   m_TagString: Untagged
@@ -31772,6 +31820,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5406971, y: 4.818249, z: 0.39916027}
   m_Center: {x: -0.000015258789, y: 1.9514912, z: 0.24639802}
+--- !u!114 &6985305623383386419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6985305623383386416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32c5bb93c20c43bd9c384dff31b3e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoidTreshold: -60
 --- !u!23 &6985305623385389040
 MeshRenderer:
   m_ObjectHideFlags: 0
