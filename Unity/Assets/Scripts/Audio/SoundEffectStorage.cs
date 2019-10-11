@@ -99,5 +99,6 @@ public enum SoundEffectType
     DialogBubblePop,
     PhoneSound,
     BeepSound,
-    WarningSound
+    WarningSound,
+    ClockSound
 }
