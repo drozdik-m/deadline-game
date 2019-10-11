@@ -180,6 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6220401}
   - component: {fileID: 6220402}
+  - component: {fileID: 6220403}
   m_Layer: 0
   m_Name: dollarBillsWrapper
   m_TagString: Untagged
@@ -220,6 +221,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 10
   m_CollisionDetection: 0
+--- !u!114 &6220403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6220400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32c5bb93c20c43bd9c384dff31b3e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoidTreshold: -50
 --- !u!1 &6407627
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,16 +392,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1258774714}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -457,6 +461,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -722,11 +736,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7842440559971485278, guid: b4352481b31e9df4abe19197df8a52dc,
-        type: 3}
-      propertyPath: m_Name
-      value: '--------------MANAGERS-------------'
-      objectReference: {fileID: 0}
     - target: {fileID: 7842440559971485273, guid: b4352481b31e9df4abe19197df8a52dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -782,6 +791,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7842440559971485278, guid: b4352481b31e9df4abe19197df8a52dc,
+        type: 3}
+      propertyPath: m_Name
+      value: '--------------MANAGERS-------------'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280740135606123340, guid: b4352481b31e9df4abe19197df8a52dc,
+        type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 59876fdf327d2354c9b53f5532e82c47,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4352481b31e9df4abe19197df8a52dc, type: 3}
 --- !u!1 &71426303
@@ -970,7 +990,7 @@ GameObject:
   - component: {fileID: 107982146}
   - component: {fileID: 107982145}
   m_Layer: 0
-  m_Name: '#44 [StageQuestStack] InspectMoney'
+  m_Name: '#46 [StageQuestStack] InspectMoney'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -989,7 +1009,7 @@ Transform:
   m_Children:
   - {fileID: 1684582389}
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 22
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &107982145
 MonoBehaviour:
@@ -1273,11 +1293,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 918147373465472163, guid: bf7711b4182818747a960cbc3a6e7528,
-        type: 3}
-      propertyPath: m_Name
-      value: '------------ENVIRONMENT-----------'
-      objectReference: {fileID: 0}
     - target: {fileID: 918147373465472162, guid: bf7711b4182818747a960cbc3a6e7528,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1332,6 +1347,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 918147373465472163, guid: bf7711b4182818747a960cbc3a6e7528,
+        type: 3}
+      propertyPath: m_Name
+      value: '------------ENVIRONMENT-----------'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348015048523386182, guid: bf7711b4182818747a960cbc3a6e7528,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20.1
       objectReference: {fileID: 0}
     - target: {fileID: 6935151445438147237, guid: bf7711b4182818747a960cbc3a6e7528,
         type: 3}
@@ -1407,11 +1432,6 @@ PrefabInstance:
         type: 3}
       propertyPath: TimesOfDay
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7348015048523386182, guid: bf7711b4182818747a960cbc3a6e7528,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 20.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf7711b4182818747a960cbc3a6e7528, type: 3}
@@ -1567,7 +1587,7 @@ GameObject:
   - component: {fileID: 181032901}
   - component: {fileID: 181032902}
   m_Layer: 0
-  m_Name: '#41 [StageMonologSync] Money'
+  m_Name: '#44 [StageMonologSync] Money'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1585,7 +1605,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 20
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &181032902
 MonoBehaviour:
@@ -2865,7 +2885,7 @@ GameObject:
   - component: {fileID: 462668952}
   - component: {fileID: 462668951}
   m_Layer: 0
-  m_Name: '#46 [StageSubManager] LastScene'
+  m_Name: '#48 [StageSubManager] LastScene'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2884,7 +2904,7 @@ Transform:
   m_Children:
   - {fileID: 1785880894}
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 24
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &462668951
 MonoBehaviour:
@@ -3655,7 +3675,7 @@ GameObject:
   - component: {fileID: 549666326}
   - component: {fileID: 549666325}
   m_Layer: 0
-  m_Name: '#51 [StageWait] WaitUntilEnd'
+  m_Name: '#53 [StageWait] WaitUntilEnd'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3687,7 +3707,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 29
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &550577382
 PrefabInstance:
@@ -3921,7 +3941,7 @@ PrefabInstance:
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
@@ -4004,7 +4024,7 @@ GameObject:
   - component: {fileID: 601475573}
   - component: {fileID: 601475574}
   m_Layer: 0
-  m_Name: '#37 [StageComponentActivity] TurnOnDoorAnimator'
+  m_Name: '#39 [StageComponentActivity] TurnOnDoorAnimator'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4022,7 +4042,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &601475574
 MonoBehaviour:
@@ -4352,7 +4372,9 @@ MonoBehaviour:
   - {fileID: 1941420776}
   - {fileID: 1542899213}
   - {fileID: 708368761}
+  - {fileID: 1556216450}
   - {fileID: 2058913480}
+  - {fileID: 676750186}
   - {fileID: 601475574}
   - {fileID: 1188313209}
   - {fileID: 1796729820}
@@ -4628,6 +4650,7 @@ GameObject:
   m_Component:
   - component: {fileID: 675282092}
   - component: {fileID: 675282094}
+  - component: {fileID: 675282093}
   m_Layer: 0
   m_Name: dollarBillsWrapper
   m_TagString: Untagged
@@ -4652,6 +4675,19 @@ Transform:
   m_Father: {fileID: 8114996738811843977}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &675282093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675282091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32c5bb93c20c43bd9c384dff31b3e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoidTreshold: -50
 --- !u!54 &675282094
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4668,6 +4704,52 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 10
   m_CollisionDetection: 0
+--- !u!1 &676750184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 676750185}
+  - component: {fileID: 676750186}
+  m_Layer: 0
+  m_Name: '#38 [StageComponentActivity] TurnOnController'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &676750185
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676750184}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1613110960}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &676750186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676750184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b0580740f6f634c998f41d10540eb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Setting: 0
+  ComponentsToHandle:
+  - {fileID: 123774161}
 --- !u!1 &680400902 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6158226878093650225, guid: 459bc9914cbf2cf428ba08a692b3318d,
@@ -6156,7 +6238,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 31
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &844319412
 MonoBehaviour:
@@ -6288,16 +6370,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1880739322}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6367,6 +6439,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -7149,16 +7231,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1931562856}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7228,6 +7300,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -8069,7 +8151,7 @@ GameObject:
   - component: {fileID: 1188313209}
   - component: {fileID: 1188313208}
   m_Layer: 0
-  m_Name: '#38 [StageQuestStack] GoToLivingroom'
+  m_Name: '#40 [StageQuestStack] GoToLivingroom'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8088,7 +8170,7 @@ Transform:
   m_Children:
   - {fileID: 686344100}
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 16
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1188313208
 MonoBehaviour:
@@ -8405,16 +8487,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1214050478}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8484,6 +8556,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -8601,7 +8683,7 @@ GameObject:
   - component: {fileID: 1232483217}
   - component: {fileID: 1232483218}
   m_Layer: 0
-  m_Name: '#48 [StageQuestStack] PickSalary'
+  m_Name: '#50 [StageQuestStack] PickSalary'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8648,7 +8730,7 @@ Transform:
   m_Children:
   - {fileID: 1522464506}
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 26
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1235982491
 GameObject:
@@ -9139,49 +9221,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5644162165827208864}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1301831957
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1301831958}
-  - component: {fileID: 1301831959}
-  m_Layer: 0
-  m_Name: '#3 [PlayerTakeAnimReaction] Take'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1301831958
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1301831957}
-  m_LocalRotation: {x: -0.042970896, y: -0.4156711, z: -0.013769148, w: 0.90839505}
-  m_LocalPosition: {x: 3.9015403, y: -0.67640114, z: 1.7985218}
-  m_LocalScale: {x: 1.0000001, y: 0.99999994, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1543212168}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1301831959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1301831957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45689456db3c6432aad441aaf7cbe9cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1303942711
 GameObject:
   m_ObjectHideFlags: 0
@@ -9590,16 +9629,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 701631418}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9669,6 +9698,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -10296,16 +10335,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2076117670}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10375,6 +10404,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -10741,10 +10780,55 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 518422954}
-  - {fileID: 1301831958}
   m_Father: {fileID: 2133197282}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1556216448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1556216449}
+  - component: {fileID: 1556216450}
+  m_Layer: 0
+  m_Name: '#35 [StageComponentActivity] TurnOffController'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1556216449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556216448}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1613110960}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1556216450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556216448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b0580740f6f634c998f41d10540eb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Setting: 1
+  ComponentsToHandle:
+  - {fileID: 123774161}
 --- !u!1 &1556902785
 GameObject:
   m_ObjectHideFlags: 0
@@ -10755,6 +10839,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1556902786}
   - component: {fileID: 1556902787}
+  - component: {fileID: 1556902788}
   m_Layer: 0
   m_Name: dollarBillsWrapper
   m_TagString: Untagged
@@ -10795,6 +10880,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 10
   m_CollisionDetection: 0
+--- !u!114 &1556902788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556902785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32c5bb93c20c43bd9c384dff31b3e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoidTreshold: -50
 --- !u!1 &1560050459
 GameObject:
   m_ObjectHideFlags: 0
@@ -11272,11 +11370,13 @@ Transform:
   - {fileID: 1941420774}
   - {fileID: 1542899211}
   - {fileID: 708368759}
+  - {fileID: 1556216449}
   - {fileID: 2058913479}
+  - {fileID: 676750185}
   - {fileID: 601475573}
+  - {fileID: 824376623}
   - {fileID: 1188313207}
   - {fileID: 1796729819}
-  - {fileID: 824376623}
   - {fileID: 1635301506}
   - {fileID: 181032901}
   - {fileID: 1739900519}
@@ -11387,7 +11487,7 @@ GameObject:
   - component: {fileID: 1635301506}
   - component: {fileID: 1635301507}
   m_Layer: 0
-  m_Name: '#40 [StageGameObjectActivity] TurnOnTower'
+  m_Name: '#43 [StageGameObjectActivity] TurnOnTower'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11405,7 +11505,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 19
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1635301507
 MonoBehaviour:
@@ -11832,7 +11932,7 @@ GameObject:
   - component: {fileID: 1674589444}
   - component: {fileID: 1674589445}
   m_Layer: 0
-  m_Name: '#50 [StagePlaySound] AlarmSound'
+  m_Name: '#52 [StagePlaySound] AlarmSound'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11851,7 +11951,7 @@ Transform:
   m_Children:
   - {fileID: 1172010109}
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 28
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1674589445
 MonoBehaviour:
@@ -11954,7 +12054,7 @@ GameObject:
   - component: {fileID: 1709216889}
   - component: {fileID: 1709216890}
   m_Layer: 0
-  m_Name: '#47 [StageMonologSync] INeedToPickMySalary'
+  m_Name: '#49 [StageMonologSync] INeedToPickMySalary'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11972,7 +12072,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 25
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1709216890
 MonoBehaviour:
@@ -12240,7 +12340,7 @@ GameObject:
   - component: {fileID: 1739900519}
   - component: {fileID: 1739900520}
   m_Layer: 0
-  m_Name: '#43 [StageGameObjectActivity] TurnOnChairInteractable'
+  m_Name: '#45 [StageGameObjectActivity] TurnOnChairInteractable'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12258,7 +12358,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 21
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1739900520
 MonoBehaviour:
@@ -12471,16 +12571,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 325011273}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12550,6 +12640,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -12690,7 +12790,7 @@ GameObject:
   - component: {fileID: 1796729819}
   - component: {fileID: 1796729820}
   m_Layer: 0
-  m_Name: '#39 [StageGameObjectActivity] TurnOffBucket'
+  m_Name: '#41 [StageGameObjectActivity] TurnOffBucket'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12708,7 +12808,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 17
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1796729820
 MonoBehaviour:
@@ -13031,11 +13131,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5490246437910085710, guid: 1b12915c3f04a9245900018ef0b99ef8,
-        type: 3}
-      propertyPath: m_Name
-      value: '-------------------UI-------------------'
-      objectReference: {fileID: 0}
     - target: {fileID: 5490246437910085697, guid: 1b12915c3f04a9245900018ef0b99ef8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13091,6 +13186,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5490246437910085710, guid: 1b12915c3f04a9245900018ef0b99ef8,
+        type: 3}
+      propertyPath: m_Name
+      value: '-------------------UI-------------------'
+      objectReference: {fileID: 0}
     - target: {fileID: 8032587108343626345, guid: 1b12915c3f04a9245900018ef0b99ef8,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -13119,7 +13219,7 @@ GameObject:
   - component: {fileID: 1844128745}
   - component: {fileID: 1844128744}
   m_Layer: 0
-  m_Name: '#52 [StageFade] FadeOut'
+  m_Name: '#54 [StageFade] FadeOut'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13153,7 +13253,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 30
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1858129976
 GameObject:
@@ -13165,6 +13265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1858129977}
   - component: {fileID: 1858129978}
+  - component: {fileID: 1858129979}
   m_Layer: 0
   m_Name: dollarBillsWrapper
   m_TagString: Untagged
@@ -13205,6 +13306,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 10
   m_CollisionDetection: 0
+--- !u!114 &1858129979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858129976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32c5bb93c20c43bd9c384dff31b3e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoidTreshold: -50
 --- !u!4 &1870338287 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5697322302645170496, guid: 9db3e7000cd969a47911fe27192bc1da,
@@ -13752,37 +13866,37 @@ PrefabInstance:
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.95
+      value: 1.0904244
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.020002365
+      value: 0.010055542
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.47
+      value: -1.1691005
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.009825816
+      value: -0.012020731
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.57765853
+      value: -0.5200594
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.032178037
+      value: 0.031424113
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8155849
+      value: 0.8534672
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
@@ -13792,17 +13906,17 @@ PrefabInstance:
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 1.212
+      value: 0.697
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -70.579
+      value: -62.689003
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 3.6610003
+      value: 3.7930002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 459bc9914cbf2cf428ba08a692b3318d, type: 3}
@@ -13876,7 +13990,7 @@ GameObject:
   - component: {fileID: 1967825887}
   - component: {fileID: 1967825888}
   m_Layer: 0
-  m_Name: '#45 [StageGameObjectActivity] TurnOffChairInteractable'
+  m_Name: '#47 [StageGameObjectActivity] TurnOffChairInteractable'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13894,7 +14008,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 23
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1967825888
 MonoBehaviour:
@@ -14128,16 +14242,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 815740150}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14207,6 +14311,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -14315,7 +14429,7 @@ GameObject:
   - component: {fileID: 2039213950}
   - component: {fileID: 2039213951}
   m_Layer: 0
-  m_Name: '#49 [StageFade] FadeIn'
+  m_Name: '#51 [StageFade] FadeIn'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14333,7 +14447,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 27
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2039213951
 MonoBehaviour:
@@ -14544,7 +14658,7 @@ GameObject:
   - component: {fileID: 2058913479}
   - component: {fileID: 2058913480}
   m_Layer: 0
-  m_Name: '#35 [StageMonologSync] HesRight'
+  m_Name: '#37 [StageMonologSync] HesRight'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14562,7 +14676,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1613110960}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2058913480
 MonoBehaviour:
@@ -14941,6 +15055,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2116472170}
   - component: {fileID: 2116472172}
+  - component: {fileID: 2116472171}
   m_Layer: 0
   m_Name: dollarBillsWrapper
   m_TagString: Untagged
@@ -14965,6 +15080,19 @@ Transform:
   m_Father: {fileID: 8114996738094752052}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2116472171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116472169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32c5bb93c20c43bd9c384dff31b3e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoidTreshold: -50
 --- !u!54 &2116472172
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15168,7 +15296,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reactions:
   - {fileID: 518422956}
-  - {fileID: 1301831959}
 --- !u!114 &2133197285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15184,7 +15311,7 @@ MonoBehaviour:
   interactionLocation: {fileID: 0}
   connectedObject: {fileID: 1987427038}
   useProximity: 1
-  proximity: 2.2
+  proximity: 3
   conditionCollections: []
   defaultReactionCollection: {fileID: 2133197284}
 --- !u!4 &2142624246 stripped
@@ -21405,11 +21532,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8976152058319851005}
     m_Modifications:
-    - target: {fileID: 4607954680517346075, guid: d2d8c646eca5641e3bd896a0fedaf201,
-        type: 3}
-      propertyPath: m_Name
-      value: Mirror
-      objectReference: {fileID: 0}
     - target: {fileID: 703533098950154626, guid: d2d8c646eca5641e3bd896a0fedaf201,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21464,6 +21586,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607954680517346075, guid: d2d8c646eca5641e3bd896a0fedaf201,
+        type: 3}
+      propertyPath: m_Name
+      value: Mirror
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2d8c646eca5641e3bd896a0fedaf201, type: 3}
@@ -21662,11 +21789,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 767158621}
     m_Modifications:
-    - target: {fileID: 854235477249480613, guid: be0c9dc29f6232145bd041698a60623a,
-        type: 3}
-      propertyPath: m_Name
-      value: PizzaBox
-      objectReference: {fileID: 0}
     - target: {fileID: 854235477249248133, guid: be0c9dc29f6232145bd041698a60623a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21736,6 +21858,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.23202357
+      objectReference: {fileID: 0}
+    - target: {fileID: 854235477249480613, guid: be0c9dc29f6232145bd041698a60623a,
+        type: 3}
+      propertyPath: m_Name
+      value: PizzaBox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be0c9dc29f6232145bd041698a60623a, type: 3}
@@ -21899,11 +22026,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 767158621}
     m_Modifications:
-    - target: {fileID: 1222178499629169272, guid: 49a1ee76d1fec487882cf292dd3628b7,
-        type: 3}
-      propertyPath: m_Name
-      value: MugBlue
-      objectReference: {fileID: 0}
     - target: {fileID: 1744926681517122438, guid: 49a1ee76d1fec487882cf292dd3628b7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21958,6 +22080,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222178499629169272, guid: 49a1ee76d1fec487882cf292dd3628b7,
+        type: 3}
+      propertyPath: m_Name
+      value: MugBlue
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49a1ee76d1fec487882cf292dd3628b7, type: 3}
@@ -23555,7 +23682,7 @@ PrefabInstance:
     - target: {fileID: 65781110064815001, guid: 451bd0adefe84ed45a3ba221c6b21193,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 65781110064815001, guid: 451bd0adefe84ed45a3ba221c6b21193,
         type: 3}
@@ -27240,11 +27367,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1556902786}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27314,6 +27436,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.073997825
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -27970,11 +28097,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 675282092}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28045,6 +28167,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.07399794
       objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -28104,11 +28231,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6220401}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28179,6 +28301,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.0739979
       objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -28238,11 +28365,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2116472170}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28313,6 +28435,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.07399789
       objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -28372,16 +28499,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8114996737773119035}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28451,6 +28568,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -28511,16 +28638,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8114996737884399990}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28590,6 +28707,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -28650,16 +28777,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8114996737907490791}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28730,6 +28847,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.07399779
       objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -28789,11 +28916,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1858129977}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28864,6 +28986,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.0739979
       objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -28923,16 +29050,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8114996737398825552}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29002,6 +29119,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -29062,16 +29189,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8114996737415882946}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29141,6 +29258,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -29201,16 +29328,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8114996736925123364}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29280,6 +29397,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -29340,16 +29467,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8114996736970547433}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29419,6 +29536,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -29479,16 +29606,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8114996737070897761}
     m_Modifications:
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinSplashEfect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966626, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29558,6 +29675,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.07399779
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_Name
+      value: CoinSplashEfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425127160497966631, guid: 2d4cf3527c9b063409aab9609f689492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8425127160497966625, guid: 2d4cf3527c9b063409aab9609f689492,
         type: 3}
@@ -38239,11 +38366,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6256413837342972157}
     m_Modifications:
-    - target: {fileID: 2168025629113636963, guid: af355758c90d6854099afdf0f814f95d,
-        type: 3}
-      propertyPath: m_Name
-      value: smallLamp
-      objectReference: {fileID: 0}
     - target: {fileID: 2168025629113795651, guid: af355758c90d6854099afdf0f814f95d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38298,6 +38420,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168025629113636963, guid: af355758c90d6854099afdf0f814f95d,
+        type: 3}
+      propertyPath: m_Name
+      value: smallLamp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af355758c90d6854099afdf0f814f95d, type: 3}
