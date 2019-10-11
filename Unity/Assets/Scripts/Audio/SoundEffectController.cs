@@ -19,11 +19,6 @@ public class SoundEffectController : MonoBehaviour
     public SoundEffectType SingleSoundEffectType;
 
     /// <summary>
-    /// Used types of the sound effect for the loop effect
-    /// </summary>
-    private SoundEffectType[] LoopSoundEffectType;
-
-    /// <summary>
     /// Current sound effect
     /// </summary>
     private AudioClip soundEffect;
@@ -32,11 +27,6 @@ public class SoundEffectController : MonoBehaviour
     /// Sound volume, value from 0 to 1
     /// </summary>
     private float volume;
-
-    /// <summary>
-    /// Loop sound effect
-    /// </summary>
-    private bool loop;
 
     /// <summary>
     /// Prefab for sound particle (Prefabs/Audio/SoundEffectParticle for regular particle)
@@ -91,53 +81,10 @@ public class SoundEffectController : MonoBehaviour
         //Debug.Log("Sound play - " + spawnedSound);
     }
 
-    /// <summary>
-    /// Plays the audio clip in the loop. It instantiates new gameobject so multiple sound effects can play in the same time
-    /// </summary>
-    public void PlayLoopSound(SoundEffectType[] types, float delay)
+    public void StopLastSound()
     {
-        LoopSoundEffectType = types;
-        StartCoroutine (LoopSound (delay));
-    }
-
-    public bool StopCurrentSound()
-    {
-        if (spawnedAudioSource)
-        {
-            spawnedAudioSource.Stop();
-            return true;
-        }
-        return false;
-    }
-    /// <summary>
-    /// Stops the audio clip in the loop.
-    /// </summary>
-    public void StopLoopSound()
-    {
-        loop = false; 
-    }
-
-    /// <summary>
-    /// Plays sound effect every time
-    /// </summary>
-    /// <param name="delay">Delay between each play</param>
-    /// <returns></returns>
-    private IEnumerator LoopSound(float delay)
-    {
-        loop = true;
-        while (loop)
-        {
-            // Get all sound effects using sound effect types 
-            foreach (var audio in soundEffectsStorage.GetSoundEffect(LoopSoundEffectType))
-            {
-                soundEffect = audio;
-                PlaySound ();
-                yield return new WaitForSeconds (delay);
-
-                if (!loop)
-                    yield break;
-            }
-        }
+        if (spawnedAudioSource != null)
+            Destroy(spawnedAudioSource.gameObject);
     }
 
     /// <summary>
