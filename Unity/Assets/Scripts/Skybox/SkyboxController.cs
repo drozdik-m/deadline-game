@@ -39,35 +39,60 @@ public class SkyboxController : MonoBehaviour
     /// </summary>
     public Time TimesOfDay;
 
+    /// <summary>
+    /// Event called on skybox daytime change
+    /// </summary>
+    public event SkyboxChangeHandler OnChange;
+
     // Start is called before the first frame update
     void Start()
     {
         MainCamera.clearFlags = CameraClearFlags.SolidColor;
-        ChangeTime ();
+        ChangeTime();
     }
 
     /// <summary>
-    /// Change time of the day, depends on the variable TimesOfDay
+    /// Change time of the day
     /// </summary>
-    private void ChangeTime()
+    /// <param name="newTime">New time of the day</param>
+    public void ChangeTime(Time newTime)
     {
-        Quaternion direction = new Quaternion ();
+        var direction = new Quaternion();
+
+        TimesOfDay = newTime;
 
         if (TimesOfDay == Time.night)
         {
             direction.eulerAngles = NightLightDirectionSun;
             GetComponent<Light> ().color = Color.black;
             MainCamera.backgroundColor = NightColor;
-            TimesOfDay = Time.night;
         }
         else
         {
             direction.eulerAngles = DayLightDirectionSun;
             GetComponent<Light> ().color = Color.gray;
             MainCamera.backgroundColor = DayColor;
-            TimesOfDay = Time.day;
         }
+        OnChange?.Invoke(this, new SkyboxChangeHandlerArgs(TimesOfDay));
 
         transform.rotation = direction;
     }
+
+    /// <summary>
+    /// Change time of the day, depends on the variable TimesOfDay
+    /// </summary>
+    public void ChangeTime()
+    {
+        if (TimesOfDay == Time.day)
+            ChangeTime(Time.night);
+        else
+            ChangeTime(Time.day);
+    }
 }
+
+/// <summary>
+/// Delegate for skybox day time change event
+/// </summary>
+/// <param name="source">Caller</param>
+/// <param name="e">Arguments</param>
+public delegate void SkyboxChangeHandler(SkyboxController caller, SkyboxChangeHandlerArgs e);
