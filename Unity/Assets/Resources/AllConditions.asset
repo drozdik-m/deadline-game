@@ -29,13 +29,6 @@ MonoBehaviour:
   - {fileID: 114910278427709820}
   - {fileID: 114155399692788714}
   - {fileID: 114986812942250282}
-  - {fileID: 114662530817163692}
-  - {fileID: 114942793555443712}
-  - {fileID: 114761440870142178}
-  - {fileID: 114632297172196806}
-  - {fileID: 114530977981024866}
-  - {fileID: 114807282724307574}
-  - {fileID: 114809535453262986}
   - {fileID: 114696717807009964}
   - {fileID: 114217212921417522}
 --- !u!114 &114013746504252048
@@ -192,20 +185,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: BathroomReadyCondition
   satisfied: 0
---- !u!114 &114530977981024866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
-  m_Name: AfterCall
-  m_EditorClassIdentifier: 
-  description: AfterCall
-  satisfied: 0
 --- !u!114 &114572117426428046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: WaterIsOn
   satisfied: 0
---- !u!114 &114632297172196806
+--- !u!114 &114696717807009964
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -244,38 +223,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
-  m_Name: Call
+  m_Name: CarryCondition
   m_EditorClassIdentifier: 
-  description: Call
-  satisfied: 0
---- !u!114 &114662530817163692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
-  m_Name: DialogFinishedCondition
-  m_EditorClassIdentifier: 
-  description: DialogFinishedCondition
-  satisfied: 0
---- !u!114 &114761440870142178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
-  m_Name: SleepCondition2
-  m_EditorClassIdentifier: 
-  description: SleepCondition2
-  satisfied: 0
+  description: CarryCondition
+  satisfied: 1
 --- !u!114 &114793037607939964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,34 +241,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: CellarDoor
   satisfied: 0
---- !u!114 &114807282724307574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
-  m_Name: FoodCondition
-  m_EditorClassIdentifier: 
-  description: FoodCondition
-  satisfied: 0
---- !u!114 &114809535453262986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
-  m_Name: CantEat
-  m_EditorClassIdentifier: 
-  description: CantEat
-  satisfied: 0
 --- !u!114 &114910278427709820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,20 +254,6 @@ MonoBehaviour:
   m_Name: KitchenLastDoor
   m_EditorClassIdentifier: 
   description: KitchenLastDoor
-  satisfied: 0
---- !u!114 &114942793555443712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
-  m_Name: PostmanDoorCondition
-  m_EditorClassIdentifier: 
-  description: PostmanDoorCondition
   satisfied: 0
 --- !u!114 &114950330937588998
 MonoBehaviour:

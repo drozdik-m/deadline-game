@@ -64,7 +64,10 @@ public class AllConditionsEditor : Editor
         }
 
         for (int i = 0; i < conditionEditors.Length; i++)
+        {
             conditionEditors[i].OnInspectorGUI();
+            //Debug.Log(i);
+        }
 
         if (TryGetConditionsLength() > 0)
         {
