@@ -9096,7 +9096,7 @@ MonoBehaviour:
   interactionLocation: {fileID: 0}
   connectedObject: {fileID: 905884215}
   useProximity: 1
-  proximity: 2
+  proximity: 1.5
   conditionCollections: []
   defaultReactionCollection: {fileID: 1240986744}
 --- !u!1 &1243660344
@@ -14788,6 +14788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectsToHandle:
   - {fileID: 5376474114208669882}
+  - {fileID: 109217259}
   Setting: 0
 --- !u!4 &2147439147 stripped
 Transform:
@@ -22714,7 +22715,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2728744184076714989}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.3261496, y: 0.66, z: 0}
+  m_LocalPosition: {x: 0.3261496, y: 0.7, z: 0}
   m_LocalScale: {x: 0.05, y: 0.532, z: 0.37}
   m_Children:
   - {fileID: 90209786}
