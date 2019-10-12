@@ -570,7 +570,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 20862}
+  m_AnchoredPosition: {x: 0, y: 20862.004}
   m_SizeDelta: {x: -14.2, y: 41724}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &735400702946536679
@@ -2116,8 +2116,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 862345460629744259}
   m_HandleRect: {fileID: 2542349478397735447}
   m_Direction: 2
-  m_Value: 0.000000009370644
-  m_Size: 0.0048125777
+  m_Value: 0
+  m_Size: 0.011475409
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2641,8 +2641,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 171, y: 23.899994}
-  m_SizeDelta: {x: 342, y: 47.699997}
+  m_AnchoredPosition: {x: 123.27, y: 16.32}
+  m_SizeDelta: {x: 246.53, y: 32.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6767008142432151429
 CanvasRenderer:
@@ -3007,14 +3007,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.4}
+  m_Color: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 0.75686276}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 17e3ca7a804f41d428729a5fbd94dd97, type: 3}
-    m_FontSize: 28
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -4625,6 +4625,14 @@ MonoBehaviour:
   - type: 11
     sprite: {fileID: 21300000, guid: a8c84e6f928cac04d8085b65129d1a4e, type: 3}
   - type: 12
+    sprite: {fileID: 21300000, guid: 14cf8e3612caf474f820b36c44fbc529, type: 3}
+  - type: 13
+    sprite: {fileID: 21300000, guid: a8c86ff3e57b929438a273afb0fd3ee1, type: 3}
+  - type: 14
+    sprite: {fileID: 21300000, guid: 9f92dcb093257604a81fd9c346f12c1a, type: 3}
+  - type: 15
+    sprite: {fileID: 21300000, guid: da0425dc2b80ea74c964a2e858eb633c, type: 3}
+  - type: 16
     sprite: {fileID: 21300000, guid: 446baa4934bb7ae48b54649c6de3429b, type: 3}
 --- !u!1 &4577561029738195969
 GameObject:
@@ -6604,7 +6612,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.2, y: 19.3}
+  m_AnchoredPosition: {x: 0.000011444092, y: -165}
   m_SizeDelta: {x: 433.6, y: 422.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7801650512069720121

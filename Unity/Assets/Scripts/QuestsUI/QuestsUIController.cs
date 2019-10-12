@@ -36,7 +36,11 @@ public class QuestsUIController : MonoBehaviour
 
     void Awake()
     {
-        FindObjectOfType<SkyboxController>().OnChange += SkyboxOnChange;
+        var skyboxController = FindObjectOfType<SkyboxController>();
+        if (skyboxController != null)
+            skyboxController.OnChange += SkyboxOnChange;
+        else
+            Debug.LogWarning("Skybox controller not found");
     }
 
     /// <summary>
