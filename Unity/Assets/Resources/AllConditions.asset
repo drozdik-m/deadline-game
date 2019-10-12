@@ -31,6 +31,12 @@ MonoBehaviour:
   - {fileID: 114986812942250282}
   - {fileID: 114696717807009964}
   - {fileID: 114217212921417522}
+  - {fileID: 114935598847312794}
+  - {fileID: 114341471607575260}
+  - {fileID: 114279720833394672}
+  - {fileID: 114293776897995430}
+  - {fileID: 114419664116672832}
+  - {fileID: 114583853384456448}
 --- !u!114 &114013746504252048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,7 +92,35 @@ MonoBehaviour:
   m_Name: AfterCarryCondition
   m_EditorClassIdentifier: 
   description: AfterCarryCondition
-  satisfied: 1
+  satisfied: 0
+--- !u!114 &114279720833394672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: Call
+  m_EditorClassIdentifier: 
+  description: Call
+  satisfied: 0
+--- !u!114 &114293776897995430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: AfterCall
+  m_EditorClassIdentifier: 
+  description: AfterCall
+  satisfied: 0
 --- !u!114 &114309623241424138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,6 +135,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: EatCondition
   satisfied: 0
+--- !u!114 &114341471607575260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: PostmanDoorCondition
+  m_EditorClassIdentifier: 
+  description: PostmanDoorCondition
+  satisfied: 0
 --- !u!114 &114413789276795694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +162,20 @@ MonoBehaviour:
   m_Name: NoWater
   m_EditorClassIdentifier: 
   description: NoWater
+  satisfied: 0
+--- !u!114 &114419664116672832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: CantEat
+  m_EditorClassIdentifier: 
+  description: CantEat
   satisfied: 0
 --- !u!114 &114485809332491114
 MonoBehaviour:
@@ -199,6 +261,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: NextLevel
   satisfied: 0
+--- !u!114 &114583853384456448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: SleepCondition
+  m_EditorClassIdentifier: 
+  description: SleepCondition
+  satisfied: 0
 --- !u!114 &114601097521669786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +302,7 @@ MonoBehaviour:
   m_Name: CarryCondition
   m_EditorClassIdentifier: 
   description: CarryCondition
-  satisfied: 1
+  satisfied: 0
 --- !u!114 &114793037607939964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +330,20 @@ MonoBehaviour:
   m_Name: KitchenLastDoor
   m_EditorClassIdentifier: 
   description: KitchenLastDoor
+  satisfied: 0
+--- !u!114 &114935598847312794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abd7e31c8a70c49827add07f52b7e6, type: 3}
+  m_Name: PostmanDialogFinished
+  m_EditorClassIdentifier: 
+  description: PostmanDialogFinished
   satisfied: 0
 --- !u!114 &114950330937588998
 MonoBehaviour:

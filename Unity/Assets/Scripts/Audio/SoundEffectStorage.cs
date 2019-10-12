@@ -99,5 +99,9 @@ public enum SoundEffectType
     DialogBubblePop,
     Hammer,
     Wrench,
-    Screwdriver
+    Screwdriver,
+    Clock,
+    Phone,
+    Beep,
+    ScarySound
 }
