@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4494112, g: 0.49633646, b: 0.5587733, a: 1}
+  m_IndirectSpecularColor: {r: 0.4494115, g: 0.49633682, b: 0.55877405, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -897,7 +897,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 215098287}
-  m_RootOrder: 30
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &125409623
 MonoBehaviour:
@@ -952,53 +952,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1201230970}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &157561006
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 157561007}
-  - component: {fileID: 157561008}
-  m_Layer: 0
-  m_Name: '#36 [StageFade] FadeOut'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &157561007
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 157561006}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 215098287}
-  m_RootOrder: 28
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &157561008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 157561006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af9e205a7477d5046970e271047446c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Fader: {fileID: 0}
-  FadeColor: {r: 0, g: 0, b: 0, a: 1}
-  FadeLength: 1
-  FadeStyle: 1
 --- !u!1 &158794326
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,8 +1491,6 @@ Transform:
   - {fileID: 1027009336}
   - {fileID: 658186526}
   - {fileID: 1480320508}
-  - {fileID: 157561007}
-  - {fileID: 1461386519}
   - {fileID: 125409622}
   - {fileID: 1780055119}
   - {fileID: 1249222615}
@@ -4231,11 +4182,6 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4520685518539833654, guid: 1b12915c3f04a9245900018ef0b99ef8,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -7.475006
-      objectReference: {fileID: 0}
     - target: {fileID: 3266576343748490446, guid: 1b12915c3f04a9245900018ef0b99ef8,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -4246,6 +4192,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4520685518539833654, guid: 1b12915c3f04a9245900018ef0b99ef8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -7.475006
+      objectReference: {fileID: 0}
     - target: {fileID: 7288316149822408617, guid: 1b12915c3f04a9245900018ef0b99ef8,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4254,7 +4205,7 @@ PrefabInstance:
     - target: {fileID: 7288316149822408617, guid: 1b12915c3f04a9245900018ef0b99ef8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 20187.602
+      value: 20862
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b12915c3f04a9245900018ef0b99ef8, type: 3}
@@ -5085,7 +5036,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 215098287}
-  m_RootOrder: 33
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &753265139
 MonoBehaviour:
@@ -9159,7 +9110,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 215098287}
-  m_RootOrder: 32
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1249222616
 MonoBehaviour:
@@ -10328,52 +10279,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0
   selfTalkDialog: {fileID: 11400000, guid: 17bb18ec9f62ac444888f27ea00151d8, type: 2}
---- !u!1 &1461386517
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1461386519}
-  - component: {fileID: 1461386518}
-  m_Layer: 0
-  m_Name: '#37 [StageComponentActivity] TurnOnController'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1461386518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1461386517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3b0580740f6f634c998f41d10540eb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Setting: 0
-  ComponentsToHandle:
-  - {fileID: 17556956}
---- !u!4 &1461386519
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1461386517}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 215098287}
-  m_RootOrder: 29
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1464174342 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4359667049748660953, guid: a40b2cef5d27e8e49afd655a6d58ab5e,
@@ -12500,7 +12405,7 @@ Transform:
   m_Children:
   - {fileID: 1243660345}
   m_Father: {fileID: 215098287}
-  m_RootOrder: 31
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1780055120
 MonoBehaviour:
@@ -13378,8 +13283,6 @@ MonoBehaviour:
   - {fileID: 1027009337}
   - {fileID: 658186527}
   - {fileID: 1480320507}
-  - {fileID: 157561008}
-  - {fileID: 1461386518}
   AutomaticStart: 0
 --- !u!4 &1861290205
 Transform:
