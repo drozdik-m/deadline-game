@@ -3913,40 +3913,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 7061719627350435731, guid: 459bc9914cbf2cf428ba08a692b3318d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.43
+      value: -0.77829784
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.205
+      value: 0.20499998
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.002670288
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.38268343
+      value: 0.57378703
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: 0.81900454
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
@@ -3961,7 +3966,7 @@ PrefabInstance:
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 45
+      value: 70.02901
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
@@ -11543,6 +11548,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 7061719627350435731, guid: 459bc9914cbf2cf428ba08a692b3318d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13214,11 +13224,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7288316149822408617, guid: 1b12915c3f04a9245900018ef0b99ef8,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 20862
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b12915c3f04a9245900018ef0b99ef8, type: 3}
 --- !u!1 &1858129976
@@ -13387,10 +13392,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 7061719627350435731, guid: 459bc9914cbf2cf428ba08a692b3318d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.5
+      value: 0.49255383
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
@@ -13400,27 +13410,27 @@ PrefabInstance:
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.86
+      value: -0.17834088
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.38268343
+      value: -0.18226166
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: 0.98325014
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
@@ -13435,7 +13445,7 @@ PrefabInstance:
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -45
+      value: -21.003
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
@@ -13828,6 +13838,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061719627350435731, guid: 459bc9914cbf2cf428ba08a692b3318d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
@@ -31022,6 +31037,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061719627350435731, guid: 459bc9914cbf2cf428ba08a692b3318d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2459315471503120549, guid: 459bc9914cbf2cf428ba08a692b3318d,
         type: 3}
