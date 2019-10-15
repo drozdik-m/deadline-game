@@ -28,7 +28,6 @@ public class DoorKeeper : MonoBehaviour
 
     private void Start()
     {
-        GetAgent();
         reactionMiddleman = GetComponent<InteractionEventMiddleman>();
       
         reactionMiddleman.OnInteract += OnInteract;
@@ -58,7 +57,7 @@ public class DoorKeeper : MonoBehaviour
                 return;
             }
         }
-        Debug.Log("Door not found");      
+        Debug.LogError("Door not found");      
     }
 
     /// <summary>
@@ -77,7 +76,7 @@ public class DoorKeeper : MonoBehaviour
             }
             else
             {
-                Debug.Log("NavMeshAgent not found!(in DoorKeeper)");
+                Debug.Log("RoomManager not found!(in DoorKeeper)");
             }
         }
     }
