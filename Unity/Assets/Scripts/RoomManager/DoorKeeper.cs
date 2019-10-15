@@ -28,16 +28,7 @@ public class DoorKeeper : MonoBehaviour
 
     private void Start()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player)
-        {
-            agent = player.GetComponent<NavMeshAgent>();
-            if (!agent)
-            {
-                Debug.Log("NavMeshAgent not found!(in DoorKeeper)");
-            }
-        }
-
+        GetAgent();
         reactionMiddleman = GetComponent<InteractionEventMiddleman>();
       
         reactionMiddleman.OnInteract += OnInteract;
@@ -54,17 +45,20 @@ public class DoorKeeper : MonoBehaviour
     /// </summary>
     public void Teleport()
     {
+    
         var doors = FindObjectsOfType<DoorKeeper>();
         foreach (DoorKeeper door in doors)
         {
             if (door.DoorLocation == this.TargetLocation && door.TargetLocation == this.DoorLocation)
             {
+                if (!agent)
+                    GetAgent();
                 agent.Warp(door.SpawnPosition.transform.position);
                 UpdateLocation(door.DoorLocation);
                 return;
             }
         }
-        Debug.Log("Door not found");
+        Debug.Log("Door not found");      
     }
 
     /// <summary>
@@ -84,6 +78,19 @@ public class DoorKeeper : MonoBehaviour
             else
             {
                 Debug.Log("NavMeshAgent not found!(in DoorKeeper)");
+            }
+        }
+    }
+
+    private void GetAgent()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player)
+        {
+            agent = player.GetComponent<NavMeshAgent>();
+            if (!agent)
+            {
+                Debug.LogError("NavMeshAgent not found!(in DoorKeeper)");
             }
         }
     }
