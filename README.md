@@ -1,6 +1,6 @@
 # Deadline
 
-A proof-of-concept game called Deadline for training. [Get the demo](./Unity/ReleaseBuilds/1.0.rar).
+A proof-of-concept game called Deadline for training. [Get the demo for Windows](./Unity/ReleaseBuilds/1.0.rar).
 
 More info at https://martin-drozdik.cz/projects/hra-deadline (czech language only)
 
